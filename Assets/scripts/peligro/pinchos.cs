@@ -6,8 +6,18 @@ public class pinchos : MonoBehaviour
 {
     private controladorVidas controladorVidas;
     [SerializeField] private float knockback;
+    private Animator Animator;
+    private bool enPincho;
     private void Start() {
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
+        Animator = GetComponent<Animator>();
+    }
+    private void Update(){
+        if (enPincho)
+        {
+            Pinchar();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
@@ -19,6 +29,8 @@ public class pinchos : MonoBehaviour
     }
     private void Pinchar()
     {
+        enPincho = true;
+        Animator.SetTrigger("Pinchar");
         controladorVidas.TomarDaño(0.5f);
         Rigidbody2D rb2D = controladorVidas.GetComponent<Rigidbody2D>();
         if (rb2D != null)

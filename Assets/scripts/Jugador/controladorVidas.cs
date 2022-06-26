@@ -17,55 +17,36 @@ public class controladorVidas : MonoBehaviour
     AudioSource audioGolpe;
     [SerializeField] private Image barraDeVida;
     public event EventHandler OnMuerto;
-    private bool enPinchos=false;
+    private bool dying;
+    [SerializeField] private GameObject tumba;
     void Start()
     {
         animator = GetComponent<Animator>();
         movimientoJugador= GetComponent<movimientoJugador>();
         audioGolpe = GetComponent<AudioSource>();
         barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
-
     }
     void Update()
     {
-        if(enPinchos)
+        if (vidaJugador<=0 && !dying)
         {
-            TomarDaño(0.1f);
-        }
-        if (vidaJugador<=0)
-        {
-            Destroy(ojos);
-            OnMuerto?.Invoke(this, EventArgs.Empty);        
-            animator.SetBool("Dead", true);
-            StartCoroutine(PerderControl(2));
-            Destroy(gameObject,1.5f);
-            //Destroy(bufanda,1.5f);          
+            Muerte();         
         } 
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Muerte()
     {
-        /*if (other.CompareTag("dañoEnemigo"))
-        {
-            TomarDaño(10);
-            StartCoroutine(DesactivarColision(tiempoInmunidad));
-        }
-        else*/ if(other.CompareTag("pinchos"))
-        {
-            enPinchos=true;
-        }
-            
+        dying = true;
+        OnMuerto?.Invoke(this, EventArgs.Empty);        
+        animator.SetBool("Dead", true);
+        StartCoroutine(PerderControl(2));
+        Destroy(gameObject,1.5f);
+        Instantiate(tumba, transform.position, Quaternion.identity);
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {   
-        if (other.CompareTag("pinchos"))
-        {
-            enPinchos=false;
-        }     
-    }
+
     public void TomarDaño(float daño)
     {
         //audioGolpe.Play();
-        vidaJugador-=daño;
+        vidaJugador -= daño;
         animator.SetBool("Idle",false);
         animator.SetTrigger("Dañado");
         barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
