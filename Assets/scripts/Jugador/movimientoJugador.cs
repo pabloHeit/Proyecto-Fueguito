@@ -78,24 +78,18 @@ public class movimientoJugador : MonoBehaviour
                 animator.SetTrigger("Rodar");
                 rodarPermiso = Time.time + rodarCooldown;
                 rb2D.velocity = ultimaDireccion * 20f;
-                //_t.position = _t.position + new Vector3(horizontalInput * movementSpeed * Time.deltaTime, verticalInput * movementSpeed * Time.deltaTime, 0);
-                
-               // _t.position(_t.position + ultimaDireccion * velocidadRodar * Time.fixedDeltaTime );   
-                //rb2D.velocity = ultimaDireccion;
-                //rb2D.AddForce(ultimaDireccion * 10000000, ForceMode2D.Impulse);
                 StartCoroutine(PerderControl(tiempoDeNoMoverse));
                 StartCoroutine(DesactivarColision(tiempoInvulnerable));
                 StartCoroutine(CoRodar(0.25f));
             }   
         }     
     }
-
-  /*public void Girar()
+    public void knockbackPlayer(Vector3 knockPosition, int knockback)
     {        
-        ladoMirar = mirandoDerecha ? 0 : 1;
-        _t.eulerAngles = new Vector3(0, ladoMirar, 0);
+        Vector2 direccion = transform.position - knockPosition;
+        Debug.Log($"{direccion.normalized /* * knockback */}");
+        rb2D.AddForce(direccion.normalized * knockback);
     }
-  */
 
     public IEnumerator CoRodar(float tiempoRodar)
     {
@@ -104,9 +98,9 @@ public class movimientoJugador : MonoBehaviour
     }
     public IEnumerator DesactivarColision(float TiempoInmunidad)
     {
-        Physics2D.IgnoreLayerCollision(6,7,true);
+        Physics2D.IgnoreLayerCollision(3,6,true);
         yield return new WaitForSeconds(TiempoInmunidad);
-        Physics2D.IgnoreLayerCollision(6,7,false);
+        Physics2D.IgnoreLayerCollision(3,6,false);
     }
 
     public IEnumerator PerderControl(float TiempoPerdidaControl)

@@ -78,7 +78,6 @@ public class controladorOjos : MonoBehaviour
     }
     private void ojosMuerte(object sender, EventArgs e)
     {
-        Debug.Log("HOLA");
         Animator.SetBool("Muerto",true);        
     }
 }

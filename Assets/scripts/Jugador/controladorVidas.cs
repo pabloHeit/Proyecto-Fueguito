@@ -50,13 +50,14 @@ public class controladorVidas : MonoBehaviour
         animator.SetBool("Idle",false);
         animator.SetTrigger("Dañado");
         barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
+        StartCoroutine(DesactivarColision(0.5f));
 
     }
     public IEnumerator DesactivarColision(float TiempoInmunidad)
     {
-        Physics2D.IgnoreLayerCollision(6,7,true);
+        Physics2D.IgnoreLayerCollision(3,6,true);
         yield return new WaitForSeconds(TiempoInmunidad);
-        Physics2D.IgnoreLayerCollision(6,7,false);
+        Physics2D.IgnoreLayerCollision(3,6,false);
     }
     public IEnumerator PerderControl(float TiempoPerdidaControl)
     {

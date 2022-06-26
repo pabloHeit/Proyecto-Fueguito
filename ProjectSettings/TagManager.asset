@@ -3,15 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - armaPiso
+  - Enemigo
+  - pinchos
+  - ArmaJugador
+  - cofre
+  - balas
+  - Puntaje
+  - Cabeza
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Peligro
   - 
   - 
   - 
