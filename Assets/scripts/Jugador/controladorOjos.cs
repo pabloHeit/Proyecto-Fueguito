@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class controladorOjos : MonoBehaviour
 {
     [SerializeField] private Transform apuntado;
-    private Animator animator;
+    private Animator Animator;
     private Vector3 mousePosition;
     [SerializeField] private Transform target;
     [SerializeField] private Transform jugador;
@@ -13,15 +14,18 @@ public class controladorOjos : MonoBehaviour
     private Vector3 posicionOjos;
     [SerializeField] private float distanciaMiradaX;
     [SerializeField] private float distanciaMiradaY;
-
     private movimientoJugador movimientoJugador;
     private Transform _t;
+    private controladorVidas controladorVidas;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
         _t = GetComponent<Transform>();
-        movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();  	
+        movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();
+
+        controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
+        controladorVidas.OnMuerto += ojosMuerte;    
     }
 
     void Update()
@@ -71,5 +75,9 @@ public class controladorOjos : MonoBehaviour
             movimientoJugador.mirandoDerecha = false;
         }
 
+    }
+    private void ojosMuerte(object sender, EventArgs e)
+    {
+        Animator.SetBool("Muerto",true);        
     }
 }
