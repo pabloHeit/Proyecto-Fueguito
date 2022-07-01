@@ -9,12 +9,14 @@ public class objetoComprable : MonoBehaviour
     [SerializeField] private int precio;
     private bool EnRango;
     private agarrarArma agarrarArma;
-    [SerializeField] private GameObject precioMarcador;
+    [SerializeField] private TextMeshProUGUI precioMarcador;
+
     void Start()
     {
         agarrarArma = GetComponent<agarrarArma>();
         controladorPuntos = GameObject.FindGameObjectWithTag("Puntaje").GetComponent<controladorPuntos>();
-        precioMarcador.GetComponent<TextMesh>().text = "$ " + precio.ToString();
+        precioMarcador = GetComponent<TextMeshProUGUI>();
+        precioMarcador.text = "$ " + precio.ToString();
     }
 
     void Update()
@@ -26,29 +28,25 @@ public class objetoComprable : MonoBehaviour
 
     private void comprar()
     {
-        if(controladorPuntos.puntos >= precio)
-        {
+        if(controladorPuntos.puntos >= precio){
             controladorPuntos.RestarPuntos(precio);
             Destroy(gameObject);
             agarrarArma.agarrar();
         }
-        else
-        {
+        else{
             Debug.Log("Dinero insuficiente");
         }
     }    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
-        {
+        if(other.CompareTag("Player")){
             EnRango = true;
         }        
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
-        {
+        if(other.CompareTag("Player")){
             EnRango = false;
         }
     }
