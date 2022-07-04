@@ -100,8 +100,8 @@ public class LevelGeneration : MonoBehaviour
                         {
                             direction=Random.Range(5,7);
                         }  
-                   Debug.Log(numHabit);
-                     if (chance<=3)
+                   Debug.Log(numHabit );
+                     if (chance<=3 && numHabit!=1)
                     { 
                         posmove=transform.position;
                         Posibilidad();
@@ -152,7 +152,7 @@ public class LevelGeneration : MonoBehaviour
                           int chance = Random.Range(1,11);
                             direction=Random.Range(3,7);
                             Debug.Log(numHabit); 
-                    if (chance<=3)
+                    if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
                         Posibilidad();
@@ -230,7 +230,7 @@ public class LevelGeneration : MonoBehaviour
                         direction=Random.Range(1,7);
                     }  
                     Debug.Log(numHabit);
-                    if (chance<=3)
+                    if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
                         Posibilidad();
@@ -318,7 +318,7 @@ public class LevelGeneration : MonoBehaviour
                             direction=Random.Range(1,7);
                         } 
                         Debug.Log(numHabit);
-                        if (chance<=3)
+                        if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
                         Posibilidad();
