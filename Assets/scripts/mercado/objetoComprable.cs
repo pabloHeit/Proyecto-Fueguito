@@ -14,7 +14,7 @@ public class objetoComprable : MonoBehaviour
     {
         agarrarArma = GetComponent<agarrarArma>();
         controladorPuntos = GameObject.FindGameObjectWithTag("Puntaje").GetComponent<controladorPuntos>();
-        precioMarcador.GetComponent<TextMesh>().text = "$ " + precio.ToString();
+        precioMarcador.GetComponent<TextMeshPro>().text = "$ " + precio.ToString();
     }
 
     void Update()
