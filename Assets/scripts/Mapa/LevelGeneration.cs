@@ -189,7 +189,7 @@ public class LevelGeneration : MonoBehaviour
                 {
 
                     Collider2D roomDetection = Physics2D.OverlapCircle(transform.position,1, room);
-                    if(roomDetection.GetComponent<RoomType>().type != 1 && roomDetection.GetComponent<RoomType>().type !=3)
+                  /*  if(roomDetection.GetComponent<RoomType>().type != 1 && roomDetection.GetComponent<RoomType>().type !=3)
                     {
                         if(downCounter>=2)
                         {
@@ -208,7 +208,7 @@ public class LevelGeneration : MonoBehaviour
 
                                 Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);     
                         }
-                    }
+                    }*/
                     Vector2 newPos = new Vector2(transform.position.x, transform.position.y - moveAmount);
                     transform.position = newPos;
                     if(numHabit==1)
@@ -271,7 +271,7 @@ public class LevelGeneration : MonoBehaviour
                 {
                     Collider2D roomDetection = Physics2D.OverlapCircle(transform.position,1, room);
 
-                    if(roomDetection.GetComponent<RoomType>().type !=2 && roomDetection.GetComponent<RoomType>().type !=3)
+                  /*  if(roomDetection.GetComponent<RoomType>().type !=2 && roomDetection.GetComponent<RoomType>().type !=3)
                     {
                         if(topCounter>=2)
                         {
@@ -288,7 +288,7 @@ public class LevelGeneration : MonoBehaviour
 
                             Instantiate(rooms[randTopRoom], transform.position, Quaternion.identity);     
                         }
-                    }
+                    }*/
                     
 
                     Vector2 newPos = new Vector2(transform.position.x, transform.position.y + moveAmount);
