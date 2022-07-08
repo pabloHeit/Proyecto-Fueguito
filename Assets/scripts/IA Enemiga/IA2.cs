@@ -12,6 +12,9 @@ public class IA2 : MonoBehaviour {
    float rangoAgro;
    private controladorVidas controladorVidas;
    [SerializeField] private float daño;
+
+   [SerializeField] float cooldown;
+   private float ultimoGolpe;
     
    void Start() {
      controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
@@ -37,8 +40,14 @@ public class IA2 : MonoBehaviour {
 
         else if(Mathf.Abs(distJugador)<1)
         {
+         if (Time.time-ultimoGolpe<cooldown){
+            return;
+         }
+           ultimoGolpe= Time.time; 
            anim.SetBool("Atacar", true);
            controladorVidas.TomarDaño(daño);
+
+
         }
    }
 

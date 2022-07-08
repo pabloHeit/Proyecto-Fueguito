@@ -13657,9 +13657,9 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1000000
-  m_LinearDrag: 5
+  m_UseAutoMass: 1
+  m_Mass: 0.41202864
+  m_LinearDrag: 50
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -13971,7 +13971,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -14116,7 +14116,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   player: {fileID: 2087941459}
   VelocidadMov: 5
-  "da\xF1o": 1
+  "da\xF1o": 5
+  cooldown: 0.5
 --- !u!1001 &7098109964931916818
 PrefabInstance:
   m_ObjectHideFlags: 0
