@@ -1775,9 +1775,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2087941459}
-  SSpeed: 8
-  zOffset: -1
-  distanciaMaxima: 3
+  puntoFijo: {fileID: 0}
+  cameraSize: 5.5
+  camaraFija: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

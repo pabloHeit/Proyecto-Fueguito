@@ -4,31 +4,43 @@ using UnityEngine;
 
 public class controladorCamara : MonoBehaviour
 {
+    private float zOffset = -1;
+
     [SerializeField] Transform player;
-    [SerializeField] float SSpeed;
-    [SerializeField] float zOffset;
-    [SerializeField] private float distanciaMaxima;
-    private Transform _t;
-    private void Awake()
-    {
+
+    [Header("El punto donde se quiera centrar la camara")]
+    [SerializeField] public Transform puntoFijo;
+
+    [Header("Tamaño de la camara (5.5 es la default)")]
+    [SerializeField] public float cameraSize;
+
+    private Transform _t;    
+    public bool camaraFija = true;
+
+    private void Awake(){
         _t = GetComponent<Transform>();
+        Camera.main.orthographicSize = cameraSize ;
+
     }
+
     void Update()
     {
-        CalcularPosicionCamara();
-                
+        if (camaraFija){
+            CamaraFija();
+        }else{
+            CamaraMovil();
+        }        
     }
-    private void CalcularPosicionCamara()
-    {
-        if (player != null)
-        {
-            Vector2 playerPos = player.position;
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 dir = mousePos - playerPos;
-            Vector3 newPos = playerPos + dir / distanciaMaxima;
-            Vector3 Sposition = Vector2.Lerp(_t.position, newPos, SSpeed * Time.deltaTime);
-            _t.position = new Vector3(Sposition.x, Sposition.y, zOffset);    
+    
+    public void CamaraFija(){
+        if (puntoFijo != null){
+            _t.position = new Vector3(puntoFijo.position.x, puntoFijo.position.y, zOffset);
         }
-        
+    }
+
+    public void CamaraMovil(){
+        if (player != null){
+            _t.position = new Vector3(player.position.x, player.position.y, zOffset);
+        }        
     }
 }
