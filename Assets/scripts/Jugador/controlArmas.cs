@@ -20,16 +20,14 @@ public class controlArmas : MonoBehaviour
 
     [Header("HUD")]
     [SerializeField] private Image display_arma;
-    [SerializeField]private Sprite[] sprite_arma;
-    void Start()
-    {
+    [SerializeField] private Sprite[] sprite_arma;
+    [SerializeField] private GameObject CantBalas;
+    [SerializeField] private Transform display_arma_transform;
+    void Start(){
         armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
         cantDeArmas = armas.Length;
     }
-    void Update()
-    {
-
-
+    void Update(){
 //----// Cambio de armas //------------------------------------//
         armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
         if(armasControlador.recargando == false){
@@ -125,13 +123,16 @@ public class controlArmas : MonoBehaviour
             }
             break;
         }
-//----// Fin de Cambio de armas //------------------------------------//
     }
 
 //----// Activador de armas //------------------------------------//
     public void activarArmas(int x){
         activadorArma[x].SetActive(true);
     }
-//----// Fin de Activador de armas //------------------------------------//
 
-}
+/* //----// UI Armas //------------//
+    private void ArmaMeleeUI{
+        
+    }
+*/
+} 
