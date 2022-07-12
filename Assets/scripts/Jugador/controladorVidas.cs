@@ -28,13 +28,16 @@ public class controladorVidas : MonoBehaviour
     }
     void Update()
     {
-        if (vidaJugador<=0 && !dying)
-        {
+        if (vidaJugador<=0 && !dying){
             Muerte();         
-        } 
+        }else{
+            barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
+        }
     }
     public void Muerte()
     {
+        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
+
         dying = true;
         OnMuerto?.Invoke(this, EventArgs.Empty);        
         animator.SetBool("Dead", true);
@@ -47,11 +50,19 @@ public class controladorVidas : MonoBehaviour
     {
         //audioGolpe.Play();
         vidaJugador -= daño;
-        animator.SetBool("Idle",false);
         animator.SetTrigger("Dañado");
-        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
         StartCoroutine(DesactivarColision(0.5f));
 
+    }
+    public void TomarVida(float vida) //cambiar a int si usamos bloques de vida
+    {
+        vidaJugador += vida;
+        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
+        //animator.SetTrigger("Curacion");
+    }
+    public void Resucitar()
+    {
+        //
     }
     public IEnumerator DesactivarColision(float TiempoInmunidad)
     {
