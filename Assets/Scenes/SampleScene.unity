@@ -454,7 +454,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -489,10 +489,10 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.15100002, y: -0.03911467}
   m_SpriteTilingProperty:
-    border: {x: 0.1, y: 0.95, z: 0, w: 0.15}
-    pivot: {x: 0.349, y: 0.78}
-    oldSize: {x: 1.5, y: 0.5}
-    newSize: {x: 1, y: 1}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 0.6666667}
+    newSize: {x: 0.6, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 220399869}
   - component: {fileID: 220399870}
   m_Layer: 0
-  m_Name: Lanza_Granadas_Agarrable
+  m_Name: lanzaGranadasAgarrable
   m_TagString: armaPiso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,7 +888,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 4ddf43d6f3375344e8af7a00a027ed87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5f5d6e805ebcad4aa9a2c9c70c1659c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -928,8 +928,8 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.11935389, y: -0.023961246}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0.6, z: 0, w: 0.45000002}
-    pivot: {x: 0.34324574, y: 0.5788152}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.5, y: 0.55}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -1522,7 +1522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506098414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21065025, y: -0.37124616, z: -66.13026}
+  m_LocalPosition: {x: 0.291, y: -0.366, z: -66.13026}
   m_LocalScale: {x: 0.2, y: 0.2, z: 6.135611}
   m_Children:
   - {fileID: 673957740}
@@ -1950,7 +1950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673957739}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0532513, y: 1.5112307, z: 10.778105}
+  m_LocalPosition: {x: -1.43, y: 1.36, z: 10.778105}
   m_LocalScale: {x: 1, y: 1, z: 0.16297999}
   m_Children:
   - {fileID: 1199188490}
@@ -2010,12 +2010,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: e1ebacb387d1b1242892d61e107e7486, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72f868c3ea7d49a438bd8318fd394528, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -12654,7 +12654,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: db04349ccfd73d043b090eff2df37059, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46736494e6901264eb24a6790d18ba60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13175,9 +13175,9 @@ RectTransform:
   m_Father: {fileID: 840600313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -720.20905, y: -525.8811}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 147.5, y: 10}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1896291993
@@ -13195,8 +13195,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 25
     m_Right: 25
-    m_Top: 0
-    m_Bottom: 0
+    m_Top: 25
+    m_Bottom: 25
   m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -13850,7 +13850,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e045b2337ee87b74599e42c285a888aa, type: 3}
   - {fileID: 21300000, guid: db04349ccfd73d043b090eff2df37059, type: 3}
   - {fileID: 21300000, guid: e1ebacb387d1b1242892d61e107e7486, type: 3}
-  - {fileID: 21300000, guid: 4ddf43d6f3375344e8af7a00a027ed87, type: 3}
+  - {fileID: 21300000, guid: e5f5d6e805ebcad4aa9a2c9c70c1659c, type: 3}
   CantBalas: {fileID: 0}
   display_arma_transform: {fileID: 0}
 --- !u!1 &2103545982

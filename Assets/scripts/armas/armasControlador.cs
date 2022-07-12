@@ -55,13 +55,14 @@ public class armasControlador : MonoBehaviour
     {
         if (!armaDeFuego)
         {
-            TextMeshProUGUI textMesh = marcadorBalas.GetComponent<TextMeshProUGUI>();
-            textMesh.text = ""; // Borrar cantidad de balas
+            marcadorBalas.SetActive(false); //No tiene munición, se borra el bloque de balas
             if(Input.GetButtonDown("Fire1")){//Boton de ataque
-                Golpe();}            
+                Golpe();} 
+                       
         }
         else
         {    
+            marcadorBalas.SetActive(true);
             StartCoroutine(TiempoRecargar(tiempo_de_recarga) );        
             circuloRecarga.fillAmount = tiempo2 / tiempo_de_recarga;
 
