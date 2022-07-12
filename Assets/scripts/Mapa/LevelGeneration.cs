@@ -67,7 +67,7 @@ public class LevelGeneration : MonoBehaviour
                     transform.position=posmove;
                     despDif=false;
                 }
-                Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                Vector2 newPos = new Vector2(Random.Range(transform.position.x,(transform.position.x+11)) + moveAmount, Random.Range((transform.position.y-10),(transform.position.y+11)));
                 Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                 if(detectaroom==true)
                 {
@@ -91,15 +91,11 @@ public class LevelGeneration : MonoBehaviour
                         int chance = Random.Range(1,11);
                    
 
-                        direction=Random.Range(1,7);
-                        if(direction==3)
+                        direction=Random.Range(1,9);
+                    while(direction==3 || direction ==4)
                         {
-                            direction=2;
-                        }
-                        else if(direction==4)
-                        {
-                            direction=Random.Range(5,7);
-                        }  
+                            direction=Random.Range(1,9);
+                        } 
                    Debug.Log(numHabit );
                      if (chance<=3 && numHabit!=1)
                     { 
@@ -150,13 +146,18 @@ public class LevelGeneration : MonoBehaviour
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                           int chance = Random.Range(1,11);
-                            direction=Random.Range(3,7);
+                            
+                        while(direction==1 || direction == 2)
+                        {
+                            direction=Random.Range(1,9);
+                        }
                             Debug.Log(numHabit); 
                     if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
                         Posibilidad();
                     }
+                     
                       
                     }
 
@@ -167,7 +168,7 @@ public class LevelGeneration : MonoBehaviour
                 direction= Random.Range(5,7);
             }
         }
-        else if (direction == 5)
+        else if (direction == 5 || direction == 6)
         { 
             if(transform.position.y > minY)
             {
@@ -189,16 +190,10 @@ public class LevelGeneration : MonoBehaviour
                 {
 
                     Collider2D roomDetection = Physics2D.OverlapCircle(transform.position,1, room);
-                  /*  if(roomDetection.GetComponent<RoomType>().type != 1 && roomDetection.GetComponent<RoomType>().type !=3)
-                    {
-                        if(downCounter>=2)
-                        {
-                            roomDetection.GetComponent<RoomType>().RoomDestruction();
-                            Instantiate(rooms[3], transform.position, Quaternion.identity);
-                        }
-                        else
-                        {  
-                            roomDetection.GetComponent<RoomType>().RoomDestruction();
+                
+                    
+                    
+                         //   roomDetection.GetComponent<RoomType>().RoomDestruction();
                             int randBottomRoom = Random.Range(1, 4);
 
                             if(randBottomRoom == 2)
@@ -207,8 +202,8 @@ public class LevelGeneration : MonoBehaviour
                             }
 
                                 Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);     
-                        }
-                    }*/
+                        
+                    
                     Vector2 newPos = new Vector2(transform.position.x, transform.position.y - moveAmount);
                     transform.position = newPos;
                     if(numHabit==1)
@@ -224,10 +219,10 @@ public class LevelGeneration : MonoBehaviour
                         numHabit--;
                           int chance = Random.Range(1,11);
                   
-                        direction=Random.Range(1,7);
-                    while(direction==6)
+                        direction=Random.Range(1,9);
+                    while(direction==7 || direction==8)
                     {
-                        direction=Random.Range(1,7);
+                        direction=Random.Range(1,9);
                     }  
                     Debug.Log(numHabit);
                     if (chance<=3 && numHabit!=1)
@@ -246,7 +241,7 @@ public class LevelGeneration : MonoBehaviour
 
             }
         }
-        else if (direction == 6)
+        else if (direction == 7 || direction ==8)
         {
            
             if(transform.position.y < maxY)
@@ -271,7 +266,7 @@ public class LevelGeneration : MonoBehaviour
                 {
                     Collider2D roomDetection = Physics2D.OverlapCircle(transform.position,1, room);
 
-                  /*  if(roomDetection.GetComponent<RoomType>().type !=2 && roomDetection.GetComponent<RoomType>().type !=3)
+                    if(roomDetection.GetComponent<RoomType>().type !=2 && roomDetection.GetComponent<RoomType>().type !=3)
                     {
                         if(topCounter>=2)
                         {
@@ -288,7 +283,7 @@ public class LevelGeneration : MonoBehaviour
 
                             Instantiate(rooms[randTopRoom], transform.position, Quaternion.identity);     
                         }
-                    }*/
+                    }
                     
 
                     Vector2 newPos = new Vector2(transform.position.x, transform.position.y + moveAmount);
@@ -312,10 +307,10 @@ public class LevelGeneration : MonoBehaviour
                         numHabit--;
                           int chance = Random.Range(1,11);
                    
-                        direction=Random.Range(1,7);
-                        while(direction==5)
+                        direction=Random.Range(1,9);
+                        while(direction==5 || direction==6)
                         {
-                            direction=Random.Range(1,7);
+                            direction=Random.Range(1,9);
                         } 
                         Debug.Log(numHabit);
                         if (chance<=3 && numHabit!=1)
