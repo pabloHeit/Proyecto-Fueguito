@@ -49,13 +49,10 @@ public class movimientoJugador : MonoBehaviour
         rodar=Input.GetAxisRaw("Jump");
         direccion = new Vector2(movimientoX,movimientoY).normalized;
        
-        if (movimientoX!=0||movimientoY!=0) //animacion de caminar
-        {
+        if (movimientoX!=0 || movimientoY!=0){ //animacion de caminar
             animator.SetBool("IsWalking", true);
             ultimaDireccion=direccion;
-        }
-        else
-        {
+        }else {
             animator.SetBool("IsWalking", false);
         }
 

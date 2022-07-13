@@ -5,25 +5,25 @@ using UnityEngine;
 
 public class controladorOjos : MonoBehaviour
 {
-    [SerializeField] private Transform apuntado;
     private Animator Animator;
     private Vector3 mousePosition;
     [SerializeField] private Transform target;
     [SerializeField] private Transform jugador;
-    [SerializeField] private Vector3 ojosLugar;
     private Vector3 posicionOjos;
+
     [SerializeField] private float distanciaMiradaX;
     [SerializeField] private float distanciaMiradaY;
+
     private movimientoJugador movimientoJugador;
-    private Transform _t;
     private controladorVidas controladorVidas;
+
+    private float centroHorizontal = 0;
+    private float modificadorCentro = 1f;
 
     void Start()
     {
         Animator = GetComponent<Animator>();
-        _t = GetComponent<Transform>();
         movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();
-
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
         controladorVidas.OnMuerto += ojosMuerte;    
     }
@@ -33,8 +33,7 @@ public class controladorOjos : MonoBehaviour
          mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
          mousePosition.z = 0;
          Vector3 lookAtDirection = mousePosition -target.position;     
-
-        //Movimiento de los ojos (habra una mejor manera de hacerlo?)
+    Debug.Log($"{lookAtDirection}");
         if (lookAtDirection.x >= distanciaMiradaX)
         {
             posicionOjos.x= jugador.position.x + 0.08f;
@@ -60,19 +59,24 @@ public class controladorOjos : MonoBehaviour
         }
         else
         {
-             posicionOjos.y= jugador.position.y;
-
+            posicionOjos.y= jugador.position.y;
         }        
         transform.position = posicionOjos;
         //Fin de movimiento de ojos
 
-        if(lookAtDirection.x > 0 )
+        if(lookAtDirection.x > centroHorizontal )
         {
             movimientoJugador.mirandoDerecha = true;
+            if (centroHorizontal == 0 || centroHorizontal == 1){
+                centroHorizontal = -modificadorCentro;                
+            }
         }
-        else if(lookAtDirection.x < 0 )
+        else if(lookAtDirection.x < centroHorizontal )
         {
             movimientoJugador.mirandoDerecha = false;
+            if (centroHorizontal == 0 || centroHorizontal == -1){
+                centroHorizontal = modificadorCentro;                
+            }
         }
 
     }
