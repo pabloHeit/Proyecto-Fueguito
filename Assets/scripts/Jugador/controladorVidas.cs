@@ -19,6 +19,7 @@ public class controladorVidas : MonoBehaviour
     public event EventHandler OnMuerto;
     private bool dying;
     [SerializeField] private GameObject tumba;
+
     void Start()
     {
         animator = GetComponent<Animator>();

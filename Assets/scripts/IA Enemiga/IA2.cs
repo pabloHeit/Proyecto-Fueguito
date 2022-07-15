@@ -9,12 +9,12 @@ public class IA2 : MonoBehaviour {
    private Vector2 movement;
    private Rigidbody2D rb;
    private bool miraDerecha;
-   float rangoAgro;
    private controladorVidas controladorVidas;
    [SerializeField] private float daño;
 
    [SerializeField] float cooldown;
    private float ultimoGolpe;
+   private bool dying;
     
    void Start() {
      controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
@@ -24,37 +24,61 @@ public class IA2 : MonoBehaviour {
    }
 
    void Update() {
-      Vector3 direction = player.position - transform.position;
+    if(controladorVidas != null)
+    {
+        if (controladorVidas.vidaJugador !=0){
+            enemigoMov();
+            }
+            else{
+            DetenerEnemigo();
+            }
+    }
+   }
+    private void FixedUpdate() 
+    {
+        if(controladorVidas != null)
+        {
+            moveCharacter(movement);
+        }      
+    }
+
+   private void enemigoMov() {
+
+     Vector3 direction = player.position - transform.position;
       float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
       direction.Normalize();
       movement = direction;
 
       float distJugador = Vector2.Distance(transform.position, player.position);
       Debug.Log("Distancia del jugador" + distJugador);
-      Debug.Log("RANGO AGRO:"+rangoAgro);
 
-      if (distJugador<rangoAgro || Mathf.Abs(distJugador)>1)
+      if (Mathf.Abs(distJugador)>1)
         {
             anim.SetBool("Atacar", false);
+            VelocidadMov = 2.0f;
         }
 
         else if(Mathf.Abs(distJugador)<1)
         {
-         if (Time.time-ultimoGolpe<cooldown){
+            VelocidadMov = 0.0f;
+         if (Time.time-ultimoGolpe<cooldown)
+         {
             return;
          }
            ultimoGolpe= Time.time; 
            anim.SetBool("Atacar", true);
            controladorVidas.TomarDaño(daño);
-
-
         }
    }
 
-   private void FixedUpdate() 
+
+   public void DetenerEnemigo()
    {
-      moveCharacter(movement);
+      anim.SetBool("Atacar", false);
    }
+
+
+
 
    void moveCharacter(Vector2 direction)
    {
