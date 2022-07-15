@@ -12,34 +12,34 @@ public class granada : MonoBehaviour
     private  Quaternion ultimaRotacion;
     private Animator animator;
     private Transform _t;
-    private float tiempoGranadaExplosion =0.65f;
+    private float tiempoGranadaExplosion = 0.65f;
     private float tiempoGranadaContador;
     SpriteRenderer sprite;
-    private bool chocarBool= false; 
-    private void Start()
-    {
-        sprite= GetComponent<SpriteRenderer>();
-    	animator= GetComponent<Animator>();
-        _t = GetComponent<Transform>();
-        tiempoGranadaContador=Time.time + tiempoGranada; 
+    private bool chocarBool = false; 
 
+    //Aca van todas las layer que debe ignorar
+    [SerializeField] private int[] layerIgnoradas;
+
+    private void Start(){
+        sprite = GetComponent<SpriteRenderer>();
+    	animator = GetComponent<Animator>();
+        _t = GetComponent<Transform>();
+        tiempoGranadaContador = Time.time + tiempoGranada;
+        
+        foreach (int n in layerIgnoradas){
+            Physics2D.IgnoreLayerCollision(n ,7,true);
+        }
     }
-    private void FixedUpdate() 
-    {
-        if (tiempoGranadaContador < Time.time)
-        {           
+
+    private void FixedUpdate(){
+        if (tiempoGranadaContador < Time.time){           
             Explosion();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
-        {            
-            Physics2D.IgnoreLayerCollision(7,6,true); //aca poner alas capas de los personajes
-        }
-        else
-        {
+        if(!(other.CompareTag("Player"))){
             chocarBool = !chocarBool;
             sprite.flipX = chocarBool;
             //sprite.flipY = chocarBool;

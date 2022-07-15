@@ -21,8 +21,7 @@ public class controlArmas : MonoBehaviour
     [Header("HUD")]
     [SerializeField] private Image display_arma;
     [SerializeField] private Sprite[] sprite_arma;
-    [SerializeField] private GameObject CantBalas;
-    [SerializeField] private Transform display_arma_transform;
+
     void Start(){
         armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
         cantDeArmas = armas.Length;

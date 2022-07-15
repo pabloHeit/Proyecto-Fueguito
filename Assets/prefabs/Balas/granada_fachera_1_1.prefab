@@ -124,6 +124,7 @@ MonoBehaviour:
   explosionEfecto: {fileID: 3941229609224456631, guid: 35b60aa75e6c62147a285f14cadb8595, type: 3}
   radio: 2
   fuerzaExplosion: 300
+  layerIgnoradas: 0300000008000000
 --- !u!58 &5767471247268411455
 CircleCollider2D:
   m_ObjectHideFlags: 0
