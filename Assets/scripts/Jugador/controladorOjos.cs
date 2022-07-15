@@ -30,37 +30,36 @@ public class controladorOjos : MonoBehaviour
 
     void Update()
     {
-         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-         mousePosition.z = 0;
-         Vector3 lookAtDirection = mousePosition -target.position;     
-    Debug.Log($"{lookAtDirection}");
-        if (lookAtDirection.x >= distanciaMiradaX)
-        {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+        Vector3 lookAtDirection = mousePosition - target.position;
+        //Cambiar distancia mirada X e Y
+        if (lookAtDirection.x >= distanciaMiradaX){
             posicionOjos.x= jugador.position.x + 0.08f;
-            
+            distanciaMiradaX = 0.4f;          
         }
-        else if(lookAtDirection.x <= -distanciaMiradaX)
-        {
+        else if(lookAtDirection.x <= -distanciaMiradaX){
             posicionOjos.x= jugador.position.x - 0.08f;
+            distanciaMiradaX = 0.4f;
         }
-        else
-        {
-            posicionOjos.x= jugador.position.x;
+        else{
+            posicionOjos.x = jugador.position.x;
+            distanciaMiradaX = 0.5f;
         }
 
-        if (lookAtDirection.y>=distanciaMiradaY)
-        {
-            posicionOjos.y= jugador.position.y + 0.08f;
+        if (lookAtDirection.y >= distanciaMiradaY){
+            posicionOjos.y = jugador.position.y + 0.08f;
+            distanciaMiradaY = 0.4f;
+        }
+        else if(lookAtDirection.y <= -distanciaMiradaY){
+            posicionOjos.y = jugador.position.y - 0.08f;
+            distanciaMiradaY = 0.4f;
+        }
+        else{
+            posicionOjos.y = jugador.position.y;
+            distanciaMiradaY = 0.5f;
+        }
 
-        }
-        else if(lookAtDirection.y<=-distanciaMiradaY)
-        {
-            posicionOjos.y= jugador.position.y - 0.08f;
-        }
-        else
-        {
-            posicionOjos.y= jugador.position.y;
-        }        
         transform.position = posicionOjos;
         //Fin de movimiento de ojos
 

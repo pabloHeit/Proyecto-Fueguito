@@ -212,6 +212,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moneda_dorada (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
 --- !u!1 &87778017
@@ -373,6 +377,10 @@ PrefabInstance:
     - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
       propertyPath: m_Name
       value: Moneda_dorada (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
@@ -827,6 +835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moneda_dorada (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
 --- !u!1 &220399866
@@ -1011,6 +1023,10 @@ PrefabInstance:
     - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
       propertyPath: m_Name
       value: Moneda_dorada (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
@@ -1921,6 +1937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moneda_dorada (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
 --- !u!1 &673957739
@@ -2055,7 +2075,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 765468090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: monedas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2226,6 +2246,10 @@ PrefabInstance:
     - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
       propertyPath: m_Name
       value: Moneda_dorada
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
@@ -2460,6 +2484,10 @@ PrefabInstance:
     - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
       propertyPath: m_Name
       value: Moneda_dorada (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
@@ -2780,7 +2808,7 @@ GameObject:
   - component: {fileID: 928927887}
   m_Layer: 3
   m_Name: caripela
-  m_TagString: Cabeza
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2815,7 +2843,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.006853056, y: 0.016780091}
   serializedVersion: 2
-  m_Radius: 0.08908363
+  m_Radius: 0.08
 --- !u!4 &970982092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5670297548781241467, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
@@ -12030,6 +12058,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moneda_dorada (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
 --- !u!1001 &1421062272
@@ -12090,6 +12122,10 @@ PrefabInstance:
     - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
       propertyPath: m_Name
       value: Moneda_dorada (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
@@ -12271,6 +12307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moneda_dorada (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
 --- !u!1 &1460124668
@@ -12362,6 +12402,10 @@ PrefabInstance:
     - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
       propertyPath: m_Name
       value: Moneda_dorada (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
@@ -13814,7 +13858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b3eba2264c1e4459949d03ebb448f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ojos: {fileID: 1589788142}
   vidaJugador: 100
   vidaMaxima: 100
   tiempoPerdidaControl: 0.25
@@ -13849,8 +13892,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: db04349ccfd73d043b090eff2df37059, type: 3}
   - {fileID: 21300000, guid: e1ebacb387d1b1242892d61e107e7486, type: 3}
   - {fileID: 21300000, guid: e5f5d6e805ebcad4aa9a2c9c70c1659c, type: 3}
-  CantBalas: {fileID: 0}
-  display_arma_transform: {fileID: 0}
 --- !u!1 &2103545982
 GameObject:
   m_ObjectHideFlags: 0
@@ -13888,7 +13929,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.984, y: 0}
+  m_AnchoredPosition: {x: 4.53, y: 2.29}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.453125, y: 0.484375}
 --- !u!212 &2103545984

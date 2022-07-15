@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class controladorVidas : MonoBehaviour
 {
-    [SerializeField] private GameObject ojos;
     private movimientoJugador movimientoJugador;
     [SerializeField] public float vidaJugador;
     [SerializeField] private float vidaMaxima;
