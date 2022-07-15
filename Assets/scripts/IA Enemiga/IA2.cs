@@ -11,27 +11,31 @@ public class IA2 : MonoBehaviour {
    private bool miraDerecha;
    private controladorVidas controladorVidas;
    [SerializeField] private float daño;
-
    [SerializeField] float cooldown;
    private float ultimoGolpe;
-   private bool dying;
+  [SerializeField] public int vidaEnemiga;
+
     
-   void Start() {
+   void Start()
+    {
      controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
      rb= this.GetComponent<Rigidbody2D>();
      miraDerecha = true;
      anim = GetComponent<Animator>();
    }
 
-   void Update() {
+   void Update() 
+   {
     if(controladorVidas != null)
     {
-        if (controladorVidas.vidaJugador !=0){
+        if (controladorVidas.vidaJugador != 0)
+        {
             enemigoMov();
-            }
-            else{
+        }
+        else
+        {
             DetenerEnemigo();
-            }
+        }
     }
    }
     private void FixedUpdate() 
@@ -42,8 +46,8 @@ public class IA2 : MonoBehaviour {
         }      
     }
 
-   private void enemigoMov() {
-
+   private void enemigoMov() 
+   {
      Vector3 direction = player.position - transform.position;
       float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
       direction.Normalize();
@@ -65,20 +69,17 @@ public class IA2 : MonoBehaviour {
          {
             return;
          }
-           ultimoGolpe= Time.time; 
+           ultimoGolpe = Time.time; 
            anim.SetBool("Atacar", true);
            controladorVidas.TomarDaño(daño);
         }
    }
 
-
    public void DetenerEnemigo()
    {
       anim.SetBool("Atacar", false);
+      VelocidadMov=0f;
    }
-
-
-
 
    void moveCharacter(Vector2 direction)
    {
