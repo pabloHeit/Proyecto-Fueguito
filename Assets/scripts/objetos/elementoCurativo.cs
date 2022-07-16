@@ -5,8 +5,8 @@ using UnityEngine;
 public class elementoCurativo : MonoBehaviour
 {
     [SerializeField] private float curacion; //cambiarlo a int si usamos vida por bloques
-    private bool usado = false;
     private controladorVidas controladorVidas;
+    private bool enRango = false;
     void Start()
     {
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
@@ -14,10 +14,25 @@ public class elementoCurativo : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && !usado){
+        if( Input.GetKeyDown(KeyCode.E) && enRango )
+        {
             controladorVidas.TomarVida(curacion);
-            usado = true;
             Destroy(gameObject); //hacerle animacion?
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player")){
+            enRango = true;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player")){
+            enRango = false;
+        }
+    }
 }
+
