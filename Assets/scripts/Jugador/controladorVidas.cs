@@ -8,7 +8,7 @@ public class controladorVidas : MonoBehaviour
 {
     private movimientoJugador movimientoJugador;
     [SerializeField] public float vidaJugador;
-    [SerializeField] private float vidaMaxima;
+    [SerializeField] public float vidaMaxima;
     private Animator animator;
     //[SerializeField] private GameObject bufanda;
     [SerializeField] private float tiempoPerdidaControl;

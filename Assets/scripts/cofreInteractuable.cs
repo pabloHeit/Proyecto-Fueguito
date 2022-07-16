@@ -16,7 +16,7 @@ public class cofreInteractuable : MonoBehaviour
 
     private void Start()
     {
-        animator=GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update() 
@@ -38,7 +38,7 @@ public class cofreInteractuable : MonoBehaviour
                 MensajePantalla();
             }
             animator.SetBool("CofreMedioAbierto", true);
-            EnRango=true;    
+            EnRango = true;    
         }            
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -47,13 +47,13 @@ public class cofreInteractuable : MonoBehaviour
         {
             ApagarMensaje();
             animator.SetBool("CofreMedioAbierto", false);
-            EnRango=false;
+            EnRango = false;
         }
     }
      private void MensajePantalla()
     {
         comenzoElDialogo = true;
-        textoText.text=dialogueLine;
+        textoText.text = dialogueLine;
         textoPanel.SetActive(true);
     }
     private void ApagarMensaje()

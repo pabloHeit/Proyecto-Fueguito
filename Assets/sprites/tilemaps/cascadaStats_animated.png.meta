@@ -4,70 +4,70 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 1115114933875329144
-    second: cascadaStats_animated_22
+    second: cascadaAzul_2_1
   - first:
       213: -6417220252488543876
-    second: cascadaStats_animated_23
+    second: cascadaVerde_2_1
   - first:
       213: 6762763588510936546
-    second: cascadaStats_animated_24
+    second: cascadaRoja_2_1
   - first:
       213: 4865521371119006778
-    second: cascadaStats_animated_25
+    second: cascadaAzul_1_1
   - first:
       213: 4148859019559485826
-    second: cascadaStats_animated_3
+    second: cascadaVerde_3_1
   - first:
       213: 2136679448577974242
-    second: cascadaStats_animated_26
+    second: cascadaAzul_3_1
   - first:
       213: 5876417500812047867
-    second: cascadaStats_animated_27
+    second: cascadaRoja_3_1
   - first:
       213: 763915691578050444
-    second: cascadaStats_animated_28
+    second: cascadaAzul_3_2
   - first:
       213: 8107880842182873388
-    second: cascadaStats_animated_29
+    second: cascadaRoja_3_2
   - first:
       213: 1199472693429717434
-    second: cascadaStats_animated_30
+    second: cascadaVerde_1_2
   - first:
       213: -1280319229939844261
-    second: cascadaStats_animated_31
+    second: cascadaAzul_1_2
   - first:
       213: -4583902599351903664
-    second: cascadaStats_animated_32
+    second: cascadaRoja_2_2
   - first:
       213: 2929423812291893474
-    second: cascadaStats_animated_33
+    second: cascadaVerde_2_2
   - first:
       213: -3060665423713811422
-    second: cascadaStats_animated_34
+    second: cascadaAzul_2_2
   - first:
       213: -320778420457890497
-    second: cascadaStats_animated_14
+    second: cascadaRoja_1_3
   - first:
       213: 2083768641538201656
-    second: cascadaStats_animated_35
+    second: cascadaVerde_1_3
   - first:
       213: 3657147883908007942
-    second: cascadaStats_animated_36
+    second: cascadaAzul_1_3
   - first:
       213: -1177112770964936285
-    second: cascadaStats_animated_37
+    second: cascadaRoja_2_3
   - first:
       213: 7907370631232129728
-    second: cascadaStats_animated_38
+    second: cascadaVerde_2_3
   - first:
       213: 8068605107560154673
-    second: cascadaStats_animated_39
+    second: cascadaAzul_2_3
   - first:
       213: 2609960815516168688
-    second: cascadaStats_animated_40
+    second: cascadaAzul_3_3
   - first:
       213: 7372723324943832347
-    second: cascadaStats_animated_41
+    second: cascadaRoja_3_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -157,112 +157,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cascadaStats_animated_1
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 418
-        width: 8
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a8e6de798d51cc50800000000000000
-      internalID: 6683726167114442916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_2
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 402
-        width: 8
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e65a46bfc5d5655b0800000000000000
-      internalID: -5380010050911427218
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 336
-        width: 16
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a900005a35e8dc20800000000000000
-      internalID: 3231584771251374498
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_5
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 336
-        width: 17
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e37bea8f445f8b420800000000000000
-      internalID: 2646134457658947390
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_6
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 336
-        width: 31
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6d35616caa889c20800000000000000
-      internalID: 3213470807101881707
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_7
+      name: cascadaRoja_1_2
       rect:
         serializedVersion: 2
         x: 16
@@ -270,7 +165,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -283,49 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_8
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 258
-        width: 8
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fb1e340c5c9eff70800000000000000
-      internalID: 9222981005923458038
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_9
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 242
-        width: 8
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e766fdb523637b550800000000000000
-      internalID: 6176465003879556734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_10
+      name: cascadaVerde_3_2
       rect:
         serializedVersion: 2
         x: 160
@@ -333,7 +186,7 @@ TextureImporter:
         width: 32
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -346,112 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_11
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 176
-        width: 16
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fc11a66108889420800000000000000
-      internalID: 2637007121423604979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_12
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 176
-        width: 17
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6dc7b68091bcef4d0800000000000000
-      internalID: -3098816185208439594
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_13
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 176
-        width: 31
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: efa0b7f0bd83647b0800000000000000
-      internalID: -5240438602890278146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_15
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 98
-        width: 8
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 483d9e354f330c390800000000000000
-      internalID: -7800177430132829308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_16
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 82
-        width: 8
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5047d306acc9d66b0800000000000000
-      internalID: -5301408793333238779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_17
+      name: cascadaVerde_3_3
       rect:
         serializedVersion: 2
         x: 160
@@ -459,7 +207,7 @@ TextureImporter:
         width: 32
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -472,70 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_18
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c2b7886b8de14160800000000000000
-      internalID: 7008143678175163076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_19
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 16
-        width: 17
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e853274d6c7aaed70800000000000000
-      internalID: 9073248871700903310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_20
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 16
-        width: 31
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 068d24a5296188600800000000000000
-      internalID: 470650978895583328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cascadaStats_animated_0
+      name: cascadaVerde_1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -543,7 +228,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -556,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_21
+      name: cascadaRoja_1_1
       rect:
         serializedVersion: 2
         x: 16
@@ -564,7 +249,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -577,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_22
+      name: cascadaAzul_2_1
       rect:
         serializedVersion: 2
         x: 97
@@ -585,7 +270,7 @@ TextureImporter:
         width: 15
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -598,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_23
+      name: cascadaVerde_2_1
       rect:
         serializedVersion: 2
         x: 81
@@ -606,7 +291,7 @@ TextureImporter:
         width: 16
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -619,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_24
+      name: cascadaRoja_2_1
       rect:
         serializedVersion: 2
         x: 64
@@ -627,7 +312,7 @@ TextureImporter:
         width: 17
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -640,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_25
+      name: cascadaAzul_1_1
       rect:
         serializedVersion: 2
         x: 48
@@ -648,7 +333,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -661,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_3
+      name: cascadaVerde_3_1
       rect:
         serializedVersion: 2
         x: 160
@@ -669,7 +354,7 @@ TextureImporter:
         width: 32
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -682,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_26
+      name: cascadaAzul_3_1
       rect:
         serializedVersion: 2
         x: 192
@@ -690,7 +375,7 @@ TextureImporter:
         width: 32
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -703,15 +388,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_27
+      name: cascadaRoja_3_1
       rect:
         serializedVersion: 2
-        x: 224
-        y: 368
+        x: 223
+        y: 367
         width: 32
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -724,7 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_28
+      name: cascadaAzul_3_2
       rect:
         serializedVersion: 2
         x: 192
@@ -732,7 +417,7 @@ TextureImporter:
         width: 32
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -745,15 +430,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_29
+      name: cascadaRoja_3_2
       rect:
         serializedVersion: 2
         x: 224
-        y: 208
+        y: 207
         width: 32
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -766,7 +451,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_30
+      name: cascadaVerde_1_2
       rect:
         serializedVersion: 2
         x: 32
@@ -774,7 +459,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -787,7 +472,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_31
+      name: cascadaAzul_1_2
       rect:
         serializedVersion: 2
         x: 48
@@ -795,7 +480,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -808,7 +493,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_32
+      name: cascadaRoja_2_2
       rect:
         serializedVersion: 2
         x: 64
@@ -816,7 +501,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -829,7 +514,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_33
+      name: cascadaVerde_2_2
       rect:
         serializedVersion: 2
         x: 80
@@ -837,7 +522,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -850,7 +535,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_34
+      name: cascadaAzul_2_2
       rect:
         serializedVersion: 2
         x: 96
@@ -858,7 +543,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -871,7 +556,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_14
+      name: cascadaRoja_1_3
       rect:
         serializedVersion: 2
         x: 16
@@ -879,7 +564,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -892,7 +577,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_35
+      name: cascadaVerde_1_3
       rect:
         serializedVersion: 2
         x: 32
@@ -900,7 +585,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -913,7 +598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_36
+      name: cascadaAzul_1_3
       rect:
         serializedVersion: 2
         x: 48
@@ -921,7 +606,7 @@ TextureImporter:
         width: 16
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -934,7 +619,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_37
+      name: cascadaRoja_2_3
       rect:
         serializedVersion: 2
         x: 64
@@ -942,7 +627,7 @@ TextureImporter:
         width: 16
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -955,7 +640,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_38
+      name: cascadaVerde_2_3
       rect:
         serializedVersion: 2
         x: 80
@@ -963,7 +648,7 @@ TextureImporter:
         width: 16
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -976,7 +661,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_39
+      name: cascadaAzul_2_3
       rect:
         serializedVersion: 2
         x: 96
@@ -984,7 +669,7 @@ TextureImporter:
         width: 16
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -997,7 +682,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_40
+      name: cascadaAzul_3_3
       rect:
         serializedVersion: 2
         x: 192
@@ -1005,7 +690,7 @@ TextureImporter:
         width: 32
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1018,7 +703,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cascadaStats_animated_41
+      name: cascadaRoja_3_3
       rect:
         serializedVersion: 2
         x: 224
@@ -1026,7 +711,7 @@ TextureImporter:
         width: 32
         height: 39
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
