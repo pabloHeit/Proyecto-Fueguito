@@ -10,13 +10,18 @@ public class cofreInteractuable : MonoBehaviour
     [SerializeField] private GameObject textoPanel;
     [SerializeField] private TMP_Text textoText;
     [SerializeField] private string dialogueLine;
-    private bool comenzoElDialogo=false; 
-    private bool cofreAbiertoBool=false;
-    private bool EnRango=false;
+    private bool comenzoElDialogo = false; 
+    private bool cofreAbiertoBool = false;
+    private bool EnRango = false;
+
+    [Header("Loot")]
+    [SerializeField] private GameObject[] loot;
+    private int lootGenerado;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        GenerarContenido();
     }
 
     private void Update() 
@@ -25,7 +30,8 @@ public class cofreInteractuable : MonoBehaviour
         {          
             animator.SetBool("CofreAbierto", true);
             ApagarMensaje();
-            cofreAbiertoBool=true;
+            cofreAbiertoBool = true;
+            SpawnLoot();
         }
     }
    
@@ -33,7 +39,7 @@ public class cofreInteractuable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {         
-            if (!comenzoElDialogo && cofreAbiertoBool==false)
+            if (!comenzoElDialogo && cofreAbiertoBool == false)
             {
                 MensajePantalla();
             }
@@ -50,15 +56,27 @@ public class cofreInteractuable : MonoBehaviour
             EnRango = false;
         }
     }
-     private void MensajePantalla()
+
+    private void MensajePantalla()
     {
         comenzoElDialogo = true;
         textoText.text = dialogueLine;
         textoPanel.SetActive(true);
     }
+
     private void ApagarMensaje()
     {
         textoPanel.SetActive(false);
         comenzoElDialogo = false;
-    }  
+    }
+
+    private void GenerarContenido()
+    {
+        lootGenerado = Random.Range(0, loot.Length);
+    }
+
+    private void SpawnLoot()
+    {
+        Instantiate(loot[lootGenerado], transform.position, Quaternion.identity);        
+    }
 }
