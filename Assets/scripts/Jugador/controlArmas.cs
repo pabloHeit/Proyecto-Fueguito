@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 public class controlArmas : MonoBehaviour
 {
-    [SerializeField] private float coolDown;
+    public float damageMultiplier = 1;
+    public float rechargeMultiplier = 1;
+
     private float cambiarPermiso;
     [SerializeField] private GameObject[] activadorArma;
 
@@ -17,6 +19,7 @@ public class controlArmas : MonoBehaviour
     private int cantDeArmas;
     private int ultima_activa = 0;
     private armasControlador armasControlador;
+
 
     [Header("HUD")]
     [SerializeField] private Image display_arma;

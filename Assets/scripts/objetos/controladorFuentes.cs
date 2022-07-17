@@ -18,13 +18,24 @@ public class controladorFuentes : MonoBehaviour
     [SerializeField] private bool usada = false;
 
     private controladorVidas controladorVidas;
+    private controlArmas controlArmas;
     void Start()
     {
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
+        controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();
+
         Animator = GetComponent<Animator>();
         if (usada)
         {
             //Animator.SetBool("usado???????")            ;
+        }
+
+        //Comprobar que la fuente tenga valores cargados
+        if (color != 1 && color != 2 && color != 3){
+            Debug.Log("<color=red> controladorFuente object Error : </color>   <b> [No se colocó el color de la fuente en el inspector]  </b>");
+        }
+        if (damagePoints <=0 && maxLifePoints <=0 && rechargePoints <=0){
+            Debug.Log("<color=red> controladorFuente object Error : </color>   <b> [No se colocó valores a alguna fuente]  </b>");
         }
     }
     void Update()
@@ -44,10 +55,6 @@ public class controladorFuentes : MonoBehaviour
                 case 3: //azul
                     SubirRecharge(rechargePoints);
                 break;
-
-                default:
-
-                break;
             }
             usada = true;            
         }        
@@ -55,6 +62,7 @@ public class controladorFuentes : MonoBehaviour
 
     private void SubirDamage(float damagePoints)
     {
+        controlArmas.damageMultiplier += damagePoints;
         
     }
 
@@ -65,7 +73,7 @@ public class controladorFuentes : MonoBehaviour
 
     private void SubirRecharge(float rechargePoints)
     {
-
+        controlArmas.rechargeMultiplier += rechargePoints;
     }
 
     void OnTriggerEnter2D(Collider2D other)
