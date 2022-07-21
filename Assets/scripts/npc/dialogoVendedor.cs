@@ -15,13 +15,42 @@ public class dialogoVendedor : MonoBehaviour
     private int indexDialogo;
     private float dialogueTime = 0.1f;
 
+    //Audio
+    AudioSource voz;
+    bool vozPlay = false;
+    bool vozToggleChange = true;
     
     private void Start()
     {
+        voz = GetComponent<AudioSource>();
+
         if (dialogos.Length == 0){
             Debug.Log("<color=red>dialogoVendedor ERROR</color>     El mercader no tiene dialogos");
         }        
     }
+    void Update()
+    {
+        if (vozPlay && vozToggleChange){
+            voz.Play();
+            vozToggleChange = false;
+        }
+        if (vozPlay == false && vozToggleChange){
+            voz.Stop();
+            vozToggleChange = false;
+        }
+    }
+/*     void OnGUI()
+    {
+        //Switch this toggle to activate and deactivate the parent GameObject
+        vozPlay = GUI.Toggle(new Rect(10, 10, 100, 30), vozPlay, "Play Music");
+
+        //Detect if there is a change with the toggle
+        if (GUI.changed)
+        {
+            //Change to true to show that there was just a change in the toggle state
+            vozToggleChange = true;
+        }
+    } */
 
     private void MensajePantalla(){
 
@@ -51,12 +80,15 @@ public class dialogoVendedor : MonoBehaviour
 
     IEnumerator mostrarDialogo()
     {
+        voz.Play();
         foreach (var letra in dialogueLine){
             
             if (dialogoActivo == false) break;
             textoText.text += letra;
             if (letra.ToString() != " ") /*then*/ yield return new WaitForSeconds(dialogueTime);
         }
+        voz.Stop();
+        
         
     }
 }
