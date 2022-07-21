@@ -18,6 +18,8 @@ public class cofreInteractuable : MonoBehaviour
     [SerializeField] private GameObject[] loot;
     private int lootGenerado;
 
+    private Vector3 abajo;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -77,6 +79,20 @@ public class cofreInteractuable : MonoBehaviour
 
     private void SpawnLoot()
     {
-        Instantiate(loot[lootGenerado], transform.position, Quaternion.identity);        
+        GameObject lootItem = Instantiate( loot[lootGenerado], transform.position, Quaternion.identity);
+        StartCoroutine(moverItem(lootItem));            
+
+    }
+    private IEnumerator moverItem(GameObject lootItem)
+    {
+        float resta = lootItem.transform.position.y;
+        abajo = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
+        while (lootItem.transform.position.y >= abajo.y){
+            resta -= 0.1f;
+            lootItem.transform.position = new Vector3(lootItem.transform.position.x, resta, lootItem.transform.position.z);
+            yield return new WaitForSeconds(0.025f);
+        }
+        
+        
     }
 }
