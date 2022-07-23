@@ -13,7 +13,7 @@ public class dialogoVendedor : MonoBehaviour
 
     [SerializeField] private string[] dialogos;
     private int indexDialogo;
-    private float dialogueTime = 0.1f;
+    private float dialogueTime = 0.05f;
 
     //Audio
     AudioSource voz;
