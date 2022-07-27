@@ -15054,6 +15054,9 @@ MonoBehaviour:
   - {fileID: 6079030504053176908}
   rooms:
   - {fileID: 6698287029411622804, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
+  - {fileID: 4982263578550836088, guid: 14c964b449e4b7147919db5b306594ae, type: 3}
+  - {fileID: 6698287029411622804, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
+  - {fileID: 5682963473701613284, guid: 13e51be88fde6764b81cc20dd1ce4a37, type: 3}
   moveAmount: 30
   timeBtwRoom: 3
   startTimeBtwRoom: 1
@@ -15074,6 +15077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6079030505239920035}
   - component: {fileID: 6079030505239920032}
+  - component: {fileID: 6079030505239920034}
   m_Layer: 0
   m_Name: LevelGeneration
   m_TagString: Untagged
@@ -15081,6 +15085,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6079030505239920034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079030505239920033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881ef3ef1ab8a7d42b183c9308c2b17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!4 &6079030505239920035
 Transform:
   m_ObjectHideFlags: 0
