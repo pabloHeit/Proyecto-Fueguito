@@ -112,6 +112,8 @@ public class armasControlador : MonoBehaviour
             }            
         }
         catch (System.Exception){Debug.Log("Golpeaste");} 
+
+        
     }
     private void OnDrawGizmos()
     {
