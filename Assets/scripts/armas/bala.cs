@@ -21,10 +21,19 @@ public class bala : MonoBehaviour
   {
         if(!(other.CompareTag("Player")))
         {
+          IA2 enemigo = other.GetComponent<IA2>(); 
+          if(enemigo != null)
+           {
+            enemigo.Golpe();
+           } 
             ultimaRotacion = Quaternion.Euler(0,0,transform.eulerAngles.z);
             GameObject efecto = Instantiate(efectoImpacto, transform.position, ultimaRotacion); /* Solucionar posteriormente la rotacion del impacto (Vease bloc de notas idea rotación)*/
             Destroy(efecto, bulletDisappear);
             Destroy(gameObject);
-        }      
+        }
     }
+
+
+    
+
 }

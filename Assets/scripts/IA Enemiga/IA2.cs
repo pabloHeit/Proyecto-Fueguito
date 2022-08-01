@@ -14,6 +14,7 @@ public class IA2 : MonoBehaviour {
    [SerializeField] float cooldown;
    private float ultimoGolpe;
   [SerializeField] public int vidaEnemiga;
+   private int Health= 5;
 
     
    void Start()
@@ -114,5 +115,12 @@ public class IA2 : MonoBehaviour {
         laEscala.x *=-1;
         transform.localScale = laEscala;
     }
+
+   public void Golpe()
+   {
+       Health= Health - 1;
+       if(Health == 0)
+       Destroy(gameObject);
+   }
 
 }

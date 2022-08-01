@@ -34,6 +34,7 @@ public class controladorVidas : MonoBehaviour
             Muerte();         
         } 
     }
+
     public void Muerte()
     {
         dying = true;

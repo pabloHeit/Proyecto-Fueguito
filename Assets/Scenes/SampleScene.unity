@@ -1604,7 +1604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &506098415
 Transform:
   m_ObjectHideFlags: 0
@@ -2032,7 +2032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &673957740
 Transform:
   m_ObjectHideFlags: 0
@@ -2041,7 +2041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673957739}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0532513, y: 1.5112307, z: 10.778105}
+  m_LocalPosition: {x: -0.35, y: 1.5112307, z: 10.778105}
   m_LocalScale: {x: 1, y: 1, z: 0.16297999}
   m_Children:
   - {fileID: 1199188490}
@@ -13746,7 +13746,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087941454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.39, y: 6.52, z: 0}
+  m_LocalPosition: {x: -7.12, y: 6.33, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 0.16298296}
   m_Children:
   - {fileID: 928927886}
@@ -14118,6 +14118,7 @@ MonoBehaviour:
   VelocidadMov: 2
   "da\xF1o": 10
   cooldown: 0.5
+  vidaEnemiga: 0
 --- !u!1001 &7098109964931916818
 PrefabInstance:
   m_ObjectHideFlags: 0
