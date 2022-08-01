@@ -16,10 +16,11 @@ public class agarrarArma : MonoBehaviour
 
     void Update()
     {
-        if (ArmaComprable == false){
-            if(EnRango && Input.GetKeyDown(KeyCode.E)){          
-                agarrar();
-            }
+        if (ArmaComprable == false
+            && EnRango
+            && Input.GetKeyDown(KeyCode.E))
+        {
+            agarrar();
         }
     }
     public void agarrar()

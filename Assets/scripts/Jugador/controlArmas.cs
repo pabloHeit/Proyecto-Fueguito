@@ -19,7 +19,8 @@ public class controlArmas : MonoBehaviour
     private int cantDeArmas;
     private int ultima_activa = 0;
     private armasControlador armasControlador;
-
+    
+    private int nroTocado;
 
     [Header("HUD")]
     [SerializeField] private Image display_arma;
@@ -28,113 +29,70 @@ public class controlArmas : MonoBehaviour
     void Start(){
         armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
         cantDeArmas = armas.Length;
+        CambiarArma();
     }
-    void Update(){
-//----// Cambio de armas //------------------------------------//
+    void Update(){        
         armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
-        if(armasControlador.recargando == false){
-            scrollMouse=Input.GetAxisRaw("Mouse ScrollWheel");     
-            if(Input.GetKeyDown(KeyCode.Alpha1)){
-                armaActiva=0;}
-            if(Input.GetKeyDown(KeyCode.Alpha2)){
-                armaActiva=1;}
-            if(Input.GetKeyDown(KeyCode.Alpha3)){
-                armaActiva=2;}
-        }
-        //Seleccion de arma
-        if(Time.time > cambiarPermiso && scrollMouse!=0)
+        
+        if(armasControlador.recargando == false)
         {
-            if (scrollMouse>0){
-                armaActiva++;}
-            else if(scrollMouse<0){
-                armaActiva-=1;}
-
-            if (armaActiva==cantDeArmas){
-                armaActiva=0;}
-            else if(armaActiva<=-1){
-                armaActiva=cantDeArmas-1;}
-        }
-        //Activar arma
-        switch (armaActiva)
-        {
-            case 0: //manos
-                    for (int i = 0; i < cantDeArmas; i++){
-                        if (i!=0){
-                            armas[i].SetActive(false);}
-
-                        armas[0].SetActive(true);
-                        display_arma.sprite = sprite_arma[0];
-                        ultima_activa=0;
-                    }
-            break;
-
-            case 1: //espada
-                if(activadorArma[0].activeSelf){ 
-                    for (int i = 0; i < cantDeArmas; i++){
-                        if (i!=1){
-                            armas[i].SetActive(false);}
-                    }
-
-                    armas[1].SetActive(true);
-                    display_arma.sprite = sprite_arma[1];
-                    ultima_activa=1;
-                }
-                else{
-                    if(ultima_activa == 2){
-                        armaActiva = 0;}
-                    else if(ultima_activa == 0){
-                        armaActiva = 2;}
-                }
-            break;
-
-            case 2: //francotirador
-            if(activadorArma[1].activeSelf){ 
-                for (int i = 0; i < cantDeArmas; i++){
-                    if (i!=2){
-                        armas[i].SetActive(false);}
-                }
-
-                armas[2].SetActive(true);
-                display_arma.sprite = sprite_arma[2];
-                ultima_activa=2;
-            }
-            else{
-                if(ultima_activa == 0){
-                    armaActiva = 1;}
-                else if(ultima_activa == 1){
-                    armaActiva = 0;}
-            }
-            break;
-
-            case 3://lanzagranadas
-            if(activadorArma[2].activeSelf){ 
-                for (int i = 0; i < cantDeArmas; i++){
-                    if (i!=3){
-                        armas[i].SetActive(false);}
-                }
-
-                armas[3].SetActive(true);
-                display_arma.sprite = sprite_arma[3];
-                ultima_activa=3;
-            }
-            else{
-                if(ultima_activa == 0){
-                    armaActiva = 2;}
-                else if(ultima_activa == 2){
-                    armaActiva = 0;}
-            }
-            break;
+            scrollMouse = Input.GetAxisRaw("Mouse ScrollWheel");
+            if(Input.GetKeyDown(KeyCode.Alpha1)) /**/ nroTocado = 0;
+            if(Input.GetKeyDown(KeyCode.Alpha2)) /**/ nroTocado = 1;
+            if(Input.GetKeyDown(KeyCode.Alpha3)) /**/ nroTocado = 2;
+     
+            CambiarArma(nroTocado);
+            //Seleccion de arma
+            if(Time.time > cambiarPermiso && scrollMouse != 0)
+            {
+                if (scrollMouse > 0) /**/ armaActiva++;
+                else if(scrollMouse < 0) /**/ armaActiva -= 1;
+                
+                if (armaActiva == cantDeArmas) /**/ armaActiva = 0;
+                else if(armaActiva <= -1) /**/ armaActiva = cantDeArmas - 1;
+                CambiarArma();
+            }            
         }
     }
 
-//----// Activador de armas //------------------------------------//
     public void activarArmas(int x){
         activadorArma[x].SetActive(true);
+        armaActiva = x;
+        CambiarArma();
     }
-
-/* //----// UI Armas //------------//
-    private void ArmaMeleeUI{
+    private void CambiarArma(int n = -1)
+    {
+        if(n != -1) /**/ armaActiva = n;
         
+        if(activadorArma[armaActiva].activeSelf)
+        {
+            for (int i = 0; i < cantDeArmas; i++)
+            {
+                if (i != armaActiva) /**/ armas[i].SetActive(false);
+            }
+
+            armas[armaActiva].SetActive(true);
+            display_arma.sprite = sprite_arma[armaActiva];
+            ultima_activa = armaActiva;
+        }
+        else             
+        {
+            if(n != -1)
+            {
+                armaActiva = ultima_activa;
+                CambiarArma();
+                return;
+            }
+            if(ultima_activa == armaActiva + 1) /**/
+            {
+                armaActiva -= 1;
+                CambiarArma();
+            }
+            else if(ultima_activa == armaActiva - 1) /**/ 
+            {
+                armaActiva += 1;
+                CambiarArma();
+            }
+        }
     }
-*/
-} 
+}

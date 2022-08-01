@@ -2395,7 +2395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 506098415}
   m_Layer: 3
-  m_Name: activadorArma
+  m_Name: activadorSniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2414,7 +2414,7 @@ Transform:
   m_Children:
   - {fileID: 673957740}
   m_Father: {fileID: 2087941459}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &517167264 stripped
 Transform:
@@ -2887,7 +2887,7 @@ GameObject:
   - component: {fileID: 673957742}
   - component: {fileID: 673957743}
   m_Layer: 3
-  m_Name: controladorDisparo
+  m_Name: controladorSniper
   m_TagString: ArmaJugador
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14079,7 +14079,7 @@ GameObject:
   - component: {fileID: 1321249599}
   - component: {fileID: 1321249601}
   m_Layer: 3
-  m_Name: controladorDisparoArma2
+  m_Name: controladorLanzagranadas
   m_TagString: ArmaJugador
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14714,12 +14714,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1460124669}
   m_Layer: 3
-  m_Name: ActivadorArma
+  m_Name: ActivadorEspada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1460124669
 Transform:
   m_ObjectHideFlags: 0
@@ -14733,7 +14733,7 @@ Transform:
   m_Children:
   - {fileID: 1646284258}
   m_Father: {fileID: 2087941459}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1540662139
 GameObject:
@@ -15279,114 +15279,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610711472}
   m_CullTransparentMesh: 1
---- !u!1 &1622861189
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1622861190}
-  - component: {fileID: 1622861191}
-  - component: {fileID: 1622861192}
-  m_Layer: 3
-  m_Name: fiskel_hands
-  m_TagString: ArmaJugador
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1622861190
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622861189}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.015, y: -0.107, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 6.1356106}
-  m_Children: []
-  m_Father: {fileID: 2087941459}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1622861191
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622861189}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: e045b2337ee87b74599e42c285a888aa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.25, y: 0.25}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &1622861192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622861189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50031b3d8a61a674ebfa06a7602eeeeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armaDeFuego: 0
-  controladorGolpe: {fileID: 1622861190}
-  radioGolpe: 0
-  marcadorBalas: {fileID: 1701286112}
-  circuloRecarga: {fileID: 0}
-  tiempo_de_recarga: 0
-  recargando: 0
-  cantBalas: 0
-  max_capacidad: 0
-  puntaDelArma: {fileID: 0}
-  Bala: {fileID: 0}
-  dispararCooldown: 0
-  velocidad: 0
 --- !u!1 &1646284256
 GameObject:
   m_ObjectHideFlags: 0
@@ -15406,7 +15298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1646284257
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16445,7 +16337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1920104537}
   m_Layer: 3
-  m_Name: activadorArma
+  m_Name: activadorLanzagranadas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16464,7 +16356,7 @@ Transform:
   m_Children:
   - {fileID: 1321249598}
   m_Father: {fileID: 2087941459}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958207595
 GameObject:
@@ -16961,7 +16853,6 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 0.16298296}
   m_Children:
   - {fileID: 928927886}
-  - {fileID: 1622861190}
   - {fileID: 1460124669}
   - {fileID: 506098415}
   - {fileID: 1920104537}
@@ -17024,13 +16915,11 @@ MonoBehaviour:
   - {fileID: 506098414}
   - {fileID: 1920104536}
   armas:
-  - {fileID: 1622861189}
   - {fileID: 1646284256}
   - {fileID: 673957739}
   - {fileID: 1321249597}
   display_arma: {fileID: 1446990488}
   sprite_arma:
-  - {fileID: 21300000, guid: e045b2337ee87b74599e42c285a888aa, type: 3}
   - {fileID: 21300000, guid: db04349ccfd73d043b090eff2df37059, type: 3}
   - {fileID: 21300000, guid: e1ebacb387d1b1242892d61e107e7486, type: 3}
   - {fileID: 21300000, guid: e5f5d6e805ebcad4aa9a2c9c70c1659c, type: 3}
