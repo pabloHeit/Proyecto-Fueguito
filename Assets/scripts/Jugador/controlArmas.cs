@@ -19,8 +19,6 @@ public class controlArmas : MonoBehaviour
     private int cantDeArmas;
     private int ultima_activa = 0;
     private armasControlador armasControlador;
-    
-    private int nroTocado;
 
     [Header("HUD")]
     [SerializeField] private Image display_arma;
@@ -37,11 +35,19 @@ public class controlArmas : MonoBehaviour
         if(armasControlador.recargando == false)
         {
             scrollMouse = Input.GetAxisRaw("Mouse ScrollWheel");
-            if(Input.GetKeyDown(KeyCode.Alpha1)) /**/ nroTocado = 0;
-            if(Input.GetKeyDown(KeyCode.Alpha2)) /**/ nroTocado = 1;
-            if(Input.GetKeyDown(KeyCode.Alpha3)) /**/ nroTocado = 2;
-     
-            CambiarArma(nroTocado);
+
+            if(Input.GetKeyDown(KeyCode.Alpha1)){
+                CambiarArma(0);
+            }
+
+            if(Input.GetKeyDown(KeyCode.Alpha2)){
+                CambiarArma(1);
+            }
+
+            if(Input.GetKeyDown(KeyCode.Alpha3)){
+                CambiarArma(2);
+            }     
+            
             //Seleccion de arma
             if(Time.time > cambiarPermiso && scrollMouse != 0)
             {
@@ -62,6 +68,7 @@ public class controlArmas : MonoBehaviour
     }
     private void CambiarArma(int n = -1)
     {
+        Debug.Log(n);
         if(n != -1) /**/ armaActiva = n;
         
         if(activadorArma[armaActiva].activeSelf)
