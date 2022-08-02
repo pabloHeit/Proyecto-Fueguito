@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class DeathScreen : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class DeathScreen : MonoBehaviour
     }
     public void RespawnCharacter()
     {
+        SceneManager.LoadScene("SampleScene"); //Cambiarla por otra
         Debug.Log("Respawneaste (Patrañas)");
     }
 
