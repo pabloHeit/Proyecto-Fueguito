@@ -100,7 +100,6 @@ MonoBehaviour:
   tiempoBala: 2
   efectoImpacto: {fileID: 8002844673212872952, guid: c53b5ffe9f87a1647bbd9d83d4d33220, type: 3}
   bulletDisappear: 0.1
-  layerIgnoradas: 0300000008000000
 --- !u!61 &3617795359530085294
 BoxCollider2D:
   m_ObjectHideFlags: 0

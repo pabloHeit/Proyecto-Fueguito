@@ -9,8 +9,8 @@ public class fogonazo : MonoBehaviour
     private Animator Animator;
     void Start()
     {
-        Animator=GetComponent<Animator>();
-        armasControlador= GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();      
+        Animator = GetComponent<Animator>();
+        armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();      
         armasControlador.OnShoot += Fogonazo;
     }
     private void Fogonazo(object sender, EventArgs e)

@@ -21,17 +21,14 @@ public class controladorVidas : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        movimientoJugador= GetComponent<movimientoJugador>();
+        movimientoJugador = GetComponent<movimientoJugador>();
         audioGolpe = GetComponent<AudioSource>();
         barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
     }
     void Update()
     {
-        if (vidaJugador<=0 && !dying){
-            Muerte();         
-        }else{
-            barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
-        }
+        if (vidaJugador<=0 && !dying) Muerte();
+        else barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
     }
     public void Muerte()
     {
@@ -40,7 +37,7 @@ public class controladorVidas : MonoBehaviour
         dying = true;
         OnMuerto?.Invoke(this, EventArgs.Empty);        
         animator.SetBool("Dead", true);
-        StartCoroutine(PerderControl(2));
+        StartCoroutine(PerderControl(4));
         Destroy(gameObject,1.5f);
         Instantiate(tumba, transform.position, Quaternion.identity);
     }

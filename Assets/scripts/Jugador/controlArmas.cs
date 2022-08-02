@@ -68,7 +68,6 @@ public class controlArmas : MonoBehaviour
     }
     private void CambiarArma(int n = -1)
     {
-        Debug.Log(n);
         if(n != -1) /**/ armaActiva = n;
         
         if(activadorArma[armaActiva].activeSelf)

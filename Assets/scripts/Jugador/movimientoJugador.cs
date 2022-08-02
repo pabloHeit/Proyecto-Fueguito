@@ -25,12 +25,6 @@ public class movimientoJugador : MonoBehaviour
     private Vector2 ultimaDireccion;
     [SerializeField] private float tiempoDeNoMoverse;
     [SerializeField] private float tiempoInvulnerable;
-
-   // [Header("Bufanda")]
-
-    //[SerializeField] private _t bola1;
-    //[SerializeField] private _t bola2;
-
     
     void Start()
     {
@@ -41,21 +35,17 @@ public class movimientoJugador : MonoBehaviour
 
     void Update()
     {
-       // bola1.position=_t.position; 
-       // bola2.position=_t.position; 
-
-        movimientoX=Input.GetAxisRaw("Horizontal");
-        movimientoY=Input.GetAxisRaw("Vertical");
-        rodar=Input.GetAxisRaw("Jump");
+        movimientoX = Input.GetAxisRaw("Horizontal");
+        movimientoY = Input.GetAxisRaw("Vertical");
+        rodar = Input.GetAxisRaw("Jump");
         direccion = new Vector2(movimientoX,movimientoY).normalized;
        
-        if (movimientoX!=0 || movimientoY!=0){ //animacion de caminar
+        if (movimientoX != 0 || movimientoY != 0){ //animacion de caminar
             animator.SetBool("IsWalking", true);
-            ultimaDireccion=direccion;
-        }else {
-            animator.SetBool("IsWalking", false);
+            ultimaDireccion = direccion;
         }
-
+        else animator.SetBool("IsWalking", false);
+        
         //Giración del cuerpo con respecto a donde mira
         ladoMirar = mirandoDerecha ? 0 : 1;
         _t.eulerAngles = new Vector3(0, ladoMirar * 180 , 0);
@@ -64,20 +54,20 @@ public class movimientoJugador : MonoBehaviour
     {
         if(sePuedeMover)
         {
-            if (movimientoX>=1||movimientoY>=1||movimientoX<=-1||movimientoY<=-1)
+            if (movimientoX >= 1 || movimientoY >= 1 || movimientoX <= -1 || movimientoY <= -1)
             {                
                 rb2D.MovePosition(rb2D.position + direccion * velocidadMovimiento * Time.fixedDeltaTime);
             }
             animator.SetBool("Idle",true);
-            if ((rodar == 1)&&(Time.time > rodarPermiso))
+            if ((rodar == 1) && (Time.time > rodarPermiso))
             {
                 animator.SetBool("Idle",false);
                 animator.SetTrigger("Rodar");
                 rodarPermiso = Time.time + rodarCooldown;
                 rb2D.velocity = ultimaDireccion * 20f;
-                StartCoroutine(PerderControl(tiempoDeNoMoverse));
-                StartCoroutine(DesactivarColision(tiempoInvulnerable));
-                StartCoroutine(CoRodar(0.25f));
+                StartCoroutine( PerderControl(tiempoDeNoMoverse) );
+                StartCoroutine( DesactivarColision(tiempoInvulnerable) );
+                StartCoroutine( CoRodar(0.25f) );
             }   
         }     
     }

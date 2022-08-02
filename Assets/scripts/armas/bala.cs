@@ -10,15 +10,8 @@ public class bala : MonoBehaviour
   private  Quaternion ultimaRotacion;
   private Animator animator;
 
-  //Aca van todas las layer que debe ignorar
-  [SerializeField] private int[] layerIgnoradas;
-
   private void Start(){
   	animator = GetComponent<Animator>();
-
-    foreach (int n in layerIgnoradas){
-      Physics2D.IgnoreLayerCollision(n ,7,true);
-    }
   }
 
   private void FixedUpdate(){
@@ -26,11 +19,10 @@ public class bala : MonoBehaviour
   }     
 
   private void OnTriggerEnter2D(Collider2D other){
-    if( !( other.CompareTag("Player") ) ){
+
       ultimaRotacion = Quaternion.Euler(0,0,transform.eulerAngles.z);
       GameObject efecto = Instantiate(efectoImpacto, transform.position, ultimaRotacion); /* Solucionar posteriormente la rotacion del impacto (Vease bloc de notas idea rotación)*/
       Destroy(efecto, bulletDisappear);
-      Destroy(gameObject);      
-    }
+      Destroy(gameObject);
   }
 }
