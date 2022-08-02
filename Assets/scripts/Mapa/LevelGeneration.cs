@@ -7,6 +7,10 @@ public class LevelGeneration : MonoBehaviour
     public Transform[] startingPositions;
     public GameObject[] rooms; // index 0 --> LR, index 1 --> LRB, index 2 --> LRT, index 3 --> LRBT
 
+    public GameObject puerta;
+    public GameObject puertaMadera;
+    
+
     private int direction;
     private int direction2;
     public float moveAmount;
@@ -25,6 +29,7 @@ public class LevelGeneration : MonoBehaviour
     private Vector2 posmove;
     public LayerMask room;
     
+    private GameObject puertinha;
 
     private int topCounter;
     private int downCounter;
@@ -41,6 +46,15 @@ public class LevelGeneration : MonoBehaviour
 
     private void Update() 
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject puertinha = Instantiate(puertaMadera);
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            Destroy(puertinha);
+        }
        
         if(timeBtwRoom <=0 && stopGeneration == false)
         {
@@ -67,7 +81,7 @@ public class LevelGeneration : MonoBehaviour
                     transform.position=posmove;
                     despDif=false;
                 }
-                Vector2 newPos = new Vector2(Random.Range(transform.position.x,(transform.position.x+11)) + moveAmount, Random.Range((transform.position.y-10),(transform.position.y+11)));
+                Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
                 Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                 if(detectaroom==true)
                 {
