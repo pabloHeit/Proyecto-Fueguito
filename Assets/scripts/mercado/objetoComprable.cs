@@ -19,6 +19,7 @@ public class objetoComprable : MonoBehaviour
 
     void Update()
     {
+            
         if(EnRango && Input.GetKeyDown(KeyCode.E)){
             comprar();
         }        
@@ -28,6 +29,7 @@ public class objetoComprable : MonoBehaviour
     {
         if(controladorPuntos.puntos >= precio)
         {
+            
             controladorPuntos.RestarPuntos(precio);
             Destroy(gameObject);
             agarrarArma.agarrar();

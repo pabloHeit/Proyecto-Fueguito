@@ -29,6 +29,7 @@ public class controlArmas : MonoBehaviour
         cantDeArmas = armas.Length;
         CambiarArma();
     }
+
     void Update(){        
         armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
         
@@ -63,8 +64,11 @@ public class controlArmas : MonoBehaviour
 
     public void activarArmas(int x){
         activadorArma[x].SetActive(true);
-        armaActiva = x;
-        CambiarArma();
+        if( !armasControlador.recargando )
+        {
+            armaActiva = x;
+            CambiarArma();            
+        }
     }
     private void CambiarArma(int n = -1)
     {
