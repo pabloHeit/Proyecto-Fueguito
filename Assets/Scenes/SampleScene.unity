@@ -13468,22 +13468,27 @@ MonoBehaviour:
   - {fileID: 6079030504298264321}
   - {fileID: 6079030504053176908}
   rooms:
-  - {fileID: 6698287029411622804, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
-  - {fileID: 1971473794622875336, guid: b4218d4604457894cb48ea245bd63e0a, type: 3}
-  - {fileID: 6239103882391782762, guid: 9319ed5cdb74dfe49b98c4a1102ac05a, type: 3}
-  - {fileID: 9205262764116385765, guid: 926d4d3fd73e274499f1ef6fd921caaa, type: 3}
-  - {fileID: 7631179021672898396, guid: 654897216ee8451469dd2aedf4443a5c, type: 3}
-  - {fileID: 8789609436659640353, guid: 1bcbd973e7206674282872602a854d6d, type: 3}
+  - {fileID: 2221067818562146226, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
+  - {fileID: 2221067818562146226, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
+  - {fileID: 2221067818562146226, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
+  - {fileID: 2221067818562146226, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
+  - {fileID: 2221067818562146226, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
+  - {fileID: 2221067818562146226, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
+  puerta: {fileID: 0}
+  puertaMadera: {fileID: 0}
+  direction: 0
+  direction2: 0
   moveAmount: 30
   timeBtwRoom: 3
   startTimeBtwRoom: 1
-  minX: -50
-  maxX: 60
-  maxY: 20
-  minY: -10
+  minX: -100
+  maxX: 100
+  maxY: 100
+  minY: -100
   room:
     serializedVersion: 2
     m_Bits: 128
+  dire: 0
 --- !u!1 &6079030505239920033
 GameObject:
   m_ObjectHideFlags: 0
@@ -13516,6 +13521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  puertas: []
 --- !u!4 &6079030505239920035
 Transform:
   m_ObjectHideFlags: 0

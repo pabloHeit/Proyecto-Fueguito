@@ -11,8 +11,8 @@ public class LevelGeneration : MonoBehaviour
     public GameObject puertaMadera;
     
 
-    private int direction;
-    private int direction2;
+    public int direction;
+    public int direction2;
     public float moveAmount;
     public float timeBtwRoom;
     public float startTimeBtwRoom = 0.25f;
@@ -28,7 +28,7 @@ public class LevelGeneration : MonoBehaviour
     private bool despDif;
     private Vector2 posmove;
     public LayerMask room;
-    
+    public int dire;
     private GameObject puertinha;
 
     private int topCounter;
@@ -99,6 +99,7 @@ public class LevelGeneration : MonoBehaviour
                     }
                     else
                     {
+                        dire=direction;
                         int rand = Random.Range(0, rooms.Length);
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
@@ -345,7 +346,7 @@ public class LevelGeneration : MonoBehaviour
 
     private void Posibilidad ()
     {
-        Debug.Log("esta en posiblidad"); 
+      /*   Debug.Log("esta en posiblidad"); 
         int mitad=numHabit/2;
          Debug.Log("mitad es:"+mitad);
         Cantidad=Random.Range(1,mitad);
@@ -545,6 +546,6 @@ public class LevelGeneration : MonoBehaviour
         }
 
     }
-    despDif=true;
+    despDif=true; */
     }
 }
