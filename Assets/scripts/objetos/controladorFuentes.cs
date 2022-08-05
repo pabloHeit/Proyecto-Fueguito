@@ -19,10 +19,13 @@ public class controladorFuentes : MonoBehaviour
 
     private controladorVidas controladorVidas;
     private controlArmas controlArmas;
+    private armasControlador armasControlador;
     void Start()
     {
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
         controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();
+        armasControlador = GameObject.FindGameObjectWithTag("Player").GetComponent<armasControlador>();
+        
 
         Animator = GetComponent<Animator>();
         if (consumida) /**/ Destroy(Animator);
@@ -74,6 +77,7 @@ public class controladorFuentes : MonoBehaviour
     private void SubirRecharge(float rechargePoints)
     {
         controlArmas.rechargeMultiplier += rechargePoints;
+
     }
 
     void OnTriggerEnter2D(Collider2D other)

@@ -2193,6 +2193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2440423e705714a96da07d6ec2006b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "da\xF1o": 10
 --- !u!114 &396120883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2989,7 +2990,8 @@ MonoBehaviour:
   radioGolpe: 0
   marcadorBalas: {fileID: 1701286112}
   circuloRecarga: {fileID: 211584802}
-  tiempo_de_recarga: 2
+  tiempoDeRecargaDefault: 3
+  tiempoDeRecarga: 0
   recargando: 0
   cantBalas: 25
   max_capacidad: 0
@@ -14181,7 +14183,8 @@ MonoBehaviour:
   radioGolpe: 0
   marcadorBalas: {fileID: 1701286112}
   circuloRecarga: {fileID: 211584802}
-  tiempo_de_recarga: 5
+  tiempoDeRecargaDefault: 4
+  tiempoDeRecarga: 0
   recargando: 0
   cantBalas: 25
   max_capacidad: 0
@@ -15414,7 +15417,8 @@ MonoBehaviour:
   radioGolpe: 1
   marcadorBalas: {fileID: 1701286112}
   circuloRecarga: {fileID: 0}
-  tiempo_de_recarga: 0
+  tiempoDeRecargaDefault: 0
+  tiempoDeRecarga: 0
   recargando: 0
   cantBalas: 0
   max_capacidad: 0
@@ -17359,6 +17363,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 830988462}
     m_Modifications:
     - target: {fileID: 782542507190703395, guid: 24e5b42f50244994bbf64d26de69a28d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 782542507190703395, guid: 24e5b42f50244994bbf64d26de69a28d, type: 3}
       propertyPath: m_Name
       value: cascadaAzul_1_1
       objectReference: {fileID: 0}
@@ -17406,6 +17414,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 782542507190703405, guid: 24e5b42f50244994bbf64d26de69a28d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6683726167114442916, guid: 7f6e191f4809c0941b7b8601c2f5987d, type: 3}
+    - target: {fileID: 782542507190703407, guid: 24e5b42f50244994bbf64d26de69a28d, type: 3}
+      propertyPath: rechargePoints
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24e5b42f50244994bbf64d26de69a28d, type: 3}
 --- !u!1001 &3656001255604151043
@@ -17415,6 +17431,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 830988462}
     m_Modifications:
+    - target: {fileID: 3656001257333469067, guid: 56dfdc5ea330d834dbc04b86aecfc6df, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 3656001257333469067, guid: 56dfdc5ea330d834dbc04b86aecfc6df, type: 3}
       propertyPath: m_Name
       value: cascadaRoja_1_1
@@ -17463,6 +17483,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3656001257333469070, guid: 56dfdc5ea330d834dbc04b86aecfc6df, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6683726167114442916, guid: 7f6e191f4809c0941b7b8601c2f5987d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56dfdc5ea330d834dbc04b86aecfc6df, type: 3}
 --- !u!1001 &6109417338121927286
@@ -17473,9 +17497,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 830988462}
     m_Modifications:
     - target: {fileID: 6109417338909516947, guid: 390a383010d0e7d4d8eeec9cef95d131, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 6109417338909516947, guid: 390a383010d0e7d4d8eeec9cef95d131, type: 3}
       propertyPath: m_Name
       value: cascadaVerde_1_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6109417338909516956, guid: 390a383010d0e7d4d8eeec9cef95d131, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6683726167114442916, guid: 7f6e191f4809c0941b7b8601c2f5987d, type: 3}
     - target: {fileID: 6109417338909516957, guid: 390a383010d0e7d4d8eeec9cef95d131, type: 3}
       propertyPath: m_RootOrder
       value: 1
