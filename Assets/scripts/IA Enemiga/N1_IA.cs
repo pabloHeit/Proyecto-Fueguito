@@ -13,6 +13,7 @@ public class N1_IA : MonoBehaviour {
    [SerializeField] private float daño;
    [SerializeField] float cooldown;
    private float ultimoGolpe;
+   public GameObject BalaEnemiga;
    [SerializeField] public int vidaEnemiga;
    private int Health= 5;
 
@@ -53,12 +54,22 @@ public class N1_IA : MonoBehaviour {
       float distJugador = Vector2.Distance(transform.position, player.position);
       Debug.Log("Distancia del jugador" + distJugador);
 
-
-
-
-
-
-   }
+     if (Mathf.Abs(distJugador)>2)
+       {
+            anim.SetBool("Enojo", false);
+            VelocidadMov = 2.0f;
+       }
+        else if((Mathf.Abs(distJugador)<2) || (Health<5))
+        {
+         if (Time.time-ultimoGolpe<cooldown)
+         {
+            return;
+         }
+           ultimoGolpe = Time.time; 
+           anim.SetBool("Enojo", true);
+           DisparoAgua();
+        }
+       }
 
 
    void moveCharacter(Vector2 direction)
@@ -95,9 +106,19 @@ public class N1_IA : MonoBehaviour {
         transform.localScale = laEscala;
     }
 
+    private void DisparoAgua()
+    {
+          Vector3 direction;
+          if (transform.localScale.x == 1.0f) direction = Vector3.right;
+          else direction = Vector3.left;
+          GameObject balaene = Instantiate(BalaEnemiga, transform.position + direction * 0.1f, Quaternion.identity);
+          balaene.GetComponent<BalaAgua>().SetDirection(direction);
+
+    }
+
    public void Golpe()
    {
-       Health= Health - 1;
+       Health = Health - 1;
        if(Health == 0)
        Destroy(gameObject);
    }
