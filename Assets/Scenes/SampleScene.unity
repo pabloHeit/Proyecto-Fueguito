@@ -17690,7 +17690,7 @@ MonoBehaviour:
   sePuedeMover: 1
   velocidadMovimiento: 10
   direccion: {x: 0, y: 0}
-  velocidadRodar: 200
+  velocidadRodar: 250
   rodarCooldown: 0.75
   mirandoDerecha: 1
   tiempoDeNoMoverse: 0.2
