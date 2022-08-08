@@ -5,14 +5,13 @@ using UnityEngine;
 public class puertaDerecha : MonoBehaviour
 {
     LevelGeneration direc;
-
     public GameObject[] derecha;
     // Start is called before the first frame update
     private void Start()
     {
         direc=FindObjectOfType<LevelGeneration>();
         Debug.Log("direccion de puerta:" +direc.direction);
-        if(direc.dire==3 || direc.dire==4)
+        if((direc.direction==1) || (direc.direction==2))
         {
             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;

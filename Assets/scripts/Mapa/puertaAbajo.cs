@@ -5,14 +5,13 @@ using UnityEngine;
 public class puertaAbajo : MonoBehaviour
 {
     LevelGeneration direc;
-
     public GameObject[] abajo;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         direc=FindObjectOfType<LevelGeneration>();
        
-        if(direc.dire==7 || direc.dire==8)
+        if((direc.direction==5) || (direc.direction==6))
         {
             GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
