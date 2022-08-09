@@ -6,9 +6,11 @@ public class LevelGeneration : MonoBehaviour
 {
     public Transform[] startingPositions;
     public GameObject[] rooms; // index 0 --> LR, index 1 --> LRB, index 2 --> LRT, index 3 --> LRBT
-    
+    public int [] direcciones;
+    private int i;
     public int direction;
     public int direction2;
+    public bool posi;
     public float moveAmount;
     public float timeBtwRoom;
     public float startTimeBtwRoom = 0.25f;
@@ -23,6 +25,7 @@ public class LevelGeneration : MonoBehaviour
     private bool stopGeneration2;
     private bool despDif;
     private Vector2 posmove;
+    public Vector2 anterior;
     public LayerMask room;
     public int dire;
    public int puertaAntes;
@@ -37,8 +40,9 @@ public class LevelGeneration : MonoBehaviour
 
         direction= Random.Range(1, 9);
         Debug.Log(direction);
-        puertaAntes=direction;
+        anterior=transform.position;
     }
+
 
     private void Update() 
     {
@@ -57,6 +61,9 @@ public class LevelGeneration : MonoBehaviour
     }
     private void  Move()
     {
+        
+            direcciones[i]=direction;
+    i++;
         if(direction == 1 || direction == 2)
         {
              
@@ -100,7 +107,7 @@ public class LevelGeneration : MonoBehaviour
                         {
                             direction=Random.Range(1,9);
                         } 
-                         puertaAntes=direction;
+anterior=transform.position;
                    Debug.Log(numHabit );
                      if (chance<=3 && numHabit!=1)
                     { 
@@ -116,7 +123,7 @@ public class LevelGeneration : MonoBehaviour
             else
             {
                 Debug.Log("borde derecha");
-                direction= Random.Range(5,7);
+                direction= Random.Range(3,9);
             }
         }
         else if (direction == 3 || direction == 4)
@@ -159,8 +166,9 @@ public class LevelGeneration : MonoBehaviour
                           int chance = Random.Range(1,11);
                             
                        
-                            direction=Random.Range(3,9);
-                         puertaAntes=direction;
+                           
+  anterior=transform.position;
+   direction=Random.Range(3,9);
                             Debug.Log(numHabit); 
                     if (chance<=3 && numHabit!=1)
                     {
@@ -176,7 +184,10 @@ public class LevelGeneration : MonoBehaviour
             else
             {
                 Debug.Log("borde izquierda");
-                direction= Random.Range(5,7);
+                while(direction==3 || direction ==4)
+                        {
+                            direction=Random.Range(1,9);
+                        } 
             }
         }
         else if (direction == 5 || direction == 6)
@@ -219,10 +230,9 @@ public class LevelGeneration : MonoBehaviour
                             
                               direction=Random.Range(1,9);
                        
-                           direction=Random.Range(1,7);
-                       
+                       anterior=transform.position;
                             
-                         puertaAntes=direction;
+
                             Debug.Log(numHabit); 
                     if (chance<=3 && numHabit!=1)
                     {
@@ -238,7 +248,7 @@ public class LevelGeneration : MonoBehaviour
             else
             {
                 Debug.Log("borde abajo");
-                direction=Random.Range(1,5);
+                direction=Random.Range(1,9);
 
             }
         }
@@ -288,7 +298,7 @@ public class LevelGeneration : MonoBehaviour
                    {
                        direction=Random.Range(1,9); 
                    }
-                    puertaAntes=direction;
+  anterior=transform.position;
                         Debug.Log(numHabit);
                         if (chance<=3 && numHabit!=1)
                     {
@@ -302,14 +312,15 @@ public class LevelGeneration : MonoBehaviour
             else
             {
                 Debug.Log("borde arriba");
-                direction=Random.Range(1,5);
+                direction=Random.Range(1,7);
             }
         }
     }
 
     private void Posibilidad ()
     {
-      /*  Debug.Log("esta en posiblidad"); 
+        posi=true;
+        Debug.Log("esta en posiblidad"); 
         int mitad=numHabit/2;
          Debug.Log("mitad es:"+mitad);
         Cantidad=Random.Range(1,mitad);
@@ -318,19 +329,17 @@ public class LevelGeneration : MonoBehaviour
         while( Cantidad>0 )
         {
         
-        direction2=Random.Range(1,7);
+        direction2=Random.Range(1,9);
         if(direction2 == 1 || direction2 == 2)
         {
 
             if(transform.position.x < maxX)
             {
-                topCounter=0;
-                downCounter= 0;
                 Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
                 Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                 if(detectaroom==true)
                 {
-                    direction2=Random.Range(5,7);
+                    direction2=Random.Range(3,9);
                 }
                 else
                 {
@@ -340,33 +349,25 @@ public class LevelGeneration : MonoBehaviour
                     int rand = Random.Range(0, rooms.Length);
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
                     Cantidad--;
-                    direction2=Random.Range(1,7);
-                    if(direction2==3)
-                    {
-                        direction2=2;
-                    }
-                    else if(direction2==4)
-                    {
-                        direction2=Random.Range(5,7);
-                    }                       
+                    direction2=Random.Range(1,9);
+                         anterior=transform.position;    
                 }
             }
             else
             {
-                direction2= Random.Range(5,7);
+                direction2= Random.Range(3,9);
             }
         }
         else if (direction2 == 3 || direction2 == 4)
         {
             if(transform.position.x > minX)
             {
-                downCounter= 0;
-                topCounter=0;
+
                 Vector2 newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
                 Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                 if(detectaroom==true)
                 {
-                    direction2=Random.Range(5,7);
+                    direction2=Random.Range(3,9);
                 }
                 else
                 {
@@ -375,19 +376,21 @@ public class LevelGeneration : MonoBehaviour
                         int rand = Random.Range(0, rooms.Length);
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Cantidad--;
-                        direction2=Random.Range(3,7);
-                    
+                        direction2=Random.Range(1,9);
+                    anterior=transform.position;
                 }
             }
             else
             {
-                direction2= Random.Range(5,7);
+                while(direction==3 || direction ==4)
+                        {
+                            direction=Random.Range(1,9);
+                        } 
             }
         }
-        else if (direction2 == 5)
+        else if (direction2 == 5 || direction2==6)
         {
-            downCounter++;
-            topCounter=0;
+
             if(transform.position.y > minY)
             {
                 Vector2 newposTD= new Vector2(transform.position.x, transform.position.y- moveAmount);
@@ -395,61 +398,40 @@ public class LevelGeneration : MonoBehaviour
                 Collider2D detectaroom = Physics2D.OverlapCircle(newposTD,1, room);
                         if(detectaroom==true)
                 {
-                    direction2=Random.Range(1,5);
+                    while(direction==5 || direction ==6)
+                        {
+                            direction=Random.Range(1,9);
+                        } 
                 }
                 else
                 {
 
                     Collider2D roomDetection = Physics2D.OverlapCircle(transform.position,1, room);
-                    if(roomDetection.GetComponent<RoomType>().type != 1 && roomDetection.GetComponent<RoomType>().type !=3)
-                    {
-                        if(downCounter>=2)
-                        {
-                            roomDetection.GetComponent<RoomType>().RoomDestruction();
-                            Instantiate(rooms[3], transform.position, Quaternion.identity);
-                        }
-                        else
-                        {  
-                            roomDetection.GetComponent<RoomType>().RoomDestruction();
-                            int randBottomRoom = Random.Range(1, 4);
-
-                            if(randBottomRoom == 2)
-                            {
-                                randBottomRoom = 1;
-                            }
-
-                                Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);     
-                        }
-                    }
                     Vector2 newPos = new Vector2(transform.position.x, transform.position.y - moveAmount);
                     transform.position = newPos;
                     
-                        int rand = Random.Range(2, 4);
+                        int rand = Random.Range(1, 4);
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Cantidad--;
-                        direction2=Random.Range(1,7);
-                    while(direction2==6)
-                    {
-                        direction2=Random.Range(1,7);
-                    }
-                    
+                        direction2=Random.Range(1,9);
+ anterior=transform.position;
                   
                 }
             }
             else
             {
-                direction2=Random.Range(1,5);
+                while(direction==5 || direction ==6)
+                        {
+                            direction=Random.Range(1,9);
+                        } 
 
             }
         }
-        else if (direction2 == 6)
+        else if (direction2 == 7 || direction == 8)
         {
           
             if(transform.position.y < maxY)
             {  
-                Debug.Log("empezo arriba");
-                topCounter++;
-                downCounter=0;
 
                 Vector2 newposTD= new Vector2(transform.position.x, transform.position.y+ moveAmount);
 
@@ -457,30 +439,13 @@ public class LevelGeneration : MonoBehaviour
                
                 if(detectaroom==true)
                 {
-                    direction2=Random.Range(1,5);
+                    direction2=Random.Range(1,7);
                 }
                 else
                 {
                     Collider2D roomDetection = Physics2D.OverlapCircle(transform.position,1, room);
 
-                    if(roomDetection.GetComponent<RoomType>().type !=2 && roomDetection.GetComponent<RoomType>().type !=3)
-                    {
-                        if(topCounter>=2)
-                        {
-                            roomDetection.GetComponent<RoomType>().RoomDestruction();
-                            Instantiate(rooms[3], transform.position, Quaternion.identity);
-                        }
-                        else
-                        {  
-                            
-                            roomDetection.GetComponent<RoomType>().RoomDestruction();
-                            int randTopRoom = Random.Range(2, 4);
-
-                        
-
-                            Instantiate(rooms[randTopRoom], transform.position, Quaternion.identity);     
-                        }
-                    }
+                    
 
                     Vector2 newPos = new Vector2(transform.position.x, transform.position.y + moveAmount);
                     transform.position = newPos;
@@ -494,21 +459,19 @@ public class LevelGeneration : MonoBehaviour
 
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Cantidad--;
-                        direction2=Random.Range(1,7);
-                        while(direction2==5)
-                        {
-                            direction2=Random.Range(1,7);
-                        }
+                        direction2=Random.Range(1,9);
+                      anterior=transform.position;
                     
                 }
             }
             else
             {
-                direction2=Random.Range(1,5);
+                direction2=Random.Range(1,7);
             }
         }
 
     }
-    despDif=true; */
+    despDif=true; 
+    posi=false;
     }
 }

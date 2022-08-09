@@ -10,8 +10,32 @@ public class puertaAbajo : MonoBehaviour
     private void Start()
     {
         direc=FindObjectOfType<LevelGeneration>();
-       
-        if((direc.direction==5) || (direc.direction==6))
+       if(direc.posi==false)
+       {
+        if(direc.direction==5 || direc.direction==6)
+        {
+            GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+
+        }
+         else
+        {
+            if(direc.direcciones==5 || direc.direcciones==6)
+            {
+                GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
+            else
+            {
+  GameObject instance = (GameObject)Instantiate(abajo[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
+          
+        }
+       }
+       else
+       {
+         if(direc.direction2==5 || direc.direction2==6)
         {
             GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
@@ -21,7 +45,8 @@ public class puertaAbajo : MonoBehaviour
         {
             GameObject instance = (GameObject)Instantiate(abajo[1], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-        }
+        }  
+       }
     }
     // Update is called once per frame
     void Update()
