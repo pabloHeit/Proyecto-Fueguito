@@ -61,12 +61,12 @@ public class N1_IA : MonoBehaviour {
       float distJugador = Vector2.Distance(transform.position, player.position);
       Debug.Log("Distancia del jugador" + distJugador);
 
-     if (Mathf.Abs(distJugador)>6)
+     if (Mathf.Abs(distJugador)>10)
        {
             anim.SetBool("Enojo", false);
             VelocidadMov = 2.0f;
        }
-        else if((Mathf.Abs(distJugador)<5))
+        else if((Mathf.Abs(distJugador)<=10))
         {
          if (Time.time-ultimoGolpe<cooldown)
          {
@@ -122,7 +122,6 @@ public class N1_IA : MonoBehaviour {
           //BalaAgua.DestruirBalaAgua(); 
 
           /*Corregir impacto de bala y destroy de game object*/
-
     }
 
    public void Golpe()

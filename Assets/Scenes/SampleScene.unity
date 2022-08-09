@@ -2061,7 +2061,7 @@ MonoBehaviour:
   player: {fileID: 2087941459}
   VelocidadMov: 5
   "da\xF1o": 5
-  cooldown: 0.5
+  cooldown: 1.5
   BalaEnemiga: {fileID: 5755562860008136992, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
   vidaEnemiga: 100
   disparador: {fileID: 123669377}
