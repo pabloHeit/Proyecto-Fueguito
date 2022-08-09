@@ -15,20 +15,20 @@ public class controladorFuentes : MonoBehaviour
     [Header("Azul")]
     [SerializeField] private float rechargePoints;
 
-    [SerializeField] private bool usada = false;
+    [SerializeField] private bool consumida = false;
 
     private controladorVidas controladorVidas;
     private controlArmas controlArmas;
+    private armasControlador armasControlador;
     void Start()
     {
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
         controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();
+        armasControlador = GameObject.FindGameObjectWithTag("Player").GetComponent<armasControlador>();
+        
 
         Animator = GetComponent<Animator>();
-        if (usada)
-        {
-            //Animator.SetBool("usado???????")            ;
-        }
+        if (consumida) /**/ Destroy(Animator);
 
         //Comprobar que la fuente tenga valores cargados
         if (color != 1 && color != 2 && color != 3){
@@ -40,7 +40,7 @@ public class controladorFuentes : MonoBehaviour
     }
     void Update()
     {
-        if(EnRango && Input.GetKeyDown(KeyCode.E) && !usada)
+        if(EnRango && Input.GetKeyDown(KeyCode.E) && !consumida)
         {
             //Animator.SetBool("nombreDeAnimacion"); Animación de agua consumida?
             switch(color){
@@ -56,7 +56,10 @@ public class controladorFuentes : MonoBehaviour
                     SubirRecharge(rechargePoints);
                 break;
             }
-            usada = true;            
+            consumida = true;
+            Animator.SetBool("Consumida", true);
+            Destroy(Animator, 2f);
+
         }        
     }
 
@@ -74,6 +77,7 @@ public class controladorFuentes : MonoBehaviour
     private void SubirRecharge(float rechargePoints)
     {
         controlArmas.rechargeMultiplier += rechargePoints;
+
     }
 
     void OnTriggerEnter2D(Collider2D other)

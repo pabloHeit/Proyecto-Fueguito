@@ -23,7 +23,8 @@ public class armasControlador : MonoBehaviour
     [SerializeField] private Image circuloRecarga;
     private float cooldown_recarga;
     private float tiempo2 = 0;
-    [SerializeField] private float tiempo_de_recarga;
+    [SerializeField] private float tiempoDeRecargaDefault;
+    [SerializeField] private float tiempoDeRecarga;
     private bool recargar;
     public bool recargando;
 
@@ -42,53 +43,67 @@ public class armasControlador : MonoBehaviour
     private Rigidbody2D rb;
     public event EventHandler OnShoot;
 
+    //Dependencias
+    private controlArmas controlArmas;
+
+
     private void Start() 
     {
+        recargando = false;  
+        controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();
+
         try{Animator = GetComponent<Animator>();}
         catch (System.Exception){throw;}
         
         sprite = GetComponent<SpriteRenderer>();
         max_capacidad = cantBalas;
         textMesh = GetComponent<TextMeshProUGUI>();
+
+        tiempoDeRecarga = tiempoDeRecargaDefault / controlArmas.rechargeMultiplier;
     }
     private void Update() 
     {
         if (!armaDeFuego)
         {
             marcadorBalas.SetActive(false); //No tiene munición, se borra el bloque de balas
-            if(Input.GetButtonDown("Fire1")){//Boton de ataque
-                Golpe();} 
+            if(Input.GetButtonDown("Fire1")) Golpe();
                        
         }
         else
         {    
             marcadorBalas.SetActive(true);
-            StartCoroutine(TiempoRecargar(tiempo_de_recarga) );        
-            circuloRecarga.fillAmount = tiempo2 / tiempo_de_recarga;
 
             TextMeshProUGUI textMesh = marcadorBalas.GetComponent<TextMeshProUGUI>();
             textMesh.text = cantBalas.ToString() + "/" + max_capacidad.ToString();
 
-            disparar=Input.GetButton("Fire1");
-            recargar=Input.GetKeyDown(KeyCode.R);
+            disparar = Input.GetButton("Fire1");
+            recargar = Input.GetKeyDown(KeyCode.R);
 
-            if (recargar == true 
+            if(recargando)
+            {
+                tiempoDeRecarga = tiempoDeRecargaDefault / controlArmas.rechargeMultiplier;
+                StartCoroutine(TiempoRecargar(tiempoDeRecarga) );        
+                circuloRecarga.fillAmount = tiempo2 / tiempoDeRecarga;
+            }
+            
+            if (recargar 
                 && cantBalas != max_capacidad
-                && recargando != true)
+                && !recargando)
             {
                 recargando = true;
-                StartCoroutine( Recargar(tiempo_de_recarga) );            
+                StartCoroutine( Recargar(tiempoDeRecarga) );            
             }
 
-            if (disparar== true 
+            if (disparar 
                 && Time.time > dispararPermiso
                 && cantBalas > 0
-                && recargando !=true){
+                && !recargando){
                 Disparar();
             }
         }        
     }
-    void Disparar()
+
+    private void Disparar()
     {        
         cantBalas--;
         GameObject bala = Instantiate(Bala, puntaDelArma.position, puntaDelArma.rotation);
@@ -114,6 +129,7 @@ public class armasControlador : MonoBehaviour
         }
         catch (System.Exception){Debug.Log("Golpeaste");} 
     }
+
     private void OnDrawGizmos()
     {
         if (!armaDeFuego){

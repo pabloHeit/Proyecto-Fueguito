@@ -5,6 +5,7 @@ using UnityEngine;
 public class elementoDañino : MonoBehaviour
 {
     private Rigidbody2D rb2D;
+    [SerializeField] private float daño = 10;
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -13,7 +14,7 @@ public class elementoDañino : MonoBehaviour
     {    
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<controladorVidas>().TomarDaño(10);
+            other.GetComponent<controladorVidas>().TomarDaño(daño);
         }
     }
 

@@ -25,11 +25,8 @@ public class controladorCamara : MonoBehaviour
 
     void Update()
     {
-        if (camaraFija){
-            CamaraFija();
-        }else{
-            CamaraMovil();
-        }        
+        if (camaraFija) CamaraFija();
+        else CamaraMovil();        
     }
     
     public void CamaraFija(){

@@ -17,18 +17,12 @@ public class granada : MonoBehaviour
     SpriteRenderer sprite;
     private bool chocarBool = false; 
 
-    //Aca van todas las layer que debe ignorar
-    [SerializeField] private int[] layerIgnoradas;
-
     private void Start(){
+
         sprite = GetComponent<SpriteRenderer>();
     	animator = GetComponent<Animator>();
         _t = GetComponent<Transform>();
         tiempoGranadaContador = Time.time + tiempoGranada;
-        
-        foreach (int n in layerIgnoradas){
-            Physics2D.IgnoreLayerCollision(n ,7,true);
-        }
     }
 
     private void FixedUpdate(){
@@ -37,16 +31,12 @@ public class granada : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(!(other.CompareTag("Player"))){
-            chocarBool = !chocarBool;
-            sprite.flipX = chocarBool;
-            //sprite.flipY = chocarBool;
-
-        }
-
+    private void OnTriggerEnter2D(Collider2D other){
+        chocarBool = !chocarBool;
+        sprite.flipX = chocarBool;
     }
+
+    
 
     private void Explosion()
     {

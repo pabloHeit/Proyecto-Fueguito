@@ -68,6 +68,15 @@ TextureImporter:
   - first:
       213: 7372723324943832347
     second: cascadaRoja_3_3
+  - first:
+      213: 6683726167114442916
+    second: cascadaStats_animated_1
+  - first:
+      213: -5380010050911427218
+    second: cascadaStats_animated_2
+  - first:
+      213: 3231584771251374498
+    second: cascadaStats_animated_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -719,6 +728,69 @@ TextureImporter:
       bones: []
       spriteID: b15938a3dcc215660800000000000000
       internalID: 7372723324943832347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cascadaStats_animated_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 336
+        width: 16
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8e6de798d51cc50800000000000000
+      internalID: 6683726167114442916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cascadaStats_animated_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 336
+        width: 17
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65a46bfc5d5655b0800000000000000
+      internalID: -5380010050911427218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cascadaStats_animated_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 336
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a900005a35e8dc20800000000000000
+      internalID: 3231584771251374498
       vertices: []
       indices: 
       edges: []
