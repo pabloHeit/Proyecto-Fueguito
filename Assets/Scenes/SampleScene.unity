@@ -1885,6 +1885,7 @@ GameObject:
   - component: {fileID: 577273035}
   - component: {fileID: 577273034}
   - component: {fileID: 577273033}
+  - component: {fileID: 577273036}
   m_Layer: 0
   m_Name: enemigo1
   m_TagString: Untagged
@@ -2013,6 +2014,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.01}
   m_Size: {x: 0.2, y: 0.25}
   m_Direction: 0
+--- !u!114 &577273036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577273030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284b760805b198443a06e8ef5baf1dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  player: {fileID: 2087941459}
+  VelocidadMov: 5
+  "da\xF1o": 0
+  cooldown: 0
+  BalaEnemiga: {fileID: 5755562860008136992, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
+  vidaEnemiga: 0
 --- !u!1 &582637045
 GameObject:
   m_ObjectHideFlags: 0
