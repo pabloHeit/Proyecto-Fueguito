@@ -23,7 +23,7 @@ public class BalaAgua : MonoBehaviour
     {
       Direction = direction;
     }
-
+    
     public void DestruirBalaAgua()
     {
         Destroy(gameObject);

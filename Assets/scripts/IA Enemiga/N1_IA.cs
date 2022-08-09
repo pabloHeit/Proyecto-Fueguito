@@ -10,24 +10,31 @@ public class N1_IA : MonoBehaviour {
    private Rigidbody2D rb;
    private bool miraDerecha;
    private controladorVidas controladorVidas;
+   private BalaAgua BalaAgua;
    [SerializeField] private float daño;
    [SerializeField] float cooldown;
+   private float VelocidadB = 10f;
    private float ultimoGolpe;
    public GameObject BalaEnemiga;
    [SerializeField] public int vidaEnemiga;
    private int Health= 5;
 
+    [SerializeField] private Transform disparador;
     
    void Start()
     {
      controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
      rb= this.GetComponent<Rigidbody2D>();
      miraDerecha = true;
+     BalaAgua = GetComponent<BalaAgua>();
      anim = GetComponent<Animator>();
    }
 
    void Update() 
    {
+        Vector3 lookAtDirection = player.position - disparador.position;
+        disparador.right= lookAtDirection;
+
     if(controladorVidas != null)
     {
         if (controladorVidas.vidaJugador != 0)
@@ -54,12 +61,12 @@ public class N1_IA : MonoBehaviour {
       float distJugador = Vector2.Distance(transform.position, player.position);
       Debug.Log("Distancia del jugador" + distJugador);
 
-     if (Mathf.Abs(distJugador)>2)
+     if (Mathf.Abs(distJugador)>6)
        {
             anim.SetBool("Enojo", false);
             VelocidadMov = 2.0f;
        }
-        else if((Mathf.Abs(distJugador)<2) || (Health<5))
+        else if((Mathf.Abs(distJugador)<5))
         {
          if (Time.time-ultimoGolpe<cooldown)
          {
@@ -108,12 +115,11 @@ public class N1_IA : MonoBehaviour {
 
     private void DisparoAgua()
     {
-          Vector3 direction;
-          if (transform.localScale.x == 1.0f) direction = Vector3.right;
-          else direction = Vector3.left;
-          GameObject balaene = Instantiate(BalaEnemiga, transform.position + direction * 0.1f, Quaternion.identity);
-          balaene.GetComponent<BalaAgua>().SetDirection(direction);
-
+          GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
+          Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
+          rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
+          //balaene.GetComponent<BalaAgua>().SetDirection(direction);
+          //BalaAgua.DestruirBalaAgua();
     }
 
    public void Golpe()
@@ -123,4 +129,9 @@ public class N1_IA : MonoBehaviour {
        Destroy(gameObject);
    }
 
+    
+   
+
+
+ 
 }
