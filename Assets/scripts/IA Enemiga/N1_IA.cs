@@ -119,7 +119,10 @@ public class N1_IA : MonoBehaviour {
           Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
           rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
           //balaene.GetComponent<BalaAgua>().SetDirection(direction);
-          //BalaAgua.DestruirBalaAgua();
+          //BalaAgua.DestruirBalaAgua(); 
+
+          /*Corregir impacto de bala y destroy de game object*/
+
     }
 
    public void Golpe()
