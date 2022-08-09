@@ -26,6 +26,7 @@ public class CodigoFullScreen : MonoBehaviour
     public void RevisarResolucion()
     {
         resoluciones = Screen.resolutions;
+        
         resolucionesDropDown.ClearOptions();
 
         List<string> opciones = new List <string>();
@@ -41,11 +42,11 @@ public class CodigoFullScreen : MonoBehaviour
             {
                 resolucionActual = i;
             }
+        }
             resolucionesDropDown.AddOptions(opciones);
             resolucionesDropDown.value = resolucionActual;
-            resolucionesDropDown.RefreshShownValue();
+            //resolucionesDropDown.RefreshShownValue();
             resolucionesDropDown.value = PlayerPrefs.GetInt("numeroResolucion", 0);
-        }
     }
 
     public void CambiarResolucion(int indiceResolucion)
