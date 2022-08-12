@@ -6,8 +6,8 @@ public class LevelGeneration : MonoBehaviour
 {
     public Transform[] startingPositions;
     public GameObject[] rooms; // index 0 --> LR, index 1 --> LRB, index 2 --> LRT, index 3 --> LRBT
-    public int [] direcciones;
-    private int i;
+    public int[] direcciones;
+    public int i=0;
     public int direction;
     public int direction2;
     public bool posi;
@@ -25,7 +25,6 @@ public class LevelGeneration : MonoBehaviour
     private bool stopGeneration2;
     private bool despDif;
     private Vector2 posmove;
-    public Vector2 anterior;
     public LayerMask room;
     public int dire;
    public int puertaAntes;
@@ -40,7 +39,9 @@ public class LevelGeneration : MonoBehaviour
 
         direction= Random.Range(1, 9);
         Debug.Log(direction);
-        anterior=transform.position;
+        direcciones = new int [11];
+         direcciones [i]=direction;
+    i++;
     }
 
 
@@ -62,8 +63,7 @@ public class LevelGeneration : MonoBehaviour
     private void  Move()
     {
         
-            direcciones[i]=direction;
-    i++;
+        
         if(direction == 1 || direction == 2)
         {
              
@@ -100,21 +100,19 @@ public class LevelGeneration : MonoBehaviour
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                         int chance = Random.Range(1,11);
-                   
-
-                        direction=Random.Range(1,9);
+                   Debug.Log(numHabit );     
+                    direction=Random.Range(1,9);
                     while(direction==3 || direction ==4)
                         {
                             direction=Random.Range(1,9);
                         } 
-anterior=transform.position;
-                   Debug.Log(numHabit );
                      if (chance<=3 && numHabit!=1)
                     { 
                         posmove=transform.position;
                         Posibilidad();
                     }
-                     
+                     direcciones [i]=direction;
+    i++;
                     }
                                 
                                 
@@ -164,19 +162,16 @@ anterior=transform.position;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                           int chance = Random.Range(1,11);
-                            
-                       
-                           
-  anterior=transform.position;
-   direction=Random.Range(3,9);
                             Debug.Log(numHabit); 
+                            direction=Random.Range(3,9);
                     if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
                         Posibilidad();
                     }
                      
-                      
+                      direcciones [i]=direction;
+    i++;
                     }
 
                 }
@@ -227,19 +222,15 @@ anterior=transform.position;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                           int chance = Random.Range(1,11);
-                            
-                              direction=Random.Range(1,9);
-                       
-                       anterior=transform.position;
-                            
-
                             Debug.Log(numHabit); 
+                            direction=Random.Range(1,9);
                     if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
                         Posibilidad();
                     }
-                     
+                      direcciones [i]=direction;
+    i++;
                       
                     }
 
@@ -293,19 +284,20 @@ anterior=transform.position;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                           int chance = Random.Range(1,11);
-                          direction=Random.Range(1,9); 
-                   while(direction==5 || direction==6)
+                      
+                        Debug.Log(numHabit);
+                        direction=Random.Range(1,9); 
+                      while(direction==5 || direction==6)
                    {
                        direction=Random.Range(1,9); 
                    }
-  anterior=transform.position;
-                        Debug.Log(numHabit);
                         if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
                         Posibilidad();
                     }
-                     
+                     direcciones [i]=direction;
+    i++;
                     }
                 }
             }
@@ -326,12 +318,17 @@ anterior=transform.position;
         Cantidad=Random.Range(1,mitad);
          Debug.Log("cantidad es"+Cantidad);
         numHabit=numHabit-Cantidad;
-        while( Cantidad>0 )
+        direction2=direction;
+    while( Cantidad>0 )
+        {Posibilidad2();}
+
+    }
+       private void Posibilidad2()
         {
-        
-        direction2=Random.Range(1,9);
-        if(direction2 == 1 || direction2 == 2)
-        {
+         
+            direction2=Random.Range(1,9);
+            if(direction2 == 1 || direction2 == 2)
+            {
 
             if(transform.position.x < maxX)
             {
@@ -350,7 +347,8 @@ anterior=transform.position;
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
                     Cantidad--;
                     direction2=Random.Range(1,9);
-                         anterior=transform.position;    
+                     direcciones [i]=direction2;
+         i++;
                 }
             }
             else
@@ -377,7 +375,8 @@ anterior=transform.position;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Cantidad--;
                         direction2=Random.Range(1,9);
-                    anterior=transform.position;
+                         direcciones [i]=direction2;
+         i++;
                 }
             }
             else
@@ -414,7 +413,8 @@ anterior=transform.position;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Cantidad--;
                         direction2=Random.Range(1,9);
- anterior=transform.position;
+                         direcciones [i]=direction2;
+         i++;
                   
                 }
             }
@@ -460,8 +460,8 @@ anterior=transform.position;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Cantidad--;
                         direction2=Random.Range(1,9);
-                      anterior=transform.position;
-                    
+                         direcciones [i]=direction2;
+         i++;
                 }
             }
             else
@@ -469,9 +469,12 @@ anterior=transform.position;
                 direction2=Random.Range(1,7);
             }
         }
-
-    }
+direction2=0;
+direction=Random.Range(1,9);
     despDif=true; 
     posi=false;
     }
 }
+    
+    
+

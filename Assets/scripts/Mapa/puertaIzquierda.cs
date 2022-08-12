@@ -20,7 +20,7 @@ public class puertaIzquierda : MonoBehaviour
         }
         else
         {
-            if(direc.direcciones==5 || direc.direcciones==6)
+            if(direc.direcciones[direc.i-1]==1 || direc.direcciones[direc.i-1]==2)
             {
                 GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
@@ -34,7 +34,7 @@ public class puertaIzquierda : MonoBehaviour
         }
        else
        {
-         if(direc.direction2==5 || direc.direction2==6)
+         if(direc.direction2==3 || direc.direction2==4)
         {
             GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;

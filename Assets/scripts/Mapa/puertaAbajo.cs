@@ -20,7 +20,7 @@ public class puertaAbajo : MonoBehaviour
         }
          else
         {
-            if(direc.direcciones==5 || direc.direcciones==6)
+            if(direc.direcciones[direc.i-1]==7 || direc.direcciones[direc.i-1]==8)
             {
                 GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;

@@ -20,7 +20,7 @@ public class puertaArriba : MonoBehaviour
         }
          else
         {
-           if(direc.direcciones==7 || direc.direcciones==8)
+           if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
             {
                 GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
@@ -34,7 +34,7 @@ public class puertaArriba : MonoBehaviour
         }
        else
        {
-         if(direc.direction2==5 || direc.direction2==6)
+         if(direc.direction2==8 || direc.direction2==7)
         {
             GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
