@@ -14,6 +14,9 @@ public class dialogoVendedor : MonoBehaviour
     [SerializeField] private string[] dialogos;
     private int indexDialogo;
     private float dialogueTime = 0.05f;
+    private bool pausado= false;
+
+    Pausa PausaScript;
 
     //Audio
     AudioSource voz;
@@ -23,6 +26,7 @@ public class dialogoVendedor : MonoBehaviour
     private void Start()
     {
         voz = GetComponent<AudioSource>();
+        PausaScript = GameObject.FindGameObjectWithTag("opciones").GetComponent<Pausa>();
 
         if (dialogos.Length == 0){
             Debug.Log("<color=red>dialogoVendedor ERROR</color>     El mercader no tiene dialogos");
@@ -30,14 +34,28 @@ public class dialogoVendedor : MonoBehaviour
     }
     void Update()
     {
-        if (vozPlay && vozToggleChange){
-            voz.Play();
-            vozToggleChange = false;
+        if (pausado)
+        {
+            voz.UnPause();
         }
-        if (vozPlay == false && vozToggleChange){
-            voz.Stop();
-            vozToggleChange = false;
+        
+        if (PausaScript.enPausa)
+        {
+            voz.Pause();
+            pausado = true;
         }
+        else
+        {
+            if (vozPlay && vozToggleChange){
+                voz.Play();
+                vozToggleChange = false;
+            }
+            if (vozPlay == false && vozToggleChange){
+                voz.Stop();
+                vozToggleChange = false;
+            }
+        }
+        
     }
 /*     void OnGUI()
     {

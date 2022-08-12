@@ -8,7 +8,7 @@ public class Pausa : MonoBehaviour
     [SerializeField] private GameObject PauseMenu, IndexMenu, OptionsMenu;
     public Button continueButton, opcionesButton, exitButton, volverButton;
     public bool enJuego = false;
-    private bool enPausa = false;
+    public bool enPausa = false;
     private bool enOpciones = false;
     CodigoVolumen CodigoVolumen;
 
