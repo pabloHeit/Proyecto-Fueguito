@@ -7,8 +7,10 @@ public class Pausa : MonoBehaviour
 {
     [SerializeField] private GameObject PauseMenu, IndexMenu, OptionsMenu;
     public Button continueButton, opcionesButton, exitButton, volverButton;
+    public bool enJuego = false;
     private bool enPausa = false;
     private bool enOpciones = false;
+    CodigoVolumen CodigoVolumen;
 
     void Start()
     {
@@ -22,15 +24,14 @@ public class Pausa : MonoBehaviour
         exitBtn.onClick.AddListener(Application.Quit);
         volverBtn.onClick.AddListener(AlternarOpciones);
 
-        PauseMenu.SetActive(enPausa);
-        IndexMenu.SetActive(enPausa);
-        OptionsMenu.SetActive(enOpciones);
+        PauseMenu.SetActive(false);
+        IndexMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
     }
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)) AlternarPausa();
-        
     }
 
     public void AlternarPausa()
@@ -50,7 +51,6 @@ public class Pausa : MonoBehaviour
     {
         enOpciones = !enOpciones;
         IndexMenu.SetActive(!enOpciones);
-        
         OptionsMenu.SetActive(enOpciones);
     }    
 }

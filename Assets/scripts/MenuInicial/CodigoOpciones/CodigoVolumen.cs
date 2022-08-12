@@ -6,19 +6,28 @@ using UnityEngine.UI;
 public class CodigoVolumen : MonoBehaviour
 {
 
-    public Slider slider;
+    public Slider slider1;
+    public Slider slider2;
+
     public float sliderValue;
-    // Start is called before the first frame update
+    
     void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("volumenaudio", 1f);
-        AudioListener.volume = slider.value;
+        slider1.value = PlayerPrefs.GetFloat("volumenaudio", 1f);        
+        slider2.value = slider1.value;
+        AudioListener.volume = slider1.value;
+        AudioListener.volume = slider2.value;
     }
 
     public void ChangeSlider(float valor)
     {
+        slider1.value = valor;
+        slider2.value = valor;
+        Debug.Log(slider2.value);
+        
         sliderValue = valor;
         PlayerPrefs.SetFloat("volumenaudio",sliderValue);
-        AudioListener.volume = slider.value; 
+        AudioListener.volume = slider1.value; 
+        AudioListener.volume = slider2.value; 
     }
 }

@@ -12,6 +12,8 @@ TagManager:
   - balas
   - Puntaje
   - Cabeza
+  - opciones
+  - Brillo
   layers:
   - Default
   - TransparentFX
