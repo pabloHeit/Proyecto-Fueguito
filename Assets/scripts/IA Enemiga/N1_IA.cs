@@ -5,7 +5,7 @@ using UnityEngine;
 public class N1_IA : MonoBehaviour {
    public Animator anim;
    public Transform player;
-   public float VelocidadMov = 5f;
+   public float VelocidadMov;
    private Vector2 movement;
    private Rigidbody2D rb;
    private bool miraDerecha;
@@ -59,13 +59,26 @@ public class N1_IA : MonoBehaviour {
       float distJugador = Vector2.Distance(transform.position, player.position);
       Debug.Log("Distancia del jugador" + distJugador);
 
+     if (vidaEnemiga<10)
+     {
+         VelocidadMov = 1.0f;
+         if (Time.time-ultimoGolpe<cooldown)
+         {
+            return;
+         }
+           ultimoGolpe = Time.time; 
+           anim.SetBool("Enojo", true);
+           DisparoAgua();
+        }
+     
      if (Mathf.Abs(distJugador)>10)
        {
             anim.SetBool("Enojo", false);
-            VelocidadMov = 2.0f;
-       }
+            VelocidadMov = 0.0f;
+       } 
         else if((Mathf.Abs(distJugador)<=10))
         {
+         VelocidadMov = 1.0f;
          if (Time.time-ultimoGolpe<cooldown)
          {
             return;
@@ -113,10 +126,11 @@ public class N1_IA : MonoBehaviour {
 
     private void DisparoAgua()
     {
+          anim.SetBool("Enojo", false);
           GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
           Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
           rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
-
+                
           /*Corregir impacto de bala y destroy de game object*/
     }
 
