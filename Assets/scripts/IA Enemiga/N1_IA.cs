@@ -14,12 +14,10 @@ public class N1_IA : MonoBehaviour {
    [SerializeField] private float daño;
    [SerializeField] float cooldown;
    private float VelocidadB = 10f;
-   private float ultimoGolpe;
+   private float ultimoGolpe;   
    public GameObject BalaEnemiga;
-   [SerializeField] public int vidaEnemiga;
-   private int Health= 5;
-
-    [SerializeField] private Transform disparador;
+  [SerializeField] public int vidaEnemiga;
+  [SerializeField] private Transform disparador;
     
    void Start()
     {
@@ -53,7 +51,7 @@ public class N1_IA : MonoBehaviour {
 
    private void enemigoMov() 
    {
-     Vector3 direction = player.position - transform.position;
+      Vector3 direction = player.position - transform.position;
       float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
       direction.Normalize();
       movement = direction;
@@ -118,22 +116,15 @@ public class N1_IA : MonoBehaviour {
           GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
           Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
           rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
-          //balaene.GetComponent<BalaAgua>().SetDirection(direction);
-          //BalaAgua.DestruirBalaAgua(); 
 
           /*Corregir impacto de bala y destroy de game object*/
     }
 
    public void Golpe()
    {
-       Health = Health - 1;
-       if(Health == 0)
+       vidaEnemiga = vidaEnemiga - 1;
+       if(vidaEnemiga == 0)
        Destroy(gameObject);
    }
-
-    
-   
-
-
  
 }

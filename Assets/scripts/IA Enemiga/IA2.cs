@@ -12,9 +12,9 @@ public class IA2 : MonoBehaviour {
    private controladorVidas controladorVidas;
    [SerializeField] private float daño;
    [SerializeField] float cooldown;
-   private float ultimoGolpe;
-  [SerializeField] public int vidaEnemiga;
-   private int Health= 5;
+    private float ultimoGolpe;
+   [SerializeField] public int vidaEnemiga;
+    private int Health= 5;
 
     
    void Start()

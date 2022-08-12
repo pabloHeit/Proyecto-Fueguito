@@ -2060,10 +2060,10 @@ MonoBehaviour:
   anim: {fileID: 0}
   player: {fileID: 2087941459}
   VelocidadMov: 5
-  "da\xF1o": 5
-  cooldown: 1.5
+  "da\xF1o": 0
+  cooldown: 1
   BalaEnemiga: {fileID: 5755562860008136992, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
-  vidaEnemiga: 100
+  vidaEnemiga: 10
   disparador: {fileID: 123669377}
 --- !u!1 &582637045
 GameObject:
@@ -12455,7 +12455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 128.9, y: -198.9}
+  m_AnchoredPosition: {x: 128.98, y: -198.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446990488
@@ -14244,7 +14244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!70 &5390471684381781171
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
