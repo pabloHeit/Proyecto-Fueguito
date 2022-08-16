@@ -154,4 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed3f19cddcb236499463f44b38c119a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   player: {fileID: 0}
+  VelocidadMov: 3
+  "da\xF1o": 15
+  cooldown: 1.5
+  vidaEnemiga: 5

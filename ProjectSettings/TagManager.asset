@@ -12,6 +12,8 @@ TagManager:
   - balas
   - Puntaje
   - Cabeza
+  - opciones
+  - balaEnemigo
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - Peligro
   - BalasJugador
   - NoShooteable
-  - 
+  - BalasEnemigo
   - 
   - 
   - 

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5674350734880836132}
   - component: {fileID: 8325213709261306624}
   - component: {fileID: 5732884025943340506}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DisparoAgua
-  m_TagString: Untagged
+  m_TagString: balaEnemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class IA2 : MonoBehaviour {
-   public Animator anim;
-   public Transform player;
+    Animator anim;
+   private Transform player;
    public float VelocidadMov = 5f;
    private Vector2 movement;
    private Rigidbody2D rb;
@@ -23,6 +23,8 @@ public class IA2 : MonoBehaviour {
      rb= this.GetComponent<Rigidbody2D>();
      miraDerecha = true;
      anim = GetComponent<Animator>();
+
+     player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
    }
 
    void Update() 

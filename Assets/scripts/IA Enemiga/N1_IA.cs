@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class N1_IA : MonoBehaviour {
-   public Animator anim;
-   public Transform player;
+   Animator anim;
+
+   private Transform player;
    public float VelocidadMov;
    private Vector2 movement;
    private Rigidbody2D rb;
    private bool miraDerecha;
    private controladorVidas controladorVidas;
    private BalaAgua BalaAgua;
-   [SerializeField] private float daño;
    [SerializeField] float cooldown;
    private float VelocidadB = 10f;
    private float ultimoGolpe;   
    public GameObject BalaEnemiga;
+
   [SerializeField] public int vidaEnemiga;
   [SerializeField] private Transform disparador;
     
@@ -26,15 +27,19 @@ public class N1_IA : MonoBehaviour {
      miraDerecha = true;
      BalaAgua = GetComponent<BalaAgua>();
      anim = GetComponent<Animator>();
+
+     player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
    }
 
    void Update() 
    {
+
+       
+    if(controladorVidas != null)
+    {
         Vector3 lookAtDirection = player.position - disparador.position;
         disparador.right= lookAtDirection;
 
-    if(controladorVidas != null)
-    {
         if (controladorVidas.vidaJugador != 0)
         {
             enemigoMov();
@@ -59,9 +64,9 @@ public class N1_IA : MonoBehaviour {
       float distJugador = Vector2.Distance(transform.position, player.position);
       Debug.Log("Distancia del jugador" + distJugador);
 
-     if (vidaEnemiga<10)
+     if (vidaEnemiga<5)
      {
-         VelocidadMov = 1.0f;
+         VelocidadMov = 1.5f;
          if (Time.time-ultimoGolpe<cooldown)
          {
             return;
@@ -71,14 +76,14 @@ public class N1_IA : MonoBehaviour {
            DisparoAgua();
         }
      
-     if (Mathf.Abs(distJugador)>10)
+     if (Mathf.Abs(distJugador)>7)
        {
             anim.SetBool("Enojo", false);
             VelocidadMov = 0.0f;
        } 
-        else if((Mathf.Abs(distJugador)<=10))
+        else if((Mathf.Abs(distJugador)<=7))
         {
-         VelocidadMov = 1.0f;
+         VelocidadMov = 1.5f;
          if (Time.time-ultimoGolpe<cooldown)
          {
             return;
@@ -131,7 +136,7 @@ public class N1_IA : MonoBehaviour {
           Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
           rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
                 
-          /*Corregir impacto de bala y destroy de game object*/
+          /*destroy de game object*/
     }
 
    public void Golpe()
@@ -139,6 +144,12 @@ public class N1_IA : MonoBehaviour {
        vidaEnemiga = vidaEnemiga - 1;
        if(vidaEnemiga == 0)
        Destroy(gameObject);
+   }
+   private void OnTriggerEnter2D(Collider2D other) {
+    if (other.gameObject.tag == "balas")
+    {
+        Golpe();
+    }
    }
  
 }
