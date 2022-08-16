@@ -16,6 +16,7 @@ public class N1_IA : MonoBehaviour {
    private float VelocidadB = 10f;
    private float ultimoGolpe;   
    public GameObject BalaEnemiga;
+   private bool enemigoact= false;
 
   [SerializeField] public int vidaEnemiga;
   [SerializeField] private Transform disparador;
@@ -64,35 +65,32 @@ public class N1_IA : MonoBehaviour {
       float distJugador = Vector2.Distance(transform.position, player.position);
       Debug.Log("Distancia del jugador" + distJugador);
 
-     if (vidaEnemiga<5)
+     if (vidaEnemiga < 5)
      {
-         VelocidadMov = 1.5f;
-         if (Time.time-ultimoGolpe<cooldown)
-         {
-            return;
-         }
-           ultimoGolpe = Time.time; 
-           anim.SetBool("Enojo", true);
-           DisparoAgua();
-        }
+         enemigoact = true;
+     }
      
-     if (Mathf.Abs(distJugador)>7)
-       {
-            anim.SetBool("Enojo", false);
-            VelocidadMov = 0.0f;
-       } 
-        else if((Mathf.Abs(distJugador)<=7))
+    if (Mathf.Abs(distJugador)>7 && !enemigoact)
+    {
+        VelocidadMov = 0.0f;
+    } 
+    else  
+        enemigoact = true;
+
+    if (enemigoact == true)
+    {
+        VelocidadMov = 1.5f;
+
+        if (Time.time - ultimoGolpe < cooldown)
         {
-         VelocidadMov = 1.5f;
-         if (Time.time-ultimoGolpe<cooldown)
-         {
             return;
-         }
-           ultimoGolpe = Time.time; 
-           anim.SetBool("Enojo", true);
-           DisparoAgua();
         }
-       }
+        ultimoGolpe = Time.time; 
+        anim.SetTrigger("Enojo");
+        //DisparoAgua();
+    }
+    }
+      
 
 
    void moveCharacter(Vector2 direction)
@@ -131,7 +129,6 @@ public class N1_IA : MonoBehaviour {
 
     private void DisparoAgua()
     {
-          anim.SetBool("Enojo", false);
           GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
           Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
           rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
