@@ -55,7 +55,12 @@ public class granada : MonoBehaviour
         }
         ultimaRotacion = Quaternion.Euler(0,0, _t.eulerAngles.z);
         GameObject explosion = Instantiate(explosionEfecto, _t.position, ultimaRotacion);
-        //DañarEnemigo();
+         IA2 enemigo = explosion.GetComponent<IA2>(); 
+          if(enemigo != null)
+           {
+            enemigo.Golpe();
+           } 
+
         Destroy(explosion, tiempoGranadaExplosion);
         Destroy(gameObject);
 

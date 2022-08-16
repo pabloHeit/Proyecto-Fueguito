@@ -18,6 +18,7 @@ public class controladorVidas : MonoBehaviour
     public event EventHandler OnMuerto;
     private bool dying;
     [SerializeField] private GameObject tumba;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -30,6 +31,7 @@ public class controladorVidas : MonoBehaviour
         if (vidaJugador<=0 && !dying) Muerte();
         else barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
     }
+
     public void Muerte()
     {
         barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
