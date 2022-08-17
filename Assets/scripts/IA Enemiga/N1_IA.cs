@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class N1_IA : MonoBehaviour {
+public class N1_IA : MonoBehaviour 
+{
    Animator anim;
-
    private Transform player;
    public float VelocidadMov;
    private Vector2 movement;
@@ -17,29 +18,33 @@ public class N1_IA : MonoBehaviour {
    private float ultimoGolpe;   
    public GameObject BalaEnemiga;
    private bool enemigoact= false;
-
+   private NavMeshAgent navMeshAgent;
   [SerializeField] public int vidaEnemiga;
   [SerializeField] private Transform disparador;
+  [SerializeField] private Transform objetivo;
+    
     
    void Start()
     {
+     navMeshAgent = GetComponent<NavMeshAgent>();
+     navMeshAgent.updateRotation = false;
+     navMeshAgent.updateUpAxis = false;   
      controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
      rb= this.GetComponent<Rigidbody2D>();
      miraDerecha = true;
      BalaAgua = GetComponent<BalaAgua>();
      anim = GetComponent<Animator>();
-
      player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
    }
 
    void Update() 
    {
-
-       
+     navMeshAgent.SetDestination(objetivo.position);
     if(controladorVidas != null)
     {
         Vector3 lookAtDirection = player.position - disparador.position;
-        disparador.right= lookAtDirection;
+        lookAtDirection.z = 0.0f;
+        disparador.right = lookAtDirection;
 
         if (controladorVidas.vidaJugador != 0)
         {
