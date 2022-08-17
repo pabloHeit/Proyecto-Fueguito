@@ -13,6 +13,7 @@ public class SeguirJugadorxd : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
+        
     }
 
     private void Update()

@@ -39,7 +39,8 @@ public class N1_IA : MonoBehaviour
 
    void Update() 
    {
-     navMeshAgent.SetDestination(objetivo.position);
+     
+
     if(controladorVidas != null)
     {
         Vector3 lookAtDirection = player.position - disparador.position;
@@ -84,6 +85,7 @@ public class N1_IA : MonoBehaviour
 
     if (enemigoact == true)
     {
+        navMeshAgent.SetDestination(objetivo.position);
         VelocidadMov = 1.5f;
 
         if (Time.time - ultimoGolpe < cooldown)
