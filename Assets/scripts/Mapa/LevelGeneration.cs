@@ -63,6 +63,7 @@ public class LevelGeneration : MonoBehaviour
     private void  Move()
     {
         
+   
         
         if(direction == 1 || direction == 2)
         {
@@ -97,6 +98,8 @@ public class LevelGeneration : MonoBehaviour
                     {
                         dire=direction;
                         int rand = Random.Range(0, rooms.Length);
+                        direcciones [i]=direction;
+    i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                         int chance = Random.Range(1,11);
@@ -111,8 +114,7 @@ public class LevelGeneration : MonoBehaviour
                         posmove=transform.position;
                         Posibilidad();
                     }
-                     direcciones [i]=direction;
-    i++;
+                     
                     }
                                 
                                 
@@ -159,6 +161,8 @@ public class LevelGeneration : MonoBehaviour
                     else
                     {
                         int rand = Random.Range(0, rooms.Length);
+                        direcciones [i]=direction;
+    i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                           int chance = Random.Range(1,11);
@@ -170,8 +174,7 @@ public class LevelGeneration : MonoBehaviour
                         Posibilidad();
                     }
                      
-                      direcciones [i]=direction;
-    i++;
+                     
                     }
 
                 }
@@ -219,6 +222,8 @@ public class LevelGeneration : MonoBehaviour
                     else
                     {
                         int rand = Random.Range(0, rooms.Length);
+                        direcciones [i]=direction;
+    i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                           int chance = Random.Range(1,11);
@@ -229,8 +234,7 @@ public class LevelGeneration : MonoBehaviour
                         posmove=transform.position;
                         Posibilidad();
                     }
-                      direcciones [i]=direction;
-    i++;
+                     
                       
                     }
 
@@ -281,6 +285,8 @@ public class LevelGeneration : MonoBehaviour
                     else
                     {
                         int rand=Random.Range(0,rooms.Length);
+                        direcciones [i]=direction;
+    i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                           int chance = Random.Range(1,11);
@@ -296,8 +302,7 @@ public class LevelGeneration : MonoBehaviour
                         posmove=transform.position;
                         Posibilidad();
                     }
-                     direcciones [i]=direction;
-    i++;
+                   
                     }
                 }
             }
