@@ -21,9 +21,9 @@ public class N1_IA : MonoBehaviour
    private NavMeshAgent navMeshAgent;
   [SerializeField] public int vidaEnemiga;
   [SerializeField] private Transform disparador;
+  [SerializeField] private GameObject efectoImpacto;
   [SerializeField] private Transform objetivo;
-    
-    
+  [SerializeField] private float TiempoBala;
    void Start()
     {
      navMeshAgent = GetComponent<NavMeshAgent>();
@@ -39,7 +39,6 @@ public class N1_IA : MonoBehaviour
 
    void Update() 
    {
-     
 
     if(controladorVidas != null)
     {
@@ -138,9 +137,11 @@ public class N1_IA : MonoBehaviour
     {
           GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
           Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
-          rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
-                
-          /*destroy de game object*/
+          rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse); 
+          
+          
+          
+
     }
 
    public void Golpe()

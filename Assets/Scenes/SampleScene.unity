@@ -640,9 +640,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.15100002, y: -0.03911467}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 0.6666667}
+    border: {x: 0.125, y: 1.1875, z: 0, w: 0.1875}
+    pivot: {x: 0.349, y: 0.78}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2601,6 +2601,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 702729444301467306, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 702729444301467306, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.009
+      objectReference: {fileID: 0}
     - target: {fileID: 8658437452623967254, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
       propertyPath: m_Name
       value: enemigo1
@@ -2609,17 +2617,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8658437452623967254, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+      propertyPath: m_TagString
+      value: Enemigo
+      objectReference: {fileID: 0}
     - target: {fileID: 8658437452623967256, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8658437452623967256, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.86
+      value: -4.84
       objectReference: {fileID: 0}
     - target: {fileID: 8658437452623967256, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.21
+      value: -2.42
       objectReference: {fileID: 0}
     - target: {fileID: 8658437452623967256, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2681,6 +2693,10 @@ PrefabInstance:
       propertyPath: objetivo
       value: 
       objectReference: {fileID: 2087941459}
+    - target: {fileID: 8658437452623967260, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+      propertyPath: TiempoBala
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8658437452623967260, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
       propertyPath: VelocidadMov
       value: 0
@@ -15132,7 +15148,7 @@ GameObject:
   - component: {fileID: 1417199709}
   - component: {fileID: 1417199708}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: EnemigoPrueba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

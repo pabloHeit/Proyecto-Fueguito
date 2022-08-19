@@ -21,7 +21,7 @@ public class bala : MonoBehaviour
   private void OnTriggerEnter2D(Collider2D other){
 
       ultimaRotacion = Quaternion.Euler(0,0,transform.eulerAngles.z);
-      GameObject efecto = Instantiate(efectoImpacto, transform.position, ultimaRotacion); /* Solucionar posteriormente la rotacion del impacto (Vease bloc de notas idea rotación)*/
+      GameObject efecto = Instantiate(efectoImpacto, transform.position, ultimaRotacion); 
       Destroy(efecto, bulletDisappear);
       Destroy(gameObject);
   }
