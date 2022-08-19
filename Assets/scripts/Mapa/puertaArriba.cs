@@ -12,6 +12,21 @@ public class puertaArriba : MonoBehaviour
         direc=FindObjectOfType<LevelGeneration>();
          if(direc.posi==false)
        {
+           if(direc.numHabit==10){
+            if((direc.direction==7) || (direc.direction==8))
+        {
+            GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+
+        }
+        else
+        {
+            GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+            }
+            else
+            {
         if((direc.direction==7) || (direc.direction==8))
         {
             GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
@@ -32,6 +47,7 @@ public class puertaArriba : MonoBehaviour
             }
         }
         }
+       }
        else
        {
          if(direc.direction2==8 || direc.direction2==7)
@@ -42,8 +58,16 @@ public class puertaArriba : MonoBehaviour
         }
          else
         {
-            GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+            if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
+            {
+                GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
+            }
+            else
+            {
+  GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
         }  
        }
     }

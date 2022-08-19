@@ -16,7 +16,7 @@ public class LevelGeneration : MonoBehaviour
     public float startTimeBtwRoom = 0.25f;
     public float minX;
     private int Cantidad;
-    private int numHabit=10;
+    public int numHabit=10;
     private int moveCounter;
     public float maxX;
     public float maxY;
@@ -36,11 +36,11 @@ public class LevelGeneration : MonoBehaviour
         int randStartingPos = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randStartingPos].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
-
+   
         direction= Random.Range(1, 9);
         Debug.Log(direction);
         direcciones = new int [11];
-         direcciones [i]=direction;
+      direcciones [i]=direction;
     i++;
     }
 
@@ -51,8 +51,16 @@ public class LevelGeneration : MonoBehaviour
        
         if(timeBtwRoom <=0 && stopGeneration == false)
         {
-            Move();
-            timeBtwRoom= startTimeBtwRoom;
+            if(Cantidad!=0)
+            {
+                Posibilidad();
+                timeBtwRoom= startTimeBtwRoom;
+            }
+            else
+            {
+              Move();
+            timeBtwRoom= startTimeBtwRoom;  
+            }
         }
         else
         {
@@ -112,7 +120,8 @@ public class LevelGeneration : MonoBehaviour
                      if (chance<=3 && numHabit!=1)
                     { 
                         posmove=transform.position;
-                        Posibilidad();
+                        
+                        Preposibilidad();
                     }
                      
                     }
@@ -171,7 +180,8 @@ public class LevelGeneration : MonoBehaviour
                     if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
-                        Posibilidad();
+                        
+                        Preposibilidad();
                     }
                      
                      
@@ -232,7 +242,8 @@ public class LevelGeneration : MonoBehaviour
                     if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
-                        Posibilidad();
+                        
+                        Preposibilidad();
                     }
                      
                       
@@ -269,9 +280,15 @@ public class LevelGeneration : MonoBehaviour
                 }
                 else
                 {
-                    
-                    
-
+                     if(numHabit==1)
+                    {
+                        int rand = Random.Range(0, rooms.Length); 
+                        direction=0;
+                        Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                        stopGeneration=true;
+                    }
+                    else
+                    {
                     Vector2 newPos = new Vector2(transform.position.x, transform.position.y + moveAmount);
                     transform.position = newPos;
                     if(numHabit==1)
@@ -300,9 +317,12 @@ public class LevelGeneration : MonoBehaviour
                         if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
-                        Posibilidad();
+                        
+                        Preposibilidad();
+                        
                     }
                    
+                    }
                     }
                 }
             }
@@ -314,9 +334,10 @@ public class LevelGeneration : MonoBehaviour
         }
     }
 
-    private void Posibilidad ()
-    {
-        posi=true;
+   
+       
+    private void Preposibilidad(){
+posi=true;
         Debug.Log("esta en posiblidad"); 
         int mitad=numHabit/2;
          Debug.Log("mitad es:"+mitad);
@@ -324,14 +345,13 @@ public class LevelGeneration : MonoBehaviour
          Debug.Log("cantidad es"+Cantidad);
         numHabit=numHabit-Cantidad;
         direction2=direction;
-    while( Cantidad>0 )
-        {Posibilidad2();}
-
     }
-       private void Posibilidad2()
+
+    
+       private void Posibilidad()
         {
          
-            direction2=Random.Range(1,9);
+            
             if(direction2 == 1 || direction2 == 2)
             {
 
@@ -448,6 +468,20 @@ public class LevelGeneration : MonoBehaviour
                 }
                 else
                 {
+                    if(Cantidad==1)
+                    {
+                        
+                        direction2=0;
+                        direction=Random.Range(1,9);
+                        despDif=true; 
+                        posi=false;
+                        int rand = Random.Range(0, rooms.Length);
+                        Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                       Cantidad--;
+                       Debug.Log("Cantidad es 0");
+                    }
+                    else
+                    {
                     Collider2D roomDetection = Physics2D.OverlapCircle(transform.position,1, room);
 
                     
@@ -455,13 +489,7 @@ public class LevelGeneration : MonoBehaviour
                     Vector2 newPos = new Vector2(transform.position.x, transform.position.y + moveAmount);
                     transform.position = newPos;
                   
-                        int rand = Random.Range(1, 4);
-                        if(rand==2)
-                        {
-                            rand=1;
-                        }
-
-
+                        int rand = Random.Range(1, rooms.Length);
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Cantidad--;
                         direction2=Random.Range(1,9);
@@ -469,15 +497,14 @@ public class LevelGeneration : MonoBehaviour
          i++;
                 }
             }
+            }
             else
             {
                 direction2=Random.Range(1,7);
             }
         }
-direction2=0;
-direction=Random.Range(1,9);
-    despDif=true; 
-    posi=false;
+     
+
     }
 }
     

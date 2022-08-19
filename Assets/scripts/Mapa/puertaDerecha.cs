@@ -12,9 +12,24 @@ public class puertaDerecha : MonoBehaviour
         direc=FindObjectOfType<LevelGeneration>();
       //  Debug.Log("direccion de puerta:" +direc.direction);
         //Debug.Log("la direccion anterior es:"+direc.anterior);
-        //Debug.Log("adentro de i"+direc.direcciones[direc.i-1]);
+        
          if(direc.posi==false)
        {
+           if(direc.numHabit==10){
+            if((direc.direction==1) || (direc.direction==2))
+        {
+            GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+
+        }
+        else
+        {
+            GameObject instance = (GameObject)Instantiate(derecha[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+            }
+            else
+            {
         if((direc.direction==1) || (direc.direction==2))
         {
             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
@@ -36,18 +51,30 @@ public class puertaDerecha : MonoBehaviour
             }
         }
         }
+    }
        else
        {
+           Debug.Log("antes de i"+direc.direcciones[direc.i-1]);
+           
          if(direc.direction2==1 || direc.direction2==2)
         {
             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-
+            
         }
          else
         {
-            GameObject instance = (GameObject)Instantiate(derecha[1], transform.position, Quaternion.identity);
+
+          if(direc.direcciones[direc.i-1]==3 || direc.direcciones[direc.i-1]==4)
+            {
+                GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
+            }
+            else
+            {
+  GameObject instance = (GameObject)Instantiate(derecha[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
         }  
        }
     }

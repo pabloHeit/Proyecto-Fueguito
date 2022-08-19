@@ -12,11 +12,25 @@ public class puertaIzquierda : MonoBehaviour
         direc=FindObjectOfType<LevelGeneration>();
          if(direc.posi==false)
        {
+           if(direc.numHabit==10){
+            if((direc.direction==3) || (direc.direction==4))
+        {
+            GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+
+        }
+        else
+        {
+            GameObject instance = (GameObject)Instantiate(izquierda[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+            }
+            else
+            {
         if((direc.direction==3) || (direc.direction==4))
         {
             GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-             Debug.Log("direccion de puerta:" +direc.direction);
         }
         else
         {
@@ -32,6 +46,7 @@ public class puertaIzquierda : MonoBehaviour
             }
         }
         }
+       }
        else
        {
          if(direc.direction2==3 || direc.direction2==4)
@@ -42,8 +57,16 @@ public class puertaIzquierda : MonoBehaviour
         }
          else
         {
-            GameObject instance = (GameObject)Instantiate(izquierda[1], transform.position, Quaternion.identity);
+             if(direc.direcciones[direc.i-1]==1 || direc.direcciones[direc.i-1]==2)
+            {
+                GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
+            }
+            else
+            {
+  GameObject instance = (GameObject)Instantiate(izquierda[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
         }  
        }
     }
