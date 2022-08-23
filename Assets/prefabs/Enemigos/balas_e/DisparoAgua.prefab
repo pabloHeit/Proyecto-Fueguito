@@ -98,10 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 0
-  efectoImpacto: {fileID: 2977616448736528058, guid: 24e5a66832cf5ae45b0a36b2389ffd89, type: 3}
   enemigo: {fileID: 8127768670949651148}
   objetivo: {fileID: 0}
   TiempoBala: 1
+  efectoImpacto: {fileID: 2977616448736528058, guid: 24e5a66832cf5ae45b0a36b2389ffd89, type: 3}
+  clip: {fileID: 7400000, guid: 5f97936f5c35abe41ae1c308c855ad32, type: 2}
 --- !u!58 &8325213709261306624
 CircleCollider2D:
   m_ObjectHideFlags: 0

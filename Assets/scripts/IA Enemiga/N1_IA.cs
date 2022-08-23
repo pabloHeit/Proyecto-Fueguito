@@ -68,7 +68,7 @@ public class N1_IA : MonoBehaviour
       movement = direction;
 
       float distJugador = Vector2.Distance(transform.position, player.position);
-      Debug.Log("Distancia del jugador" + distJugador);
+      //Debug.Log("Distancia del jugador" + distJugador);
 
      if (vidaEnemiga < 5)
      {
@@ -137,11 +137,7 @@ public class N1_IA : MonoBehaviour
     {
           GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
           Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
-          rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse); 
-          
-          
-          
-
+          rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
     }
 
    public void Golpe()

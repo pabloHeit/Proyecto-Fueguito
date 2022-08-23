@@ -12,12 +12,20 @@ public class BalaAgua : MonoBehaviour
    [SerializeField] private Transform enemigo;
    [SerializeField] private Transform objetivo;
    [SerializeField] private float TiempoBala;
+   private float tiempoEfecto;
+
+   [SerializeField] private GameObject efectoImpacto;
+
+    [SerializeField] private AnimationClip clip;
+
 
     void Start()
     {
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
         Rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        tiempoEfecto = clip.length; 
+
     }    
 
    void FixedUpdate(){
@@ -27,12 +35,18 @@ public class BalaAgua : MonoBehaviour
 
   public void OnTriggerEnter2D(Collider2D other) {
       
-        if((other.CompareTag("Player")))
+        if(other.CompareTag("Player"))
         {
             controladorVidas.TomarDaño(daño);
         }
-     /* GameObject efecto1 = Instantiate(efectoImpacto, balaene.position, balaene.rotation); 
-          Destroy(efecto1, TiempoBala);*/
+        if(!(other.CompareTag("Enemigo")))
+        {
+            GameObject efecto1 = Instantiate(efectoImpacto, transform.position, transform.rotation); 
+            Destroy(efecto1, tiempoEfecto);
+            Destroy(this.gameObject);
+
+        }
+
     }
     
 
