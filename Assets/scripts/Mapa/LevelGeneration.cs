@@ -98,16 +98,18 @@ public class LevelGeneration : MonoBehaviour
                     {
                         int rand = Random.Range(0, rooms.Length);
                         direction=0;
+                        direcciones [i]=direction;
+                        i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
-                        stopGeneration=true;
-                        
+                        Debug.Log("direccion final"+direction);
+                        stopGeneration = true;         
                     }
                     else
                     {
                         dire=direction;
                         int rand = Random.Range(0, rooms.Length);
                         direcciones [i]=direction;
-    i++;
+                        i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                         int chance = Random.Range(1,11);
@@ -163,6 +165,8 @@ public class LevelGeneration : MonoBehaviour
                     {
                         int rand = Random.Range(0, rooms.Length);
                         direction=0;
+                        direcciones [i]=direction;
+                        i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         stopGeneration=true;
                          
@@ -225,6 +229,8 @@ public class LevelGeneration : MonoBehaviour
                     {
                         int rand = Random.Range(0, rooms.Length); 
                         direction=0;
+                        direcciones [i]=direction;
+                        i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         stopGeneration=true;
                         
@@ -284,6 +290,8 @@ public class LevelGeneration : MonoBehaviour
                     {
                         int rand = Random.Range(0, rooms.Length); 
                         direction=0;
+                        direcciones [i]=direction;
+                        i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         stopGeneration=true;
                     }
@@ -337,7 +345,7 @@ public class LevelGeneration : MonoBehaviour
    
        
     private void Preposibilidad(){
-posi=true;
+/*posi=true;
         Debug.Log("esta en posiblidad"); 
         int mitad=numHabit/2;
          Debug.Log("mitad es:"+mitad);
@@ -345,21 +353,22 @@ posi=true;
          Debug.Log("cantidad es"+Cantidad);
         numHabit=numHabit-Cantidad;
         direction2=Random.Range(1,9);
-        despDif=true; 
+        despDif=true; */
     }
 
     
        private void Posibilidad()
         {
-         
-            
+         Debug.Log("habitacion num"+Cantidad);
+            Debug.Log("direccion habit"+direction2);
             if(direction2 == 1 || direction2 == 2)
             {
-
+                Debug.Log("habitacion num"+Cantidad);
             if(transform.position.x < maxX)
             {
                 Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
                 Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                
                 if(detectaroom==true)
                 {
                     direction2=Random.Range(3,9);
@@ -368,140 +377,189 @@ posi=true;
                 {
                     
                     transform.position = newPos;
-                   
+                   if(Cantidad==1)
+                    {
+                      
+                         
+                        direction2=0; 
+                        posi=false;
+                        int rand = Random.Range(0, rooms.Length);
+                        Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                       
+                        Cantidad--;
+                       Debug.Log("Cantidad es 0");
+                       direcciones[i]=direction2;
+                    i++;
+                        direction=Random.Range(1,9);
+                    }
+                    else
+                    {
                     int rand = Random.Range(0, rooms.Length);
+                    direcciones[i]=direction2;
+                    i++;
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
                     Cantidad--;
                     direction2=Random.Range(1,9);
-                     direcciones [i]=direction2;
-         i++;
+                    while(direction2==3 || direction2 ==4)
+                        {
+                            direction2=Random.Range(1,9);
+                        } 
+                     
+                    
+                    }
                 }
             }
             else
             {
                 direction2= Random.Range(3,9);
             }
+             
         }
         else if (direction2 == 3 || direction2 == 4)
         {
+            Debug.Log("habitacion num"+Cantidad);
             if(transform.position.x > minX)
             {
 
-                Vector2 newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
                 Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                 if(detectaroom==true)
                 {
-                    direction2=Random.Range(3,9);
+                     direction=Random.Range(1,9);
+                    while(direction2==3 || direction2==4){
+                        direction2=Random.Range(1,9);
+                    }
                 }
                 else
                 {
-                    transform.position = newPos;
                     
+                    transform.position = newPos;
+                   if(Cantidad==1)
+                    {
+                        
+                          
+                         direction2=0; 
+                        posi=false;
                         int rand = Random.Range(0, rooms.Length);
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                       
                         Cantidad--;
-                        direction2=Random.Range(1,9);
-                         direcciones [i]=direction2;
-         i++;
-                }
-            }
-            else
-            {
-                while(direction==3 || direction ==4)
+                       Debug.Log("Cantidad es 0");
+                      direcciones[i]=direction2;
+                    i++;
+                        direction=Random.Range(1,9);
+                    }
+                    else
+                    {
+                    int rand = Random.Range(0, rooms.Length);
+                    direcciones[i]=direction2;
+                    i++;
+                    Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                    Cantidad--;
+                    direction=Random.Range(1,9);
+                    while(direction2==3 || direction2 ==4)
                         {
-                            direction=Random.Range(1,9);
+                            direction2=Random.Range(1,9);
                         } 
+                     
+                    
+                    }
+                }
             }
         }
         else if (direction2 == 5 || direction2==6)
         {
-
+Debug.Log("habitacion num"+Cantidad);
             if(transform.position.y > minY)
             {
-                Vector2 newposTD= new Vector2(transform.position.x, transform.position.y- moveAmount);
-
-                Collider2D detectaroom = Physics2D.OverlapCircle(newposTD,1, room);
-                        if(detectaroom==true)
-                {
-                    while(direction==5 || direction ==6)
-                        {
-                            direction=Random.Range(1,9);
-                        } 
-                }
-                else
-                {
-
-                    Collider2D roomDetection = Physics2D.OverlapCircle(transform.position,1, room);
-                    Vector2 newPos = new Vector2(transform.position.x, transform.position.y - moveAmount);
-                    transform.position = newPos;
-                    
-                        int rand = Random.Range(1, 4);
-                        Instantiate(rooms[rand], transform.position,Quaternion.identity);
-                        Cantidad--;
-                        direction2=Random.Range(1,9);
-                         direcciones [i]=direction2;
-         i++;
-                  
-                }
-            }
-            else
-            {
-                while(direction==5 || direction ==6)
-                        {
-                            direction=Random.Range(1,9);
-                        } 
-
-            }
-        }
-        else if (direction2 == 7 || direction == 8)
-        {
-          
-            if(transform.position.y < maxY)
-            {  
-
-                Vector2 newposTD= new Vector2(transform.position.x, transform.position.y+ moveAmount);
-
-                Collider2D detectaroom = Physics2D.OverlapCircle(newposTD,1, room);
                
+                Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                 if(detectaroom==true)
                 {
-                    direction2=Random.Range(1,7);
+                     direction=Random.Range(1,9);
+                    while(direction2==5 || direction2==6){
+                        direction2=Random.Range(1,9);
+                    }
                 }
                 else
                 {
-                    if(Cantidad==1)
+                    
+                    transform.position = newPos;
+                   if(Cantidad==1)
                     {
-                        
-                        direction2=0;
-                        direction=Random.Range(1,9);
-                        
+                         
                         posi=false;
+                        direction2=0; 
                         int rand = Random.Range(0, rooms.Length);
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
-                       Cantidad--;
+                       
+                        Cantidad--;
                        Debug.Log("Cantidad es 0");
+                        direcciones[i]=direction2;
+                    i++;
+                        direction=Random.Range(1,9);
                     }
                     else
                     {
-                    Collider2D roomDetection = Physics2D.OverlapCircle(transform.position,1, room);
-
+                    int rand = Random.Range(0, rooms.Length);
+                    direcciones[i]=direction2;
+                    i++;
+                    Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                    Cantidad--;
+                    direction2=Random.Range(1,9);
+                    while(direction2==5 || direction2 ==6)
+                        {
+                            direction2=Random.Range(1,9);
+                        } 
+                     
                     
-
-                    Vector2 newPos = new Vector2(transform.position.x, transform.position.y + moveAmount);
-                    transform.position = newPos;
-                  
-                        int rand = Random.Range(1, rooms.Length);
-                        Instantiate(rooms[rand], transform.position,Quaternion.identity);
-                        Cantidad--;
-                        direction2=Random.Range(1,9);
-                         direcciones [i]=direction2;
-         i++;
+                    }
                 }
             }
-            }
-            else
-            {
-                direction2=Random.Range(1,7);
+        }
+        else if (direction2 == 7 || direction2 == 8)
+        {
+          Debug.Log("habitacion num"+Cantidad);
+            if(transform.position.y < maxY)
+            {  
+
+                Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                if(detectaroom==true)
+                {
+                     direction2=Random.Range(1,7);
+                }
+                else
+                {
+                    
+                    transform.position = newPos;
+                   if(Cantidad==1)
+                    {
+                        
+                         
+                        direction2=0; 
+                        posi=false;
+                        int rand = Random.Range(0, rooms.Length);
+                        Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                       
+                        Cantidad--;
+                       Debug.Log("Cantidad es 0");
+                       direcciones[i]=direction2;
+                    i++;
+                        direction=Random.Range(1,9);
+                    }
+                    else
+                    {
+                    int rand = Random.Range(0, rooms.Length);
+                    direcciones[i]=direction2;
+                    i++;
+                    Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                    Cantidad--;
+                    direction2=Random.Range(1,7);
+                  
+                    }
+                }
             }
         }
      

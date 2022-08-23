@@ -10,7 +10,7 @@ public class puertaDerecha : MonoBehaviour
     private void Start()
     {
         direc=FindObjectOfType<LevelGeneration>();
-      //  Debug.Log("direccion de puerta:" +direc.direction);
+        Debug.Log("direccion de puerta:" +direc.direction);
         //Debug.Log("la direccion anterior es:"+direc.anterior);
         
          if(direc.posi==false)
@@ -55,7 +55,7 @@ public class puertaDerecha : MonoBehaviour
        else
        {
            Debug.Log("antes de i"+direc.direcciones[direc.i-1]);
-           
+            Debug.Log("despues de i"+direc.direction2);
          if(direc.direction2==1 || direc.direction2==2)
         {
             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);

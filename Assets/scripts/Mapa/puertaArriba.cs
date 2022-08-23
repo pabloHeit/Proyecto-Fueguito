@@ -37,6 +37,7 @@ public class puertaArriba : MonoBehaviour
         {
            if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
             {
+                Debug.Log("aca");
                 GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
             }
