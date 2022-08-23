@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class N1_IA : MonoBehaviour 
+public class NubeIA : MonoBehaviour
 {
    Animator anim;
    private Transform player;
@@ -24,6 +24,7 @@ public class N1_IA : MonoBehaviour
   [SerializeField] private GameObject efectoImpacto;
   [SerializeField] private Transform objetivo;
   [SerializeField] private float TiempoBala;
+
    void Start()
     {
      navMeshAgent = GetComponent<NavMeshAgent>();
@@ -32,7 +33,6 @@ public class N1_IA : MonoBehaviour
      controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
      rb= this.GetComponent<Rigidbody2D>();
      miraDerecha = true;
-     BalaAgua = GetComponent<BalaAgua>();
      anim = GetComponent<Animator>();
      player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
    }
@@ -92,9 +92,8 @@ public class N1_IA : MonoBehaviour
             return;
         }
         ultimoGolpe = Time.time; 
-        anim.SetTrigger("Enojo");
-        //DisparoAgua();
-    }
+       // anim.SetTrigger("Ataque");
+      }
     }
 
    void moveCharacter(Vector2 direction)
@@ -105,7 +104,6 @@ public class N1_IA : MonoBehaviour
             rb.velocity = new Vector2(VelocidadMov, 0f);
             Flip();
         }
-
         else if(transform.position.x > player.position.x && miraDerecha)
         {
             rb.velocity = new Vector2(-VelocidadMov, 0f);
@@ -131,7 +129,7 @@ public class N1_IA : MonoBehaviour
         transform.localScale = laEscala;
     }
 
-    private void DisparoAgua()
+     private void DisparoAgua()
     {
           GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
           Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
@@ -153,3 +151,4 @@ public class N1_IA : MonoBehaviour
    }
  
 }
+
