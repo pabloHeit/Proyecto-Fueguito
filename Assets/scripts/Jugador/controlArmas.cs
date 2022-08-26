@@ -7,14 +7,16 @@ using UnityEngine.UI;
 
 public class controlArmas : MonoBehaviour
 {
+    public int sniperAmmo;
+    public int grenadeAmmo;
+
     public float damageMultiplier = 1;
     public float rechargeMultiplier = 1;
-
     private float cambiarPermiso;
     [SerializeField] private GameObject[] activadorArma;
 
     public GameObject[] armas;
-    private int armaActiva = 0; //puños 1, espada 2, rifle 3, lanzagranadas 4 ? 5
+    public int armaActiva = 0; //espada 1, rifle 2, lanzagranadas 3 
     private float scrollMouse;
     private int cantDeArmas;
     private int ultima_activa = 0;

@@ -66,8 +66,7 @@ public class armasControlador : MonoBehaviour
         if (!armaDeFuego)
         {
             marcadorBalas.SetActive(false); //No tiene munición, se borra el bloque de balas
-            if(Input.GetButtonDown("Fire1")) Golpe();
-                       
+            if(Input.GetButtonDown("Fire1")) Golpe();                       
         }
         else
         {    
@@ -90,8 +89,16 @@ public class armasControlador : MonoBehaviour
                 && cantBalas != max_capacidad
                 && !recargando)
             {
-                recargando = true;
-                StartCoroutine( Recargar(tiempoDeRecarga) );            
+                if (controlArmas.armaActiva == 2 && controlArmas.sniperAmmo > 0)
+                {
+                    recargando = true;
+                    StartCoroutine( Recargar(tiempoDeRecarga) );                    
+                }
+                else if(controlArmas.armaActiva == 3 && controlArmas.grenadeAmmo > 0)
+                {
+                    recargando = true;
+                    StartCoroutine( Recargar(tiempoDeRecarga) );
+                }
             }
 
             if (disparar 
@@ -139,9 +146,32 @@ public class armasControlador : MonoBehaviour
     }
 
     public IEnumerator Recargar(float tiempoRecarga){
+
         cooldown_recarga = Time.time + tiempoRecarga;
         yield return new WaitForSeconds(tiempoRecarga); //cooldown de recarga
-        cantBalas = max_capacidad;
+
+        if (controlArmas.armaActiva == 1){
+            cantBalas = controlArmas.sniperAmmo - max_capacidad;
+            if (controlArmas.sniperAmmo / max_capacidad < 1){
+                cantBalas = max_capacidad;
+                controlArmas.sniperAmmo -= max_capacidad;
+            }
+            else{
+                cantBalas = controlArmas.sniperAmmo;
+                controlArmas.sniperAmmo = 0;
+            }
+        }
+        else if(controlArmas.armaActiva == 2){
+            if (controlArmas.grenadeAmmo / max_capacidad < 1){
+                cantBalas = max_capacidad;
+                controlArmas.grenadeAmmo -= max_capacidad;
+            }
+            else{
+                cantBalas = controlArmas.grenadeAmmo;
+                controlArmas.grenadeAmmo = 0;
+            }
+        }
+
         recargando = false;
     }
 
