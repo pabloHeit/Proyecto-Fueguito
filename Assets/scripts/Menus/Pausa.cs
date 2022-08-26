@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Pausa : MonoBehaviour
 {
     [SerializeField] private GameObject PauseMenu, IndexMenu, OptionsMenu;
     public Button continueButton, opcionesButton, exitButton, volverButton;
-    public bool enJuego = false;
+    public bool enJuego = true;
     public bool enPausa = false;
     private bool enOpciones = false;
     CodigoVolumen CodigoVolumen;
@@ -31,7 +33,13 @@ public class Pausa : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)) AlternarPausa();
+        Scene scene = SceneManager.GetActiveScene();
+
+        if (scene.name != "MenuPrincipal" && scene.name != "Cargando")
+            enJuego = true;                        
+        else enJuego = false;
+
+        if(Input.GetKeyDown(KeyCode.Escape) && enJuego) AlternarPausa();
     }
 
     public void AlternarPausa()
