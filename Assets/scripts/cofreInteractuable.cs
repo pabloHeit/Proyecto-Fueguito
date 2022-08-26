@@ -28,7 +28,7 @@ public class cofreInteractuable : MonoBehaviour
 
     private void Update() 
     {
-        if(EnRango && Input.GetKeyDown(KeyCode.E))
+        if(EnRango && Input.GetKeyDown(KeyCode.E) && !cofreAbiertoBool)
         {          
             animator.SetBool("CofreAbierto", true);
             ApagarMensaje();
