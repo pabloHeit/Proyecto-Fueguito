@@ -52,7 +52,19 @@ public class controladorVidas : MonoBehaviour
     }
     public void TomarVida(float vida) //cambiar a int si usamos bloques de vida
     {
-        vidaJugador += vida;
+        float vidaRecuperar = (vidaMaxima - vidaJugador) ;
+
+        if (vidaRecuperar > vida)
+        {
+            vidaJugador += vida;
+            Debug.Log($"1");            
+        }
+        else
+        {
+            Debug.Log($"2");
+            vidaJugador = vidaMaxima;
+        }
+
         barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
         //animator.SetTrigger("Curacion");
     }
