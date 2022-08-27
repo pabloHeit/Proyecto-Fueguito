@@ -6,7 +6,6 @@ public class elementoCurativo : MonoBehaviour
 {
     [SerializeField] private float curacion; 
     private controladorVidas controladorVidas;
-    private bool enRango = false;
     void Start()
     {
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();

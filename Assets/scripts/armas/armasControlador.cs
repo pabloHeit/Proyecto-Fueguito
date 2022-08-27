@@ -27,6 +27,7 @@ public class armasControlador : MonoBehaviour
     [SerializeField] private float tiempoDeRecarga;
     private bool recargar;
     public bool recargando;
+    private int balasRecargar;
 
     [Header("Balas (FR)")]
     [SerializeField] public int cantBalas;
@@ -89,12 +90,12 @@ public class armasControlador : MonoBehaviour
                 && cantBalas != max_capacidad
                 && !recargando)
             {
-                if (controlArmas.armaActiva == 2 && controlArmas.sniperAmmo > 0)
+                if (controlArmas.armaActiva == 1 && controlArmas.sniperAmmo > 0)
                 {
                     recargando = true;
                     StartCoroutine( Recargar(tiempoDeRecarga) );                    
                 }
-                else if(controlArmas.armaActiva == 3 && controlArmas.grenadeAmmo > 0)
+                else if(controlArmas.armaActiva == 2 && controlArmas.grenadeAmmo > 0)
                 {
                     recargando = true;
                     StartCoroutine( Recargar(tiempoDeRecarga) );
@@ -137,37 +138,32 @@ public class armasControlador : MonoBehaviour
         catch (System.Exception){Debug.Log("Golpeaste");} 
     }
 
-    private void OnDrawGizmos()
-    {
-        if (!armaDeFuego){
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
-        }
-    }
 
     public IEnumerator Recargar(float tiempoRecarga){
 
         cooldown_recarga = Time.time + tiempoRecarga;
         yield return new WaitForSeconds(tiempoRecarga); //cooldown de recarga
+        balasRecargar = max_capacidad - cantBalas;
 
         if (controlArmas.armaActiva == 1){
-            cantBalas = controlArmas.sniperAmmo - max_capacidad;
-            if (controlArmas.sniperAmmo / max_capacidad < 1){
-                cantBalas = max_capacidad;
-                controlArmas.sniperAmmo -= max_capacidad;
+            if (controlArmas.sniperAmmo >= balasRecargar){
+                cantBalas += balasRecargar;
+                controlArmas.sniperAmmo -= balasRecargar;
             }
-            else{
-                cantBalas = controlArmas.sniperAmmo;
+            else
+            {
+                cantBalas += controlArmas.sniperAmmo;
                 controlArmas.sniperAmmo = 0;
             }
         }
         else if(controlArmas.armaActiva == 2){
-            if (controlArmas.grenadeAmmo / max_capacidad < 1){
-                cantBalas = max_capacidad;
-                controlArmas.grenadeAmmo -= max_capacidad;
+            if (controlArmas.grenadeAmmo >= balasRecargar){
+                cantBalas += balasRecargar;
+                controlArmas.grenadeAmmo -= balasRecargar;
             }
-            else{
-                cantBalas = controlArmas.grenadeAmmo;
+            else
+            {
+                cantBalas += controlArmas.grenadeAmmo;
                 controlArmas.grenadeAmmo = 0;
             }
         }
@@ -179,5 +175,12 @@ public class armasControlador : MonoBehaviour
     {        
         tiempo2 = cooldown_recarga - Time.time;
         yield return new WaitForSeconds(tiempoRecarga / 100);
+    }
+    private void OnDrawGizmos()
+    {
+        if (!armaDeFuego){
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
+        }
     }
 } 
