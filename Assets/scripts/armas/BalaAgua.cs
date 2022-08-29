@@ -9,12 +9,17 @@ public class BalaAgua : MonoBehaviour
    private controladorVidas controladorVidas;
    [SerializeField] private float daño;
    private Transform player;
+   [SerializeField] private bool ralentiza;
    [SerializeField] private Transform enemigo;
    [SerializeField] private Transform objetivo;
    [SerializeField] private float TiempoBala;
-   private float tiempoEfecto;
+    private movimientoJugador movimientoJugador;
+   [SerializeField] private float VelMov;
+    private float ultimoGolpe;
+    private float tiempoEfecto;
+     [SerializeField] float cooldownVel;
 
-   [SerializeField] private GameObject efectoImpacto;
+    [SerializeField] private GameObject efectoImpacto;
 
     [SerializeField] private AnimationClip clip;
 
@@ -24,7 +29,8 @@ public class BalaAgua : MonoBehaviour
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
         Rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        tiempoEfecto = clip.length; 
+        tiempoEfecto = clip.length;
+        movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();
 
     }    
 
@@ -37,7 +43,17 @@ public class BalaAgua : MonoBehaviour
       
         if(other.CompareTag("Player"))
         {
+            if (ralentiza = true)
+            {
+               if (Time.time - ultimoGolpe < cooldownVel)
+                {
+                    return;
+                }
+                 ultimoGolpe = Time.time;
+                 movimientoJugador.velocidadMovimiento = VelMov; 
+            }
             controladorVidas.TomarDaño(daño);
+
         }
         if(!(other.CompareTag("Enemigo")))
         {
@@ -46,6 +62,8 @@ public class BalaAgua : MonoBehaviour
             Destroy(this.gameObject);
 
         }
+
+
 
     }
     
