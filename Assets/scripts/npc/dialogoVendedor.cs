@@ -8,16 +8,16 @@ public class dialogoVendedor : MonoBehaviour
     [SerializeField] private Transform textoPanelPos;
     [SerializeField] private GameObject textoPanel;
     [SerializeField] private TMP_Text textoText;
-    private string dialogueLine;
-    private bool dialogoActivo = false;
 
     [SerializeField] private string[] dialogos;
+
+    private bool dialogoActivo = false;
+    private string dialogueLine;    
     private int indexDialogo;
     private float dialogueTime = 0.05f;
-    private bool pausado= false;
 
-    Pausa PausaScript;
-
+    private bool pausado, enPausa;
+    
     //Audio
     AudioSource voz;
     bool vozPlay = false;
@@ -26,21 +26,29 @@ public class dialogoVendedor : MonoBehaviour
     private void Start()
     {
         voz = GetComponent<AudioSource>();
-        PausaScript = GameObject.FindGameObjectWithTag("opciones").GetComponent<Pausa>();
-
         if (dialogos.Length == 0){
             Debug.Log("<color=red>dialogoVendedor ERROR</color>     El mercader no tiene dialogos");
-        }        
+        }
     }
+
+    void Awake(){
+        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+    }
+
+    void OnDestroy(){
+        GameManager.OnGameStateChanged -= GameManagerOnOnGameStateChanged;
+    }
+
+    private void GameManagerOnOnGameStateChanged(GameState state){
+        enPausa = state == GameState.Pausado;
+    }
+
     void Update()
     {
-        if (pausado)
-        {
-            voz.UnPause();
-        }
+        if (pausado)        
+            voz.UnPause();        
         
-        if (PausaScript.enPausa)
-        {
+        if (enPausa){
             voz.Pause();
             pausado = true;
         }
@@ -50,47 +58,40 @@ public class dialogoVendedor : MonoBehaviour
                 voz.Play();
                 vozToggleChange = false;
             }
-            if (vozPlay == false && vozToggleChange){
+            if (!vozPlay && vozToggleChange){
                 voz.Stop();
                 vozToggleChange = false;
             }
         }
         
     }
-/*     void OnGUI()
-    {
-        //Switch this toggle to activate and deactivate the parent GameObject
-        vozPlay = GUI.Toggle(new Rect(10, 10, 100, 30), vozPlay, "Play Music");
-
-        //Detect if there is a change with the toggle
-        if (GUI.changed)
-        {
-            //Change to true to show that there was just a change in the toggle state
-            vozToggleChange = true;
-        }
-    } */
 
     private void MensajePantalla(){
 
-        dialogoActivo = true;
         textoPanel.SetActive(true);
+
+        dialogoActivo = true;
+
         dialogueLine = dialogos[ Random.Range(0, dialogos.Length) ];
 
         StartCoroutine(mostrarDialogo());
     }
 
     private void ApagarMensaje(){
-        textoText.text = "";
+
         textoPanel.SetActive(false);
         dialogoActivo = false;
+        textoText.text = "";
     }  
 
     private void OnTriggerEnter2D(Collider2D other){
+
         if (other.CompareTag("Player") && !dialogoActivo){
             MensajePantalla();
         }
     }
     private void OnTriggerExit2D(Collider2D other){
+
         if (other.CompareTag("Player")){
             ApagarMensaje();
         }
@@ -99,14 +100,18 @@ public class dialogoVendedor : MonoBehaviour
     IEnumerator mostrarDialogo()
     {
         voz.Play();
+
         foreach (var letra in dialogueLine){
             
-            if (dialogoActivo == false) break;
+            if (!dialogoActivo) 
+                break;
+
             textoText.text += letra;
-            if (letra.ToString() != " ") /*then*/ yield return new WaitForSeconds(dialogueTime);
+
+            if (letra.ToString() != " ") 
+                yield return new WaitForSeconds(dialogueTime);
         }
-        voz.Stop();
-        
-        
+
+        voz.Stop();       
     }
 }

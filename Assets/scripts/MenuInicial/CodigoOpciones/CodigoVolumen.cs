@@ -23,7 +23,6 @@ public class CodigoVolumen : MonoBehaviour
     {
         slider1.value = valor;
         slider2.value = valor;
-        Debug.Log(slider2.value);
         
         sliderValue = valor;
         PlayerPrefs.SetFloat("volumenaudio",sliderValue);

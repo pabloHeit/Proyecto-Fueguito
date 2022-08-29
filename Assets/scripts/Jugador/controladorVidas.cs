@@ -6,18 +6,22 @@ using UnityEngine.UI;
 
 public class controladorVidas : MonoBehaviour
 {
-    private movimientoJugador movimientoJugador;
+    movimientoJugador movimientoJugador;
+    Animator animator;
+    AudioSource audioGolpe;
+
     [SerializeField] public float vidaJugador;
     [SerializeField] public float vidaMaxima;
-    private Animator animator;
-    //[SerializeField] private GameObject bufanda;
+    
     [SerializeField] private float tiempoPerdidaControl;
     [SerializeField] private float tiempoInmunidad;
-    AudioSource audioGolpe;
+    
     [SerializeField] private Image barraDeVida;
-    public event EventHandler OnMuerto;
-    private bool dying;
+
     [SerializeField] private GameObject tumba;
+
+    private bool dying;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -25,17 +29,21 @@ public class controladorVidas : MonoBehaviour
         audioGolpe = GetComponent<AudioSource>();
         barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
     }
+
     void Update()
     {
-        if (vidaJugador<=0 && !dying) Muerte();
-        else barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
+        if (vidaJugador<=0 && !dying) 
+            Muerte();
+        else 
+            barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
     }
-    public void Muerte()
-    {
-        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
 
+    public void Muerte()
+    {        
+        GameManager.Instance.UpdateGameState(GameState.Muerte);
+
+        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
         dying = true;
-        OnMuerto?.Invoke(this, EventArgs.Empty);        
         animator.SetBool("Dead", true);
         StartCoroutine(PerderControl(4));
         Destroy(gameObject,1.5f);
@@ -48,36 +56,33 @@ public class controladorVidas : MonoBehaviour
         vidaJugador -= daño;
         animator.SetTrigger("Dañado");
         StartCoroutine(DesactivarColision(0.5f));
-
     }
-    public void TomarVida(float vida) //cambiar a int si usamos bloques de vida
-    {
-        float vidaRecuperar = (vidaMaxima - vidaJugador) ;
 
-        if (vidaRecuperar > vida)
-        {
-            vidaJugador += vida;
-            Debug.Log($"1");            
-        }
+    public void TomarVida(float vidaEntrante) //cambiar a int si usamos bloques de vida
+    {
+        float vidaFaltante = (vidaMaxima - vidaJugador) ;
+
+        if (vidaFaltante > vidaEntrante)
+            vidaJugador += vidaEntrante;
         else
-        {
-            Debug.Log($"2");
             vidaJugador = vidaMaxima;
-        }
 
         barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
         //animator.SetTrigger("Curacion");
     }
+
     public void Resucitar()
     {
         //
     }
+
     public IEnumerator DesactivarColision(float TiempoInmunidad)
     {
         Physics2D.IgnoreLayerCollision(3,6,true);
         yield return new WaitForSeconds(TiempoInmunidad);
         Physics2D.IgnoreLayerCollision(3,6,false);
     }
+    
     public IEnumerator PerderControl(float TiempoPerdidaControl)
     {
         movimientoJugador.sePuedeMover = false;
