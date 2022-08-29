@@ -32,6 +32,10 @@ public class granada : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other){
+        if (other.gameObject.tag == "Enemigo"){
+            Explosion();
+            //other.DañarEnemigo();         
+        }
         chocarBool = !chocarBool;
         sprite.flipX = chocarBool;
     }
@@ -55,7 +59,6 @@ public class granada : MonoBehaviour
         }
         ultimaRotacion = Quaternion.Euler(0,0, _t.eulerAngles.z);
         GameObject explosion = Instantiate(explosionEfecto, _t.position, ultimaRotacion);
-        //DañarEnemigo();
         Destroy(explosion, tiempoGranadaExplosion);
         Destroy(gameObject);
 

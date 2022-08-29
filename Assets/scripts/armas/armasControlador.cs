@@ -17,6 +17,7 @@ public class armasControlador : MonoBehaviour
            
     [Header("HUD")]
     [SerializeField] private GameObject marcadorBalas;
+    [SerializeField] private GameObject marcadorBalasTotales;
     private TextMeshProUGUI textMesh;
     
     [Header("Recarga (FR)")]
@@ -64,51 +65,66 @@ public class armasControlador : MonoBehaviour
     }
     private void Update() 
     {
-        if (!armaDeFuego)
-        {
-            marcadorBalas.SetActive(false); //No tiene munición, se borra el bloque de balas
-            if(Input.GetButtonDown("Fire1")) Golpe();                       
+        if (GameManager.EnableInput){
+
+            if (!armaDeFuego)
+            {
+                marcadorBalas.SetActive(false); //No tiene munición, se borra el bloque de balas
+                marcadorBalasTotales.SetActive(false);
+                if(Input.GetButtonDown("Fire1")) Golpe();                       
+            }
+            else{
+                marcadorBalas.SetActive(true); //optimizar esto
+                marcadorBalasTotales.SetActive(true);
+                ActualizarHudBalas();
+
+                disparar = Input.GetButton("Fire1");
+                recargar = Input.GetKeyDown(KeyCode.R);
+
+                if(recargando){
+                    tiempoDeRecarga = tiempoDeRecargaDefault / controlArmas.rechargeMultiplier;
+                    StartCoroutine(TiempoRecargar(tiempoDeRecarga) );        
+                    circuloRecarga.fillAmount = tiempo2 / tiempoDeRecarga;
+                }
+                
+                if (recargar 
+                    && cantBalas != max_capacidad
+                    && !recargando)
+                {
+                    if (controlArmas.armaActiva == 1 && controlArmas.sniperAmmo > 0)
+                    {
+                        recargando = true;
+                        StartCoroutine( Recargar(tiempoDeRecarga) );                    
+                    }
+                    else if(controlArmas.armaActiva == 2 && controlArmas.grenadeAmmo > 0)
+                    {
+                        recargando = true;
+                        StartCoroutine( Recargar(tiempoDeRecarga) );
+                    }
+                }
+
+                if (disparar 
+                    && Time.time > dispararPermiso
+                    && cantBalas > 0
+                    && !recargando){
+                    Disparar();
+                }
+            }        
         }
+    }
+
+    public void ActualizarHudBalas()
+    {
+        TextMeshProUGUI textMesh = marcadorBalas.GetComponent<TextMeshProUGUI>();
+        textMesh.text = cantBalas.ToString() + "/" + max_capacidad.ToString();
+        TextMeshProUGUI textoBalas = marcadorBalasTotales.GetComponent<TextMeshProUGUI>();
+        
+        if (controlArmas.armaActiva == 1)
+            textoBalas.text = controlArmas.sniperAmmo.ToString();
         else
-        {    
-            marcadorBalas.SetActive(true);
+            textoBalas.text = controlArmas.grenadeAmmo.ToString();
 
-            TextMeshProUGUI textMesh = marcadorBalas.GetComponent<TextMeshProUGUI>();
-            textMesh.text = cantBalas.ToString() + "/" + max_capacidad.ToString();
 
-            disparar = Input.GetButton("Fire1");
-            recargar = Input.GetKeyDown(KeyCode.R);
-
-            if(recargando)
-            {
-                tiempoDeRecarga = tiempoDeRecargaDefault / controlArmas.rechargeMultiplier;
-                StartCoroutine(TiempoRecargar(tiempoDeRecarga) );        
-                circuloRecarga.fillAmount = tiempo2 / tiempoDeRecarga;
-            }
-            
-            if (recargar 
-                && cantBalas != max_capacidad
-                && !recargando)
-            {
-                if (controlArmas.armaActiva == 1 && controlArmas.sniperAmmo > 0)
-                {
-                    recargando = true;
-                    StartCoroutine( Recargar(tiempoDeRecarga) );                    
-                }
-                else if(controlArmas.armaActiva == 2 && controlArmas.grenadeAmmo > 0)
-                {
-                    recargando = true;
-                    StartCoroutine( Recargar(tiempoDeRecarga) );
-                }
-            }
-
-            if (disparar 
-                && Time.time > dispararPermiso
-                && cantBalas > 0
-                && !recargando){
-                Disparar();
-            }
-        }        
     }
 
     private void Disparar()
@@ -118,7 +134,9 @@ public class armasControlador : MonoBehaviour
         dispararPermiso = Time.time + dispararCooldown; 
         Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
         rb.AddForce(puntaDelArma.right * velocidad , ForceMode2D.Impulse);
-        OnShoot?.Invoke(this, EventArgs.Empty);        
+        OnShoot?.Invoke(this, EventArgs.Empty);
+
+        ActualizarHudBalas();     
     }
 
     private void Golpe()
@@ -169,6 +187,7 @@ public class armasControlador : MonoBehaviour
         }
 
         recargando = false;
+        ActualizarHudBalas();
     }
 
     public IEnumerator TiempoRecargar(float tiempoRecarga)

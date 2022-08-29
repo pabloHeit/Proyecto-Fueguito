@@ -1942,6 +1942,7 @@ MonoBehaviour:
   controladorGolpe: {fileID: 0}
   radioGolpe: 0
   marcadorBalas: {fileID: 1701286112}
+  marcadorBalasTotales: {fileID: 851898176}
   circuloRecarga: {fileID: 211584802}
   tiempoDeRecargaDefault: 3
   tiempoDeRecarga: 0
@@ -12721,6 +12722,7 @@ MonoBehaviour:
   controladorGolpe: {fileID: 0}
   radioGolpe: 0
   marcadorBalas: {fileID: 1701286112}
+  marcadorBalasTotales: {fileID: 851898176}
   circuloRecarga: {fileID: 211584802}
   tiempoDeRecargaDefault: 4
   tiempoDeRecarga: 0
@@ -13656,6 +13658,7 @@ MonoBehaviour:
   controladorGolpe: {fileID: 547614808}
   radioGolpe: 1
   marcadorBalas: {fileID: 1701286112}
+  marcadorBalasTotales: {fileID: 851898176}
   circuloRecarga: {fileID: 0}
   tiempoDeRecargaDefault: 0
   tiempoDeRecarga: 0

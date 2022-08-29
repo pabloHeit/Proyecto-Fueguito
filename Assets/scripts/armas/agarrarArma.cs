@@ -17,28 +17,23 @@ public class agarrarArma : MonoBehaviour
     void Update()
     {
         if (!ArmaComprable
-            && EnRango
-            && Input.GetKeyDown(KeyCode.E)){
+            && EnRango){
             agarrar();
         }
     }
-    public void agarrar()
-    {
+    public void agarrar(){
         controlArmas.activarArmas(nroActivador);
         Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player"){
+        if (col.gameObject.tag == "Player")
             EnRango = true;
-        }
     }
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
-        {
             EnRango = false;
-        }
     }
 }

@@ -35,7 +35,7 @@ public class controlArmas : MonoBehaviour
     void Update(){        
         armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
         
-        if(armasControlador.recargando == false)
+        if(!armasControlador.recargando && GameManager.EnableInput)
         {
             scrollMouse = Input.GetAxisRaw("Mouse ScrollWheel");
 

@@ -11,30 +11,20 @@ public class GameManager : MonoBehaviour
 	public GameState State;
 	public static event Action<GameState> OnGameStateChanged;
 
+	public static bool EnableInput;
+
 	void Awake(){
 		Instance = this;		
 	}
 
 	void Start()
 	{
-		switch (SceneManager.GetActiveScene().name)
-		{
-			case "MenuPrincipal":
-				UpdateGameState(GameState.MenuPrincipal);
-			break;
-
-			case "Cargando":
-				UpdateGameState(GameState.Cargando);
-			break;
-			
-			default:
-				UpdateGameState(GameState.EnJuego);
-			break;
-		}
+		UpdateGameState(GameState.MenuPrincipal);
 	}
 
 	public void UpdateGameState(GameState newState){
 		State = newState;
+		Cursor.visible = true;
 
 		switch (newState){
 			case GameState.MenuPrincipal:
@@ -43,6 +33,7 @@ public class GameManager : MonoBehaviour
 				HandleCharging();
 			break;
 			case GameState.EnJuego:
+				HandleGaming();
 			break;
 			case GameState.Pausado:
 				HandlePauseMenu();
@@ -58,12 +49,15 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void HandlePauseMenu(){
-
+		EnableInput = false;
 	}
 	private void HandleCharging(){
-
+		EnableInput = false;
 	}
-
+	private void HandleGaming(){
+		EnableInput = true;
+		Cursor.visible = false;
+	}
 }
 
 public enum GameState {

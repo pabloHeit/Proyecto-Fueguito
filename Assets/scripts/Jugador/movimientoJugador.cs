@@ -74,7 +74,6 @@ public class movimientoJugador : MonoBehaviour
     public void knockbackPlayer(Vector3 knockPosition, int knockback)
     {        
         Vector2 direccion = transform.position - knockPosition;
-        Debug.Log($"{direccion.normalized /* * knockback */}");
         rb2D.AddForce(direccion.normalized * knockback);
     }
 

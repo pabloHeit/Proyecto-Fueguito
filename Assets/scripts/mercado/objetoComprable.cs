@@ -19,10 +19,8 @@ public class objetoComprable : MonoBehaviour
 
     void Update()
     {
-            
-        if(EnRango && Input.GetKeyDown(KeyCode.E)){
+        if(EnRango && Input.GetKeyDown(KeyCode.E) && GameManager.EnableInput)
             comprar();
-        }        
     }
 
     private void comprar()
