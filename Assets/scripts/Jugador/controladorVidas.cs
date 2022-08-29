@@ -27,22 +27,24 @@ public class controladorVidas : MonoBehaviour
         animator = GetComponent<Animator>();
         movimientoJugador = GetComponent<movimientoJugador>();
         audioGolpe = GetComponent<AudioSource>();
-        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
+        ActualizarBarraVida();
     }
 
     void Update()
     {
-        if (vidaJugador<=0 && !dying) 
+        if (vidaJugador <= 0 && !dying) 
             Muerte();
-        else 
-            barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
+    }
+    
+    private void ActualizarBarraVida(){
+        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
     }
 
     public void Muerte()
     {        
         GameManager.Instance.UpdateGameState(GameState.Muerte);
 
-        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
+        ActualizarBarraVida();
         dying = true;
         animator.SetBool("Dead", true);
         StartCoroutine(PerderControl(4));
@@ -54,6 +56,7 @@ public class controladorVidas : MonoBehaviour
     {
         //audioGolpe.Play();
         vidaJugador -= daño;
+        ActualizarBarraVida();
         animator.SetTrigger("Dañado");
         StartCoroutine(DesactivarColision(0.5f));
     }
@@ -67,7 +70,7 @@ public class controladorVidas : MonoBehaviour
         else
             vidaJugador = vidaMaxima;
 
-        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
+        ActualizarBarraVida();
         //animator.SetTrigger("Curacion");
     }
 
