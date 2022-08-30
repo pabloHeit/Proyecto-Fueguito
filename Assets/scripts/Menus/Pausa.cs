@@ -4,15 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class Pausa : MonoBehaviour
 {
+    CodigoVolumen CodigoVolumen;
+
     [SerializeField] private GameObject PauseMenu, IndexMenu, OptionsMenu;
     private bool enOpciones = false;
     private bool enPausa;
     private bool enJuego;
-
-    CodigoVolumen CodigoVolumen;
     
     void Awake(){
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;

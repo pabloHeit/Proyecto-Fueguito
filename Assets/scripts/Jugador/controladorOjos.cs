@@ -21,17 +21,6 @@ public class controladorOjos : MonoBehaviour
     private float centroHorizontal = 0;
     private float modificadorCentro = 1f;
 
-    void Awake(){
-        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
-    }
-    
-    void OnDestroy(){
-        GameManager.OnGameStateChanged -= GameManagerOnOnGameStateChanged;
-    }
-
-    private void GameManagerOnOnGameStateChanged(GameState state){
-        Animator.SetBool("Muerto", (state == GameState.Muerte));
-    }
 
     void Start()
     {

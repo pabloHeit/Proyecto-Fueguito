@@ -18,7 +18,7 @@ public class controladorVidas : MonoBehaviour
     
     [SerializeField] private Image barraDeVida;
 
-    [SerializeField] private GameObject tumba;
+    [SerializeField] private GameObject ojos;
 
     private bool dying;
 
@@ -33,7 +33,19 @@ public class controladorVidas : MonoBehaviour
     void Update()
     {
         if (vidaJugador <= 0 && !dying) 
-            Muerte();
+        {
+            dying = true;
+            ActualizarBarraVida();
+            animator.SetTrigger("Dead");
+            Destroy(ojos);
+            GameManager.EnableInput = false;
+
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+            
+        }
     }
     
     private void ActualizarBarraVida(){
@@ -42,14 +54,8 @@ public class controladorVidas : MonoBehaviour
 
     public void Muerte()
     {        
+        Destroy(gameObject);
         GameManager.Instance.UpdateGameState(GameState.Muerte);
-
-        ActualizarBarraVida();
-        dying = true;
-        animator.SetBool("Dead", true);
-        StartCoroutine(PerderControl(4));
-        Destroy(gameObject,1.5f);
-        Instantiate(tumba, transform.position, Quaternion.identity);
     }
 
     public void TomarDaño(float daño)

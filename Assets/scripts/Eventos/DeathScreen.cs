@@ -35,5 +35,6 @@ public class DeathScreen : MonoBehaviour
     public void RespawnCharacter()
     {
         SceneManager.LoadScene("SampleScene"); //Cambiarla por otra
+        GameManager.Instance.UpdateGameState(GameState.EnJuego);
     }
 }

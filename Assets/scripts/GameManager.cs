@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
 	public static bool EnableInput;
 
+
 	void Awake(){
 		Instance = this;		
 	}
@@ -24,10 +25,10 @@ public class GameManager : MonoBehaviour
 
 	public void UpdateGameState(GameState newState){
 		State = newState;
-		Cursor.visible = true;
 
 		switch (newState){
 			case GameState.MenuPrincipal:
+				HandlePrincipalMenu();
 			break;
 			case GameState.Cargando:
 				HandleCharging();
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
 				HandlePauseMenu();
 			break;
 			case GameState.Muerte:
+				HandleDeath();
 			break;
 			
 			default:
@@ -48,15 +50,28 @@ public class GameManager : MonoBehaviour
 		OnGameStateChanged?.Invoke(newState);
 	}
 
-	private void HandlePauseMenu(){
-		EnableInput = false;
+	private void HandlePrincipalMenu(){
+		Cursor.visible = true;
 	}
+
 	private void HandleCharging(){
 		EnableInput = false;
+		Cursor.visible = false;
 	}
+
 	private void HandleGaming(){
 		EnableInput = true;
-		Cursor.visible = false;
+		Cursor.visible = false; 
+	}
+
+	private void HandlePauseMenu(){
+		Cursor.visible = true;
+		EnableInput = false;
+	}
+
+	private void HandleDeath(){
+		Cursor.visible = true;
+		EnableInput = false;
 	}
 }
 
