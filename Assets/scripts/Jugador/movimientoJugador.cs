@@ -7,6 +7,10 @@ public class movimientoJugador : MonoBehaviour
     private Animator animator;
     private int ladoMirar;
 
+    [Header("Realentizar")]
+    private bool realentizado = false;
+    private float contador;
+
     [Header("Movimiento")]
     public bool sePuedeMover=true;
     public float velocidadMovimiento;
@@ -49,6 +53,11 @@ public class movimientoJugador : MonoBehaviour
         //Giración del cuerpo con respecto a donde mira
         ladoMirar = mirandoDerecha ? 0 : 1;
         _t.eulerAngles = new Vector3(0, ladoMirar * 180 , 0);
+
+        if(Time.time >= contador) {
+            velocidadMovimiento = 10f;
+            realentizado = false;
+        }
     }    
     private void FixedUpdate()
     {
@@ -70,6 +79,15 @@ public class movimientoJugador : MonoBehaviour
                 StartCoroutine( CoRodar(0.25f) );
             }   
         }     
+    }
+    public void realentizar(float VelMov, float tiempoCooldown){
+        
+        if (realentizado){
+            return;
+        }
+        realentizado = true;
+        velocidadMovimiento = VelMov;
+        contador = Time.time + tiempoCooldown;              
     }
     public void knockbackPlayer(Vector3 knockPosition, int knockback)
     {        

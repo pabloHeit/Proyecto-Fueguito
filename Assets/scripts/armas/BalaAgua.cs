@@ -31,46 +31,34 @@ public class BalaAgua : MonoBehaviour
         anim = GetComponent<Animator>();
         tiempoEfecto = clip.length;
         movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();
-
     }    
 
    void FixedUpdate(){
       player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-    
+      
    }
 
   public void OnTriggerEnter2D(Collider2D other) {
       
         if(other.CompareTag("Player"))
-        {
-            if (ralentiza = true)
-            {
-               if (Time.time - ultimoGolpe < cooldownVel)
-                {
-                    return;
-                }
-                 ultimoGolpe = Time.time;
-                 movimientoJugador.velocidadMovimiento = VelMov; 
+        {            
+            if (ralentiza){
+                movimientoJugador.realentizar(VelMov, cooldownVel);
             }
-            controladorVidas.TomarDaño(daño);
 
+            controladorVidas.TomarDaño(daño);
         }
+
         if(!(other.CompareTag("Enemigo")))
         {
             GameObject efecto1 = Instantiate(efectoImpacto, transform.position, transform.rotation); 
             Destroy(efecto1, tiempoEfecto);
             Destroy(this.gameObject);
-
         }
-
-
-
     }
-    
 
+    
 }
- 
-    
-    
+
 
 
