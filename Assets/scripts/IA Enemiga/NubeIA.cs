@@ -17,7 +17,7 @@ public class NubeIA : MonoBehaviour
    private float VelocidadB = 10f;
    private float ultimoGolpe;   
    public GameObject BalaEnemiga;
-   private bool enemigoact= false;
+   private bool enemigoact = false;
    private NavMeshAgent navMeshAgent;
   [SerializeField] public int vidaEnemiga;
   [SerializeField] private Transform disparador;
@@ -39,7 +39,6 @@ public class NubeIA : MonoBehaviour
 
    void Update() 
    {
-
     if(controladorVidas != null)
     {
         Vector3 lookAtDirection = player.position - disparador.position;
@@ -84,6 +83,7 @@ public class NubeIA : MonoBehaviour
 
     if (enemigoact == true)
     {
+       anim.SetTrigger("Ataque");
         navMeshAgent.SetDestination(objetivo.position);
         VelocidadMov = 1.5f;
 
@@ -92,7 +92,7 @@ public class NubeIA : MonoBehaviour
             return;
         }
         ultimoGolpe = Time.time; 
-       // anim.SetTrigger("Ataque");
+        
       }
     }
 
