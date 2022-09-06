@@ -497,9 +497,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.15100002, y: -0.03911467}
   m_SpriteTilingProperty:
-    border: {x: 0.125, y: 1.1875, z: 0, w: 0.1875}
-    pivot: {x: 0.349, y: 0.78}
-    oldSize: {x: 2, y: 2}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 0.6666667}
     newSize: {x: 0.6, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2174,10 +2174,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.49093318}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.5625, y: 1}
     newSize: {x: 0.390625, y: 0.25}
     adaptiveTilingThreshold: 0.5
@@ -2185,7 +2185,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 2}
+  m_Size: {x: 2.5, y: 1.8492756}
   m_EdgeRadius: 0
 --- !u!212 &818189148
 SpriteRenderer:
@@ -2304,10 +2304,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.491526}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.5625, y: 1}
     newSize: {x: 0.390625, y: 0.25}
     adaptiveTilingThreshold: 0.5
@@ -2315,7 +2315,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5625, y: 1}
+  m_Size: {x: 1.5625, y: 1.0050423}
   m_EdgeRadius: 0
 --- !u!1001 &820705093
 PrefabInstance:
@@ -3652,7 +3652,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0.125, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 2
@@ -12424,7 +12424,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0.15625, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
