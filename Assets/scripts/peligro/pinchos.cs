@@ -23,7 +23,7 @@ public class pinchos : MonoBehaviour
     private void Pinchar(){
         movimientoJugador.knockbackPlayer(transform.position, knockback);
         Animator.SetTrigger("Pinchar");
-        controladorVidas.TomarDaño(daño);
+        controladorVidas.TomarDamage(daño);
     }
 }
     

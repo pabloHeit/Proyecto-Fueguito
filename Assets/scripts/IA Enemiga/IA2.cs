@@ -74,7 +74,7 @@ public class IA2 : MonoBehaviour {
          }
            ultimoGolpe = Time.time; 
            anim.SetBool("Atacar", true);
-           controladorVidas.TomarDaño(daño);
+           controladorVidas.TomarDamage(daño);
         }
    }
 

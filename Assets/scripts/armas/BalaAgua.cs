@@ -46,7 +46,7 @@ public class BalaAgua : MonoBehaviour
                 movimientoJugador.realentizar(VelMov, cooldownVel);
             }
 
-            controladorVidas.TomarDaño(daño);
+            controladorVidas.TomarDamage(daño);
         }
 
         if(!(other.CompareTag("Enemigo")))

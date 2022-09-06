@@ -44,7 +44,7 @@ public class controladorVidas : MonoBehaviour
         Instantiate(tumba, transform.position, Quaternion.identity);
     }
 
-    public void TomarDaño(float daño)
+    public void TomarDamage(float daño)
     {
         //audioGolpe.Play();
         vidaJugador -= daño;
