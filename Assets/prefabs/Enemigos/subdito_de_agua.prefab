@@ -168,8 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaEnemiga: 5
-  tiempoMinion: 1
+  tiempoMinion: 0
   explosionEfecto: {fileID: 0}
-  objetivo: {fileID: 0}
-  radio: 2.5
-  "da\xF1o": 40
+  radio: 3
+  "da\xF1o": 50
