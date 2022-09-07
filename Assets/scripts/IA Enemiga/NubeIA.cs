@@ -27,6 +27,7 @@ public class NubeIA : MonoBehaviour
   //[SerializeField] private float TiempoBala;
   private bool enojo = false;
   private float contadorTime;
+  [SerializeField] private float dañobala;
 
 
    void Start()
@@ -158,7 +159,9 @@ public class NubeIA : MonoBehaviour
          RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, objetivo.position, rango);
          if (raycastHit2D){
             if(raycastHit2D.transform.CompareTag("Player")) 
-              {}
+              {
+             
+              }
          } 
     }
 
