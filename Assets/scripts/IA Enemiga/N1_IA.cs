@@ -23,7 +23,7 @@ public class N1_IA : MonoBehaviour
   [SerializeField] private Transform disparador;
   [SerializeField] private GameObject efectoImpacto;
   [SerializeField] private Transform objetivo;
-  [SerializeField] private float TiempoBala;
+  //[SerializeField] private float TiempoBala;
    void Start()
     {
      navMeshAgent = GetComponent<NavMeshAgent>();

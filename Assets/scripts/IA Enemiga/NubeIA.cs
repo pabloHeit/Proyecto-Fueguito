@@ -23,7 +23,11 @@ public class NubeIA : MonoBehaviour
   [SerializeField] private Transform disparador;
   [SerializeField] private GameObject efectoImpacto;
   [SerializeField] private Transform objetivo;
-  [SerializeField] private float TiempoBala;
+  [SerializeField] private float rango;
+  //[SerializeField] private float TiempoBala;
+  private bool enojo = false;
+  private float contadorTime;
+
 
    void Start()
     {
@@ -57,6 +61,11 @@ public class NubeIA : MonoBehaviour
         {
             moveCharacter(movement);
         }      
+
+       contadorTime = Time.time + 6;
+       if(Time.time > contadorTime)
+       enojo = true;
+
     }
 
    private void enemigoMov() 
@@ -129,11 +138,28 @@ public class NubeIA : MonoBehaviour
         transform.localScale = laEscala;
     }
 
+
+    private void Disparo(){
+     if(enojo)
+     DisparoNube();
+     else
+     DisparoAgua();
+
+    }
+
      private void DisparoAgua()
     {
           GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
           Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
           rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
+    }
+
+    private void DisparoNube(){
+         RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, objetivo.position, rango);
+         if (raycastHit2D){
+            if(raycastHit2D.transform.CompareTag("Player")) 
+              {}
+         } 
     }
 
    public void Golpe()
