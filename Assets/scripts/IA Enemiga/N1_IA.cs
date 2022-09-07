@@ -133,9 +133,9 @@ public class N1_IA : MonoBehaviour
 
     private void DisparoAgua()
     {
-          GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
-          Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
-          rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
+        GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
+        Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
+        rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
     }
 
    public void Golpe()

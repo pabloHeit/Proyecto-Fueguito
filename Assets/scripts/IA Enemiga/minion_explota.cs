@@ -6,10 +6,10 @@ using UnityEngine.AI;
 public class minion_explota : MonoBehaviour
 {
     controladorVidas controladorVidas;
-
+    [SerializeField] public int vidaEnemiga;
     [SerializeField] private float tiempoMinion;
     [SerializeField] private GameObject explosionEfecto;
-    [SerializeField] private Transform objetivo;
+    private Transform objetivo;
     [SerializeField] private float radio;
     private float distJugador;
     private Transform player;
@@ -17,8 +17,6 @@ public class minion_explota : MonoBehaviour
 
     private bool explotando = false;
     private NavMeshAgent navMeshAgent;
-
-    private float tiempoMinionExplosion = 0.65f;
     private float tiempoMinionContador;
 
     [SerializeField] private float daño;
@@ -28,8 +26,12 @@ public class minion_explota : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
+        objetivo = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
+    }
+    private void Awake() {
+        objetivo = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update(){
@@ -77,9 +79,23 @@ public class minion_explota : MonoBehaviour
         //     enemigo.Golpe();
         //    } 
 
-        // Destroy(explosion, tiempoMinionExplosion);
+     
 
     }
+
+    public void Golpe()
+   {
+       vidaEnemiga = vidaEnemiga - 1;
+       if(vidaEnemiga == 0)
+       Destroy(gameObject);
+   }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+    if (other.gameObject.tag == "balas")
+    {
+        Golpe();
+    }
+   }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
