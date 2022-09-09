@@ -32,7 +32,7 @@ public class controlArmas : MonoBehaviour
         CambiarArma();
     }
 
-    void Update(){        
+    void Update(){
         
         if(!armasControlador.recargando && GameManager.EnableInput)
         {

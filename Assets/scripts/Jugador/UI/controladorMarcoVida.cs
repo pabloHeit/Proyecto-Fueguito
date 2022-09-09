@@ -8,7 +8,7 @@ public class controladorMarcoVida : MonoBehaviour
     Animator Animator;
 
     void Awake(){
-        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+        StartCoroutine(ErrorFix());
     }
 
     void OnDestroy(){
@@ -21,5 +21,11 @@ public class controladorMarcoVida : MonoBehaviour
 
     private void Start(){
         Animator = GetComponent<Animator>();  
+    }
+
+    IEnumerator ErrorFix()
+    {
+        yield return new WaitForSeconds(1f);
+        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
     }
 }
