@@ -25,7 +25,7 @@ public class NubeIA : MonoBehaviour
   [SerializeField] private Transform objetivo;
   [SerializeField] private float rango;
   //[SerializeField] private float TiempoBala;
-  private bool enojo = false;
+  private bool enojo = true;
   private float contadorTime;
   [SerializeField] private float dañobala;
 
@@ -44,6 +44,8 @@ public class NubeIA : MonoBehaviour
 
    void Update() 
    {
+    
+    Debug.DrawRay(disparador.position, objetivo.position, Color.white);
     if(controladorVidas != null)
     {
         Vector3 lookAtDirection = player.position - disparador.position;
@@ -63,9 +65,9 @@ public class NubeIA : MonoBehaviour
             moveCharacter(movement);
         }      
 
-       contadorTime = Time.time + 6;
-       if(Time.time > contadorTime)
-       enojo = true;
+      /*  contadorTime = Time.time + 3;
+       if(Time.time > contadorTime) */
+       //enojo = true;
 
     }
 
@@ -137,8 +139,8 @@ public class NubeIA : MonoBehaviour
         Vector3 laEscala = transform.localScale;
         laEscala.x *=-1;
         transform.localScale = laEscala;
+     
     }
-
 
     private void Disparo(){
      if(enojo)
@@ -158,11 +160,15 @@ public class NubeIA : MonoBehaviour
     private void DisparoNube(){
          RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, objetivo.position, rango);
          if (raycastHit2D){
+            Debug.Log($"hola 1 : {raycastHit2D.transform.name}");
             if(raycastHit2D.transform.CompareTag("Player")) 
               {
-             
+                Debug.Log($"hola 2");
+                Debug.DrawRay(disparador.position, objetivo.position, Color.red);
+                controladorVidas.TomarDamage(dañobala);
               }
          } 
+       
     }
 
    public void Golpe()
@@ -177,6 +183,13 @@ public class NubeIA : MonoBehaviour
     {
         Golpe();
     }
+   }
+   void OnDrawGizmos()
+   {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.forward * 10f);
+   
+
    }
  
 }
