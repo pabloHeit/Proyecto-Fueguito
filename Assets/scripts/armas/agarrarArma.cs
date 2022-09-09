@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class agarrarArma : MonoBehaviour
 {
-    armasControlador armasControlador;
     [Tooltip("0 = espada : 1 = rifle : 2 = lanza-granadas")]
     [SerializeField] private int nroActivador;
     private bool EnRango;
@@ -13,14 +12,12 @@ public class agarrarArma : MonoBehaviour
 
     private void Start() {
         controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();        
-        armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
     }
 
     void Update()
     {
         if (!ArmaComprable
-            && EnRango
-            && !armasControlador.recargando){
+            && EnRango){
             agarrar();
         }
     }

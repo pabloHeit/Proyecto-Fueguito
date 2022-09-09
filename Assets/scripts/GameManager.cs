@@ -15,30 +15,12 @@ public class GameManager : MonoBehaviour
 
 
 	void Awake(){
-		if(Instance != null && Instance != this){
-			Destroy(this);
-		}
-		else{
-			Instance = this;			
-		}
+		Instance = this;		
 	}
 
 	void Start()
 	{
-		switch (SceneManager.GetActiveScene().name)
-		{
-			case "MenuPrincipal":
-				UpdateGameState(GameState.MenuPrincipal);
-			break;
-
-			case "Cargando":
-				UpdateGameState(GameState.Cargando);
-			break;
-			
-			default:
-				UpdateGameState(GameState.EnJuego);
-			break;
-		}
+		UpdateGameState(GameState.MenuPrincipal);
 	}
 
 	public void UpdateGameState(GameState newState){
@@ -70,8 +52,6 @@ public class GameManager : MonoBehaviour
 
 	private void HandlePrincipalMenu(){
 		Cursor.visible = true;
-		//Cursor.SetCursor(null, Vector2.zero, cursorMode);
-
 	}
 
 	private void HandleCharging(){
@@ -81,7 +61,7 @@ public class GameManager : MonoBehaviour
 
 	private void HandleGaming(){
 		EnableInput = true;
-		Cursor.visible = true; 
+		Cursor.visible = false; 
 	}
 
 	private void HandlePauseMenu(){
