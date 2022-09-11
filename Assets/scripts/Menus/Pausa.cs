@@ -8,7 +8,7 @@ public class Pausa : MonoBehaviour
 {
     CodigoVolumen CodigoVolumen;
 
-    [SerializeField] private GameObject PauseMenu, IndexMenu, OptionsMenu;
+    [SerializeField] private GameObject pauseTitle, PauseMenu, IndexMenu, OptionsMenu, blur;
     private bool enOpciones = false;
     private bool enPausa;
     private bool enJuego;
@@ -44,6 +44,8 @@ public class Pausa : MonoBehaviour
             enOpciones = false;
             OptionsMenu.SetActive(enOpciones);
         }
+        blur.SetActive(enPausa);
+        pauseTitle.SetActive(enPausa);
         PauseMenu.SetActive(enPausa);
         IndexMenu.SetActive(enPausa);
     }
@@ -51,6 +53,8 @@ public class Pausa : MonoBehaviour
     public void AlternarOpciones()
     {
         enOpciones = !enOpciones;
+        blur.SetActive(!enOpciones);
+        pauseTitle.SetActive(!enOpciones);
         IndexMenu.SetActive(!enOpciones);
         OptionsMenu.SetActive(enOpciones);
     }
