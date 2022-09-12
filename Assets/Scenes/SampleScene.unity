@@ -13474,12 +13474,16 @@ MonoBehaviour:
   - {fileID: 4288798731402081442, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
   - {fileID: 4288798731402081442, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
   - {fileID: 4288798731402081442, guid: 9de3f2c0b063e2e48aee13590dc57117, type: 3}
+  direcciones: 
+  i: 0
   direction: 0
   direction2: 0
+  posi: 0
   moveAmount: 30
   timeBtwRoom: 3
   startTimeBtwRoom: 1
   minX: -1000
+  numHabit: 10
   maxX: 1000
   maxY: 1000
   minY: -1000
@@ -13488,6 +13492,7 @@ MonoBehaviour:
     m_Bits: 128
   dire: 0
   puertaAntes: 0
+  ocupado: 0
 --- !u!1 &6079030505239920033
 GameObject:
   m_ObjectHideFlags: 0

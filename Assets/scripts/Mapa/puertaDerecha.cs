@@ -6,12 +6,15 @@ public class puertaDerecha : MonoBehaviour
 {
     LevelGeneration direc;
     public GameObject[] derecha;
-    // Start is called before the first frame update
+    private int habitacion;
+
     private void Start()
     {
+       
         direc=FindObjectOfType<LevelGeneration>();
         Debug.Log("direccion de puerta:" +direc.direction);
-        //Debug.Log("la direccion anterior es:"+direc.anterior);
+        Debug.Log("la anterior es: "+direc.direcciones[direc.i-1]);
+        Debug.Log("i es "+direc.i);
         
          if(direc.posi==false)
        {
@@ -34,13 +37,14 @@ public class puertaDerecha : MonoBehaviour
         {
             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-
+            // despues=true;
         }
          else
         {
-            
-            if(direc.direcciones[direc.i-1]==3 || direc.direcciones[direc.i-1]==4)
+           if(direc.direcciones[direc.i-1]==3 || direc.direcciones[direc.i-1]==4)
             {
+                
+                
                 GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
             }
@@ -77,11 +81,17 @@ public class puertaDerecha : MonoBehaviour
             }
         }  
        }
+        habitacion=direc.numHabit-1;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // void Update()dd
+    // {
+    //     if(habitacion==direc.numHabit && despues==true){
+    //         if(direc.ocupado==true){
+    //             Debug.Log("despues esta ocupado");
+                
+    //         }
+    //     }
+    // }
 }

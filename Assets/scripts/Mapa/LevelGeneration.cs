@@ -28,7 +28,7 @@ public class LevelGeneration : MonoBehaviour
     public LayerMask room;
     public int dire;
    public int puertaAntes;
-
+    public bool ocupado=false;
   
 
     void Start()
@@ -37,11 +37,23 @@ public class LevelGeneration : MonoBehaviour
         transform.position = startingPositions[randStartingPos].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
    
-        direction= Random.Range(1, 9);
+        direction= Random.Range(1,9);
         Debug.Log(direction);
         direcciones = new int [11];
       direcciones [i]=direction;
     i++;
+                if(direction==1 || direction==2){
+                      transform.position = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                 if(direction==3 || direction==4){
+                      transform.position = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(direction==5 || direction==6){
+                    transform.position = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(direction==7 || direction==8){
+                    transform.position = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
     }
 
 
@@ -57,9 +69,12 @@ public class LevelGeneration : MonoBehaviour
                 timeBtwRoom= startTimeBtwRoom;
             }
             else
-            {
-              Move();
-            timeBtwRoom= startTimeBtwRoom;  
+            { 
+                Move();
+             
+                timeBtwRoom= startTimeBtwRoom;  
+                
+                
             }
         }
         else
@@ -78,28 +93,20 @@ public class LevelGeneration : MonoBehaviour
              
             if(transform.position.x < maxX)
             {
-                
-                if(despDif==true)
+                  if(despDif==true)
                 {
                     transform.position=posmove;
                     despDif=false;
                 }
-                Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
-                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
-                if(detectaroom==true)
-                {
-                    direction=Random.Range(3,9);
-                }
-                else
-                {
+              
                     
-                    transform.position = newPos;
+                    
                     if(numHabit==1)
                     {
                         int rand = Random.Range(0, rooms.Length);
-                        direction=0;
+                        
                         direcciones [i]=direction;
-                        i++;
+                       direction=0;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Debug.Log("direccion final"+direction);
                         stopGeneration = true;         
@@ -114,11 +121,51 @@ public class LevelGeneration : MonoBehaviour
                         numHabit--;
                         int chance = Random.Range(1,11);
                    Debug.Log(numHabit );     
+
+                direction=Random.Range(1,9);
+                while(direction==3||direction==4){
                     direction=Random.Range(1,9);
-                    while(direction==3 || direction ==4)
-                        {
-                            direction=Random.Range(1,9);
-                        } 
+                }
+                   Vector2 newPos=new Vector2(0,0);
+                 if(despDif==true)
+                {
+                    transform.position=posmove;
+                    despDif=false;
+                }
+                if(direction==1 || direction==2){
+                      newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(direction==5 || direction==6){
+                    newPos = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(direction==7 || direction==8){
+                    newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                while(detectaroom==true)
+                {
+                    direction=Random.Range(1,9);
+                    if(direction==3){
+                        direction=5;
+                    }
+                    if(direction==4)
+                    {
+                        direction=8;
+                    }
+                     
+                     if(direction==1 || direction==2){
+                      newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(direction==5 || direction==6){
+                    newPos = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(direction==7 || direction==8){
+                    newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                }
+                transform.position = newPos;
+
                      if (chance<=3 && numHabit!=1)
                     { 
                         posmove=transform.position;
@@ -129,7 +176,7 @@ public class LevelGeneration : MonoBehaviour
                     }
                                 
                                 
-                }
+                
             }
             else
             {
@@ -142,31 +189,18 @@ public class LevelGeneration : MonoBehaviour
             
             if(transform.position.x > minX)
             {
-                
-                if(despDif==true)
+                  if(despDif==true)
                 {
                     transform.position=posmove;
                     despDif=false;
                 }
-                Vector2 newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
-                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
-                if(detectaroom==true)
-                {
-                    direction=Random.Range(1,9);
-                    while(direction==3 || direction==4)
-                    {
-                    direction=Random.Range(1,9);
-                }
-                }
-                else
-                {
-                    transform.position = newPos;
+               
                     if(numHabit==1)
                     {
                         int rand = Random.Range(0, rooms.Length);
-                        direction=0;
+                     
                         direcciones [i]=direction;
-                        i++;
+                           direction=0;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         stopGeneration=true;
                          
@@ -175,12 +209,50 @@ public class LevelGeneration : MonoBehaviour
                     {
                         int rand = Random.Range(0, rooms.Length);
                         direcciones [i]=direction;
-    i++;
+                        i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                           int chance = Random.Range(1,11);
                             Debug.Log(numHabit); 
-                            direction=Random.Range(3,9);
+                            
+
+                            
+
+                direction=Random.Range(3,9);
+                   Vector2 newPos=new Vector2(0,0);
+                 if(despDif==true)
+                {
+                    transform.position=posmove;
+                    despDif=false;
+                }
+                if(direction==3 || direction==4){
+                    newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(direction==5 || direction==6){
+                    newPos = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(direction==7 || direction==8){
+                    newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                while(detectaroom==true)
+                {
+                    direction=Random.Range(3,9);
+                    
+                if(direction==3 || direction==4){
+                    newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(direction==5 || direction==6){
+                    newPos = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(direction==7 || direction==8){
+                    newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                } 
+                detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                }
+                transform.position = newPos;
+
+
                     if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
@@ -191,7 +263,7 @@ public class LevelGeneration : MonoBehaviour
                      
                     }
 
-                }
+                
             }
             else
             {
@@ -206,31 +278,18 @@ public class LevelGeneration : MonoBehaviour
         {    
             if(transform.position.y > minY)
             {
-                
-                if(despDif==true)
+                  if(despDif==true)
                 {
                     transform.position=posmove;
                     despDif=false;
                 }
-                Vector2 newPos = new Vector2(transform.position.x, transform.position.y - moveAmount);
-                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
-                if(detectaroom==true)
-                {
-                    direction=Random.Range(1,9);
-                    while(direction==5 || direction==6)
-                    {
-                    direction=Random.Range(1,9);
-                    }
-                }
-                else
-                {
-                    transform.position = newPos;
+                
                     if(numHabit==1)
                     {
                         int rand = Random.Range(0, rooms.Length); 
-                        direction=0;
+                        
                         direcciones [i]=direction;
-                        i++;
+                        direction=0;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         stopGeneration=true;
                         
@@ -239,12 +298,52 @@ public class LevelGeneration : MonoBehaviour
                     {
                         int rand = Random.Range(0, rooms.Length);
                         direcciones [i]=direction;
-    i++;
+                        i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                           int chance = Random.Range(1,11);
                             Debug.Log(numHabit); 
-                            direction=Random.Range(1,9);
+                            
+                        
+
+
+
+                    direction=Random.Range(1,7);
+                   Vector2 newPos=new Vector2(0,0);
+                 if(despDif==true)
+                {
+                    transform.position=posmove;
+                    despDif=false;
+                }
+                if(direction==1 || direction==2){
+                      newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(direction==3 || direction==4){
+                    newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(direction==5 || direction==6){
+                    newPos = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                
+                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                while(detectaroom==true)
+                {
+                    direction=Random.Range(1,7);
+                     
+                if(direction==1 || direction==2){
+                      newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(direction==3 || direction==4){
+                    newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(direction==5 || direction==6){
+                    newPos = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                }
+                transform.position = newPos;
+
+
                     if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
@@ -255,7 +354,7 @@ public class LevelGeneration : MonoBehaviour
                       
                     }
 
-                }
+                
             }
             else
             {
@@ -269,59 +368,83 @@ public class LevelGeneration : MonoBehaviour
            
             if(transform.position.y < maxY)
             {  
-                
-                if(despDif==true)
+                  if(despDif==true)
                 {
                     transform.position=posmove;
                     despDif=false;
                 }
-                Vector2 newposTD= new Vector2(transform.position.x, transform.position.y+ moveAmount);
-
-                Collider2D detectaroom = Physics2D.OverlapCircle(newposTD,1, room);
-               
-                if(detectaroom==true)
-                {
-
-                    direction=Random.Range(1,7);
-                }
-                else
-                {
-                     if(numHabit==1)
-                    {
-                        int rand = Random.Range(0, rooms.Length); 
-                        direction=0;
-                        direcciones [i]=direction;
-                        i++;
-                        Instantiate(rooms[rand], transform.position,Quaternion.identity);
-                        stopGeneration=true;
-                    }
-                    else
-                    {
-                    Vector2 newPos = new Vector2(transform.position.x, transform.position.y + moveAmount);
-                    transform.position = newPos;
+                
+                     
+                    
+                    
                     if(numHabit==1)
                     {
-                        int rand = Random.Range(0, rooms.Length);
-                         direction=0;
+                       int rand = Random.Range(0, rooms.Length);
+                        
+                        direcciones [i]=direction;
+                        direction=0;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
-                        stopGeneration=true;
+                        Debug.Log("direccion final"+direction);
+                        stopGeneration = true;    
                         
                     }
                     else
                     {
                         int rand=Random.Range(0,rooms.Length);
                         direcciones [i]=direction;
-    i++;
+                        i++;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                           int chance = Random.Range(1,11);
                       
                         Debug.Log(numHabit);
-                        direction=Random.Range(1,9); 
-                      while(direction==5 || direction==6)
-                   {
-                       direction=Random.Range(1,9); 
-                   }
+                      
+
+                        direction=Random.Range(1,9);
+                while(direction==5||direction==6){
+                    direction=Random.Range(1,9);
+                }
+                   Vector2 newPos=new Vector2(0,0);
+                 if(despDif==true)
+                {
+                    transform.position=posmove;
+                    despDif=false;
+                }
+                if(direction==1 || direction==2){
+                      newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+               if(direction==3 || direction==4){
+                    newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(direction==7 || direction==8){
+                    newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                while(detectaroom==true)
+                {
+                    direction=Random.Range(1,9);
+                    if(direction==5){
+                        direction=1;
+                    }
+                    if(direction==6)
+                    {
+                        direction=3;
+                    }
+                     
+                    if(direction==1 || direction==2){
+                      newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+               if(direction==3 || direction==4){
+                    newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(direction==7 || direction==8){
+                    newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                }
+                transform.position = newPos;
+
+
                         if (chance<=3 && numHabit!=1)
                     {
                         posmove=transform.position;
@@ -331,8 +454,8 @@ public class LevelGeneration : MonoBehaviour
                     }
                    
                     }
-                    }
-                }
+                    
+                
             }
             else
             {
