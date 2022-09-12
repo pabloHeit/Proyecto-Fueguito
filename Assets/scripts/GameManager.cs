@@ -77,8 +77,8 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void HandleGaming(){
+		Cursor.visible = false; 
 		EnableInput = true;
-		Cursor.visible = true; 
 	}
 
 	private void HandlePauseMenu(){
