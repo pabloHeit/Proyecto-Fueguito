@@ -12,6 +12,7 @@ public class puertaAbajo : MonoBehaviour
     private void Start()
     {
         direc=FindObjectOfType<LevelGeneration>();
+        
        if(direc.posi==false)
        {
             if(direc.numHabit==10){
@@ -29,7 +30,21 @@ public class puertaAbajo : MonoBehaviour
             }
             else
             {
-
+      if(direc.numHabit==0)
+        {
+            if(direc.direcciones[direc.i]==7 || direc.direcciones[direc.i]==8)
+            {
+                GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
+            else
+            {
+                GameObject instance = (GameObject)Instantiate(abajo[1], transform.position, Quaternion.identity);
+                instance.transform.parent=transform;
+            }
+        }
+        else
+        {
             
             if(direc.direction==5 || direc.direction==6)
             {
@@ -53,6 +68,7 @@ public class puertaAbajo : MonoBehaviour
             }
             }
             }
+    }
             else
             {
             if(direc.direction2==5 || direc.direction2==6)
@@ -78,17 +94,6 @@ public class puertaAbajo : MonoBehaviour
             }
             habitacion=direc.numHabit-1;
             }
-        
+    }
     
-    // Update is called once per frame
-    // void Update()
-    // {
-    //      if(habitacion==direc.numHabit && despues==true){
-    //         if(direc.ocupado==true){
-    //             Debug.Log("despues esta ocupado");
-                
-    //         }
-    //     }
-    // }
-}
-
+  

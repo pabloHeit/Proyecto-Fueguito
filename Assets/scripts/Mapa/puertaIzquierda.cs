@@ -12,6 +12,7 @@ public class puertaIzquierda : MonoBehaviour
     private void Start()
     {
         direc=FindObjectOfType<LevelGeneration>();
+      
          if(direc.posi==false)
        {
            if(direc.numHabit==10){
@@ -27,7 +28,24 @@ public class puertaIzquierda : MonoBehaviour
             instance.transform.parent=transform;
         }
             }
-            else if((direc.direction==3) || (direc.direction==4))
+            else if(direc.numHabit==0)
+            {
+            if(direc.direcciones[direc.i]==1 || direc.direcciones[direc.i]==2)
+            {
+                
+                
+                GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
+            else
+            {
+                
+            GameObject instance = (GameObject)Instantiate(izquierda[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            
+            }
+            }
+        else if((direc.direction==3) || (direc.direction==4))
         {
             GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
@@ -44,6 +62,7 @@ public class puertaIzquierda : MonoBehaviour
             GameObject instance = (GameObject)Instantiate(izquierda[1], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
             }
+            
        }
        else if(direc.direction2==3 || direc.direction2==4)
         {
@@ -63,18 +82,8 @@ public class puertaIzquierda : MonoBehaviour
             }
        habitacion=direc.numHabit-1;
     }
+    }
        
          
 
-    // Update is called once per frame
-    // void Update()
-    // {
-    //      if(habitacion==direc.numHabit && despues==true){
-    //         if(direc.ocupado==true){
-    //             Debug.Log("despues esta ocupado");
-    //             GameObject instance = (GameObject)Instantiate(izquierda[1], transform.position, Quaternion.identity);
-    //         instance.transform.parent=transform;
-    //         }
-    //     }
-    // }
-}
+  

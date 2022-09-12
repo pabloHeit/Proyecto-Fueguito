@@ -106,10 +106,11 @@ public class LevelGeneration : MonoBehaviour
                         int rand = Random.Range(0, rooms.Length);
                         
                         direcciones [i]=direction;
-                       direction=0;
+                       
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Debug.Log("direccion final"+direction);
-                        stopGeneration = true;         
+                        stopGeneration = true;  
+                        numHabit--;       
                     }
                     else
                     {
@@ -200,10 +201,10 @@ public class LevelGeneration : MonoBehaviour
                         int rand = Random.Range(0, rooms.Length);
                      
                         direcciones [i]=direction;
-                           direction=0;
+                         
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         stopGeneration=true;
-                         
+                         numHabit--;       
                     }
                     else
                     {
@@ -289,10 +290,10 @@ public class LevelGeneration : MonoBehaviour
                         int rand = Random.Range(0, rooms.Length); 
                         
                         direcciones [i]=direction;
-                        direction=0;
+                        
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         stopGeneration=true;
-                        
+                        numHabit--;       
                     }
                     else
                     {
@@ -382,11 +383,11 @@ public class LevelGeneration : MonoBehaviour
                        int rand = Random.Range(0, rooms.Length);
                         
                         direcciones [i]=direction;
-                        direction=0;
+                       
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Debug.Log("direccion final"+direction);
                         stopGeneration = true;    
-                        
+                        numHabit--;       
                     }
                     else
                     {
@@ -468,15 +469,15 @@ public class LevelGeneration : MonoBehaviour
    
        
     private void Preposibilidad(){
-/*posi=true;
-        Debug.Log("esta en posiblidad"); 
-        int mitad=numHabit/2;
-         Debug.Log("mitad es:"+mitad);
-        Cantidad=Random.Range(1,mitad);
-         Debug.Log("cantidad es"+Cantidad);
-        numHabit=numHabit-Cantidad;
-        direction2=Random.Range(1,9);
-        despDif=true; */
+// posi=true;
+//         Debug.Log("esta en posiblidad"); 
+//         int mitad=numHabit/2;
+//          Debug.Log("mitad es:"+mitad);
+//         Cantidad=Random.Range(1,mitad);
+//          Debug.Log("cantidad es"+Cantidad);
+//         numHabit=numHabit-Cantidad;
+//         direction2=Random.Range(1,9);
+//         despDif=true; 
     }
 
     

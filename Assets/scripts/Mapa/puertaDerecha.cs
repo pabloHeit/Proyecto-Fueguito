@@ -12,7 +12,9 @@ public class puertaDerecha : MonoBehaviour
     {
        
         direc=FindObjectOfType<LevelGeneration>();
+        
         Debug.Log("direccion de puerta:" +direc.direction);
+        Debug.Log("el numhabit es: "+direc.numHabit);
         Debug.Log("la anterior es: "+direc.direcciones[direc.i-1]);
         Debug.Log("i es "+direc.i);
         
@@ -33,6 +35,23 @@ public class puertaDerecha : MonoBehaviour
             }
             else
             {
+                  if(direc.numHabit==0)
+        {
+            if(direc.direcciones[direc.i]==3 || direc.direcciones[direc.i]==4)
+            {
+                
+                
+                GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
+            else
+            {
+                GameObject instance = (GameObject)Instantiate(derecha[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
+        }
+        else
+        {
         if((direc.direction==1) || (direc.direction==2))
         {
             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
@@ -43,8 +62,6 @@ public class puertaDerecha : MonoBehaviour
         {
            if(direc.direcciones[direc.i-1]==3 || direc.direcciones[direc.i-1]==4)
             {
-                
-                
                 GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
             }
@@ -55,6 +72,7 @@ public class puertaDerecha : MonoBehaviour
             }
         }
         }
+            }
     }
        else
        {
@@ -80,8 +98,9 @@ public class puertaDerecha : MonoBehaviour
             instance.transform.parent=transform;
             }
         }  
-       }
+       
         habitacion=direc.numHabit-1;
+    }
     }
 
     // Update is called once per frame
