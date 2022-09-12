@@ -10,6 +10,7 @@ public class NubeIA : MonoBehaviour
    public float VelocidadMov;
    private Vector2 movement;
    private Rigidbody2D rb;
+   private Rigidbody2D ultirb;
    private bool miraDerecha;
    private controladorVidas controladorVidas;
    private BalaAgua BalaAgua;
@@ -45,7 +46,9 @@ public class NubeIA : MonoBehaviour
      miraDerecha = true;
      anim = GetComponent<Animator>();
      player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+     ultirb= this.GetComponent<Rigidbody2D>();
    }
+
 
    void Update() 
    {
@@ -195,8 +198,11 @@ public class NubeIA : MonoBehaviour
      DisparoLinea.enabled = true;
      DisparoLinea.SetPosition(0, disparador.position);
      DisparoLinea.SetPosition(1, objeto);
+     Rigidbody2D ultirb = DisparoLinea.GetComponent<Rigidbody2D>();
+     ultirb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
      yield return new WaitForSeconds(tiempoDisparo);
-     DisparoLinea.enabled = false;    
+     DisparoLinea.enabled = false;  
+
    } 
 
 }
