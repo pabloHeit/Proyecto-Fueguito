@@ -174,7 +174,7 @@ public class NubeIA : MonoBehaviour
                 Debug.Log($"hola 2");
                 Debug.DrawRay(disparador.position, objetivo.position, Color.red);
                 controladorVidas.TomarDamage(dañobala);
-               StartCoroutine(GenerarLinea(raycastHit2D.point));
+              // StartCoroutine(GenerarLinea(raycastHit2D.point));
               }
          } 
        
@@ -193,8 +193,15 @@ public class NubeIA : MonoBehaviour
         Golpe();
     }
    }
+     
+    private void GenerarCuadrado() {
+     
+
+
+    } 
+
  
-    IEnumerator GenerarLinea(Vector3 objeto) {
+ /*    IEnumerator GenerarLinea(Vector3 objeto) {
      DisparoLinea.enabled = true;
      DisparoLinea.SetPosition(0, disparador.position);
      DisparoLinea.SetPosition(1, objeto);
@@ -203,7 +210,7 @@ public class NubeIA : MonoBehaviour
      yield return new WaitForSeconds(tiempoDisparo);
      DisparoLinea.enabled = false;  
 
-   } 
+   }  */
 
 }
 
