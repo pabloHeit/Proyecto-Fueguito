@@ -31,16 +31,14 @@ public class Pausa : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && (enJuego/*  || enPausa */)){
+        if(Input.GetKeyDown(KeyCode.Escape) && (enJuego || enPausa))
             AlternarPausa();
-        }
     }
 
     public void AlternarPausa()
     {
         GameManager.Instance.UpdateGameState( enPausa ? GameState.EnJuego : GameState.Pausado );
-        if (enPausa)
-            Time.timeScale = 0; 
+        if (enPausa) Time.timeScale = 0; 
         else{
             Time.timeScale = 1;
             enOpciones = false;
