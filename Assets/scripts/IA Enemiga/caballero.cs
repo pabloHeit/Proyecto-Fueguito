@@ -13,13 +13,16 @@ public class caballero : MonoBehaviour
     [SerializeField] private GameObject enemigo;
     private controladorVidas controladorVidas;
      private bool enemigoact = false;
-     private Transform player;
+    private Transform player;
      private Vector2 movement;
     [SerializeField] float cooldown;
     private float ultimoGolpe;
     public float VelocidadMov;
     Animator anim;
     [SerializeField] private float daño;
+    [SerializeField] private float distanciaAtaque;
+    [SerializeField] private float radioAtaque;
+    // [SerializeField] private Transform espada;
 
     private bool golpeando = false;
    
@@ -28,20 +31,32 @@ public class caballero : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
+        anim = this.GetComponent<Animator>();
+        controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        navMeshAgent.SetDestination(objetivo.position);
+        // navMeshAgent.SetDestination(objetivo.position);
 
         if (controladorVidas.vidaJugador != 0){
             enemigoMov();
+            anim.SetBool("caminando",true);
         }
-    }
+        Debug.Log("Golpeando: " + golpeando);
+    } 
 
     private void atacar()
     {
-        controladorVidas.TomarDamage(daño);
+        Collider2D[] objetos = Physics2D.OverlapCircleAll(transform.position, radioAtaque);
+        foreach (Collider2D colisionador in objetos){
+            if (colisionador.CompareTag("Player")){
+                controladorVidas.TomarDamage(daño);
+            }
+        }
+        golpeando = false;
     }
 
     public void Golpe()
@@ -53,50 +68,18 @@ public class caballero : MonoBehaviour
         }
     }
 
-
-   private void SpawnEnemigo()
-   {
+    private void SpawnEnemigo()
+    {
         Instantiate(enemigo, transform.position, transform.rotation);
         Instantiate(enemigo, transform.position, transform.rotation);
-   }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "balas")
-        {
-            Golpe();
-        }
     }
 
-    void moveCharacter(Vector2 direction)
-    {
-        rb.MovePosition((Vector2) transform.position + (direction * VelocidadMov * Time.deltaTime));
-        if(transform.position.x < player.position.x && !miraDerecha){
-            rb.velocity = new Vector2(VelocidadMov, 0f);
-            Flip();
-        }
-
-        else if(transform.position.x > player.position.x && miraDerecha)
-        {
-            rb.velocity = new Vector2(-VelocidadMov, 0f);
-            Flip();
-        }
-
-        else if(!miraDerecha)
-        {
-            rb.velocity = new Vector2(-VelocidadMov, 0f);
-        }
-
-        else if(miraDerecha)
-        {
-            rb.velocity = new Vector2(VelocidadMov, 0f);
-        }
-   }
 
     private void Flip()
     {
         miraDerecha = !miraDerecha;
         Vector3 laEscala = transform.localScale;
-        laEscala.x *=-1;
+        laEscala.x *= -1;
         transform.localScale = laEscala;
     }
 
@@ -108,36 +91,51 @@ public class caballero : MonoBehaviour
         movement = direction;
 
         float distJugador = Vector2.Distance(transform.position, player.position);
-        //Debug.Log("Distancia del jugador" + distJugador);
 
-        if (vidaEnemiga < 5){
-            enemigoact = true;
+        if(player.position.x < transform.position.x && miraDerecha){
+            Flip();
+        }
+        else if(player.position.x > transform.position.x && !miraDerecha){
+            Flip();
         }
         
         if (Mathf.Abs(distJugador) > 7 && !enemigoact){
-            VelocidadMov = 0.0f;
+            navMeshAgent.speed = 0;
         } 
         else{
             enemigoact = true;
         }
 
-        if (Mathf.Abs(distJugador) < 1 && !golpeando){
-            VelocidadMov = 0.0f;
-            golpeando = !golpeando;
+        if (Mathf.Abs(distJugador) < distanciaAtaque && !golpeando){
+            golpeando = true;
             anim.SetTrigger("Atacar");
+            navMeshAgent.speed = 0;
+            navMeshAgent.acceleration = 0;
         }
 
-        if (enemigoact){
+        if (enemigoact && !golpeando){
+            navMeshAgent.speed = VelocidadMov;
+            navMeshAgent.acceleration = 8;
             navMeshAgent.SetDestination(objetivo.position);
-            VelocidadMov = 1.5f;
 
             if (Time.time - ultimoGolpe < cooldown){
                 return;
             }
             ultimoGolpe = Time.time; 
-            anim.SetTrigger("Enojo");
-            //DisparoAgua();
         }
     }
-}
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "balas")
+        {
+            Golpe();
+        }
+    }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distanciaAtaque);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, radioAtaque);
+    }
+}

@@ -13,7 +13,7 @@ public class movimientoJugador : MonoBehaviour
 
     [Header("Movimiento")]
     public bool sePuedeMover=true;
-    public float velocidadMovimiento;
+    [SerializeField]public float velocidadMovimiento;
     public Vector2 direccion; 
     private Rigidbody2D rb2D;
     private float movimientoX;
@@ -55,7 +55,7 @@ public class movimientoJugador : MonoBehaviour
         _t.eulerAngles = new Vector3(0, ladoMirar * 180 , 0);
 
         if(Time.time >= contador) {
-            velocidadMovimiento = 10f;
+            
             realentizado = false;
         }
     }    

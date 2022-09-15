@@ -59,7 +59,7 @@ public class IA2 : MonoBehaviour {
       float distJugador = Vector2.Distance(transform.position, player.position);
       Debug.Log("Distancia del jugador" + distJugador);
 
-      if (Mathf.Abs(distJugador)>1)
+      if (Mathf.Abs(distJugador) > 1)
         {
             anim.SetBool("Atacar", false);
             VelocidadMov = 2.0f;
