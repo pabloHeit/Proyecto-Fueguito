@@ -2601,11 +2601,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8658437452623967254, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8658437452623967254, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
       propertyPath: m_TagString
       value: Enemigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658437452623967255, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658437452623967255, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658437452623967255, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8658437452623967256, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
       propertyPath: m_RootOrder
