@@ -476,10 +476,10 @@ posi=true;
         Cantidad=Random.Range(1,mitad);
          Debug.Log("cantidad es"+Cantidad);
         numHabit=numHabit-Cantidad;
-        direction2=direction
+        direction2=direction;
         despDif=true; 
-        direcciones2 = new int [cantidad+1];
-        direcciones2[i2]=direcciones[i]
+        direcciones2 = new int [Cantidad+2];
+        direcciones2[i2]=direcciones[i];
         i2++;
     }
 
@@ -493,13 +493,14 @@ posi=true;
                 Debug.Log("habitacion num"+Cantidad);
             if(transform.position.x < maxX)
             {
-
+                
                    if(Cantidad==1)
                     {
                         
                         int rand = Random.Range(0, rooms.Length);
                         direcciones2[i2]=direction2;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                        Debug.Log("entro");
                         posi=false;
                         Cantidad--;
                         Debug.Log("Cantidad es 0");
@@ -520,7 +521,7 @@ posi=true;
                             direction2=Random.Range(1,9);
                         } 
                      
-                   Vector2 newPos=new Vector2(0,0);
+                   Vector2 newPos2=new Vector2(0,0);
                 if(direction2==1 || direction2==2){
                       newPos2 = new Vector2(transform.position.x + moveAmount, transform.position.y);
                 }
@@ -553,7 +554,7 @@ posi=true;
                 }
                 detectaroom2 = Physics2D.OverlapCircle(newPos2,1, room);
                 }
-                transform.position = newPos;
+                transform.position = newPos2;
 
 
     
@@ -575,13 +576,14 @@ posi=true;
                         Debug.Log("habitacion num"+Cantidad);
             if(transform.position.x > minX)
             {
-
+               
                    if(Cantidad==1)
                     {
                         
                         int rand = Random.Range(0, rooms.Length);
                         direcciones2[i2]=direction2;
-                        Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                        Instantiate(rooms[rand], transform.position,Quaternion.identity); 
+                        Debug.Log("entro");
                         posi=false;
                         Cantidad--;
                         Debug.Log("Cantidad es 0");
@@ -599,7 +601,7 @@ posi=true;
                     direction2=Random.Range(3,9);
                    
                      
-                   Vector2 newPos=new Vector2(0,0);
+                   Vector2 newPos2=new Vector2(0,0);
                 if(direction2==3 || direction2==4){
                       newPos2 = new Vector2(transform.position.x - moveAmount, transform.position.y);
                 }
@@ -624,7 +626,7 @@ posi=true;
                 }
                 detectaroom2 = Physics2D.OverlapCircle(newPos2,1, room);
                 }
-                transform.position = newPos;
+                transform.position = newPos2;
 
 
     
@@ -650,13 +652,14 @@ posi=true;
                Debug.Log("habitacion num"+Cantidad);
             if(transform.position.y > minY)
             {
-
+                
                    if(Cantidad==1)
                     {
                         
                         int rand = Random.Range(0, rooms.Length);
                         direcciones2[i2]=direction2;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                        Debug.Log("entro");
                         posi=false;
                         Cantidad--;
                         Debug.Log("Cantidad es 0");
@@ -674,7 +677,7 @@ posi=true;
                     direction2=Random.Range(1,7);
                    
                      
-                   Vector2 newPos=new Vector2(0,0);
+                   Vector2 newPos2=new Vector2(0,0);
                 if(direction2==3 || direction2==4){
                       newPos2 = new Vector2(transform.position.x - moveAmount, transform.position.y);
                 }
@@ -699,7 +702,7 @@ posi=true;
                 }
                 detectaroom2 = Physics2D.OverlapCircle(newPos2,1, room);
                 }
-                transform.position = newPos;
+                transform.position = newPos2;
 
 
     
@@ -724,43 +727,82 @@ posi=true;
           Debug.Log("habitacion num"+Cantidad);
             if(transform.position.y < maxY)
             {  
-
-                Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
-                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
-                if(detectaroom==true)
-                {
-                     direction2=Random.Range(1,7);
-                }
-                else
-                {
-                    
-                    transform.position = newPos;
-                   if(Cantidad==1)
+                
+               if(Cantidad==1)
                     {
                         
-                         
-                        direction2=0; 
-                        posi=false;
                         int rand = Random.Range(0, rooms.Length);
+                        direcciones2[i2]=direction2;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
-                       
+                        Debug.Log("entro");
+                        posi=false;
                         Cantidad--;
-                       Debug.Log("Cantidad es 0");
-                       direcciones[i]=direction2;
-                    i++;
+                        Debug.Log("Cantidad es 0");
                         direction=Random.Range(1,9);
+    
                     }
                     else
                     {
+
                     int rand = Random.Range(0, rooms.Length);
-                    direcciones[i]=direction2;
-                    i++;
+                    direcciones2[i2]=direction2;
+                    i2++;
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
                     Cantidad--;
-                    direction2=Random.Range(1,7);
-                  
-                    }
+                    direction2=Random.Range(1,9);
+                    while(direction2==5 || direction2 ==6)
+                        {
+                            direction2=Random.Range(1,9);
+                        } 
+                     
+                   Vector2 newPos2=new Vector2(0,0);
+                if(direction2==1 || direction2==2){
+                      newPos2 = new Vector2(transform.position.x + moveAmount, transform.position.y);
                 }
+               if(direction2==3 || direction2==4){
+                    newPos2 = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(direction2==7 || direction2==8){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                Collider2D detectaroom2 = Physics2D.OverlapCircle(newPos2,1, room);
+                while(detectaroom2==true)
+                {
+                    direction2=Random.Range(1,9);
+                    if(direction2==5){
+                        direction2=1;
+                    }
+                    if(direction2==6)
+                    {
+                        direction2=4;
+                    }
+                     
+                    if(direction2==1 || direction2==2){
+                      newPos2 = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+               if(direction2==3 || direction2==4){
+                    newPos2 = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(direction2==7 || direction2==8){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                detectaroom2 = Physics2D.OverlapCircle(newPos2,1, room);
+                }
+                transform.position = newPos2;
+
+
+    
+                   
+
+
+                    }
+                
+            }
+            else
+            {
+                
+                      direction2= Random.Range(1,7);
+                
             }
         }
         }
