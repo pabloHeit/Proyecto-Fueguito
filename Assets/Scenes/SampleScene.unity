@@ -4376,7 +4376,7 @@ RectTransform:
   - {fileID: 1093569916}
   - {fileID: 215042589}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4966,7 +4966,7 @@ RectTransform:
   - {fileID: 2107785320}
   - {fileID: 1122225702}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15186,11 +15186,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetivo: {fileID: 2087941459}
-  vidaEnemiga: 1
+  vidaEnemiga: 10
   enemigo: {fileID: 5500252701698197980, guid: 37e0f08082a352e428c365335e73537d, type: 3}
   cooldown: 1
   VelocidadMov: 3.5
-  "da\xF1o": 5
+  "da\xF1o": 12.5
   distanciaAtaque: 2
   radioAtaque: 2.61
 --- !u!50 &1417199709
@@ -15254,7 +15254,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 225794926300231725, guid: 5467eb9cac19bf5449108620395a05c4, type: 3}
+  m_Sprite: {fileID: 3307096001684993497, guid: 5467eb9cac19bf5449108620395a05c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -15273,7 +15273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417199707}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.32, y: -1.09, z: 1}
+  m_LocalPosition: {x: -1.88, y: 9.21, z: 1}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 991453023}
@@ -15337,7 +15337,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.2562188, y: 0.3756218}
+    pivot: {x: 0.25124362, y: 0.3756218}
     oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
@@ -18524,7 +18524,7 @@ Transform:
   - {fileID: 506098415}
   - {fileID: 1920104537}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2087941460
 Animator:

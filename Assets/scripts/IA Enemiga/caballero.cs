@@ -62,6 +62,7 @@ public class caballero : MonoBehaviour
     public void Golpe()
     {
         vidaEnemiga = vidaEnemiga - 1;
+        anim.SetTrigger("Dañado");
         if(vidaEnemiga == 0){
             SpawnEnemigo();
             Destroy(gameObject);

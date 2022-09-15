@@ -55,7 +55,6 @@ public class movimientoJugador : MonoBehaviour
         _t.eulerAngles = new Vector3(0, ladoMirar * 180 , 0);
 
         if(Time.time >= contador) {
-            
             realentizado = false;
         }
     }    
