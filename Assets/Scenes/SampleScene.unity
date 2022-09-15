@@ -15273,7 +15273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417199707}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.88, y: 9.21, z: 1}
+  m_LocalPosition: {x: -3.23, y: 9.21, z: 1}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 991453023}
@@ -19165,11 +19165,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2683576267709033666, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2683576267709033666, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: m_TagString
       value: Enemigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683576267709033667, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683576267709033667, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683576267709033667, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2683576267709033668, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: m_RootOrder
@@ -19181,7 +19193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2683576267709033668, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.42
+      value: 3.45
       objectReference: {fileID: 0}
     - target: {fileID: 2683576267709033668, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: m_LocalPosition.z

@@ -139,6 +139,7 @@ public class NubeIA : MonoBehaviour
    public void Golpe()
    {
        vidaEnemiga = vidaEnemiga - 1;
+       anim.SetTrigger("Dañado");
        if(vidaEnemiga == 0)
        Destroy(gameObject);
    }
