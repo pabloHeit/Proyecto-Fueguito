@@ -6,6 +6,7 @@ public class LogicaOpciones : MonoBehaviour
 {
     public ControladorOpciones panelOpciones;
     public bool juegoInicio = false;
+    [SerializeField] private GameObject menuOpciones, menuPrincipal;
 
     void Start(){
         panelOpciones = GameObject.FindGameObjectWithTag("opciones").GetComponent<ControladorOpciones>();
@@ -22,4 +23,15 @@ public class LogicaOpciones : MonoBehaviour
     {
         panelOpciones.pantallaOpciones.SetActive(true);
     }
+
+    public void BotonVolver()
+    {
+        if (menuPrincipal != null)
+        {
+            menuPrincipal.SetActive(true);            
+        }
+        menuOpciones.SetActive(false);
+    }
+
+
 }

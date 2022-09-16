@@ -87,10 +87,7 @@ public class armasControlador : MonoBehaviour
                     circuloRecarga.fillAmount = tiempo2 / tiempoDeRecarga;
                 }
                 
-                if (recargar 
-                    && cantBalas != max_capacidad
-                    && !recargando)
-                {
+                if (recargar && cantBalas != max_capacidad && !recargando){
                     if (controlArmas.armaActiva == 1 && controlArmas.sniperAmmo > 0)
                     {
                         recargando = true;
@@ -103,10 +100,7 @@ public class armasControlador : MonoBehaviour
                     }
                 }
 
-                if (disparar 
-                    && Time.time > dispararPermiso
-                    && cantBalas > 0
-                    && !recargando){
+                if (disparar && Time.time > dispararPermiso && cantBalas > 0 && !recargando){
                     Disparar();
                 }
             }        
@@ -123,8 +117,6 @@ public class armasControlador : MonoBehaviour
             textoBalas.text = controlArmas.sniperAmmo.ToString();
         else
             textoBalas.text = controlArmas.grenadeAmmo.ToString();
-
-
     }
 
     private void Disparar()
@@ -159,6 +151,7 @@ public class armasControlador : MonoBehaviour
 
     public IEnumerator Recargar(float tiempoRecarga){
 
+        
         cooldown_recarga = Time.time + tiempoRecarga;
         yield return new WaitForSeconds(tiempoRecarga); //cooldown de recarga
         balasRecargar = max_capacidad - cantBalas;
