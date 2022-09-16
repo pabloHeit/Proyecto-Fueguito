@@ -87,19 +87,57 @@ public class LevelGeneration : MonoBehaviour
     }
     private void  Move()
     {
-        
-   
-        
-        if(direction == 1 || direction == 2)
+      if(despDif==true)
+            {
+
+                    transform.position=posmove;
+                    despDif=false;
+                   
+                   
+                   Vector2 newPos=new Vector2(0,0);
+               
+                if(direction==1 || direction==2){
+                      newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(direction==5 || direction==6){
+                    newPos = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(direction==7 || direction==8){
+                    newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                 if(direction==3 || direction==4){
+                    newPos = new Vector2(transform.position.x- moveAmount, transform.position.y+ moveAmount);
+                }
+                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                while(detectaroom==true)
+                {
+                    direction=Random.Range(1,9);
+                  
+                     
+                     if(direction==1 || direction==2){
+                      newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(direction==1 || direction==2){
+                      newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(direction==5 || direction==6){
+                    newPos = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(direction==7 || direction==8){
+                    newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                detectaroom = Physics2D.OverlapCircle(newPos,1, room);
+                }
+                transform.position = newPos;
+
+
+            }
+              else if(direction == 1 || direction == 2)
         {
              
             if(transform.position.x < maxX)
             {
-                  if(despDif==true)
-                {
-                    transform.position=posmove;
-                    despDif=false;
-                }
+                 
               
                     
                     
@@ -192,12 +230,7 @@ public class LevelGeneration : MonoBehaviour
             
             if(transform.position.x > minX)
             {
-                  if(despDif==true)
-                {
-                    transform.position=posmove;
-                    despDif=false;
-                }
-               
+                
                     if(numHabit==1)
                     {
                         int rand = Random.Range(0, rooms.Length);
@@ -281,11 +314,7 @@ public class LevelGeneration : MonoBehaviour
         {    
             if(transform.position.y > minY)
             {
-                  if(despDif==true)
-                {
-                    transform.position=posmove;
-                    despDif=false;
-                }
+               
                 
                     if(numHabit==1)
                     {
@@ -371,14 +400,6 @@ public class LevelGeneration : MonoBehaviour
            
             if(transform.position.y < maxY)
             {  
-                  if(despDif==true)
-                {
-                    transform.position=posmove;
-                    despDif=false;
-                }
-                
-                     
-                    
                     
                     if(numHabit==1)
                     {
@@ -478,7 +499,7 @@ posi=true;
         numHabit=numHabit-Cantidad;
         direction2=direction;
         despDif=true; 
-        direcciones2 = new int [Cantidad+2];
+        direcciones2 = new int [Cantidad+4];
         direcciones2[i2]=direcciones[i];
         i2++;
     }
@@ -505,7 +526,7 @@ posi=true;
                         Cantidad--;
                         Debug.Log("Cantidad es 0");
                         direction=Random.Range(1,9);
-    
+                        Debug.Log("las habit que faltan son:"+numHabit);
                     }
                     else
                     {
@@ -588,7 +609,7 @@ posi=true;
                         Cantidad--;
                         Debug.Log("Cantidad es 0");
                         direction=Random.Range(1,9);
-    
+                        Debug.Log("las habit que faltan son:"+numHabit);
                     }
                     else
                     {
@@ -664,7 +685,7 @@ posi=true;
                         Cantidad--;
                         Debug.Log("Cantidad es 0");
                         direction=Random.Range(1,9);
-    
+                        Debug.Log("las habit que faltan son:"+numHabit);
                     }
                     else
                     {
@@ -739,7 +760,7 @@ posi=true;
                         Cantidad--;
                         Debug.Log("Cantidad es 0");
                         direction=Random.Range(1,9);
-    
+                        Debug.Log("las habit que faltan son:"+numHabit);
                     }
                     else
                     {
