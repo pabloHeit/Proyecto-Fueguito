@@ -16840,7 +16840,7 @@ GameObject:
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1670997786
 Animator:
   serializedVersion: 3
@@ -16885,7 +16885,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.06285906, y: -0.32399085}
   m_SpriteTilingProperty:
@@ -18384,7 +18384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002133282}
   m_LocalRotation: {x: 0.0027150903, y: -0.0027150903, z: 0.7071016, w: 0.7071016}
-  m_LocalPosition: {x: 2.649, y: 0.78001916, z: -0.004991596}
+  m_LocalPosition: {x: -3.78, y: -1.78, z: -0.02}
   m_LocalScale: {x: 2.8167508, y: 3.7000015, z: 0.20372874}
   m_Children: []
   m_Father: {fileID: 0}
