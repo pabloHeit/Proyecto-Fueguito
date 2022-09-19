@@ -16,17 +16,18 @@ public class Cascada : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
         {
           Debug.Log(other);
+          if(other.CompareTag("cofre"))
+            Debug.Log("buleriabuleria");
            if(other.CompareTag("Player"))
             {            
               Debug.Log("Holaa");
               controladorVidas.TomarDamage(daño);
             }
-
             Destroy(this.gameObject);
         }  
  
-    public void Destruir() {
-      Debug.Log("Llamado");
+ 
+    private void OnCollisionEnter2D(Collision2D other) {
       Destroy(this.gameObject);
     }
 
