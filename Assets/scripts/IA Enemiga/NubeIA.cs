@@ -73,9 +73,12 @@ public class NubeIA : MonoBehaviour
             moveCharacter(movement);
         }      
 
-      /*  contadorTime = Time.time + 3;
-       if(Time.time > contadorTime) */
-       //enojo = true;
+       contadorTime = Time.time + 3;
+       if(Time.time > contadorTime) {
+
+
+       }
+       
 
     }
 
@@ -166,17 +169,17 @@ public class NubeIA : MonoBehaviour
     }
 
     private void DisparoNube(){
-         RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, lookAtDirection, rango);
+/*          RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, lookAtDirection, rango);
          if (raycastHit2D){
             Debug.Log($"hola 1 : {raycastHit2D.transform.name}");
-            if(raycastHit2D.transform.CompareTag("Player")) 
+           if(raycastHit2D.transform.CompareTag("Player")) 
               {
                 Debug.Log($"hola 2");
                 Debug.DrawRay(disparador.position, objetivo.position, Color.red);
-                controladorVidas.TomarDamage(dañobala);
+               // controladorVidas.TomarDamage(dañobala);
               // StartCoroutine(GenerarLinea(raycastHit2D.point));
-              }
-         } 
+              } 
+         }  */
        
     }
 
@@ -193,24 +196,12 @@ public class NubeIA : MonoBehaviour
         Golpe();
     }
    }
-     
-    private void GenerarCuadrado() {
-     
-
-
-    } 
-
- 
- /*    IEnumerator GenerarLinea(Vector3 objeto) {
-     DisparoLinea.enabled = true;
-     DisparoLinea.SetPosition(0, disparador.position);
-     DisparoLinea.SetPosition(1, objeto);
-     Rigidbody2D ultirb = DisparoLinea.GetComponent<Rigidbody2D>();
-     ultirb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
-     yield return new WaitForSeconds(tiempoDisparo);
-     DisparoLinea.enabled = false;  
-
-   }  */
+    
+    public void Rayo(){
+       RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, lookAtDirection, rango);
+        if (raycastHit2D)
+            Debug.Log($"hola 1 : {raycastHit2D.transform.name}");
+    }
 
 }
 
