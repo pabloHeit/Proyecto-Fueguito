@@ -4188,7 +4188,7 @@ GameObject:
   - component: {fileID: 818189147}
   - component: {fileID: 818189151}
   - component: {fileID: 818189152}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cofre
   m_TagString: cofre
   m_Icon: {fileID: 0}
@@ -19754,6 +19754,7 @@ MonoBehaviour:
   mirandoDerecha: 1
   tiempoDeNoMoverse: 0.2
   tiempoInvulnerable: 0.2
+  capasIgnoradas: 
 --- !u!212 &2087941458
 SpriteRenderer:
   m_ObjectHideFlags: 0

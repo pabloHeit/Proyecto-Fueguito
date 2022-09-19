@@ -25,6 +25,7 @@ public class movimientoJugador : MonoBehaviour
     private Vector2 ultimaDireccion;
     [SerializeField] private float tiempoDeNoMoverse;
     [SerializeField] private float tiempoInvulnerable;
+    [SerializeField] private int[] capasIgnoradas;
     
     void Start()
     {
@@ -50,6 +51,7 @@ public class movimientoJugador : MonoBehaviour
         ladoMirar = mirandoDerecha ? 0 : 1;
         _t.eulerAngles = new Vector3(0, ladoMirar * 180 , 0);
     }    
+
     private void FixedUpdate()
     {
         if(sePuedeMover)
@@ -59,6 +61,7 @@ public class movimientoJugador : MonoBehaviour
                 rb2D.MovePosition(rb2D.position + direccion * velocidadMovimiento * Time.fixedDeltaTime);
             }
             animator.SetBool("Idle",true);
+
             if ((rodar == 1) && (Time.time > rodarPermiso))
             {
                 animator.SetBool("Idle",false);
@@ -71,6 +74,7 @@ public class movimientoJugador : MonoBehaviour
             }   
         }     
     }
+
     public void knockbackPlayer(Vector3 knockPosition, int knockback)
     {        
         Vector2 direccion = transform.position - knockPosition;
@@ -82,11 +86,28 @@ public class movimientoJugador : MonoBehaviour
         yield return new WaitForSeconds(tiempoRodar);
         rb2D.velocity = new Vector2(0,0);
     }
+
     public IEnumerator DesactivarColision(float TiempoInmunidad)
     {
-        Physics2D.IgnoreLayerCollision(3,6,true);
+        for (int i = 6; i <= 31; i++) {
+            foreach(int x in capasIgnoradas) {
+                if (i == x) {
+                    continue;
+                }
+            }
+            Physics2D.IgnoreLayerCollision(3, i, true);
+        }
+
         yield return new WaitForSeconds(TiempoInmunidad);
-        Physics2D.IgnoreLayerCollision(3,6,false);
+
+        for (int i = 6; i <= 31; i++) {
+            foreach(int x in capasIgnoradas) {
+                if (i == x) {
+                    continue;
+                }
+            }
+            Physics2D.IgnoreLayerCollision(3, i, false);
+        }
     }
 
     public IEnumerator PerderControl(float TiempoPerdidaControl)
