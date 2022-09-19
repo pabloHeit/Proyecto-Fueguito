@@ -9,18 +9,21 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5500252701698197970}
+  - component: {fileID: 1981310693969999432}
+  - component: {fileID: 2747813014348531806}
+  - component: {fileID: 5500252701698197983}
   - component: {fileID: 5500252701698197971}
   - component: {fileID: 5500252701698197968}
   - component: {fileID: 5500252701698197969}
   - component: {fileID: 5500252701698197982}
-  - component: {fileID: 5500252701698197983}
+  - component: {fileID: 671950322}
   m_Layer: 0
   m_Name: subdito_de_agua
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5500252701698197970
 Transform:
   m_ObjectHideFlags: 0
@@ -35,6 +38,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.441, y: 0.428, z: -0.401}
+--- !u!114 &1981310693969999432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500252701698197980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6c3c94bbf53514f8fa91c9e38db47a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetivo: {fileID: 0}
+  distanciaSegura: 7
+  distanciaAtaque: 2
+  atacando: 0
+--- !u!114 &2747813014348531806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500252701698197980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff14e8554a670a24e99781b45f607d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 5
+--- !u!114 &5500252701698197983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500252701698197980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf691f5c54f872248958ebdf0d7d4973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoMinion: 1.5
+  radio: 3
+  "da\xF1o": 50
+  explosionEfecto: {fileID: 0}
 --- !u!212 &5500252701698197971
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -155,20 +203,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5500252701698197983
-MonoBehaviour:
+--- !u!95 &671950322
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5500252701698197980}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf691f5c54f872248958ebdf0d7d4973, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vidaEnemiga: 5
-  tiempoMinion: 0
-  explosionEfecto: {fileID: 0}
-  radio: 3
-  "da\xF1o": 50
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6bd1a5fc4e8d5334e9fbb6cfd0f19650, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
