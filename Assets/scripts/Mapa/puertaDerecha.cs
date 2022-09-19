@@ -76,8 +76,25 @@ public class puertaDerecha : MonoBehaviour
     }
        else
        {
-        //    Debug.Log("antes de i"+direc.direcciones[direc.i-1]);
-        //     Debug.Log("despues de i"+direc.direction2);
+        
+        if(direc.i2 == 0)
+        {
+            if((direc.direction==1) || (direc.direction==2))
+        {
+             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+        else if(direc.direcciones[direc.i-1]==3 || direc.direcciones[direc.i-1]==4)
+        {
+            GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+        }
+        else
+        {
+        
+            
+
          if(direc.direction2==1 || direc.direction2==2)
         {
             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
@@ -87,7 +104,15 @@ public class puertaDerecha : MonoBehaviour
          else
         {
 
-          if(direc.direcciones[direc.i-1]==3 || direc.direcciones[direc.i-1]==4)
+            if(direc.Cantidad==0 && (direc.direcciones2[direc.i2]==3 || direc.direcciones2[direc.i2]==4))
+        {
+             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+        else
+        {
+
+          if(direc.direcciones2[direc.i2-1]==3 || direc.direcciones2[direc.i2-1]==4)
             {
                 GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
@@ -101,6 +126,8 @@ public class puertaDerecha : MonoBehaviour
        
         habitacion=direc.numHabit-1;
     }
+    }
+       }
     }
 
     // Update is called once per frame

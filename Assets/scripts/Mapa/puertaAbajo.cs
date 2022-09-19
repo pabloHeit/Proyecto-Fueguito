@@ -71,6 +71,23 @@ public class puertaAbajo : MonoBehaviour
     }
             else
             {
+
+                if(direc.i2 == 0)
+        {
+            if((direc.direction==5) || (direc.direction==6))
+        {
+             GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+        else if(direc.direcciones[direc.i-1]==7 || direc.direcciones[direc.i-1]==8)
+        {
+            GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+        }
+        else
+        {
+
             if(direc.direction2==5 || direc.direction2==6)
             {
                 GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
@@ -79,7 +96,16 @@ public class puertaAbajo : MonoBehaviour
             }
             else
             {
-                if(direc.direcciones[direc.i-1]==7 || direc.direcciones[direc.i-1]==8)
+
+                if(direc.Cantidad==0 && (direc.direcciones2[direc.i2]==7 || direc.direcciones2[direc.i2]==8))
+        {
+             GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+        else
+        {
+
+                if(direc.direcciones2[direc.i2-1]==7 || direc.direcciones2[direc.i2-1]==8)
                 {
                     GameObject instance = (GameObject)Instantiate(abajo[0], transform.position, Quaternion.identity);
                 instance.transform.parent=transform;
@@ -95,5 +121,7 @@ public class puertaAbajo : MonoBehaviour
             habitacion=direc.numHabit-1;
             }
     }
+    }
+}
     
   

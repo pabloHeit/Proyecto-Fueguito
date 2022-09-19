@@ -64,13 +64,33 @@ public class puertaIzquierda : MonoBehaviour
             }
             
        }
-       else if(direc.direction2==3 || direc.direction2==4)
+       else if(direc.i2 == 0)
+       {
+        if((direc.direction==3) || (direc.direction==4))
+        {
+             GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+        else if(direc.direcciones[direc.i-1]==1 || direc.direcciones[direc.i-1]==2)
+        {
+            GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+       }
+       else if((direc.direction2==3 && direc.Cantidad!=0) || (direc.direction2==4 && direc.Cantidad!=0))
         {
             GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
 
         }
-         else if(direc.direcciones[direc.i-1]==1 || direc.direcciones[direc.i-1]==2)
+
+        else if(direc.Cantidad==0 && (direc.direcciones2[direc.i2]==1 || direc.direcciones2[direc.i2]==2))
+        {
+             GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+
+         else if(direc.direcciones2[direc.i2-1]==1 || direc.direcciones2[direc.i2-1]==2)
             {
                 GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;

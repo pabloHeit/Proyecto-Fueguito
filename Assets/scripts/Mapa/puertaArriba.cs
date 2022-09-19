@@ -56,7 +56,7 @@ public class puertaArriba : MonoBehaviour
             else{ 
                 if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
             {
-                Debug.Log("aca");
+                
                 GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
             }
@@ -71,6 +71,22 @@ public class puertaArriba : MonoBehaviour
     }
        else
        {
+        if(direc.i2 == 0)
+        {
+            if((direc.direction==7) || (direc.direction==8))
+        {
+             GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+        else if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
+        {
+            GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+        }
+        else
+        {
+
          if(direc.direction2==8 || direc.direction2==7)
         {
             GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
@@ -79,7 +95,14 @@ public class puertaArriba : MonoBehaviour
         }
          else
         {
-            if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
+            if(direc.Cantidad==0 && (direc.direcciones2[direc.i2]==5 || direc.direcciones2[direc.i2]==6))
+        {
+             GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+        else
+        {
+            if(direc.direcciones2[direc.i2-1]==5 || direc.direcciones2[direc.i2-1]==6)
             {
                 GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
@@ -92,6 +115,8 @@ public class puertaArriba : MonoBehaviour
         }  
        }
        habitacion=direc.numHabit-1;
+    }
+       }
     }
     }
 
