@@ -77,45 +77,64 @@ public class puertaDerecha : MonoBehaviour
        else
        {
         
-        if(direc.i2 == 0)
+        if(direc.i2 == 1 && direc.Cantidad!=0)
         {
-            if((direc.direction==1) || (direc.direction==2))
+            if((direc.direction2==1) || (direc.direction2==2))
         {
              GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
+            Debug.Log("aca");
         }
         else if(direc.direcciones[direc.i-1]==3 || direc.direcciones[direc.i-1]==4)
         {
             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            Debug.Log("aca");
+        }
+        else
+        {
+             GameObject instance = (GameObject)Instantiate(derecha[1], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
         }
         }
         else
         {
         
+
+            if(direc.Cantidad==0) 
+        {
+            if(direc.direcciones2[direc.i2]==3 || direc.direcciones2[direc.i2]==4)
+            {
+                 GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+           Debug.Log("aca");
+            }
+            else
+            {
+                GameObject instance = (GameObject)Instantiate(derecha[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
+            
+        }  
+        else{
+
+
             
 
          if(direc.direction2==1 || direc.direction2==2)
         {
             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-            
+            Debug.Log("aca");
         }
          else
-        {
-
-            if(direc.Cantidad==0 && (direc.direcciones2[direc.i2]==3 || direc.direcciones2[direc.i2]==4))
-        {
-             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-        }
-        else
         {
 
           if(direc.direcciones2[direc.i2-1]==3 || direc.direcciones2[direc.i2-1]==4)
             {
                 GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
+            Debug.Log("aca");
             }
             else
             {
@@ -129,15 +148,4 @@ public class puertaDerecha : MonoBehaviour
     }
        }
     }
-
-    // Update is called once per frame
-    // void Update()dd
-    // {
-    //     if(habitacion==direc.numHabit && despues==true){
-    //         if(direc.ocupado==true){
-    //             Debug.Log("despues esta ocupado");
-                
-    //         }
-    //     }
-    // }
 }

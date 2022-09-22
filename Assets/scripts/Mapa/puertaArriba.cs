@@ -71,41 +71,63 @@ public class puertaArriba : MonoBehaviour
     }
        else
        {
-        if(direc.i2 == 0)
+        if(direc.i2 == 1 && direc.Cantidad!=0)
         {
-            if((direc.direction==7) || (direc.direction==8))
+            if((direc.direction2==7) || (direc.direction2==8))
         {
              GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
+            Debug.Log("aca");
         }
         else if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
         {
             GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
+            Debug.Log("aca");
+        }
+        else
+        {
+            GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
         }
         }
         else
         {
 
-         if(direc.direction2==8 || direc.direction2==7)
+       
+            if(direc.Cantidad==0) 
+        {
+            if(direc.direcciones2[direc.i2]==5 || direc.direcciones2[direc.i2]==6)
+            {
+                 GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+           Debug.Log("aca");
+            }
+            else
+            {
+                GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+            }
+            
+        }  
+        else{
+
+        
+        if(direc.direction2==8 || direc.direction2==7)
         {
             GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-
+            Debug.Log("aca");
         }
          else
-        {
-            if(direc.Cantidad==0 && (direc.direcciones2[direc.i2]==5 || direc.direcciones2[direc.i2]==6))
-        {
-             GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-        }
-        else
+        
+        
         {
             if(direc.direcciones2[direc.i2-1]==5 || direc.direcciones2[direc.i2-1]==6)
             {
                 GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
+            Debug.Log("aca");
             }
             else
             {
@@ -118,7 +140,9 @@ public class puertaArriba : MonoBehaviour
     }
        }
     }
-    }
+}
+    
+    
 
    
 

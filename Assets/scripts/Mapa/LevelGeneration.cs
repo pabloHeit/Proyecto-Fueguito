@@ -40,7 +40,7 @@ public class LevelGeneration : MonoBehaviour
         Instantiate(rooms[0], transform.position, Quaternion.identity);
    
         direction= Random.Range(1,9);
-        Debug.Log(direction);
+       
         direcciones = new int [11];
       direcciones [i]=direction;
     i++;
@@ -66,6 +66,12 @@ public class LevelGeneration : MonoBehaviour
        {
         posi=false;
        }
+       else if(Cantidad!=0 && posi==false)
+       {
+        posi=true;
+       }
+       
+       
         if(timeBtwRoom <=0 && stopGeneration == false)
         {
             if(Cantidad!=0)
@@ -109,7 +115,7 @@ public class LevelGeneration : MonoBehaviour
                     newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
                 }
                  if(direction==3 || direction==4){
-                    newPos = new Vector2(transform.position.x- moveAmount, transform.position.y+ moveAmount);
+                    newPos = new Vector2(transform.position.x- moveAmount, transform.position.y);
                 }
                 Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                 while(detectaroom==true)
@@ -480,7 +486,7 @@ public class LevelGeneration : MonoBehaviour
    
        
     private void Preposibilidad(){
-posi=true;
+
         // Debug.Log("esta en posiblidad"); 
         int mitad=numHabit/2;
         //  Debug.Log("mitad es:"+mitad);
@@ -595,12 +601,12 @@ posi=true;
                         int rand = Random.Range(0, rooms.Length);
                         direcciones2[i2]=direction2;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity); 
-                        Debug.Log("entro");
+                        // Debug.Log("entro");
                         
                         Cantidad--;
-                        Debug.Log("Cantidad es 0 "+Cantidad);
+                        // Debug.Log("Cantidad es 0 "+Cantidad);
                         direction=Random.Range(1,9);
-                        Debug.Log("las habit que faltan son:"+numHabit);
+                        // Debug.Log("las habit que faltan son:"+numHabit);
                     }
                     else
                     {
@@ -671,12 +677,9 @@ posi=true;
                         int rand = Random.Range(0, rooms.Length);
                         direcciones2[i2]=direction2;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
-                        Debug.Log("entro");
-                        
                         Cantidad--;
-                        Debug.Log("Cantidad es 0 "+Cantidad);
                         direction=Random.Range(1,9);
-                        Debug.Log("las habit que faltan son:"+numHabit);
+                        
                     }
                     else
                     {
