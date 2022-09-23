@@ -12,6 +12,7 @@ public class LevelGeneration : MonoBehaviour
     public int i2=0;
     public int direction;
     public int direction2;
+    public int directionPos;
     public bool posi;
     public float moveAmount;
     public float timeBtwRoom;
@@ -103,41 +104,7 @@ public class LevelGeneration : MonoBehaviour
                     despDif=false;
                    
                    
-                   Vector2 newPos=new Vector2(0,0);
-               
-                if(direction==1 || direction==2){
-                      newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
-                }
-                if(direction==5 || direction==6){
-                    newPos = new Vector2(transform.position.x, transform.position.y- moveAmount);
-                }
-                if(direction==7 || direction==8){
-                    newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
-                }
-                 if(direction==3 || direction==4){
-                    newPos = new Vector2(transform.position.x- moveAmount, transform.position.y);
-                }
-                Collider2D detectaroom = Physics2D.OverlapCircle(newPos,1, room);
-                while(detectaroom==true)
-                {
-                    direction=Random.Range(1,9);
-                  
-                     
-                     if(direction==1 || direction==2){
-                      newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
-                }
-                if(direction==3 || direction==4){
-                      newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
-                }
-                if(direction==5 || direction==6){
-                    newPos = new Vector2(transform.position.x, transform.position.y- moveAmount);
-                }
-                if(direction==7 || direction==8){
-                    newPos = new Vector2(transform.position.x, transform.position.y+ moveAmount);
-                }
-                detectaroom = Physics2D.OverlapCircle(newPos,1, room);
-                }
-                transform.position = newPos;
+                
 
 
             }
@@ -170,7 +137,7 @@ public class LevelGeneration : MonoBehaviour
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         numHabit--;
                         int chance = Random.Range(1,11);
-                         posmove=transform.position;
+                         
                    Debug.Log(numHabit );     
 
                 direction=Random.Range(1,9);
@@ -215,8 +182,71 @@ public class LevelGeneration : MonoBehaviour
 
                      if (chance<=3 && numHabit!=1)
                     { 
-                       
-                        
+
+                        Debug.Log("hola1");
+                        directionPos=Random.Range(1,4);
+              if(directionPos==1){
+                        directionPos=5;
+                    }
+                    if(directionPos==2)
+                    {
+                        directionPos=1;
+                    }
+                    if(directionPos==3)
+                    {
+                        directionPos=7;
+                    }
+                   
+                 Vector2 newPos2=new Vector2(0,0);
+                if(directionPos==1){
+                      newPos2 = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(directionPos==5){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(directionPos==7){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                Collider2D detectaroomPos = Physics2D.OverlapCircle(newPos2,1, room);
+
+
+
+
+
+
+
+
+
+                       while(detectaroomPos==true || (directionPos==direction || directionPos+1==direction))
+                       {
+                            directionPos=Random.Range(1,4);
+                    if(directionPos==1){
+                        directionPos=5;
+                    }
+                    if(directionPos==2)
+                    {
+                        directionPos=1;
+                    }
+                    if(directionPos==3)
+                    {
+                        directionPos=7;
+                    }
+                     
+                     if(directionPos==1){
+                      newPos2 = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(directionPos==5){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(directionPos==7){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                detectaroom = Physics2D.OverlapCircle(newPos2,1, room);
+                       }
+                        posmove = newPos2;
+
+
+
                         Preposibilidad();
                     }
                      
@@ -294,7 +324,72 @@ public class LevelGeneration : MonoBehaviour
 
                     if (chance<=3 && numHabit!=1)
                     {
-                        
+                       Debug.Log("hola2"); 
+
+                        directionPos=Random.Range(1,4);
+              if(directionPos==1){
+                        directionPos=5;
+                    }
+                    if(directionPos==2)
+                    {
+                        directionPos=3;
+                    }
+                    if(directionPos==3)
+                    {
+                        directionPos=7;
+                    }
+                   
+                 Vector2 newPos2=new Vector2(0,0);
+                if(directionPos==3){
+                      newPos2 = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(directionPos==5){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(directionPos==7){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                Collider2D detectaroomPos = Physics2D.OverlapCircle(newPos2,1, room);
+
+
+
+
+
+
+
+
+
+                       while(detectaroomPos==true || (directionPos==direction || directionPos+1==direction))
+                       {
+                            directionPos=Random.Range(1,4);
+                    if(directionPos==1){
+                        directionPos=5;
+                    }
+                    if(directionPos==2)
+                    {
+                        directionPos=3;
+                    }
+                    if(directionPos==3)
+                    {
+                        directionPos=7;
+                    }
+                     
+                     if(directionPos==3){
+                      newPos2 = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(directionPos==5){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(directionPos==7){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                detectaroom = Physics2D.OverlapCircle(newPos2,1, room);
+                       }
+                        posmove = newPos2;
+
+
+
+
                         
                         Preposibilidad();
                     }
@@ -378,7 +473,71 @@ public class LevelGeneration : MonoBehaviour
 
                     if (chance<=3 && numHabit!=1)
                     {
-                        
+                        Debug.Log("hola3");
+
+
+                        directionPos=Random.Range(1,4);
+              if(directionPos==1){
+                        directionPos=5;
+                    }
+                    if(directionPos==2)
+                    {
+                        directionPos=1;
+                    }
+                    if(directionPos==3)
+                    {
+                        directionPos=3;
+                    }
+                   
+
+                 Vector2 newPos2=new Vector2(0,0);
+                if(directionPos==1){
+                      newPos2 = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(directionPos==5){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(directionPos==3){
+                    newPos2 = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                Collider2D detectaroomPos = Physics2D.OverlapCircle(newPos2,1, room);
+
+
+
+
+
+
+
+
+                       while(detectaroomPos==true || (directionPos==direction || directionPos+1==direction))
+                       {
+                            directionPos=Random.Range(1,4);
+                    if(directionPos==1){
+                        directionPos=5;
+                    }
+                    if(directionPos==2)
+                    {
+                        directionPos=1;
+                    }
+                    if(directionPos==3)
+                    {
+                        directionPos=3;
+                    }
+                     
+                     if(directionPos==1){
+                      newPos2 = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(directionPos==5){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y- moveAmount);
+                }
+                if(directionPos==3){
+                    newPos2 = new Vector2(transform.position.x- moveAmount, transform.position.y);
+                }
+                detectaroom = Physics2D.OverlapCircle(newPos2,1, room);
+                       }
+                        posmove = newPos2;
+
+
                         
                         Preposibilidad();
                     }
@@ -462,10 +621,75 @@ public class LevelGeneration : MonoBehaviour
                 }
                 transform.position = newPos;
 
-
+               
                         if (chance<=3 && numHabit!=1)
                     {
                         
+
+                        directionPos=Random.Range(1,4);
+              if(directionPos==1){
+                        directionPos=3;
+                    }
+                    if(directionPos==2)
+                    {
+                        directionPos=1;
+                    }
+                    if(directionPos==3)
+                    {
+                        directionPos=7;
+                    } 
+                   
+                 Vector2 newPos2=new Vector2(0,0);
+                if(directionPos==1){
+                      newPos2 = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(directionPos==3){
+                    newPos2 = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                }
+                if(directionPos==7){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                Collider2D detectaroomPos = Physics2D.OverlapCircle(newPos2,1, room);
+
+
+
+
+
+
+
+
+
+
+                       while(detectaroomPos==true || (directionPos==direction || directionPos+1==direction))
+                       {
+                            directionPos=Random.Range(1,4);
+                    if(directionPos==1){
+                        directionPos=3;
+                    }
+                    if(directionPos==2)
+                    {
+                        directionPos=1;
+                    }
+                    if(directionPos==3)
+                    {
+                        directionPos=7;
+                    }
+                     
+                     if(directionPos==1){
+                      newPos2 = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                }
+                if(directionPos==3){
+                    newPos2 = new Vector2(transform.position.x- moveAmount, transform.position.y);
+                }
+                if(directionPos==7){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                }
+                detectaroom = Physics2D.OverlapCircle(newPos2,1, room);
+                       }
+                        posmove = newPos2;
+
+
+
                         
                         Preposibilidad();
                         
@@ -522,7 +746,7 @@ public class LevelGeneration : MonoBehaviour
                         
                         Cantidad--;
                         Debug.Log("Cantidad es 0 "+Cantidad);
-                        direction=Random.Range(1,9);
+                        direction=directionPos;
                         Debug.Log("las habit que faltan son:"+numHabit);
                     }
                     else
@@ -605,7 +829,7 @@ public class LevelGeneration : MonoBehaviour
                         
                         Cantidad--;
                         // Debug.Log("Cantidad es 0 "+Cantidad);
-                        direction=Random.Range(1,9);
+                        direction=directionPos;
                         // Debug.Log("las habit que faltan son:"+numHabit);
                     }
                     else
@@ -678,7 +902,7 @@ public class LevelGeneration : MonoBehaviour
                         direcciones2[i2]=direction2;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Cantidad--;
-                        direction=Random.Range(1,9);
+                        direction=directionPos;
                         
                     }
                     else
@@ -753,7 +977,7 @@ public class LevelGeneration : MonoBehaviour
                         
                         Cantidad--;
                         Debug.Log("Cantidad es 0 "+Cantidad);
-                        direction=Random.Range(1,9);
+                        direction=directionPos;
                         Debug.Log("las habit que faltan son:"+numHabit);
                     }
                     else

@@ -70,13 +70,13 @@ public class puertaIzquierda : MonoBehaviour
         {
              GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-            Debug.Log("aca");
+            
         }
         else if(direc.direcciones[direc.i-1]==1 || direc.direcciones[direc.i-1]==2)
         {
             GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-            Debug.Log("aca");
+            
         }
         else
         {
@@ -93,7 +93,7 @@ public class puertaIzquierda : MonoBehaviour
             {
                  GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-           Debug.Log("aca");
+          
             }
             else
             {
@@ -110,7 +110,7 @@ public class puertaIzquierda : MonoBehaviour
         {
             GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-Debug.Log("aca");
+
         }
 
         
@@ -119,7 +119,7 @@ Debug.Log("aca");
             {
                 GameObject instance = (GameObject)Instantiate(izquierda[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
-            Debug.Log("aca");
+            
             }
             else
             {
