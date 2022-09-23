@@ -18153,7 +18153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &2025503444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18217,7 +18217,6 @@ LineRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: 2940f7f90ea24914ebd48eeb777918c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18294,7 +18293,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!4 &2025503447
 Transform:
@@ -19421,7 +19420,7 @@ PrefabInstance:
     - target: {fileID: 7624942459500572516, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: DisparoLinea
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2025503446}
     - target: {fileID: 7624942459500572516, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: tiempoDisparo
       value: 0.1
