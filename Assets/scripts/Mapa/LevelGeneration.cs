@@ -19,7 +19,7 @@ public class LevelGeneration : MonoBehaviour
     public float startTimeBtwRoom = 0.25f;
     public float minX;
     public int Cantidad;
-    public int numHabit=10;
+    public int numHabit=100;
     private int moveCounter;
     public float maxX;
     public float maxY;
@@ -781,7 +781,7 @@ chance=0;
                     newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
                 }
                 Collider2D detectaroom2 = Physics2D.OverlapCircle(newPos2,1, room);
-                while(detectaroom2==true)
+                while(detectaroom2==true || newPos2==posmove)
                 {
                     direction2=Random.Range(1,9);
                     if(direction2==3){
@@ -861,14 +861,15 @@ chance=0;
                     newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
                 }
                 Collider2D detectaroom2 = Physics2D.OverlapCircle(newPos2,1, room);
-                while(detectaroom2==true)
+                Debug.Log("chau");
+                while(detectaroom2==true || newPos2==posmove)
                 {
                     direction2=Random.Range(3,9);
                     if(direction2==3 || direction2==4){
                       newPos2 = new Vector2(transform.position.x - moveAmount, transform.position.y);
                 }
                if(direction2==6 || direction2==5){
-                    newPos2 = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                    newPos2 = new Vector2(transform.position.x, transform.position.y - moveAmount);
                 }
                 if(direction2==7 || direction2==8){
                     newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
@@ -930,11 +931,11 @@ chance=0;
                if(direction2==1 || direction2==2){
                     newPos2 = new Vector2(transform.position.x + moveAmount, transform.position.y);
                 }
-                if(direction2==7 || direction2==8){
-                    newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
+                if(direction2==5 || direction2==6){
+                    newPos2 = new Vector2(transform.position.x, transform.position.y- moveAmount);
                 }
                 Collider2D detectaroom2 = Physics2D.OverlapCircle(newPos2,1, room);
-                while(detectaroom2==true)
+                while(detectaroom2==true || newPos2==posmove)
                 {
                     direction2=Random.Range(1,7);
                     if(direction2==3 || direction2==4){
@@ -1012,7 +1013,7 @@ chance=0;
                     newPos2 = new Vector2(transform.position.x, transform.position.y+ moveAmount);
                 }
                 Collider2D detectaroom2 = Physics2D.OverlapCircle(newPos2,1, room);
-                while(detectaroom2==true)
+                while(detectaroom2==true || newPos2==posmove)
                 {
                     direction2=Random.Range(1,9);
                     if(direction2==5){
