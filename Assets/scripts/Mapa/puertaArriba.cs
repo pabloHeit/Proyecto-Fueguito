@@ -9,10 +9,12 @@ public class puertaArriba : MonoBehaviour
     private int habitacion;
     // private bool despues=false;
     // Start is called before the first frame update
+    
     private void Start()
     {
+       
         direc=FindObjectOfType<LevelGeneration>();
-         
+        //   Debug.Log("la direccion despues es "+direc.directionPos);
          if(direc.posi==false)
        {
            if(direc.numHabit==10){
@@ -47,6 +49,8 @@ public class puertaArriba : MonoBehaviour
         }
         else
         {
+            
+        
         if((direc.direction==7) || (direc.direction==8))
         {
             GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
@@ -62,8 +66,16 @@ public class puertaArriba : MonoBehaviour
             }
             else
             {
-  GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+                if(direc.directionPos!=0 && direc.directionPos==7)
+        {
+GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
+        }
+                else{
+                    GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+                }
+  
             }
         }
         }

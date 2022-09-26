@@ -20,6 +20,7 @@ public class puertaDerecha : MonoBehaviour
         
          if(direc.posi==false)
        {
+        
            if(direc.numHabit==10){
             if((direc.direction==1) || (direc.direction==2))
         {
@@ -52,6 +53,7 @@ public class puertaDerecha : MonoBehaviour
         }
         else
         {
+            
         if((direc.direction==1) || (direc.direction==2))
         {
             GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
@@ -67,9 +69,19 @@ public class puertaDerecha : MonoBehaviour
             }
             else
             {
+                if(direc.directionPos!=0 && direc.directionPos==1)
+        {
+GameObject instance = (GameObject)Instantiate(derecha[0], transform.position, Quaternion.identity);
+            instance.transform.parent=transform;
+        }
+       
+                else
+            {
   GameObject instance = (GameObject)Instantiate(derecha[1], transform.position, Quaternion.identity);
             instance.transform.parent=transform;
             }
+            }
+            
         }
         }
             }
