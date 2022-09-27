@@ -7,11 +7,13 @@ public class vidaEnemiga : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
 
-    [SerializeField] private float vida;
+    [SerializeField] public float vida;
+    [SerializeField] public float vidaInicial;
 
     void Start()
     {
         anim = this.GetComponent<Animator>();
+        vidaInicial = vida;
     }
 
     public void Golpe()

@@ -8,9 +8,10 @@ public class movimientoEnemigos : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
     NavMeshAgent navMeshAgent;
+    vidaEnemiga vidaEnemiga;
 
-    private Transform player;
-    private controladorVidas controladorVidas;
+    Transform player;
+    controladorVidas controladorVidas;
     [SerializeField] private Transform objetivo;
     private float distJugador = 100;
 
@@ -27,6 +28,7 @@ public class movimientoEnemigos : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
+        vidaEnemiga = this.GetComponent<vidaEnemiga>();
 
         objetivo = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); 
 
@@ -50,7 +52,8 @@ public class movimientoEnemigos : MonoBehaviour
                 enemigoMov();
             }
             else {
-                if (Mathf.Abs(distJugador) < distanciaSegura) {
+                if (Mathf.Abs(distJugador) < distanciaSegura 
+                    || vidaEnemiga.vida < vidaEnemiga.vidaInicial) {
                     enemigoAct = true;
                 }
             }
@@ -77,6 +80,7 @@ public class movimientoEnemigos : MonoBehaviour
         gameObject.GetComponent<NavMeshAgent>().enabled = !jugadorEnZona;
 
         if (!jugadorEnZona) {
+            anim.SetBool("caminando", true);
             navMeshAgent.SetDestination(objetivo.position);            
         }
     }
