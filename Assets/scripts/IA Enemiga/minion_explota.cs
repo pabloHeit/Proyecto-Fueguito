@@ -7,7 +7,7 @@ public class minion_explota : MonoBehaviour
 {
     movimientoEnemigos movimientoEnemigos;
     controladorVidas controladorVidas;
-
+    NavMeshAgent navMeshAgent;
     private Transform player;
 
     private bool explotando = false;
@@ -36,13 +36,14 @@ public class minion_explota : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(tiempoMinionContador);
         if (explotando && tiempoMinionContador < Time.time) {
             Explosion();
         }        
     }
 
     private void Explosion()
-    {
+    {          
         Collider2D[] personajes = Physics2D.OverlapCircleAll(transform.position, radio);
 
         foreach (Collider2D colisionador in personajes)
@@ -52,10 +53,17 @@ public class minion_explota : MonoBehaviour
             {
                 Vector2 direccion = colisionador.transform.position - transform.position;
                 controladorVidas.TomarDamage(daño);
-                Destroy(gameObject);
                 break;
             }
         }
+        Destroy(gameObject);
+        
+        GameObject efectoExplosion = Instantiate(explosionEfecto, transform.position, Quaternion.identity);        
+    }
+
+    private void Morir ()
+    {
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
     }
     
     private void OnDrawGizmos()

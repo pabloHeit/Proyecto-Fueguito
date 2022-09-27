@@ -31,7 +31,6 @@ public class N1_IA : MonoBehaviour
         anim = GetComponent<Animator>();
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
         rb = this.GetComponent<Rigidbody2D>();
         BalaAgua = GetComponent<BalaAgua>();  
     }
