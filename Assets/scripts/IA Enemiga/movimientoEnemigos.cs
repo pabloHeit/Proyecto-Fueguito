@@ -28,6 +28,8 @@ public class movimientoEnemigos : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
 
+        objetivo = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); 
+
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;

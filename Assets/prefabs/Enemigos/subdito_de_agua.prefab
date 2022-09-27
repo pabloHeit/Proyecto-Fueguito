@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5500252701698197970
 Transform:
   m_ObjectHideFlags: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetivo: {fileID: 0}
-  distanciaSegura: 7
+  distanciaSegura: 11.19
   distanciaAtaque: 2
   atacando: 0
 --- !u!114 &2747813014348531806
@@ -79,10 +79,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf691f5c54f872248958ebdf0d7d4973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoMinion: 1.5
+  tiempoMinion: 3
   radio: 3
   "da\xF1o": 50
-  explosionEfecto: {fileID: 0}
+  explosionEfecto: {fileID: 4497862331580939425, guid: c9f4956b0d0976546ab0dd6e443c4a0a, type: 3}
 --- !u!212 &5500252701698197971
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1510592188006637747, guid: 5a42631b543e11844a24fbe62d45177e, type: 3}
+  m_Sprite: {fileID: -3155005052083269948, guid: 58e6cc14564e88a428e2879f6e68524c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -191,7 +191,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 4
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
