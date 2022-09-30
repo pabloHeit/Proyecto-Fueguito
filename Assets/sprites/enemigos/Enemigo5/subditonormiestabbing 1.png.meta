@@ -1,31 +1,34 @@
 fileFormatVersion: 2
-guid: c92ddfa37253a674285b1a11c49193b4
+guid: a2ccc74a5f564234f9084ca215ecefbc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2112646106793074768
-    second: subditonormiestabbing_0
+      213: -1135822214176969762
+    second: subditonormiestabbing 1_0
   - first:
-      213: 4777956883600892310
-    second: subditonormiestabbing_1
+      213: 3726243210704949582
+    second: subditonormiestabbing 1_1
   - first:
-      213: -6207022617059622240
-    second: subditonormiestabbing_2
+      213: 2849700191331088701
+    second: subditonormiestabbing 1_2
   - first:
-      213: 1747753469120235144
-    second: subditonormiestabbing_3
+      213: -9027517053115493347
+    second: subditonormiestabbing 1_3
   - first:
-      213: -4555212217007407343
-    second: subditonormiestabbing_4
+      213: 6195428405261781749
+    second: subditonormiestabbing 1_4
   - first:
-      213: 2371161298476803922
-    second: subditonormiestabbing_5
+      213: 830389370235840505
+    second: subditonormiestabbing 1_5
   - first:
-      213: 9033108372947506483
-    second: subditonormiestabbing_6
+      213: -4565265924106480956
+    second: subditonormiestabbing 1_6
   - first:
-      213: -8138904464844140929
-    second: subditonormiestabbing_7
+      213: 5421894111161996713
+    second: subditonormiestabbing 1_7
+  - first:
+      213: -788119576632057334
+    second: subditonormiestabbing 1_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +118,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: subditonormiestabbing_0
+      name: subditonormiestabbing 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -129,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bf9c742f8f5ea2e0800000000000000
-      internalID: -2112646106793074768
+      spriteID: edbebfbc6bfbc30f0800000000000000
+      internalID: -1135822214176969762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: subditonormiestabbing_1
+      name: subditonormiestabbing 1_1
       rect:
         serializedVersion: 2
         x: 64
@@ -150,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 691e92f8876be4240800000000000000
-      internalID: 4777956883600892310
+      spriteID: e4197c8257646b330800000000000000
+      internalID: 3726243210704949582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: subditonormiestabbing_2
+      name: subditonormiestabbing 1_2
       rect:
         serializedVersion: 2
         x: 128
@@ -171,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a28855e0d93cd9a0800000000000000
-      internalID: -6207022617059622240
+      spriteID: d39f6a4c93b2c8720800000000000000
+      internalID: 2849700191331088701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: subditonormiestabbing_3
+      name: subditonormiestabbing 1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -192,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8864ed92584414810800000000000000
-      internalID: 1747753469120235144
+      spriteID: d14154de111d7b280800000000000000
+      internalID: -9027517053115493347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: subditonormiestabbing_4
+      name: subditonormiestabbing 1_4
       rect:
         serializedVersion: 2
         x: 64
@@ -213,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11ff0c88f92a8c0c0800000000000000
-      internalID: -4555212217007407343
+      spriteID: 5fa4efe4f459af550800000000000000
+      internalID: 6195428405261781749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: subditonormiestabbing_5
+      name: subditonormiestabbing 1_5
       rect:
         serializedVersion: 2
         x: 128
@@ -234,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2572dd453ae08e020800000000000000
-      internalID: 2371161298476803922
+      spriteID: 9f7ea2e8bb2268b00800000000000000
+      internalID: 830389370235840505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: subditonormiestabbing_6
+      name: subditonormiestabbing 1_6
       rect:
         serializedVersion: 2
         x: 0
@@ -255,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 335942ba43c0c5d70800000000000000
-      internalID: 9033108372947506483
+      spriteID: 4c2107074dae4a0c0800000000000000
+      internalID: -4565265924106480956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: subditonormiestabbing_7
+      name: subditonormiestabbing 1_7
       rect:
         serializedVersion: 2
         x: 64
@@ -276,8 +279,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7ecf10d28dcc0f80800000000000000
-      internalID: -8138904464844140929
+      spriteID: 9a5d799b7ff6e3b40800000000000000
+      internalID: 5421894111161996713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: subditonormiestabbing 1_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02a052bb690015f0800000000000000
+      internalID: -788119576632057334
       vertices: []
       indices: 
       edges: []
