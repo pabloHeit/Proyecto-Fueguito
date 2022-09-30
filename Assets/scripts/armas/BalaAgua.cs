@@ -37,9 +37,9 @@ public class BalaAgua : MonoBehaviour
       player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
       
    }
+  
+     public void OnTriggerEnter2D(Collider2D other) {
 
-  public void OnTriggerEnter2D(Collider2D other) {
-      
         if(other.CompareTag("Player"))
         {            
             if (ralentiza){
@@ -49,7 +49,7 @@ public class BalaAgua : MonoBehaviour
             controladorVidas.TomarDamage(daño);
         }
 
-        if(!(other.CompareTag("Enemigo")))
+        if(!other.CompareTag("Enemigo") && other.gameObject.layer != 8)
         {
             GameObject efecto1 = Instantiate(efectoImpacto, transform.position, transform.rotation); 
             Destroy(efecto1, tiempoEfecto);
