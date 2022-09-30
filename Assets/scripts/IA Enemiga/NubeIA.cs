@@ -21,15 +21,15 @@ public class NubeIA : MonoBehaviour
    private NavMeshAgent navMeshAgent;
   [SerializeField] public int vidaEnemiga;
   [SerializeField] private Transform disparador;
-  [SerializeField] private GameObject efectoImpacto;
   [SerializeField] private Transform objetivo;
   [SerializeField] private float rango;
-  private bool enojo = true;
+  private bool enojo = false;
   private float contadorTime;
   [SerializeField] private float dañobala;
   [SerializeField] private LineRenderer DisparoLinea;
   [SerializeField] private float tiempoDisparo;
    private Vector3 lookAtDirection;
+   private bool contadorTiempo = false;
 
    void Start()
     {
@@ -41,6 +41,7 @@ public class NubeIA : MonoBehaviour
      miraDerecha = true;
      anim = GetComponent<Animator>();
      player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+     contadorTiempo = false;
    }
 
 
@@ -58,19 +59,33 @@ public class NubeIA : MonoBehaviour
         {
             enemigoMov();
         }
+     
+       if(contadorTiempo = false){
+        contadorTime = Time.time + 10;
+        contadorTiempo = true;
+        Debug.Log("Holaaaa");
+       }
+
+    if (contadorTiempo) {
+      if(Time.time > contadorTime) {
+       enojo = true;
+       Debug.Log("Enojo es" + enojo);
+       contadorTiempo = false;
+       }
     }
+       
+       
+
+    }
+
    }
+
     private void FixedUpdate() 
     {
         if(controladorVidas != null)
         {
             moveCharacter(movement);
         }      
-
-   /*     contadorTime = Time.time + 3;
-       if(Time.time > contadorTime) {
-       } */
-    
     }
 
    private void enemigoMov() 
@@ -81,7 +96,7 @@ public class NubeIA : MonoBehaviour
       movement = direction;
 
       float distJugador = Vector2.Distance(transform.position, player.position);
-      Debug.Log("Distancia del jugador" + distJugador);
+      //Debug.Log("Distancia del jugador" + distJugador);
 
      if (vidaEnemiga < 5)
      {
@@ -145,10 +160,14 @@ public class NubeIA : MonoBehaviour
     }
 
     private void Disparo(){
-     if(enojo)
-     DisparoNube();
-     else
-     DisparoAgua();
+     if(enojo) {
+      DisparoNube();
+      enojo=false; 
+     }
+     else {
+      DisparoAgua();
+     }
+    
 
     }
 
@@ -162,10 +181,10 @@ public class NubeIA : MonoBehaviour
     private void DisparoNube(){
          RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, lookAtDirection, rango);
          if (raycastHit2D){
-            Debug.Log($"hola 1 : {raycastHit2D.transform.name}");
+           // Debug.Log($"hola 1 : {raycastHit2D.transform.name}");
            if(raycastHit2D.transform.CompareTag("Player")) 
               {
-                Debug.Log($"hola 2");
+              //  Debug.Log($"hola 2");
                 Debug.DrawRay(disparador.position, objetivo.position, Color.red);
                controladorVidas.TomarDamage(dañobala);
                StartCoroutine(GenerarLinea(raycastHit2D.point));
