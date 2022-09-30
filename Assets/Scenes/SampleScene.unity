@@ -4367,6 +4367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Caballero
       objectReference: {fileID: 0}
+    - target: {fileID: 2883430855814680365, guid: afa00cdf2022af24dad2599b9411f59e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afa00cdf2022af24dad2599b9411f59e, type: 3}
 --- !u!1 &854439698
@@ -18320,7 +18324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087941454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6, y: 3.71, z: 0}
+  m_LocalPosition: {x: -7.28, y: 10.89, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 0.16298296}
   m_Children:
   - {fileID: 928927886}
@@ -19066,11 +19070,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5500252701698197970, guid: 37e0f08082a352e428c365335e73537d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.67
+      value: -8.06
       objectReference: {fileID: 0}
     - target: {fileID: 5500252701698197970, guid: 37e0f08082a352e428c365335e73537d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.16
+      value: 4.62
       objectReference: {fileID: 0}
     - target: {fileID: 5500252701698197970, guid: 37e0f08082a352e428c365335e73537d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19110,7 +19114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5500252701698197980, guid: 37e0f08082a352e428c365335e73537d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e0f08082a352e428c365335e73537d, type: 3}

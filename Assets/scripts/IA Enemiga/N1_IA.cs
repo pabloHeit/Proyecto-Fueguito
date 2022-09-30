@@ -23,7 +23,7 @@ public class N1_IA : MonoBehaviour
 
     [SerializeField] private Transform disparador;
 
-    private bool enemigoActivo = false;
+    
 
     void Start()
     {

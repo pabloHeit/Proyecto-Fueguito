@@ -60,11 +60,6 @@ public class minion_explota : MonoBehaviour
         
         GameObject efectoExplosion = Instantiate(explosionEfecto, transform.position, Quaternion.identity);        
     }
-
-    private void Morir ()
-    {
-        gameObject.GetComponent<NavMeshAgent>().enabled = false;
-    }
     
     private void OnDrawGizmos()
     {

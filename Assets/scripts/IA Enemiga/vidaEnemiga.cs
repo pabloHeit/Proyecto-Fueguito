@@ -21,14 +21,16 @@ public class vidaEnemiga : MonoBehaviour
         vida--;
         
         if(vida <= 0) {
+            Debug.Log("hasdkjdhasfhsa");
             anim.SetTrigger("Morir");
         }
         
         anim.SetTrigger("Dañado");
     }
 
-    private void Muerte()
+    public void Muerte()
     {
+        Debug.Log("morir");
         Destroy(gameObject);
     }
 
