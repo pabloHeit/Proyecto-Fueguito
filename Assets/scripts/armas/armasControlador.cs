@@ -7,11 +7,14 @@ using UnityEngine.UI;
 
 public class armasControlador : MonoBehaviour
 {
+    //Dependencias
+    controlArmas controlArmas;
     Rigidbody2D rb;
     TextMeshProUGUI textMesh;
     SpriteRenderer sprite;
     Animator Animator;
     movimientoJugador movimientoJugador;
+    AudioSource audioSource;
 
     [SerializeField] public bool armaDeFuego;
 
@@ -48,9 +51,8 @@ public class armasControlador : MonoBehaviour
     private bool disparar;
     public event EventHandler OnShoot;
 
-    //Dependencias
-    private controlArmas controlArmas;
-
+    [Header("Sonidos")]
+    [SerializeField] private AudioClip sonidoAtaque;
 
     private void Start() 
     {
@@ -66,11 +68,13 @@ public class armasControlador : MonoBehaviour
 
         tiempoDeRecarga = tiempoDeRecargaDefault / controlArmas.rechargeMultiplier;
 
-        movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();  	
+        movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();
+
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update() 
     {
-        if (GameManager.EnableInput){
+        if (GameManager.EnableInput) {
 
             if (!armaDeFuego)
             {
@@ -82,8 +86,9 @@ public class armasControlador : MonoBehaviour
                     mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     mousePosition.z = 0;
                     Vector3 lookAtDirection = mousePosition - transform.position;
-                    transform.up= lookAtDirection;
-                    transform.localScale = movimientoJugador.mirandoDerecha ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);                    
+                    transform.up = lookAtDirection;
+                    //sprite.flipX = movimientoJugador.mirandoDerecha ? false : true;
+                    //transform.localScale = movimientoJugador.mirandoDerecha ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);                    
                 }
 
             }
@@ -135,6 +140,7 @@ public class armasControlador : MonoBehaviour
 
     private void Disparar()
     {        
+        audioSource.PlayOneShot(sonidoAtaque);
         cantBalas--;
         GameObject bala = Instantiate(Bala, puntaDelArma.position, puntaDelArma.rotation);
         dispararPermiso = Time.time + dispararCooldown; 
@@ -142,25 +148,26 @@ public class armasControlador : MonoBehaviour
         rb.AddForce(puntaDelArma.right * velocidad , ForceMode2D.Impulse);
         OnShoot?.Invoke(this, EventArgs.Empty);
 
-        ActualizarHudBalas();     
+        ActualizarHudBalas();
     }
 
     private void Golpe()
     {
+        if (atacando) return;
+
+        audioSource.PlayOneShot(sonidoAtaque);
         atacando = true;
         Animator.SetTrigger("ataque");
         try {
             Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorGolpe.position, radioGolpe);
             foreach (Collider2D colisionador in objetos)
             {
-                if (colisionador.CompareTag("Enemigo"))
-                {
-                    Debug.Log("Le pegaste al enemigo");
-                    //colisionador.transform.GetComponent<Enemigo>().TomarDaño(dañoGolpe);
+                if (colisionador.CompareTag("Enemigo")) {
+                    //colisionador.GetComponent<vidaEnemiga>().Golpe();
                 }
-            }            
+            }
         }
-        catch (System.Exception) { } 
+        catch (System.Exception) { }
     }
 
     private void terminarAtaque()
