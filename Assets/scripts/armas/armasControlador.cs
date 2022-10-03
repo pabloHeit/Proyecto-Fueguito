@@ -87,7 +87,7 @@ public class armasControlador : MonoBehaviour
                     mousePosition.z = 0;
                     Vector3 lookAtDirection = mousePosition - transform.position;
                     transform.up = lookAtDirection;
-                    //sprite.flipX = movimientoJugador.mirandoDerecha ? false : true;
+                    sprite.flipX = movimientoJugador.mirandoDerecha ? false : true;
                     //transform.localScale = movimientoJugador.mirandoDerecha ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);                    
                 }
 

@@ -2237,6 +2237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2440423e705714a96da07d6ec2006b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb2D: {fileID: 0}
   "da\xF1o": 10
 --- !u!114 &396120883
 MonoBehaviour:
@@ -3083,7 +3084,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547614807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.162, y: 0.115, z: 0}
+  m_LocalPosition: {x: 0.046, y: 0.196, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1646284258}
@@ -3671,7 +3672,6 @@ MonoBehaviour:
   dispararCooldown: 0.4
   velocidad: 20
   sonidoAtaque: {fileID: 0}
-  sonidoImpacto: {fileID: 0}
 --- !u!1 &695867945
 GameObject:
   m_ObjectHideFlags: 0
@@ -15742,7 +15742,6 @@ MonoBehaviour:
   dispararCooldown: 2
   velocidad: 20
   sonidoAtaque: {fileID: 0}
-  sonidoImpacto: {fileID: 0}
 --- !u!4 &1346370224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5670297548781241467, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
@@ -17449,14 +17448,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646284256}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.6847379, w: 0.72878945}
   m_LocalPosition: {x: 0.03, y: -0.034, z: 0}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_Children:
   - {fileID: 547614808}
   m_Father: {fileID: 1460124669}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.43}
 --- !u!82 &1646284259
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17600,7 +17599,6 @@ MonoBehaviour:
   dispararCooldown: 0
   velocidad: 0
   sonidoAtaque: {fileID: 0}
-  sonidoImpacto: {fileID: 0}
 --- !u!1 &1662099551
 GameObject:
   m_ObjectHideFlags: 0
@@ -20173,7 +20171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2137299137
 MonoBehaviour:
@@ -20884,7 +20882,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4725573619472675534, guid: 8014a293e1d4239469b4a3d3ef5203bf, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4725573619472675534, guid: 8014a293e1d4239469b4a3d3ef5203bf, type: 3}
       propertyPath: m_LocalPosition.x

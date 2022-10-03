@@ -58,7 +58,7 @@ public class controladorVidas : MonoBehaviour
         GameManager.Instance.UpdateGameState(GameState.Muerte);
     }
 
-    public void TomarDaño(float daño)
+    public void TomarDamage(float daño)
     {
         //audioGolpe.Play();
         vidaJugador -= daño;
