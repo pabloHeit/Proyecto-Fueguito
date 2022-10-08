@@ -54,6 +54,16 @@ public class armasControlador : MonoBehaviour
     [Header("Sonidos")]
     [SerializeField] private AudioClip sonidoAtaque;
 
+    [SerializeField] private AudioClip sonidoRecarga;
+    [SerializeField] private AudioClip sonidoRecarga2;
+
+    [SerializeField] private AudioClip sonidoSinBalas;
+
+    private float variable2;
+    [SerializeField] private float tiempoBalaRecarga;
+
+
+
     private void Start() 
     {
         recargando = false;  
@@ -119,7 +129,7 @@ public class armasControlador : MonoBehaviour
                     }
                 }
 
-                if (disparar && Time.time > dispararPermiso && cantBalas > 0 && !recargando) {
+                if (disparar && Time.time > dispararPermiso && !recargando) {
                     Disparar();
                 }
             }        
@@ -139,16 +149,21 @@ public class armasControlador : MonoBehaviour
     }
 
     private void Disparar()
-    {        
-        audioSource.PlayOneShot(sonidoAtaque);
-        cantBalas--;
-        GameObject bala = Instantiate(Bala, puntaDelArma.position, puntaDelArma.rotation);
+    {
         dispararPermiso = Time.time + dispararCooldown; 
-        Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
-        rb.AddForce(puntaDelArma.right * velocidad , ForceMode2D.Impulse);
-        OnShoot?.Invoke(this, EventArgs.Empty);
+        if (cantBalas > 0) {
+            audioSource.PlayOneShot(sonidoAtaque);
+            cantBalas--;
+            GameObject bala = Instantiate(Bala, puntaDelArma.position, puntaDelArma.rotation);
+            Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
+            rb.AddForce(puntaDelArma.right * velocidad , ForceMode2D.Impulse);
+            OnShoot?.Invoke(this, EventArgs.Empty);
 
-        ActualizarHudBalas();
+            ActualizarHudBalas();            
+        }
+        else {
+            audioSource.PlayOneShot(sonidoSinBalas);
+        }
     }
 
     private void Golpe()
@@ -177,7 +192,8 @@ public class armasControlador : MonoBehaviour
 
 
     public IEnumerator Recargar(float tiempoRecarga) {
-
+        StartCoroutine(RecargarSonido());
+        
         cooldown_recarga = Time.time + tiempoRecarga;
         yield return new WaitForSeconds(tiempoRecarga); //cooldown de recarga
         balasRecargar = max_capacidad - cantBalas;
@@ -204,8 +220,10 @@ public class armasControlador : MonoBehaviour
                 controlArmas.grenadeAmmo = 0;
             }
         }
-
+        
+        audioSource.loop = false;
         recargando = false;
+        audioSource.PlayOneShot(sonidoRecarga);
         ActualizarHudBalas();
     }
 
@@ -213,6 +231,15 @@ public class armasControlador : MonoBehaviour
     {        
         tiempo2 = cooldown_recarga - Time.time;
         yield return new WaitForSeconds(tiempoRecarga / 100);
+    }
+
+    public IEnumerator RecargarSonido()
+    {
+        while (recargando) {
+            audioSource.clip = sonidoRecarga2;
+            audioSource.Play();
+            yield return new WaitForSeconds(audioSource.clip.length + tiempoBalaRecarga);
+        }
     }
 
     private void OnDrawGizmos()

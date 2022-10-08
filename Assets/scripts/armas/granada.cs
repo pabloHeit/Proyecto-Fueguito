@@ -20,6 +20,7 @@ public class granada : MonoBehaviour
     private bool chocarBool = false; 
 
     [SerializeField] private AudioClip sonidoExplosion;
+    [SerializeField] private AudioClip sonidoCarga;
 
     private void Start(){
 
@@ -27,7 +28,8 @@ public class granada : MonoBehaviour
     	animator = GetComponent<Animator>();
         _t = GetComponent<Transform>();
         tiempoGranadaContador = Time.time + tiempoGranada;
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GameObject.FindGameObjectWithTag("SoundSystem").GetComponent<AudioSource>();
+        audioSource.PlayOneShot(sonidoCarga);
     }
 
     private void FixedUpdate(){
@@ -46,6 +48,8 @@ public class granada : MonoBehaviour
 
     private void Explosion()
     {
+        audioSource.PlayOneShot(sonidoExplosion);
+
         Collider2D[] personajes = Physics2D.OverlapCircleAll(_t.position, radio);
         foreach (Collider2D colisionador in personajes)
         {
@@ -61,7 +65,6 @@ public class granada : MonoBehaviour
         }
         ultimaRotacion = Quaternion.Euler(0,0, _t.eulerAngles.z);
         GameObject explosion = Instantiate(explosionEfecto, _t.position, ultimaRotacion);
-        audioSource.PlayOneShot(sonidoExplosion);
         Destroy(explosion, tiempoGranadaExplosion);
         Destroy(gameObject);
     }

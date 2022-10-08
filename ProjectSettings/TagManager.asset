@@ -14,6 +14,7 @@ TagManager:
   - Cabeza
   - opciones
   - Brillo
+  - SoundSystem
   layers:
   - Default
   - TransparentFX

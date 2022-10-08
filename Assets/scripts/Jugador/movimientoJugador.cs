@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class movimientoJugador : MonoBehaviour
 {
-    private Animator animator;
+    Animator animator;
+    AudioSource audioSource;
+
     private int ladoMirar;
 
     [Header("Movimiento")]
-    public bool sePuedeMover=true;
+    public bool sePuedeMover = true;
+    public bool moviendose = false;
     public float velocidadMovimiento;
     public Vector2 direccion; 
     private Rigidbody2D rb2D;
     private float movimientoX;
     private float movimientoY;
     private Transform _t ;
+    [SerializeField] private AudioClip sonidoPasos;
 
     [Header("Rodar")]
     [SerializeField] private float velocidadRodar;
@@ -27,11 +31,17 @@ public class movimientoJugador : MonoBehaviour
     [SerializeField] private float tiempoInvulnerable;
     [SerializeField] private int[] capasIgnoradas;
     
+
+
+    private float tiempoVariable = 1f;
+    [SerializeField] private float tiempoPasos ;
     void Start()
     {
         _t = GetComponent<Transform>();
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     void Update()
@@ -50,17 +60,28 @@ public class movimientoJugador : MonoBehaviour
         //Giración del cuerpo con respecto a donde mira
         ladoMirar = mirandoDerecha ? 0 : 1;
         _t.eulerAngles = new Vector3(0, ladoMirar * 180 , 0);
-    }    
+
+        if (tiempoVariable < Time.time && moviendose) {
+            moviendose = false;
+        }
+    }
 
     private void FixedUpdate()
     {
         if(sePuedeMover)
         {
             if (movimientoX >= 1 || movimientoY >= 1 || movimientoX <= -1 || movimientoY <= -1)
-            {                
+            {
                 rb2D.MovePosition(rb2D.position + direccion * velocidadMovimiento * Time.fixedDeltaTime);
+
+                if (tiempoVariable < Time.time && !moviendose) {
+                    moviendose = true;
+                    tiempoVariable = Time.time + tiempoPasos;
+                    audioSource.PlayOneShot(sonidoPasos);
+                }
             }
-            animator.SetBool("Idle",true);
+
+            animator.SetBool("Idle", !moviendose);
 
             if ((rodar == 1) && (Time.time > rodarPermiso))
             {
@@ -115,5 +136,10 @@ public class movimientoJugador : MonoBehaviour
         sePuedeMover = false;
         yield return new WaitForSeconds(TiempoPerdidaControl);
         sePuedeMover = true;
-    }  
+    }
+
+    public void PasosSonido()
+    {
+        audioSource.PlayOneShot(sonidoPasos);
+    }
 }
