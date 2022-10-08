@@ -35,6 +35,7 @@ public class minion_explota : MonoBehaviour
 
     void IniciarExplosion()
     {
+        audioSource.PlayOneShot(sonidoExplosion);
         tiempoMinionContador = Time.time + tiempoMinion;
         movimientoEnemigos.atacando = true;
         explotando = true;
@@ -42,7 +43,6 @@ public class minion_explota : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(tiempoMinionContador);
         if (explotando && tiempoMinionContador < Time.time) {
             Explosion();
         }        
@@ -50,7 +50,6 @@ public class minion_explota : MonoBehaviour
 
     private void Explosion()
     {          
-        audioSource.PlayOneShot(sonidoExplosion);
         Collider2D[] personajes = Physics2D.OverlapCircleAll(transform.position, radio);
 
         foreach (Collider2D colisionador in personajes)

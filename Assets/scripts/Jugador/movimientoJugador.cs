@@ -34,7 +34,7 @@ public class movimientoJugador : MonoBehaviour
 
 
     private float tiempoVariable = 1f;
-    [SerializeField] private float tiempoPasos ;
+    [SerializeField] private float tiempoPasos;
     void Start()
     {
         _t = GetComponent<Transform>();
@@ -74,7 +74,7 @@ public class movimientoJugador : MonoBehaviour
             {
                 rb2D.MovePosition(rb2D.position + direccion * velocidadMovimiento * Time.fixedDeltaTime);
 
-                if (tiempoVariable < Time.time && !moviendose) {
+                if (!moviendose) {
                     moviendose = true;
                     tiempoVariable = Time.time + tiempoPasos;
                     audioSource.PlayOneShot(sonidoPasos);

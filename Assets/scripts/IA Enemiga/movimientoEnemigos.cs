@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class movimientoEnemigos : MonoBehaviour 
 {
+    AudioSource audioSource;
     Animator anim;
     Rigidbody2D rb;
     NavMeshAgent navMeshAgent;
@@ -23,6 +24,10 @@ public class movimientoEnemigos : MonoBehaviour
     private bool enemigoAct = false;
     public bool atacando = false;
     private bool jugadorEnZona;
+
+    private float tiempoPasosContador;
+    [SerializeField] private float tiempoPasos;
+    [SerializeField] private AudioClip sonidoPasos;
    
     void Start()
     {
@@ -42,6 +47,8 @@ public class movimientoEnemigos : MonoBehaviour
         miraDerecha = false;
 
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -50,6 +57,10 @@ public class movimientoEnemigos : MonoBehaviour
             distJugador = Vector2.Distance(transform.position, player.position);
             if (enemigoAct) {
                 enemigoMov();
+                if (!atacando) {
+                    tiempoPasosContador = Time.time + tiempoPasos;
+                    audioSource.PlayOneShot(sonidoPasos);
+                }
             }
             else {
                 if (Mathf.Abs(distJugador) < distanciaSegura 
@@ -81,7 +92,7 @@ public class movimientoEnemigos : MonoBehaviour
 
         if (!jugadorEnZona) {
             anim.SetBool("caminando", true);
-            navMeshAgent.SetDestination(objetivo.position);            
+            navMeshAgent.SetDestination(objetivo.position);
         }
     }
 
