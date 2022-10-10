@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "da\xF1o": 5
   radioAtaque: 2.24
+  sonidoAtaque: {fileID: 0}
 --- !u!114 &8469489874758040615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +69,8 @@ MonoBehaviour:
   distanciaSegura: 11.19
   distanciaAtaque: 2
   atacando: 0
+  tiempoPasos: 0
+  sonidoPasos: {fileID: 8300000, guid: a5d1683c739b63b4286a1ecd31e9fc61, type: 3}
 --- !u!114 &5247989744453501489
 MonoBehaviour:
   m_ObjectHideFlags: 0

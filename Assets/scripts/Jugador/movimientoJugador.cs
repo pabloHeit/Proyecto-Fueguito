@@ -30,8 +30,6 @@ public class movimientoJugador : MonoBehaviour
     [SerializeField] private float tiempoDeNoMoverse;
     [SerializeField] private float tiempoInvulnerable;
     [SerializeField] private int[] capasIgnoradas;
-    
-
 
     private float tiempoVariable = 1f;
     [SerializeField] private float tiempoPasos;
@@ -41,7 +39,6 @@ public class movimientoJugador : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-
     }
 
     void Update()

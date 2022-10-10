@@ -57,7 +57,7 @@ public class movimientoEnemigos : MonoBehaviour
             distJugador = Vector2.Distance(transform.position, player.position);
             if (enemigoAct) {
                 enemigoMov();
-                if (!atacando) {
+                if (!atacando && tiempoPasosContador < Time.time) {
                     tiempoPasosContador = Time.time + tiempoPasos;
                     audioSource.PlayOneShot(sonidoPasos);
                 }

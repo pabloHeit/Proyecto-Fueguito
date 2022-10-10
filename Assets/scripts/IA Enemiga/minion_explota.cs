@@ -30,12 +30,14 @@ public class minion_explota : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
         movimientoEnemigos = this.gameObject.GetComponent<movimientoEnemigos>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GameObject.FindGameObjectWithTag("SoundSystem").GetComponent<AudioSource>();
     }
 
     void IniciarExplosion()
     {
-        audioSource.PlayOneShot(sonidoExplosion);
+        if (!explotando) {
+            audioSource.PlayOneShot(sonidoExplosion);
+        }
         tiempoMinionContador = Time.time + tiempoMinion;
         movimientoEnemigos.atacando = true;
         explotando = true;
