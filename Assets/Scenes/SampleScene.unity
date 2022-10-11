@@ -19120,7 +19120,7 @@ LineRenderer:
   - {x: 6.036373, y: 10.585701, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 1.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -19343,11 +19343,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2683576267709033668, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.86
+      value: 5.74
       objectReference: {fileID: 0}
     - target: {fileID: 2683576267709033668, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2683576267709033668, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19395,7 +19395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7624942459500572516, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: rango
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7624942459500572516, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
       propertyPath: cooldown

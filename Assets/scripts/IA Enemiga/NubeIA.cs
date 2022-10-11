@@ -23,7 +23,7 @@ public class NubeIA : MonoBehaviour
   [SerializeField] private Transform disparador;
   [SerializeField] private Transform objetivo;
   [SerializeField] private float rango;
-  private bool enojo = false;
+  private bool enojo = true;
   private float contadorTime;
   [SerializeField] private float dañobala;
   [SerializeField] private LineRenderer DisparoLinea;
@@ -59,23 +59,20 @@ public class NubeIA : MonoBehaviour
         {
             enemigoMov();
         }
-     
-       if(contadorTiempo = false){
+
+       if(contadorTiempo == false){
+        //Debug.Log("Holaaaa");
         contadorTime = Time.time + 10;
         contadorTiempo = true;
-        Debug.Log("Holaaaa");
        }
 
     if (contadorTiempo) {
       if(Time.time > contadorTime) {
-       enojo = true;
-       Debug.Log("Enojo es" + enojo);
+       anim.SetTrigger("Rayo");
        contadorTiempo = false;
        }
     }
        
-       
-
     }
 
    }
@@ -113,15 +110,12 @@ public class NubeIA : MonoBehaviour
     if (enemigoact == true)
     {
        anim.SetTrigger("Ataque");
-        navMeshAgent.SetDestination(objetivo.position);
-        VelocidadMov = 1.5f;
-
+       navMeshAgent.SetDestination(objetivo.position);
         if (Time.time - ultimoGolpe < cooldown)
         {
             return;
         }
         ultimoGolpe = Time.time; 
-        
       }
     }
 
@@ -156,19 +150,6 @@ public class NubeIA : MonoBehaviour
         Vector3 laEscala = transform.localScale;
         laEscala.x *=-1;
         transform.localScale = laEscala;
-     
-    }
-
-    private void Disparo(){
-     if(enojo) {
-      DisparoNube();
-      enojo=false; 
-     }
-     else {
-      DisparoAgua();
-     }
-    
-
     }
 
      private void DisparoAgua()
@@ -181,17 +162,19 @@ public class NubeIA : MonoBehaviour
     private void DisparoNube(){
          RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, lookAtDirection, rango);
          if (raycastHit2D){
-           // Debug.Log($"hola 1 : {raycastHit2D.transform.name}");
+           Debug.Log($"hola 1 : {raycastHit2D.transform.name}");
            if(raycastHit2D.transform.CompareTag("Player")) 
               {
-              //  Debug.Log($"hola 2");
+                Debug.Log($"hola 2");
                 Debug.DrawRay(disparador.position, objetivo.position, Color.red);
                controladorVidas.TomarDamage(dañobala);
                StartCoroutine(GenerarLinea(raycastHit2D.point));
               } 
+            anim.SetTrigger("Descanso");
          }  
        
     }
+
 
    public void Golpe()
    {
