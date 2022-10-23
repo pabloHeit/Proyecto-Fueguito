@@ -15,7 +15,7 @@ public class bala : MonoBehaviour
   private Animator animator;
 
   private void Start(){
-  	animator = GetComponent<Animator>();
+    animator = GetComponent<Animator>();
     audioSource = GetComponent<AudioSource>();
   }
 
@@ -24,10 +24,12 @@ public class bala : MonoBehaviour
   }     
 
   private void OnTriggerEnter2D(Collider2D other) {
+    if (!other.CompareTag("Enemigo")) {
       audioSource.PlayOneShot(sonidoImpacto);
       ultimaRotacion = Quaternion.Euler(0,0,transform.eulerAngles.z);
       GameObject efecto = Instantiate(efectoImpacto, transform.position, ultimaRotacion);
       Destroy(efecto, bulletDisappear);
-      Destroy(gameObject);
+    }
+    Destroy(gameObject);
   }
 }

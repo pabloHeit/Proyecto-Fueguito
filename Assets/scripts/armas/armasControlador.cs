@@ -116,7 +116,7 @@ public class armasControlador : MonoBehaviour
                     circuloRecarga.fillAmount = tiempo2 / tiempoDeRecarga;
                 }
                 
-                if (recargar && cantBalas != max_capacidad && !recargando) {
+                if ((recargar && cantBalas != max_capacidad) && !recargando) {
                     if (controlArmas.armaActiva == 1 && controlArmas.sniperAmmo > 0)
                     {
                         recargando = true;
@@ -178,7 +178,7 @@ public class armasControlador : MonoBehaviour
             foreach (Collider2D colisionador in objetos)
             {
                 if (colisionador.CompareTag("Enemigo")) {
-                    //colisionador.GetComponent<vidaEnemiga>().Golpe();
+                    colisionador.GetComponent<vidaEnemiga>().Golpe();
                 }
             }
         }

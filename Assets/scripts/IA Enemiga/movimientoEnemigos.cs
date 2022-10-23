@@ -59,7 +59,7 @@ public class movimientoEnemigos : MonoBehaviour
                 enemigoMov();
                 if (!atacando && tiempoPasosContador < Time.time) {
                     tiempoPasosContador = Time.time + tiempoPasos;
-                    audioSource.PlayOneShot(sonidoPasos);
+//                    audioSource.PlayOneShot(sonidoPasos);
                 }
             }
             else {

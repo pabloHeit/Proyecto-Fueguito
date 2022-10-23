@@ -34,17 +34,16 @@ public class controladorVidas : MonoBehaviour
     {
         if (vidaJugador <= 0 && !dying) 
         {
+            animator.SetBool("Muriendo", true);
             dying = true;
             ActualizarBarraVida();
             animator.SetTrigger("Dead");
             Destroy(ojos);
             GameManager.EnableInput = false;
 
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
-            
+            foreach (Transform child in transform) {
+                Destroy(child.gameObject);
+            }            
         }
     }
     
@@ -58,7 +57,7 @@ public class controladorVidas : MonoBehaviour
         GameManager.Instance.UpdateGameState(GameState.Muerte);
     }
 
-    public void TomarDamage(float daño)
+    public void TomarDamage(float daño = 10)
     {
         //audioGolpe.Play();
         vidaJugador -= daño;

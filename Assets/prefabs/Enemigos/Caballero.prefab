@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2883430855814680340}
   m_Layer: 0
   m_Name: Caballero
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,8 @@ MonoBehaviour:
   distanciaSegura: 5
   distanciaAtaque: 2.75
   atacando: 0
+  tiempoPasos: 0
+  sonidoPasos: {fileID: 0}
 --- !u!114 &2883430855814680341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 5
   vidaInicial: 0
+  puedeColisionar: 0
 --- !u!114 &2883430855814680362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,9 +84,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b38c8dd18a86f4ba815a9c2790a058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigo: {fileID: 5500252701698197980, guid: 37e0f08082a352e428c365335e73537d, type: 3}
+  enemigo: {fileID: 8331164229254019291, guid: 57f89aca90b0bdc4c8198cb4bb131166, type: 3}
   "da\xF1o": 12.5
   radioAtaque: 3
+  sonidoAtaque: {fileID: 0}
 --- !u!212 &2883430855814680360
 SpriteRenderer:
   m_ObjectHideFlags: 0

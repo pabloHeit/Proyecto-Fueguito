@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7995767025177128861}
   m_Layer: 0
   m_Name: subdito_de_agua_cuchillo
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   distanciaSegura: 11.19
   distanciaAtaque: 2
   atacando: 0
-  tiempoPasos: 0
+  tiempoPasos: 5
   sonidoPasos: {fileID: 8300000, guid: a5d1683c739b63b4286a1ecd31e9fc61, type: 3}
 --- !u!114 &5247989744453501489
 MonoBehaviour:

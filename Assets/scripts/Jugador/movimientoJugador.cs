@@ -65,7 +65,7 @@ public class movimientoJugador : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(sePuedeMover)
+        if(sePuedeMover && GameManager.EnableInput)
         {
             if (movimientoX >= 1 || movimientoY >= 1 || movimientoX <= -1 || movimientoY <= -1)
             {
@@ -87,7 +87,7 @@ public class movimientoJugador : MonoBehaviour
                 rodarPermiso = Time.time + rodarCooldown;
                 rb2D.velocity = ultimaDireccion * 20f;
                 StartCoroutine( PerderControl(tiempoDeNoMoverse) );
-                StartCoroutine( DesactivarColision(tiempoInvulnerable) );
+                //StartCoroutine( DesactivarColision(tiempoInvulnerable) );
                 StartCoroutine( CoRodar(0.25f) );
             }   
         }     

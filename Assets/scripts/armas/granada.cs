@@ -17,7 +17,8 @@ public class granada : MonoBehaviour
     private Transform _t;
     private float tiempoGranadaExplosion = 0.65f;
     private float tiempoGranadaContador;
-    private bool chocarBool = false; 
+    private bool chocarBool = false;
+    private bool explotando = false;
 
     [SerializeField] private AudioClip sonidoExplosion;
     [SerializeField] private AudioClip sonidoCarga;
@@ -32,14 +33,14 @@ public class granada : MonoBehaviour
         audioSource.PlayOneShot(sonidoCarga);
     }
 
-    private void FixedUpdate(){
-        if (tiempoGranadaContador < Time.time){           
+    private void FixedUpdate() {
+        if (tiempoGranadaContador < Time.time && !explotando) {           
             Explosion();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other){
-        if (other.gameObject.tag == "Enemigo"){
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Enemigo")) {
             Explosion();
         }
         chocarBool = !chocarBool;
@@ -48,6 +49,7 @@ public class granada : MonoBehaviour
 
     private void Explosion()
     {
+        explotando = true;
         audioSource.PlayOneShot(sonidoExplosion);
 
         Collider2D[] personajes = Physics2D.OverlapCircleAll(_t.position, radio);
@@ -56,7 +58,9 @@ public class granada : MonoBehaviour
             Rigidbody2D rb2D = colisionador.GetComponent<Rigidbody2D>();
             if (rb2D != null)
             {
-                //other.GetComponent<vidaEnemiga>().Golpe();
+                if (colisionador.CompareTag("Enemigo")) {
+                    rb2D.GetComponent<vidaEnemiga>().Golpe();                    
+                }
                 Vector2 direccion = colisionador.transform.position - _t.position;
                 float distancia = 1 + direccion.magnitude;
                 float fuerzaFinal = fuerzaExplosion / distancia;

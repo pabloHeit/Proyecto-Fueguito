@@ -7,30 +7,27 @@ public class vidaEnemiga : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
 
-    [SerializeField] public float vida;
-    [SerializeField] public float vidaInicial;
+    public float vida;
+    public float vidaInicial;
+
+    public bool puedeColisionar;
 
     void Start()
     {
+        puedeColisionar = true;
         anim = this.GetComponent<Animator>();
         vidaInicial = vida;
     }
 
-    public void Golpe()
-    {
+    public void Golpe() {
         vida--;
-        
         if(vida <= 0) {
-            Debug.Log("hasdkjdhasfhsa");
             anim.SetTrigger("Morir");
         }
-        
         anim.SetTrigger("Dañado");
     }
 
-    public void Muerte()
-    {
-        Debug.Log("morir");
+    public void Muerte() {
         Destroy(gameObject);
     }
 
@@ -38,5 +35,14 @@ public class vidaEnemiga : MonoBehaviour
         if (other.gameObject.tag == "balas") {
             Golpe();
         }
+    }
+
+    public IEnumerator DesactivarColision(float TiempoInmunidad)
+    {
+        puedeColisionar = false;
+        Physics2D.IgnoreLayerCollision(3,6,true);
+        yield return new WaitForSeconds(TiempoInmunidad);
+        Physics2D.IgnoreLayerCollision(3,6,false);
+        puedeColisionar = true;
     }
 }
