@@ -34,7 +34,7 @@ public class armasControlador : MonoBehaviour
     [SerializeField] private float tiempoDeRecargaDefault;
     [SerializeField] private float tiempoDeRecarga;
     private bool recargar;
-    public bool recargando;
+    public bool recargando = false;
     private int balasRecargar;
 
     [Header("Balas (FR)")]
@@ -66,7 +66,6 @@ public class armasControlador : MonoBehaviour
 
     private void Start() 
     {
-        recargando = false;  
         controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();
 
         try{Animator = GetComponent<Animator>();}

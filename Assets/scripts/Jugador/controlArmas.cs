@@ -33,7 +33,10 @@ public class controlArmas : MonoBehaviour
         CambiarArma();
     }
 
-    void Update(){        
+    void Update(){
+        if(!armasControlador.gameObject.activeSelf) {
+            armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
+        }
         
         if(!armasControlador.recargando && GameManager.EnableInput)
         {
