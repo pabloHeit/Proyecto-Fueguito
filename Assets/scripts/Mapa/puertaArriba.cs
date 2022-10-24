@@ -12,145 +12,130 @@ public class puertaArriba : MonoBehaviour
     
     private void Start()
     {
-       
         direc=FindObjectOfType<LevelGeneration>();
-        //   Debug.Log("la direccion despues es "+direc.directionPos);
-         if(direc.posi==false)
-       {
-           if(direc.numHabit==10){
-            if((direc.direction==7) || (direc.direction==8))
+        if(direc.posi==false)
         {
-            GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-
-        }
-        else
-        {
-            GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-        }
-            }
-            else
-            {
-                      if(direc.numHabit==0)
-        {
-            if(direc.direcciones[direc.i]==5 || direc.direcciones[direc.i]==6)
-            {
-                
-                
-                GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-            }
-            else
-            {
-                 GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-            }
-        }
-        else
-        {
-            
-        
-        if((direc.direction==7) || (direc.direction==8))
-        {
-            GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-            // despues=true;
-        }
-            else{ 
-                if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
-            {
-                
-                GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-            }
-            else
-            {
-                if(direc.directionPos!=0 && direc.directionPos==7)
-        {
-GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-        }
-                else{
-                    GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
+            if(direc.numHabit==10){
+                if((direc.direction==7) || (direc.direction==8))
+                {
+                    GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+                    instance.transform.parent=transform;
                 }
-  
-            }
-        }
-        }
-       }
-    }
-       else
-       {
-        if(direc.i2 == 1 && direc.Cantidad!=0)
-        {
-            if((direc.direction2==7) || (direc.direction2==8))
-        {
-             GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-            
-        }
-        else if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
-        {
-            GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-            
-        }
-        else
-        {
-            GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-        }
-        }
-        else
-        {
-
-       
-            if(direc.Cantidad==0) 
-        {
-            if(direc.direcciones2[direc.i2]==5 || direc.direcciones2[direc.i2]==6)
-            {
-                 GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-           
+                else
+                {
+                    GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+                    instance.transform.parent=transform;
+                }
             }
             else
             {
-                GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
+                if(direc.numHabit==0)
+                {
+                    if(direc.direcciones[direc.i]==5 || direc.direcciones[direc.i]==6)
+                    {
+                        GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+                        instance.transform.parent=transform;
+                    }
+                    else
+                    {
+                        GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+                    instance.transform.parent=transform;
+                    }
+                }
+                else
+                {
+                    if((direc.direction==7) || (direc.direction==8))
+                    {
+                        GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+                        instance.transform.parent=transform;
+                        // despues=true;
+                    }
+                    else
+                    { 
+                        if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
+                        {
+                            GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+                            instance.transform.parent=transform;
+                        }
+                        else
+                        {
+                            if(direc.directionPos!=0 && direc.directionPos==7)
+                            {
+                                GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+                                instance.transform.parent=transform;
+                            }
+                            else
+                            {
+                                GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+                                instance.transform.parent=transform;
+                            }
+                        }
+                    }
+                }
             }
-            
-        }  
-        else{
-
-        
-        if(direc.direction2==8 || direc.direction2==7)
-        {
-            GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-           
         }
-         else
-        
-        
+        else
         {
-            if(direc.direcciones2[direc.i2-1]==5 || direc.direcciones2[direc.i2-1]==6)
+            if(direc.i2 == 1 && direc.Cantidad!=0)
             {
-                GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
-            
+                if((direc.direction2==7) || (direc.direction2==8))
+                {
+                    GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+                    instance.transform.parent=transform;
+                }
+                else if(direc.direcciones[direc.i-1]==5 || direc.direcciones[direc.i-1]==6)
+                {
+                    GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+                    instance.transform.parent=transform;
+                }
+                else
+                {
+                    GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+                    instance.transform.parent=transform;
+                }
             }
             else
             {
-  GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
-            instance.transform.parent=transform;
+                if(direc.Cantidad==0) 
+                {
+                  if(direc.direcciones2[direc.i2]==5 || direc.direcciones2[direc.i2]==6)
+                    {
+                        GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+                    instance.transform.parent=transform;
+                
+                    }
+                    else
+                    {
+                        GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+                    instance.transform.parent=transform;
+                    }  
+                }  
+                else
+                {
+                    if(direc.direction2==8 || direc.direction2==7)
+                    {
+                        GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+                        instance.transform.parent=transform;
+                    
+                    }
+                    else
+                    {
+                        if(direc.direcciones2[direc.i2-1]==5 || direc.direcciones2[direc.i2-1]==6)
+                        {
+                            GameObject instance = (GameObject)Instantiate(arriba[0], transform.position, Quaternion.identity);
+                        instance.transform.parent=transform;
+                        
+                        }
+                        else
+                        {
+                        GameObject instance = (GameObject)Instantiate(arriba[1], transform.position, Quaternion.identity);
+                        instance.transform.parent=transform;
+                        }
+                    }  
+                }
+                habitacion=direc.numHabit-1;
             }
-        }  
-       }
-       habitacion=direc.numHabit-1;
-    }
-       }
+        }
     }
 }
     
