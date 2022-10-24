@@ -2224,11 +2224,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d943e0824d58f4b459c8f3e40a008b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseTitle: {fileID: 0}
+  pauseTitle: {fileID: 1606943049}
   PauseMenu: {fileID: 770874063}
   IndexMenu: {fileID: 712732994}
   OptionsMenu: {fileID: 1163050798}
-  blur: {fileID: 0}
+  blur: {fileID: 388386787}
 --- !u!114 &379025345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2248,6 +2248,11 @@ MonoBehaviour:
 --- !u!4 &379025348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4272671647275759378, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
+  m_PrefabInstance: {fileID: 2145319304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &388386787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3103309210686305882, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
   m_PrefabInstance: {fileID: 2145319304}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &396120880
@@ -4350,7 +4355,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.49093318}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.5625, y: 1}
     newSize: {x: 0.390625, y: 0.25}
     adaptiveTilingThreshold: 0.5
@@ -4481,7 +4486,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.491526}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.5625, y: 1}
     newSize: {x: 0.390625, y: 0.25}
     adaptiveTilingThreshold: 0.5
@@ -17222,6 +17227,11 @@ MonoBehaviour:
   jugador: {fileID: 2087941459}
   distanciaMiradaX: 0.5
   distanciaMiradaY: 0.5
+--- !u!1 &1606943049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7673773609561930670, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
+  m_PrefabInstance: {fileID: 2145319304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1610711472
 GameObject:
   m_ObjectHideFlags: 0
