@@ -5,27 +5,27 @@ using UnityEngine;
 
 public class controladorOjos : MonoBehaviour
 {
-    private Animator Animator;
-    private Vector3 mousePosition;
+    movimientoJugador movimientoJugador;
+    Animator Animator;
+
     [SerializeField] private Transform target;
     [SerializeField] private Transform jugador;
+
     private Vector3 posicionOjos;
+    private Vector3 mousePosition;
 
     [SerializeField] private float distanciaMiradaX;
     [SerializeField] private float distanciaMiradaY;
 
-    private movimientoJugador movimientoJugador;
-    private controladorVidas controladorVidas;
 
     private float centroHorizontal = 0;
     private float modificadorCentro = 1f;
+
 
     void Start()
     {
         Animator = GetComponent<Animator>();
         movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();
-        controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
-        controladorVidas.OnMuerto += ojosMuerte;    
     }
 
     void Update()
@@ -78,9 +78,5 @@ public class controladorOjos : MonoBehaviour
             }
         }
 
-    }
-    private void ojosMuerte(object sender, EventArgs e)
-    {
-        Animator.SetBool("Muerto",true);        
     }
 }

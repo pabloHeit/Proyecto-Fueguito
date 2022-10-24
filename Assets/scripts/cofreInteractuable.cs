@@ -5,7 +5,9 @@ using TMPro;
 
 public class cofreInteractuable : MonoBehaviour
 {
-    private Animator animator;
+    Animator animator;
+    AudioSource audioSource;
+
     [SerializeField] private Transform textoPanelPos;
     [SerializeField] private GameObject textoPanel;
     [SerializeField] private TMP_Text textoText;
@@ -13,6 +15,9 @@ public class cofreInteractuable : MonoBehaviour
     private bool comenzoElDialogo = false; 
     private bool cofreAbiertoBool = false;
     private bool EnRango = false;
+
+    [SerializeField] private AudioClip sonidoCofre;
+
 
     [Header("Loot")]
     [SerializeField] private GameObject[] loot;
@@ -22,14 +27,16 @@ public class cofreInteractuable : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         GenerarContenido();
     }
 
     private void Update() 
     {
-        if(EnRango && Input.GetKeyDown(KeyCode.E))
-        {          
+        if(EnRango && Input.GetKeyDown(KeyCode.E) && !cofreAbiertoBool && GameManager.EnableInput)
+        {
+            audioSource.PlayOneShot(sonidoCofre);
             animator.SetBool("CofreAbierto", true);
             ApagarMensaje();
             cofreAbiertoBool = true;

@@ -2,46 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Pausa : MonoBehaviour
 {
-    [SerializeField] private GameObject PauseMenu, IndexMenu, OptionsMenu;
-    public Button continueButton, opcionesButton, exitButton, volverButton;
-    private bool enPausa = false;
+    CodigoVolumen CodigoVolumen;
+
+    [SerializeField] private GameObject pauseTitle, PauseMenu, IndexMenu, OptionsMenu, blur;
     private bool enOpciones = false;
+    private bool enPausa;
+    private bool enJuego;
+    
+    void Awake(){
+        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+    }
+
+    private void GameManagerOnOnGameStateChanged(GameState state){
+        enPausa = state == GameState.Pausado;
+        enJuego = state == GameState.EnJuego;
+    }
 
     void Start()
     {
-        Button continueBtn = continueButton.GetComponent<Button>();
-        Button opcionesBtn = opcionesButton.GetComponent<Button>();
-        Button exitBtn = exitButton.GetComponent<Button>();
-        Button volverBtn = volverButton.GetComponent<Button>();
-
-        continueBtn.onClick.AddListener(AlternarPausa);
-        opcionesBtn.onClick.AddListener(AlternarOpciones);
-        exitBtn.onClick.AddListener(Application.Quit);
-        volverBtn.onClick.AddListener(AlternarOpciones);
-
-        PauseMenu.SetActive(enPausa);
-        IndexMenu.SetActive(enPausa);
-        OptionsMenu.SetActive(enOpciones);
+        PauseMenu.SetActive(false);
+        IndexMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)) AlternarPausa();
-        
+        if(Input.GetKeyDown(KeyCode.Escape) && (enJuego || enPausa))
+            AlternarPausa();
     }
 
     public void AlternarPausa()
     {
-        enPausa = !enPausa;
-        if (enPausa) Time.timeScale = 0;
+        GameManager.Instance.UpdateGameState( enPausa ? GameState.EnJuego : GameState.Pausado );
+        if (enPausa) Time.timeScale = 0; 
         else{
             Time.timeScale = 1;
             enOpciones = false;
             OptionsMenu.SetActive(enOpciones);
         }
+        blur.SetActive(enPausa);
+        pauseTitle.SetActive(enPausa);
         PauseMenu.SetActive(enPausa);
         IndexMenu.SetActive(enPausa);
     }
@@ -49,8 +53,14 @@ public class Pausa : MonoBehaviour
     public void AlternarOpciones()
     {
         enOpciones = !enOpciones;
+        blur.SetActive(!enOpciones);
+        pauseTitle.SetActive(!enOpciones);
         IndexMenu.SetActive(!enOpciones);
-        
         OptionsMenu.SetActive(enOpciones);
-    }    
+    }
+
+    public void SalirDelJuego()
+    {
+        Application.Quit();
+    }
 }

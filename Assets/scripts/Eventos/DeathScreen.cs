@@ -10,27 +10,31 @@ public class DeathScreen : MonoBehaviour
 {
     [SerializeField] private GameObject deathScreen;
     public Button exitButton, respawnButton;
-    controladorVidas controladorVidas;
+
+    void Awake(){
+        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+    }
+
+    void OnDestroy(){
+        GameManager.OnGameStateChanged -= GameManagerOnOnGameStateChanged;
+    }
+
+    private void GameManagerOnOnGameStateChanged(GameState state){
+        deathScreen.SetActive( state == GameState.Muerte );
+    }
 
     void Start()
     {
-        controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
-        controladorVidas.OnMuerto += MuertePantalla;
-
         Button btn = exitButton.GetComponent<Button>();
         btn.onClick.AddListener(Application.Quit);
 
         Button btn2 = respawnButton.GetComponent<Button>();
         btn2.onClick.AddListener(RespawnCharacter);
     }
+    
     public void RespawnCharacter()
     {
         SceneManager.LoadScene("SampleScene"); //Cambiarla por otra
-        Debug.Log("Respawneaste (Patrañas)");
+        GameManager.Instance.UpdateGameState(GameState.EnJuego);
     }
-
-    private void MuertePantalla(object sender, EventArgs e){
-        deathScreen.SetActive(true);
-    }
-            
 }

@@ -40,7 +40,7 @@ public class controladorFuentes : MonoBehaviour
     }
     void Update()
     {
-        if(EnRango && Input.GetKeyDown(KeyCode.E) && !consumida)
+        if(EnRango && Input.GetKeyDown(KeyCode.E) && !consumida && GameManager.EnableInput)
         {
             //Animator.SetBool("nombreDeAnimacion"); Animación de agua consumida?
             switch(color){

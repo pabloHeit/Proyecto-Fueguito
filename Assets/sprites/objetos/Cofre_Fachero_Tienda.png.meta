@@ -1,0 +1,588 @@
+fileFormatVersion: 2
+guid: 700a45df930f01646946fabb04a43712
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4246149279024481705
+    second: Cofre_Fachero_Tienda_0
+  - first:
+      213: -7015888858150213834
+    second: Cofre_Fachero_Tienda_1
+  - first:
+      213: 1806541073473962674
+    second: Cofre_Fachero_Tienda_2
+  - first:
+      213: 3833283754653934712
+    second: Cofre_Fachero_Tienda_3
+  - first:
+      213: 2139373586788777778
+    second: Cofre_Fachero_Tienda_4
+  - first:
+      213: -5092099660458771817
+    second: Cofre_Fachero_Tienda_5
+  - first:
+      213: -7040579672311282498
+    second: Cofre_Fachero_Tienda_6
+  - first:
+      213: 6349075750189963674
+    second: Cofre_Fachero_Tienda_7
+  - first:
+      213: 7479495463605356059
+    second: Cofre_Fachero_Tienda_8
+  - first:
+      213: 5835587048093688197
+    second: Cofre_Fachero_Tienda_9
+  - first:
+      213: 458675818232651263
+    second: Cofre_Fachero_Tienda_10
+  - first:
+      213: -7661903075644090556
+    second: Cofre_Fachero_Tienda_11
+  - first:
+      213: 454680298941373569
+    second: Cofre_Fachero_Tienda_12
+  - first:
+      213: -1985559590337061558
+    second: Cofre_Fachero_Tienda_13
+  - first:
+      213: -6684965933327741022
+    second: Cofre_Fachero_Tienda_14
+  - first:
+      213: -8635979826993177465
+    second: Cofre_Fachero_Tienda_15
+  - first:
+      213: -6075117259735515586
+    second: Cofre_Fachero_Tienda_16
+  - first:
+      213: 4883186541022233581
+    second: Cofre_Fachero_Tienda_17
+  - first:
+      213: -3323024920757623183
+    second: Cofre_Fachero_Tienda_18
+  - first:
+      213: 5021988196722924241
+    second: Cofre_Fachero_Tienda_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 135
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5098fa54a5dea30800000000000000
+      internalID: 4246149279024481705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 135
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637e55a514e82ae90800000000000000
+      internalID: -7015888858150213834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 135
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2819ce88f121910800000000000000
+      internalID: 1806541073473962674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_3
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 135
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8746c67e34f823530800000000000000
+      internalID: 3833283754653934712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 102
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23ff56a31f490bd10800000000000000
+      internalID: 2139373586788777778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_5
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 102
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ab771865a3559b0800000000000000
+      internalID: -5092099660458771817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_6
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 102
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb4cc033716da4e90800000000000000
+      internalID: -7040579672311282498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_7
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 102
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a999e1681c27c1850800000000000000
+      internalID: 6349075750189963674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 69
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16c75ffe718cc760800000000000000
+      internalID: 7479495463605356059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_9
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 69
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581ae71808b2cf050800000000000000
+      internalID: 5835587048093688197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 69
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd91dcf93b8d5600800000000000000
+      internalID: 458675818232651263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_11
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 69
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 447d2c84fb37ba590800000000000000
+      internalID: -7661903075644090556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 36
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18cd4c8a2595f4600800000000000000
+      internalID: 454680298941373569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_13
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 36
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4dd6919210e174e0800000000000000
+      internalID: -1985559590337061558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 36
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2af8960f6ea3a33a0800000000000000
+      internalID: -6684965933327741022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_15
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 36
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78cd1ac4a16d62880800000000000000
+      internalID: -8635979826993177465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_16
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ebe942a09d0bba0800000000000000
+      internalID: -6075117259735515586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_17
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 3
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de3499d694094c340800000000000000
+      internalID: 4883186541022233581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_18
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176a872d07e32e1d0800000000000000
+      internalID: -3323024920757623183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cofre_Fachero_Tienda_19
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 3
+        width: 25
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dadfd348afa1b540800000000000000
+      internalID: 5021988196722924241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

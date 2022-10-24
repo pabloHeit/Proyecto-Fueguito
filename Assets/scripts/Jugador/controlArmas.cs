@@ -7,33 +7,38 @@ using UnityEngine.UI;
 
 public class controlArmas : MonoBehaviour
 {
+    armasControlador armasControlador;
+
+    public int sniperAmmo;
+    public int grenadeAmmo;
+
     public float damageMultiplier = 1;
     public float rechargeMultiplier = 1;
-
     private float cambiarPermiso;
     [SerializeField] private GameObject[] activadorArma;
 
     public GameObject[] armas;
-    private int armaActiva = 0; //puños 1, espada 2, rifle 3, lanzagranadas 4 ? 5
+    public int armaActiva = 0; //espada 1, rifle 2, lanzagranadas 3 
     private float scrollMouse;
     private int cantDeArmas;
     private int ultima_activa = 0;
-    private armasControlador armasControlador;
 
     [Header("HUD")]
     [SerializeField] private Image display_arma;
     [SerializeField] private Sprite[] sprite_arma;
 
-    void Start(){
+    void Start() {
         armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
         cantDeArmas = armas.Length;
         CambiarArma();
     }
 
-    void Update(){        
-        armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
+    void Update(){
+        if(!armasControlador.gameObject.activeSelf) {
+            armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
+        }
         
-        if(armasControlador.recargando == false)
+        if(!armasControlador.recargando && GameManager.EnableInput)
         {
             scrollMouse = Input.GetAxisRaw("Mouse ScrollWheel");
 
@@ -53,10 +58,7 @@ public class controlArmas : MonoBehaviour
             if(Time.time > cambiarPermiso && scrollMouse != 0)
             {
                 if (scrollMouse > 0) /**/ armaActiva++;
-                else if(scrollMouse < 0) /**/ armaActiva -= 1;
-                
-                if (armaActiva == cantDeArmas) /**/ armaActiva = 0;
-                else if(armaActiva <= -1) /**/ armaActiva = cantDeArmas - 1;
+                else if(scrollMouse < 0) /**/ armaActiva--;
                 CambiarArma();
             }            
         }
@@ -73,7 +75,10 @@ public class controlArmas : MonoBehaviour
     private void CambiarArma(int n = -1)
     {
         if(n != -1) /**/ armaActiva = n;
-        
+
+        if (armaActiva > cantDeArmas - 1) /**/ armaActiva = 0;
+        else if(armaActiva <= -1) /**/ armaActiva = cantDeArmas - 1;
+
         if(activadorArma[armaActiva].activeSelf)
         {
             for (int i = 0; i < cantDeArmas; i++)
@@ -84,7 +89,7 @@ public class controlArmas : MonoBehaviour
             armas[armaActiva].SetActive(true);
             display_arma.sprite = sprite_arma[armaActiva];
             ultima_activa = armaActiva;
-        }
+        }            
         else             
         {
             if(n != -1)
@@ -93,6 +98,7 @@ public class controlArmas : MonoBehaviour
                 CambiarArma();
                 return;
             }
+
             if(ultima_activa == armaActiva + 1) /**/
             {
                 armaActiva -= 1;
