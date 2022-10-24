@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 2683576267709033669}
   - component: {fileID: 4248868906024427123}
   - component: {fileID: 7624942459500572516}
-  m_Layer: 0
+  - component: {fileID: 8124513}
+  m_Layer: 2
   m_Name: nube
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,9 +178,32 @@ MonoBehaviour:
   BalaEnemiga: {fileID: 5755562860008136992, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
   vidaEnemiga: 5
   disparador: {fileID: 5310269782705827942}
-  efectoImpacto: {fileID: 0}
   objetivo: {fileID: 0}
-  TiempoBala: 0
+  rango: 10
+  "da\xF1obala": 10
+  DisparoLinea: {fileID: 0}
+  tiempoDisparo: 0.1
+--- !u!50 &8124513
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2683576267709033666}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &7239831586213392607
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5310269782705827942}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ControladorNube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

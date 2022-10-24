@@ -17,6 +17,7 @@ public class NubeIA : MonoBehaviour
    private float VelocidadB = 10f;
    private float ultimoGolpe;   
    public GameObject BalaEnemiga;
+   public GameObject laser;
    private bool enemigoact = false;
    private NavMeshAgent navMeshAgent;
   [SerializeField] public int vidaEnemiga;
@@ -31,19 +32,25 @@ public class NubeIA : MonoBehaviour
    private Vector3 lookAtDirection;
    private bool contadorTiempo = false;
 
-   void Start()
+    void Start()
     {
-     navMeshAgent = GetComponent<NavMeshAgent>();
-     navMeshAgent.updateRotation = false;
-     navMeshAgent.updateUpAxis = false;   
-     controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
-     rb= this.GetComponent<Rigidbody2D>();
-     miraDerecha = true;
-     anim = GetComponent<Animator>();
-     player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-     contadorTiempo = false;
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.updateUpAxis = false;   
+        controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
+        rb= this.GetComponent<Rigidbody2D>();
+        miraDerecha = true;
+        anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        contadorTiempo = false;
+
    }
 
+   void Awake()
+   {
+        GameObject laserSpawn = Instantiate(laser, transform.position, Quaternion.identity);
+        DisparoLinea = laserSpawn.GetComponent<LineRenderer>();
+   }
 
    void Update() 
    {
