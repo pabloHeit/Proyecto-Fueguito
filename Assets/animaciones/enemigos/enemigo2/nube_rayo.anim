@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: nube_ataca
+  m_Name: nube_rayo
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -21,14 +21,16 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -7035376425644222229, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
-    - time: 0.25
-      value: {fileID: 4522189500553022275, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
-    - time: 0.5
+    - time: 0.21666667
+      value: {fileID: 9188643524676849149, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
+    - time: 0.41666666
       value: {fileID: -8084432077511660953, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
-    - time: 0.76666665
-      value: {fileID: 4522189500553022275, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
+    - time: 0.6
+      value: {fileID: -8456606611444673836, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
+    - time: 0.8
+      value: {fileID: 9188643524676849149, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
     - time: 1
-      value: {fileID: -7035376425644222229, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
+      value: {fileID: 8471877269827903130, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -49,10 +51,11 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: -7035376425644222229, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
-    - {fileID: 4522189500553022275, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
+    - {fileID: 9188643524676849149, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
     - {fileID: -8084432077511660953, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
-    - {fileID: 4522189500553022275, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
-    - {fileID: -7035376425644222229, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
+    - {fileID: -8456606611444673836, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
+    - {fileID: 9188643524676849149, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
+    - {fileID: 8471877269827903130, guid: a58241ee21bd00445b4e2b1480db5812, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -79,7 +82,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1.0166667
-    functionName: DisparoAgua
+    functionName: DisparoNube
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

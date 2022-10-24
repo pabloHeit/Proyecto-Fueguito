@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5674350734880836132, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
+      propertyPath: "da\xF1o"
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5674350734880836132, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
       propertyPath: VelMov
       value: 5
       objectReference: {fileID: 0}

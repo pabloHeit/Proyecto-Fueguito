@@ -31,6 +31,10 @@ public class movimientoJugador : MonoBehaviour
     [SerializeField] private float tiempoInvulnerable;
     [SerializeField] private int[] capasIgnoradas;
 
+    [Header("Realentizar")]
+    private bool realentizado = false;
+    private float contador;
+
     private float tiempoVariable = 1f;
     [SerializeField] private float tiempoPasos;
     void Start()
@@ -60,6 +64,11 @@ public class movimientoJugador : MonoBehaviour
 
         if (tiempoVariable < Time.time && moviendose) {
             moviendose = false;
+        }
+
+        if(Time.time >= contador) {
+            velocidadMovimiento = 10f;
+            realentizado = false;
         }
     }
 
@@ -91,6 +100,14 @@ public class movimientoJugador : MonoBehaviour
                 StartCoroutine( CoRodar(0.25f) );
             }   
         }     
+    }
+    public void realentizar(float VelMov, float tiempoCooldown) {    
+        if (realentizado){
+            return;
+        }
+        realentizado = true;
+        velocidadMovimiento = VelMov;
+        contador = Time.time + tiempoCooldown;              
     }
 
     public void knockbackPlayer(Vector3 knockPosition, int knockback)
