@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: fe6c3c94bbf53514f8fa91c9e38db47a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - objetivo: {instanceID: 0}
+  - sonidoPasos: {fileID: 8300000, guid: a5d1683c739b63b4286a1ecd31e9fc61, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

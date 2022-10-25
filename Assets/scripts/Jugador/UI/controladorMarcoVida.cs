@@ -5,17 +5,26 @@ using UnityEngine;
 
 public class controladorMarcoVida : MonoBehaviour
 {
-    private Animator Animator;
-    private controladorVidas controladorVidas;
+    Animator Animator;
 
-    private void Start()
-    {
-        Animator = GetComponent<Animator>();  
-        controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
-        controladorVidas.OnMuerto += marcoMuerte;    
+    void Awake(){
+        StartCoroutine(TemporalErrorFix());
     }
-    private void marcoMuerte(object sender, EventArgs e)
-    {
-        Animator.SetBool("Muerte",true);        
+
+    void OnDestroy(){
+        GameManager.OnGameStateChanged -= GameManagerOnOnGameStateChanged;
+    }
+
+    private void GameManagerOnOnGameStateChanged(GameState state){
+        Animator.SetBool("Muerte", (state == GameState.Muerte));
+    }
+
+    private void Start(){
+        Animator = GetComponent<Animator>();  
+    }
+
+    IEnumerator TemporalErrorFix(){
+        yield return new WaitForSeconds(1f);
+        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
     }
 }

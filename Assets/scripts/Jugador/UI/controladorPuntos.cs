@@ -7,8 +7,7 @@ public class controladorPuntos : MonoBehaviour
    public float puntos;
    private TextMeshProUGUI textMesh;
 
-   private void Start()
-   {
+   private void Start(){
        textMesh = GetComponent<TextMeshProUGUI>();
    }
 

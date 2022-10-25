@@ -7,25 +7,35 @@ using UnityEngine.UI;
 
 public class armasControlador : MonoBehaviour
 {
+    //Dependencias
+    controlArmas controlArmas;
+    Rigidbody2D rb;
+    TextMeshProUGUI textMesh;
+    SpriteRenderer sprite;
+    Animator Animator;
+    movimientoJugador movimientoJugador;
+    AudioSource audioSource;
+
     [SerializeField] public bool armaDeFuego;
 
     [Header("Melee")]
-    private Animator Animator;
     [SerializeField] private Transform controladorGolpe;
     [SerializeField] private float radioGolpe;
-    SpriteRenderer sprite;
+    private bool atacando = false;
            
     [Header("HUD")]
     [SerializeField] private GameObject marcadorBalas;
-    private TextMeshProUGUI textMesh;
+    [SerializeField] private GameObject marcadorBalasTotales;
     
     [Header("Recarga (FR)")]
     [SerializeField] private Image circuloRecarga;
     private float cooldown_recarga;
     private float tiempo2 = 0;
-    [SerializeField] private float tiempo_de_recarga;
+    [SerializeField] private float tiempoDeRecargaDefault;
+    [SerializeField] private float tiempoDeRecarga;
     private bool recargar;
-    public bool recargando;
+    public bool recargando = false;
+    private int balasRecargar;
 
     [Header("Balas (FR)")]
     [SerializeField] public int cantBalas;
@@ -39,98 +49,203 @@ public class armasControlador : MonoBehaviour
     private Vector3 mousePosition;
     private float dispararPermiso;
     private bool disparar;
-    private Rigidbody2D rb;
     public event EventHandler OnShoot;
+
+    [Header("Sonidos")]
+    [SerializeField] private AudioClip sonidoAtaque;
+
+    [SerializeField] private AudioClip sonidoRecarga;
+    [SerializeField] private AudioClip sonidoRecarga2;
+
+    [SerializeField] private AudioClip sonidoSinBalas;
+
+    private float variable2;
+    [SerializeField] private float tiempoBalaRecarga;
+
+
 
     private void Start() 
     {
+        controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();
+
         try{Animator = GetComponent<Animator>();}
         catch (System.Exception){throw;}
         
         sprite = GetComponent<SpriteRenderer>();
         max_capacidad = cantBalas;
         textMesh = GetComponent<TextMeshProUGUI>();
+
+        tiempoDeRecarga = tiempoDeRecargaDefault / controlArmas.rechargeMultiplier;
+
+        movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();
+
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update() 
     {
-        if (!armaDeFuego)
-        {
-            TextMeshProUGUI textMesh = marcadorBalas.GetComponent<TextMeshProUGUI>();
-            textMesh.text = ""; // Borrar cantidad de balas
-            if(Input.GetButtonDown("Fire1")){//Boton de ataque
-                Golpe();}            
-        }
-        else
-        {    
-            StartCoroutine(TiempoRecargar(tiempo_de_recarga) );        
-            circuloRecarga.fillAmount = tiempo2 / tiempo_de_recarga;
+        if (GameManager.EnableInput) {
 
-            TextMeshProUGUI textMesh = marcadorBalas.GetComponent<TextMeshProUGUI>();
-            textMesh.text = cantBalas.ToString() + "/" + max_capacidad.ToString();
-
-            disparar=Input.GetButton("Fire1");
-            recargar=Input.GetKeyDown(KeyCode.R);
-
-            if (recargar == true 
-                && cantBalas != max_capacidad
-                && recargando != true)
+            if (!armaDeFuego)
             {
-                recargando = true;
-                StartCoroutine( Recargar(tiempo_de_recarga) );            
-            }
+                marcadorBalas.SetActive(false); //No tiene munición, se borra el bloque de balas
+                marcadorBalasTotales.SetActive(false);
+                if(Input.GetButtonDown("Fire1")) Golpe();
 
-            if (disparar== true 
-                && Time.time > dispararPermiso
-                && cantBalas > 0
-                && recargando !=true){
-                Disparar();
+                if (!atacando) {
+                    mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mousePosition.z = 0;
+                    Vector3 lookAtDirection = mousePosition - transform.position;
+                    transform.up = lookAtDirection;
+                    sprite.flipX = movimientoJugador.mirandoDerecha ? false : true;
+                    //transform.localScale = movimientoJugador.mirandoDerecha ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);                    
+                }
+
             }
-        }        
+            else {
+                marcadorBalas.SetActive(true); //optimizar esto
+                marcadorBalasTotales.SetActive(true);
+                ActualizarHudBalas();
+
+                disparar = Input.GetButton("Fire1");
+                recargar = Input.GetKeyDown(KeyCode.R);
+
+                if(recargando) {
+                    tiempoDeRecarga = tiempoDeRecargaDefault / controlArmas.rechargeMultiplier;
+                    StartCoroutine(TiempoRecargar(tiempoDeRecarga) );        
+                    circuloRecarga.fillAmount = tiempo2 / tiempoDeRecarga;
+                }
+                
+                if ((recargar && cantBalas != max_capacidad) && !recargando) {
+                    if (controlArmas.armaActiva == 1 && controlArmas.sniperAmmo > 0)
+                    {
+                        recargando = true;
+                        StartCoroutine( Recargar(tiempoDeRecarga) );                    
+                    }
+                    else if(controlArmas.armaActiva == 2 && controlArmas.grenadeAmmo > 0)
+                    {
+                        recargando = true;
+                        StartCoroutine( Recargar(tiempoDeRecarga) );
+                    }
+                }
+
+                if (disparar && Time.time > dispararPermiso && !recargando) {
+                    Disparar();
+                }
+            }        
+        }
     }
-    void Disparar()
-    {        
-        cantBalas--;
-        GameObject bala = Instantiate(Bala, puntaDelArma.position, puntaDelArma.rotation);
+
+    public void ActualizarHudBalas()
+    {
+        TextMeshProUGUI textMesh = marcadorBalas.GetComponent<TextMeshProUGUI>();
+        textMesh.text = cantBalas.ToString() + "/" + max_capacidad.ToString();
+        TextMeshProUGUI textoBalas = marcadorBalasTotales.GetComponent<TextMeshProUGUI>();
+        
+        if (controlArmas.armaActiva == 1)
+            textoBalas.text = controlArmas.sniperAmmo.ToString();
+        else
+            textoBalas.text = controlArmas.grenadeAmmo.ToString();
+    }
+
+    private void Disparar()
+    {
         dispararPermiso = Time.time + dispararCooldown; 
-        Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
-        rb.AddForce(puntaDelArma.right * velocidad , ForceMode2D.Impulse);
-        OnShoot?.Invoke(this, EventArgs.Empty);        
+        if (cantBalas > 0) {
+            audioSource.PlayOneShot(sonidoAtaque);
+            cantBalas--;
+            GameObject bala = Instantiate(Bala, puntaDelArma.position, puntaDelArma.rotation);
+            Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
+            rb.AddForce(puntaDelArma.right * velocidad , ForceMode2D.Impulse);
+            OnShoot?.Invoke(this, EventArgs.Empty);
+
+            ActualizarHudBalas();            
+        }
+        else {
+            audioSource.PlayOneShot(sonidoSinBalas);
+        }
     }
 
     private void Golpe()
     {
-        try{
-            Animator.SetTrigger("ataque");
+        if (atacando) return;
+
+        audioSource.PlayOneShot(sonidoAtaque);
+        atacando = true;
+        Animator.SetTrigger("ataque");
+        try {
             Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorGolpe.position, radioGolpe);
             foreach (Collider2D colisionador in objetos)
             {
-                if (colisionador.CompareTag("Enemigo"))
-                {
-                    Debug.Log("Le pegaste al enemigo");
-                    //colisionador.transform.GetComponent<Enemigo>().TomarDaño(dañoGolpe);
+                if (colisionador.CompareTag("Enemigo")) {
+                    colisionador.GetComponent<vidaEnemiga>().Golpe();
                 }
-            }            
+            }
         }
-        catch (System.Exception){Debug.Log("Golpeaste");} 
-    }
-    private void OnDrawGizmos()
-    {
-        if (!armaDeFuego){
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
-        }
+        catch (System.Exception) { }
     }
 
-    public IEnumerator Recargar(float tiempoRecarga){
+    private void terminarAtaque()
+    {
+        atacando = false;
+    }
+
+
+    public IEnumerator Recargar(float tiempoRecarga) {
+        StartCoroutine(RecargarSonido());
+        
         cooldown_recarga = Time.time + tiempoRecarga;
         yield return new WaitForSeconds(tiempoRecarga); //cooldown de recarga
-        cantBalas = max_capacidad;
+        balasRecargar = max_capacidad - cantBalas;
+
+        if (controlArmas.armaActiva == 1) {
+            if (controlArmas.sniperAmmo >= balasRecargar) {
+                cantBalas += balasRecargar;
+                controlArmas.sniperAmmo -= balasRecargar;
+            }
+            else
+            {
+                cantBalas += controlArmas.sniperAmmo;
+                controlArmas.sniperAmmo = 0;
+            }
+        }
+        else if(controlArmas.armaActiva == 2) {
+            if (controlArmas.grenadeAmmo >= balasRecargar) {
+                cantBalas += balasRecargar;
+                controlArmas.grenadeAmmo -= balasRecargar;
+            }
+            else
+            {
+                cantBalas += controlArmas.grenadeAmmo;
+                controlArmas.grenadeAmmo = 0;
+            }
+        }
+        
+        audioSource.loop = false;
         recargando = false;
+        audioSource.PlayOneShot(sonidoRecarga);
+        ActualizarHudBalas();
     }
 
     public IEnumerator TiempoRecargar(float tiempoRecarga)
     {        
         tiempo2 = cooldown_recarga - Time.time;
         yield return new WaitForSeconds(tiempoRecarga / 100);
+    }
+
+    public IEnumerator RecargarSonido()
+    {
+        while (recargando) {
+            audioSource.clip = sonidoRecarga2;
+            audioSource.Play();
+            yield return new WaitForSeconds(audioSource.clip.length + tiempoBalaRecarga);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!armaDeFuego) {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
+        }
     }
 } 

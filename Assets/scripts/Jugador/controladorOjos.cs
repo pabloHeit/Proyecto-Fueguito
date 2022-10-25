@@ -5,79 +5,78 @@ using UnityEngine;
 
 public class controladorOjos : MonoBehaviour
 {
-    [SerializeField] private Transform apuntado;
-    private Animator Animator;
-    private Vector3 mousePosition;
+    movimientoJugador movimientoJugador;
+    Animator Animator;
+
     [SerializeField] private Transform target;
     [SerializeField] private Transform jugador;
-    [SerializeField] private Vector3 ojosLugar;
+
     private Vector3 posicionOjos;
+    private Vector3 mousePosition;
+
     [SerializeField] private float distanciaMiradaX;
     [SerializeField] private float distanciaMiradaY;
-    private movimientoJugador movimientoJugador;
-    private Transform _t;
-    private controladorVidas controladorVidas;
+
+
+    private float centroHorizontal = 0;
+    private float modificadorCentro = 1f;
+
 
     void Start()
     {
         Animator = GetComponent<Animator>();
-        _t = GetComponent<Transform>();
         movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();
-
-        controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
-        controladorVidas.OnMuerto += ojosMuerte;    
     }
 
     void Update()
     {
-         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-         mousePosition.z = 0;
-         Vector3 lookAtDirection = mousePosition -target.position;     
-
-        //Movimiento de los ojos (habra una mejor manera de hacerlo?)
-        if (lookAtDirection.x >= distanciaMiradaX)
-        {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+        Vector3 lookAtDirection = mousePosition - target.position;
+        //Cambiar distancia mirada X e Y
+        if (lookAtDirection.x >= distanciaMiradaX){
             posicionOjos.x= jugador.position.x + 0.08f;
-            
+            distanciaMiradaX = 0.4f;          
         }
-        else if(lookAtDirection.x <= -distanciaMiradaX)
-        {
+        else if(lookAtDirection.x <= -distanciaMiradaX){
             posicionOjos.x= jugador.position.x - 0.08f;
+            distanciaMiradaX = 0.4f;
         }
-        else
-        {
-            posicionOjos.x= jugador.position.x;
+        else{
+            posicionOjos.x = jugador.position.x;
+            distanciaMiradaX = 0.5f;
         }
 
-        if (lookAtDirection.y>=distanciaMiradaY)
-        {
-            posicionOjos.y= jugador.position.y + 0.08f;
-
+        if (lookAtDirection.y >= distanciaMiradaY){
+            posicionOjos.y = jugador.position.y + 0.08f;
+            distanciaMiradaY = 0.4f;
         }
-        else if(lookAtDirection.y<=-distanciaMiradaY)
-        {
-            posicionOjos.y= jugador.position.y - 0.08f;
+        else if(lookAtDirection.y <= -distanciaMiradaY){
+            posicionOjos.y = jugador.position.y - 0.08f;
+            distanciaMiradaY = 0.4f;
         }
-        else
-        {
-             posicionOjos.y= jugador.position.y;
+        else{
+            posicionOjos.y = jugador.position.y;
+            distanciaMiradaY = 0.5f;
+        }
 
-        }        
         transform.position = posicionOjos;
         //Fin de movimiento de ojos
 
-        if(lookAtDirection.x > 0 )
+        if(lookAtDirection.x > centroHorizontal )
         {
             movimientoJugador.mirandoDerecha = true;
+            if (centroHorizontal == 0 || centroHorizontal == 1){
+                centroHorizontal = -modificadorCentro;                
+            }
         }
-        else if(lookAtDirection.x < 0 )
+        else if(lookAtDirection.x < centroHorizontal )
         {
             movimientoJugador.mirandoDerecha = false;
+            if (centroHorizontal == 0 || centroHorizontal == -1){
+                centroHorizontal = modificadorCentro;                
+            }
         }
 
-    }
-    private void ojosMuerte(object sender, EventArgs e)
-    {
-        Animator.SetBool("Muerto",true);        
     }
 }

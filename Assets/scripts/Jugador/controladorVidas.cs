@@ -6,59 +6,91 @@ using UnityEngine.UI;
 
 public class controladorVidas : MonoBehaviour
 {
-    [SerializeField] private GameObject ojos;
-    private movimientoJugador movimientoJugador;
+    movimientoJugador movimientoJugador;
+    Animator animator;
+    AudioSource audioGolpe;
+
     [SerializeField] public float vidaJugador;
-    [SerializeField] private float vidaMaxima;
-    private Animator animator;
-    //[SerializeField] private GameObject bufanda;
+    [SerializeField] public float vidaMaxima;
+    
     [SerializeField] private float tiempoPerdidaControl;
     [SerializeField] private float tiempoInmunidad;
-    AudioSource audioGolpe;
+    
     [SerializeField] private Image barraDeVida;
-    public event EventHandler OnMuerto;
+
+    [SerializeField] private GameObject ojos;
+
     private bool dying;
-    [SerializeField] private GameObject tumba;
+
     void Start()
     {
         animator = GetComponent<Animator>();
-        movimientoJugador= GetComponent<movimientoJugador>();
+        movimientoJugador = GetComponent<movimientoJugador>();
         audioGolpe = GetComponent<AudioSource>();
-        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
-    }
-    void Update()
-    {
-        if (vidaJugador<=0 && !dying)
-        {
-            Muerte();         
-        } 
-    }
-    public void Muerte()
-    {
-        dying = true;
-        OnMuerto?.Invoke(this, EventArgs.Empty);        
-        animator.SetBool("Dead", true);
-        StartCoroutine(PerderControl(2));
-        Destroy(gameObject,1.5f);
-        Instantiate(tumba, transform.position, Quaternion.identity);
+        ActualizarBarraVida();
     }
 
-    public void TomarDaño(float daño)
+    void Update()
+    {
+        if (vidaJugador <= 0 && !dying) 
+        {
+            animator.SetBool("Muriendo", true);
+            dying = true;
+            ActualizarBarraVida();
+            animator.SetTrigger("Dead");
+            Destroy(ojos);
+            GameManager.EnableInput = false;
+
+            foreach (Transform child in transform) {
+                Destroy(child.gameObject);
+            }            
+        }
+    }
+    
+    private void ActualizarBarraVida(){
+        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
+    }
+
+    public void Muerte()
+    {        
+        Destroy(gameObject);
+        GameManager.Instance.UpdateGameState(GameState.Muerte);
+    }
+
+    public void TomarDamage(float daño = 10)
     {
         //audioGolpe.Play();
         vidaJugador -= daño;
-        animator.SetBool("Idle",false);
+        ActualizarBarraVida();
         animator.SetTrigger("Dañado");
-        barraDeVida.fillAmount = (vidaJugador / vidaMaxima);
         StartCoroutine(DesactivarColision(0.5f));
-
     }
+
+    public void TomarVida(float vidaEntrante) //cambiar a int si usamos bloques de vida
+    {
+        float vidaFaltante = (vidaMaxima - vidaJugador) ;
+
+        if (vidaFaltante > vidaEntrante)
+            vidaJugador += vidaEntrante;
+        else
+            vidaJugador = vidaMaxima;
+
+        ActualizarBarraVida();
+        //animator.SetTrigger("Curacion");
+    }
+
+    public void Resucitar()
+    {
+        //
+    }
+
     public IEnumerator DesactivarColision(float TiempoInmunidad)
     {
         Physics2D.IgnoreLayerCollision(3,6,true);
         yield return new WaitForSeconds(TiempoInmunidad);
         Physics2D.IgnoreLayerCollision(3,6,false);
     }
+    
     public IEnumerator PerderControl(float TiempoPerdidaControl)
     {
         movimientoJugador.sePuedeMover = false;

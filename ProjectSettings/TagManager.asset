@@ -12,7 +12,13 @@ TagManager:
   - balas
   - Puntaje
   - Cabeza
+<<<<<<< HEAD
   - room
+=======
+  - opciones
+  - Brillo
+  - SoundSystem
+>>>>>>> main
   layers:
   - Default
   - TransparentFX
@@ -21,9 +27,15 @@ TagManager:
   - Water
   - UI
   - Peligro
+<<<<<<< HEAD
   - room
   - 
   - 
+=======
+  - BalasJugador
+  - NoShooteable
+  - Entorno
+>>>>>>> main
   - 
   - 
   - 

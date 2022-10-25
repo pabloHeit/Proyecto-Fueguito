@@ -14,20 +14,20 @@ public class objetoComprable : MonoBehaviour
     {
         agarrarArma = GetComponent<agarrarArma>();
         controladorPuntos = GameObject.FindGameObjectWithTag("Puntaje").GetComponent<controladorPuntos>();
-        precioMarcador.GetComponent<TextMesh>().text = "$ " + precio.ToString();
+        precioMarcador.GetComponent<TextMeshPro>().text = "$ " + precio.ToString();
     }
 
     void Update()
     {
-        if(EnRango && Input.GetKeyDown(KeyCode.E)){
+        if(EnRango && Input.GetKeyDown(KeyCode.E) && GameManager.EnableInput)
             comprar();
-        }        
     }
 
     private void comprar()
     {
         if(controladorPuntos.puntos >= precio)
         {
+            
             controladorPuntos.RestarPuntos(precio);
             Destroy(gameObject);
             agarrarArma.agarrar();

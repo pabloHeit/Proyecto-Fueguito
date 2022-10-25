@@ -20,10 +20,12 @@ public class rotacionDisparo : MonoBehaviour
   	}
     void Update()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-        Vector3 lookAtDirection = mousePosition - target.position;
-        target.right= lookAtDirection;
-	    sprite.flipY = !movimientoJugador.mirandoDerecha;
+        if (GameManager.EnableInput){            
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0;
+            Vector3 lookAtDirection = mousePosition - target.position;
+            target.right= lookAtDirection;
+            sprite.flipY = !movimientoJugador.mirandoDerecha;
+        }
     }
 }
