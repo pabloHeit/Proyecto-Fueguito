@@ -10,9 +10,9 @@ public class movimientoEnemigos : MonoBehaviour
     Rigidbody2D rb;
     NavMeshAgent navMeshAgent;
     vidaEnemiga vidaEnemiga;
-
     Transform player;
     controladorVidas controladorVidas;
+
     [SerializeField] private Transform objetivo;
     private float distJugador = 100;
 
@@ -21,7 +21,7 @@ public class movimientoEnemigos : MonoBehaviour
     [SerializeField] private float distanciaSegura;
     [SerializeField] private float distanciaAtaque;
 
-    private bool enemigoAct = false;
+    public bool enemigoAct = false;
     public bool atacando = false;
     private bool jugadorEnZona;
 

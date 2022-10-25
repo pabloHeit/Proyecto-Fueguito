@@ -5,206 +5,100 @@ using UnityEngine.AI;
 
 public class NubeIA : MonoBehaviour
 {
-   Animator anim;
-   private Transform player;
-   public float VelocidadMov;
-   private Vector2 movement;
-   private Rigidbody2D rb;
-   private bool miraDerecha;
-   private controladorVidas controladorVidas;
-   private BalaAgua BalaAgua;
-   [SerializeField] float cooldown;
-   private float VelocidadB = 10f;
-   private float ultimoGolpe;   
-   public GameObject BalaEnemiga;
-   public GameObject laser;
-   private bool enemigoact = false;
-   private NavMeshAgent navMeshAgent;
-  [SerializeField] public int vidaEnemiga;
-  [SerializeField] private Transform disparador;
-  [SerializeField] private Transform objetivo;
-  [SerializeField] private float rango;
-  private bool enojo = true;
-  private float contadorTime;
-  [SerializeField] private float dañobala;
-  [SerializeField] private LineRenderer DisparoLinea;
-  [SerializeField] private float tiempoDisparo;
-   private Vector3 lookAtDirection;
-   private bool contadorTiempo = false;
+    Animator anim;
+    Transform player;
+    BalaAgua BalaAgua;
+    movimientoEnemigos movimientoEnemigos;
+    controladorVidas controladorVidas;
+
+
+    [SerializeField] float cooldown;
+    private float VelocidadB = 10f;
+    private float ultimoGolpe;
+
+    public GameObject BalaEnemiga;
+    public GameObject laser;
+
+    [SerializeField] private Transform disparador;
+    
+    private bool enojo = true;
+
+    private float contadorTime;
+
+    [SerializeField] private float dañobala;
+
+    [SerializeField] private LineRenderer DisparoLinea;
+    
+    [SerializeField] private float tiempoDisparo;
+
+    private bool contadorTiempo = false;
+
+    private Vector3 lookAtDirection;
 
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        navMeshAgent.updateRotation = false;
-        navMeshAgent.updateUpAxis = false;   
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
-        rb= this.GetComponent<Rigidbody2D>();
-        miraDerecha = true;
-        anim = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        movimientoEnemigos = this.GetComponent<movimientoEnemigos>();
         contadorTiempo = false;
+    }
 
-   }
-
-   void Awake()
-   {
+    void Awake()
+    {
         GameObject laserSpawn = Instantiate(laser, transform.position, Quaternion.identity);
         DisparoLinea = laserSpawn.GetComponent<LineRenderer>();
-   }
-
-   void Update() 
-   {
-    
-    if(controladorVidas != null)
-    {
-        lookAtDirection = player.position - disparador.position;
-        Debug.DrawRay(disparador.position, lookAtDirection, Color.white);
-        lookAtDirection.z = 0.0f;
-        disparador.right = lookAtDirection;
-
-        if (controladorVidas.vidaJugador != 0)
-        {
-            enemigoMov();
-        }
-
-       if(contadorTiempo == false){
-        //Debug.Log("Holaaaa");
-        contadorTime = Time.time + 10;
-        contadorTiempo = true;
-       }
-
-    if (contadorTiempo) {
-      if(Time.time > contadorTime) {
-       anim.SetTrigger("Rayo");
-       contadorTiempo = false;
-       }
-    }
-       
     }
 
-   }
-
-    private void FixedUpdate() 
-    {
-        if(controladorVidas != null)
+    void Update() 
+    {    
+        if(controladorVidas != null && movimientoEnemigos.enemigoAct)
         {
-            moveCharacter(movement);
-        }      
+            lookAtDirection = player.position - disparador.position;
+            Debug.DrawRay(disparador.position, lookAtDirection, Color.white);
+            lookAtDirection.z = 0.0f;
+            disparador.right = lookAtDirection;
+            
+            if(!contadorTiempo) {
+                contadorTime = Time.time + 10;
+                contadorTiempo = true;
+            }
+
+            if (contadorTiempo) {
+                if(Time.time > contadorTime) {
+                    anim.SetTrigger("Rayo");
+                    contadorTiempo = false;
+                }
+            }        
+        }
     }
 
-   private void enemigoMov() 
-   {
-      Vector3 direction = player.position - transform.position;
-      float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-      direction.Normalize();
-      movement = direction;
-
-      float distJugador = Vector2.Distance(transform.position, player.position);
-      //Debug.Log("Distancia del jugador" + distJugador);
-
-     if (vidaEnemiga < 5)
-     {
-         enemigoact = true;
-     }
-     
-    if (Mathf.Abs(distJugador)>7 && !enemigoact)
+    private void DisparoAgua()
     {
-        VelocidadMov = 0.0f;
-    } 
-    else  
-        enemigoact = true;
-
-    if (enemigoact == true)
-    {
-       anim.SetTrigger("Ataque");
-       navMeshAgent.SetDestination(objetivo.position);
-        if (Time.time - ultimoGolpe < cooldown)
-        {
-            return;
-        }
-        ultimoGolpe = Time.time; 
-      }
+        GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
+        Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
+        rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
     }
 
-   void moveCharacter(Vector2 direction)
-   {
-      rb.MovePosition((Vector2) transform.position + (direction * VelocidadMov * Time.deltaTime));
-       if(transform.position.x < player.position.x && !miraDerecha)
-        {
-            rb.velocity = new Vector2(VelocidadMov, 0f);
-            Flip();
-        }
-        else if(transform.position.x > player.position.x && miraDerecha)
-        {
-            rb.velocity = new Vector2(-VelocidadMov, 0f);
-            Flip();
-        }
-
-        else if(!miraDerecha)
-        {
-            rb.velocity = new Vector2(-VelocidadMov, 0f);
-        }
-
-         else if(miraDerecha)
-        {
-            rb.velocity = new Vector2(VelocidadMov, 0f);
-        }
-   }
-
-    private void Flip()
+    private void DisparoNube()
     {
-        miraDerecha = !miraDerecha;
-        Vector3 laEscala = transform.localScale;
-        laEscala.x *=-1;
-        transform.localScale = laEscala;
-    }
-
-     private void DisparoAgua()
-    {
-          GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
-          Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
-          rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
-    }
-
-    private void DisparoNube(){
-         RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, lookAtDirection, rango);
-         if (raycastHit2D){
-           Debug.Log($"hola 1 : {raycastHit2D.transform.name}");
-           if(raycastHit2D.transform.CompareTag("Player")) 
-              {
-                Debug.Log($"hola 2");
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, lookAtDirection, rango);
+        if (raycastHit2D){
+            // Debug.Log($"hola 1 : {raycastHit2D.transform.name}");
+           if(raycastHit2D.transform.CompareTag("Player")) {
+                // Debug.Log($"hola 2");
                 Debug.DrawRay(disparador.position, objetivo.position, Color.red);
-               controladorVidas.TomarDamage(dañobala);
-               StartCoroutine(GenerarLinea(raycastHit2D.point));
-              } 
+                controladorVidas.TomarDamage(dañobala);
+                StartCoroutine(GenerarLinea(raycastHit2D.point));
+            }
             anim.SetTrigger("Descanso");
-         }  
-       
+        }       
     }
 
-
-   public void Golpe()
-   {
-       vidaEnemiga = vidaEnemiga - 1;
-       if(vidaEnemiga == 0)
-       Destroy(gameObject);
-   }
-
-   private void OnTriggerEnter2D(Collider2D other) {
-    if (other.gameObject.tag == "balas")
+    IEnumerator GenerarLinea(Vector3 objeto) 
     {
-        Golpe();
+        DisparoLinea.enabled = true;
+        DisparoLinea.SetPosition(0, disparador.position);
+        DisparoLinea.SetPosition(1, objeto);
+        yield return new WaitForSeconds(tiempoDisparo);
+        DisparoLinea.enabled = false;
     }
-   }
-    
-   IEnumerator GenerarLinea(Vector3 objeto) {
-     DisparoLinea.enabled = true;
-     DisparoLinea.SetPosition(0, disparador.position);
-     DisparoLinea.SetPosition(1, objeto);
-     yield return new WaitForSeconds(tiempoDisparo);
-     DisparoLinea.enabled = false;  
-   } 
-   
-
 }
-

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2683576267709033667}
   - component: {fileID: 2683576267709033670}
   - component: {fileID: 2683576267709033669}
+  - component: {fileID: 5041682340544615653}
+  - component: {fileID: 4074578335753243189}
   - component: {fileID: 4248868906024427123}
   - component: {fileID: 7624942459500572516}
   - component: {fileID: 8124513}
@@ -139,6 +141,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5041682340544615653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2683576267709033666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff14e8554a670a24e99781b45f607d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 0
+  vidaInicial: 0
+  puedeColisionar: 0
+--- !u!114 &4074578335753243189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2683576267709033666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6c3c94bbf53514f8fa91c9e38db47a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetivo: {fileID: 0}
+  distanciaSegura: 0
+  distanciaAtaque: 0
+  atacando: 0
+  tiempoPasos: 0
+  sonidoPasos: {fileID: 8300000, guid: a5d1683c739b63b4286a1ecd31e9fc61, type: 3}
 --- !u!195 &4248868906024427123
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -176,6 +211,7 @@ MonoBehaviour:
   VelocidadMov: 0
   cooldown: 1
   BalaEnemiga: {fileID: 5755562860008136992, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
+  laser: {fileID: 0}
   vidaEnemiga: 5
   disparador: {fileID: 5310269782705827942}
   objetivo: {fileID: 0}
