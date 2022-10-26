@@ -102,9 +102,9 @@ public class movimientoJugador : MonoBehaviour
         }     
     }
     public void realentizar(float VelMov, float tiempoCooldown) {    
-        if (realentizado){
-            return;
-        }
+        // if (realentizado){
+        //     return;
+        // }
         realentizado = true;
         velocidadMovimiento = VelMov;
         contador = Time.time + tiempoCooldown;              

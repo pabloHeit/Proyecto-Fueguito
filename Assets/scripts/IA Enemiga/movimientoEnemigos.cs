@@ -19,7 +19,7 @@ public class movimientoEnemigos : MonoBehaviour
     private bool miraDerecha;
 
     [SerializeField] private float distanciaSegura;
-    [SerializeField] private float distanciaAtaque;
+    public float distanciaAtaque;
 
     public bool enemigoAct = false;
     public bool atacando = false;
@@ -59,7 +59,7 @@ public class movimientoEnemigos : MonoBehaviour
                 enemigoMov();
                 if (!atacando && tiempoPasosContador < Time.time) {
                     tiempoPasosContador = Time.time + tiempoPasos;
-//                    audioSource.PlayOneShot(sonidoPasos);
+                    //audioSource.PlayOneShot(sonidoPasos);
                 }
             }
             else {

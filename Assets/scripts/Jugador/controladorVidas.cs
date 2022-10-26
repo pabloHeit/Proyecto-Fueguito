@@ -9,6 +9,7 @@ public class controladorVidas : MonoBehaviour
     movimientoJugador movimientoJugador;
     Animator animator;
     AudioSource audioGolpe;
+    controlArmas controlArmas;
 
     [SerializeField] public float vidaJugador;
     [SerializeField] public float vidaMaxima;
@@ -24,8 +25,9 @@ public class controladorVidas : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
         movimientoJugador = GetComponent<movimientoJugador>();
+        controlArmas = GetComponent<controlArmas>();
+        animator = GetComponent<Animator>();
         audioGolpe = GetComponent<AudioSource>();
         ActualizarBarraVida();
     }
@@ -43,7 +45,8 @@ public class controladorVidas : MonoBehaviour
 
             foreach (Transform child in transform) {
                 Destroy(child.gameObject);
-            }            
+            }
+            Destroy(controlArmas);         
         }
     }
     

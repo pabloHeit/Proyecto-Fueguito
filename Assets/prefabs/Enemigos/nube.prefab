@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 2683576267709033669}
   - component: {fileID: 5041682340544615653}
   - component: {fileID: 4074578335753243189}
-  - component: {fileID: 4248868906024427123}
   - component: {fileID: 7624942459500572516}
+  - component: {fileID: 4248868906024427123}
   - component: {fileID: 8124513}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: nube
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff14e8554a670a24e99781b45f607d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
+  vida: 3
   vidaInicial: 0
   puedeColisionar: 0
 --- !u!114 &4074578335753243189
@@ -169,11 +169,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetivo: {fileID: 0}
-  distanciaSegura: 0
-  distanciaAtaque: 0
+  distanciaSegura: 6
+  distanciaAtaque: 5
+  enemigoAct: 0
   atacando: 0
-  tiempoPasos: 0
+  tiempoPasos: 2
   sonidoPasos: {fileID: 8300000, guid: a5d1683c739b63b4286a1ecd31e9fc61, type: 3}
+--- !u!114 &7624942459500572516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2683576267709033666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75d99d72e5ccf2468b0633ec8cbc570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 1
+  BalaEnemiga: {fileID: 5755562860008136992, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
+  laser: {fileID: 1115067191963790394, guid: 32571305808e88742b0057968152ce14, type: 3}
+  disparador: {fileID: 5310269782705827942}
+  "da\xF1obala": 10
+  DisparoLinea: {fileID: 0}
+  tiempoDisparo: 0.1
 --- !u!195 &4248868906024427123
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -196,29 +216,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7624942459500572516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2683576267709033666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e75d99d72e5ccf2468b0633ec8cbc570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VelocidadMov: 0
-  cooldown: 1
-  BalaEnemiga: {fileID: 5755562860008136992, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
-  laser: {fileID: 0}
-  vidaEnemiga: 5
-  disparador: {fileID: 5310269782705827942}
-  objetivo: {fileID: 0}
-  rango: 10
-  "da\xF1obala": 10
-  DisparoLinea: {fileID: 0}
-  tiempoDisparo: 0.1
 --- !u!50 &8124513
 Rigidbody2D:
   serializedVersion: 4
@@ -234,7 +231,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -249,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5310269782705827942}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: ControladorNube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

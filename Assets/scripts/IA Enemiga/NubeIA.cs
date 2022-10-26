@@ -28,6 +28,7 @@ public class NubeIA : MonoBehaviour
     [SerializeField] private float dañobala;
 
     [SerializeField] private LineRenderer DisparoLinea;
+    [SerializeField] private BoxCollider2D caja;
     
     [SerializeField] private float tiempoDisparo;
 
@@ -38,6 +39,8 @@ public class NubeIA : MonoBehaviour
     void Start()
     {
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
+        anim = this.GetComponent<Animator>();       
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); 
         movimientoEnemigos = this.GetComponent<movimientoEnemigos>();
         contadorTiempo = false;
     }
@@ -46,6 +49,7 @@ public class NubeIA : MonoBehaviour
     {
         GameObject laserSpawn = Instantiate(laser, transform.position, Quaternion.identity);
         DisparoLinea = laserSpawn.GetComponent<LineRenderer>();
+        caja = laserSpawn.GetComponent<BoxCollider2D>();
     }
 
     void Update() 
@@ -71,34 +75,34 @@ public class NubeIA : MonoBehaviour
         }
     }
 
-    private void DisparoAgua()
+    public void DisparoAgua()
     {
         GameObject balaene = Instantiate(BalaEnemiga, disparador.position, disparador.rotation);
+        // balaAgua = balaene.GetComponent<BalaAgua>();
+        // >balaAgua.realentiza = true;
         Rigidbody2D rb = balaene.GetComponent<Rigidbody2D>();
         rb.AddForce(disparador.right * VelocidadB, ForceMode2D.Impulse);
     }
 
-    private void DisparoNube()
+    public void DisparoNube()
     {
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, lookAtDirection, rango);
-        if (raycastHit2D){
-            // Debug.Log($"hola 1 : {raycastHit2D.transform.name}");
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(disparador.position, lookAtDirection, movimientoEnemigos.distanciaAtaque, 10);
+        if (raycastHit2D) {
            if(raycastHit2D.transform.CompareTag("Player")) {
-                // Debug.Log($"hola 2");
-                Debug.DrawRay(disparador.position, objetivo.position, Color.red);
                 controladorVidas.TomarDamage(dañobala);
                 StartCoroutine(GenerarLinea(raycastHit2D.point));
             }
-            anim.SetTrigger("Descanso");
         }       
     }
 
     IEnumerator GenerarLinea(Vector3 objeto) 
     {
+        caja.enabled = true;
         DisparoLinea.enabled = true;
         DisparoLinea.SetPosition(0, disparador.position);
         DisparoLinea.SetPosition(1, objeto);
         yield return new WaitForSeconds(tiempoDisparo);
         DisparoLinea.enabled = false;
+        caja.enabled = true;
     }
 }
