@@ -96,7 +96,7 @@ public class movimientoJugador : MonoBehaviour
                 rodarPermiso = Time.time + rodarCooldown;
                 rb2D.velocity = ultimaDireccion * 20f;
                 StartCoroutine( PerderControl(tiempoDeNoMoverse) );
-                //StartCoroutine( DesactivarColision(tiempoInvulnerable) );
+                StartCoroutine( DesactivarColision(tiempoInvulnerable) );
                 StartCoroutine( CoRodar(0.25f) );
             }   
         }     

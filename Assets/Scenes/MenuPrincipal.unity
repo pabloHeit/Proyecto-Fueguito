@@ -1044,6 +1044,7 @@ GameObject:
   - component: {fileID: 435867128}
   - component: {fileID: 435867127}
   - component: {fileID: 435867126}
+  - component: {fileID: 435867129}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1116,6 +1117,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &435867129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435867125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &445228610
 GameObject:
   m_ObjectHideFlags: 0
@@ -4497,8 +4531,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 97c2544841a8ee2438d0c6c94ac92695, type: 2}
-  - {fileID: 2100000, guid: afab7a639a7c03b4d99617f1cdf4989c, type: 2}
+  - {fileID: 2100000, guid: 3c6a41bd59553be4fbcdbeb8f4019f9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7091,6 +7124,26 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1423562901557257351, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423562901557257351, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
+      propertyPath: m_Color.b
+      value: 0.48718405
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423562901557257351, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
+      propertyPath: m_Color.g
+      value: 0.48718405
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423562901557257351, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423562901557257351, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1572642193802645321, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7494,6 +7547,10 @@ PrefabInstance:
     - target: {fileID: 6924936084543602737, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6934057879438865147, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7059460134188760323, guid: c43c9e1843ac2144bb40c3ac63805317, type: 3}
       propertyPath: m_AnchorMax.y

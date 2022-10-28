@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2883430855814680363}
   - component: {fileID: 2883430855814680342}
   - component: {fileID: 2883430855814680340}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Caballero
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
@@ -54,6 +54,7 @@ MonoBehaviour:
   objetivo: {fileID: 0}
   distanciaSegura: 5
   distanciaAtaque: 2.75
+  enemigoAct: 0
   atacando: 0
   tiempoPasos: 0
   sonidoPasos: {fileID: 0}
@@ -249,7 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2883430857444200489}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: espada
   m_TagString: Untagged
   m_Icon: {fileID: 0}

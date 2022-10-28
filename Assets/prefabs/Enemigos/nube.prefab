@@ -188,11 +188,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 1
-  BalaEnemiga: {fileID: 5755562860008136992, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
+  BalaEnemiga: {fileID: 6701102326458550517, guid: bbe9f82f8431fa742acf5a642f961a42, type: 3}
   laser: {fileID: 1115067191963790394, guid: 32571305808e88742b0057968152ce14, type: 3}
   disparador: {fileID: 5310269782705827942}
   "da\xF1obala": 10
   DisparoLinea: {fileID: 0}
+  caja: {fileID: 0}
   tiempoDisparo: 0.1
 --- !u!195 &4248868906024427123
 NavMeshAgent:
@@ -229,7 +230,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 50
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
