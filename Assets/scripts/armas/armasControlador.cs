@@ -21,7 +21,7 @@ public class armasControlador : MonoBehaviour
     [Header("Melee")]
     [SerializeField] private Transform controladorGolpe;
     [SerializeField] private float radioGolpe;
-    private bool atacando = false;
+    public bool atacando = false;
            
     [Header("HUD")]
     [SerializeField] private GameObject marcadorBalas;
@@ -102,7 +102,7 @@ public class armasControlador : MonoBehaviour
 
             }
             else {
-                marcadorBalas.SetActive(true); //optimizar esto
+                marcadorBalas.SetActive(true); 
                 marcadorBalasTotales.SetActive(true);
                 ActualizarHudBalas();
 
@@ -116,16 +116,7 @@ public class armasControlador : MonoBehaviour
                 }
                 
                 if ((recargar && cantBalas != max_capacidad) && !recargando) {
-                    if (controlArmas.armaActiva == 1 && controlArmas.sniperAmmo > 0)
-                    {
-                        recargando = true;
-                        StartCoroutine( Recargar(tiempoDeRecarga) );                    
-                    }
-                    else if(controlArmas.armaActiva == 2 && controlArmas.grenadeAmmo > 0)
-                    {
-                        recargando = true;
-                        StartCoroutine( Recargar(tiempoDeRecarga) );
-                    }
+                    StartCoroutine(Recargar(tiempoDeRecarga));                            
                 }
 
                 if (disparar && Time.time > dispararPermiso && !recargando) {
@@ -141,16 +132,37 @@ public class armasControlador : MonoBehaviour
         textMesh.text = cantBalas.ToString() + "/" + max_capacidad.ToString();
         TextMeshProUGUI textoBalas = marcadorBalasTotales.GetComponent<TextMeshProUGUI>();
         
-        if (controlArmas.armaActiva == 1)
-            textoBalas.text = controlArmas.sniperAmmo.ToString();
-        else
-            textoBalas.text = controlArmas.grenadeAmmo.ToString();
+        switch (controlArmas.armaActiva)
+        {
+            case 1:
+                textoBalas.text = controlArmas.sniperAmmo.ToString();
+            break;
+
+            case 2:
+                textoBalas.text = controlArmas.grenadeAmmo.ToString();
+            break;
+
+            case 3:
+                textoBalas.text = controlArmas.flechas.ToString();
+            break;
+
+            case 4:
+                textoBalas.text = controlArmas.ametralladoraAmmo.ToString();
+            break;
+
+            default:
+            break;
+        }
     }
 
     private void Disparar()
     {
         dispararPermiso = Time.time + dispararCooldown; 
         if (cantBalas > 0) {
+            try{
+                Animator.SetTrigger("disparo");}
+            catch (System.Exception)
+            {}
             audioSource.PlayOneShot(sonidoAtaque);
             cantBalas--;
             GameObject bala = Instantiate(Bala, puntaDelArma.position, puntaDelArma.rotation);
@@ -189,36 +201,76 @@ public class armasControlador : MonoBehaviour
         atacando = false;
     }
 
-
-    public IEnumerator Recargar(float tiempoRecarga) {
+    public IEnumerator Recargar(float tiempoRecarga)
+    {
+        balasRecargar = max_capacidad - cantBalas;
+        switch (controlArmas.armaActiva)
+        {
+            case 1:
+                if (controlArmas.sniperAmmo > 0) {
+                    if (controlArmas.sniperAmmo >= balasRecargar) {
+                        cantBalas += balasRecargar;
+                        controlArmas.sniperAmmo -= balasRecargar;                        
+                    }
+                    else {
+                        cantBalas += controlArmas.sniperAmmo;
+                        controlArmas.sniperAmmo = 0;                        
+                    }                    
+                }
+                else
+                    yield break;
+            break;
+            case 2:
+                if (controlArmas.grenadeAmmo > 0) {
+                    if (controlArmas.grenadeAmmo >= balasRecargar) {
+                        cantBalas += balasRecargar;
+                        controlArmas.grenadeAmmo -= balasRecargar;                        
+                    }
+                    else {
+                        cantBalas += controlArmas.grenadeAmmo;
+                        controlArmas.grenadeAmmo = 0;                        
+                    }                    
+                }
+                else
+                    yield break;
+            break;
+            case 3:
+                if (controlArmas.flechas > 0) {
+                    if (controlArmas.flechas >= balasRecargar) {
+                        cantBalas += balasRecargar;
+                        controlArmas.flechas -= balasRecargar;                        
+                    }
+                    else {
+                        cantBalas += controlArmas.flechas;
+                        controlArmas.flechas = 0;                        
+                    }                
+                }
+                else
+                    yield break;
+            break;
+            case 4:
+                if (controlArmas.ametralladoraAmmo > 0) {
+                    if (controlArmas.ametralladoraAmmo >= balasRecargar) {
+                        cantBalas += balasRecargar;
+                        controlArmas.ametralladoraAmmo -= balasRecargar;                        
+                    }
+                    else {
+                        cantBalas += controlArmas.ametralladoraAmmo;
+                        controlArmas.ametralladoraAmmo = 0;                        
+                    }                    
+                }
+                else
+                    yield break;
+            break;
+            
+            default:
+            break;
+        }
+        recargando = true;
         StartCoroutine(RecargarSonido());
         
         cooldown_recarga = Time.time + tiempoRecarga;
         yield return new WaitForSeconds(tiempoRecarga); //cooldown de recarga
-        balasRecargar = max_capacidad - cantBalas;
-
-        if (controlArmas.armaActiva == 1) {
-            if (controlArmas.sniperAmmo >= balasRecargar) {
-                cantBalas += balasRecargar;
-                controlArmas.sniperAmmo -= balasRecargar;
-            }
-            else
-            {
-                cantBalas += controlArmas.sniperAmmo;
-                controlArmas.sniperAmmo = 0;
-            }
-        }
-        else if(controlArmas.armaActiva == 2) {
-            if (controlArmas.grenadeAmmo >= balasRecargar) {
-                cantBalas += balasRecargar;
-                controlArmas.grenadeAmmo -= balasRecargar;
-            }
-            else
-            {
-                cantBalas += controlArmas.grenadeAmmo;
-                controlArmas.grenadeAmmo = 0;
-            }
-        }
         
         audioSource.loop = false;
         recargando = false;

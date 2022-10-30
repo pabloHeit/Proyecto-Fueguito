@@ -11,6 +11,8 @@ public class controlArmas : MonoBehaviour
 
     public int sniperAmmo;
     public int grenadeAmmo;
+    public int flechas;
+    public int ametralladoraAmmo;
 
     public float damageMultiplier = 1;
     public float rechargeMultiplier = 1;
@@ -18,7 +20,7 @@ public class controlArmas : MonoBehaviour
     [SerializeField] private GameObject[] activadorArma;
 
     public GameObject[] armas;
-    public int armaActiva = 0; //espada 1, rifle 2, lanzagranadas 3 
+    public int armaActiva = 0; //espada 1, rifle 2, lanzagranadas 3 , ballesta 4, ametralladora 5
     private float scrollMouse;
     private int cantDeArmas;
     private int ultima_activa = 0;
@@ -45,14 +47,18 @@ public class controlArmas : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Alpha1)){
                 CambiarArma(0);
             }
-
             if(Input.GetKeyDown(KeyCode.Alpha2)){
                 CambiarArma(1);
             }
-
             if(Input.GetKeyDown(KeyCode.Alpha3)){
                 CambiarArma(2);
-            }     
+            }
+            if(Input.GetKeyDown(KeyCode.Alpha4)){
+                CambiarArma(3);
+            }
+            if(Input.GetKeyDown(KeyCode.Alpha5)){
+                CambiarArma(4);
+            }
             
             //Seleccion de arma
             if(Time.time > cambiarPermiso && scrollMouse != 0)
@@ -74,7 +80,10 @@ public class controlArmas : MonoBehaviour
     }
     private void CambiarArma(int n = -1)
     {
-        if(n != -1) /**/ armaActiva = n;
+        if (armasControlador.atacando)
+            return;
+        if(n != -1) 
+            armaActiva = n;
 
         if (armaActiva > cantDeArmas - 1) /**/ armaActiva = 0;
         else if(armaActiva <= -1) /**/ armaActiva = cantDeArmas - 1;

@@ -6,27 +6,37 @@ public class municion : MonoBehaviour
 {
     controlArmas controlArmas;
     
-    [Tooltip("1: Sniper \n 2: Granadas")]
+    [Tooltip("1: Sniper \n 2: Granadas \n 3: Flechas \n 4: Ametralladora")]
     [SerializeField] private int tipoMunicion;
 
     [SerializeField] private int cantidadMunicion;
     void Start()
     {
         controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();
-
-        if (tipoMunicion != 1 && tipoMunicion != 2){
-            Debug.LogError($"No se colocó tipoMunicion en una Instancia de munición");            
-        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player"){
-            if (tipoMunicion == 1){
-                controlArmas.sniperAmmo += cantidadMunicion;                
+            switch (tipoMunicion)
+            {
+                case 1:
+                    controlArmas.sniperAmmo += cantidadMunicion;
+                break;
+                case 2:
+                   controlArmas.grenadeAmmo += cantidadMunicion;
+                break;
+                case 3:
+                   controlArmas.flechas += cantidadMunicion;
+                break;
+                case 4:
+                    controlArmas.ametralladoraAmmo += cantidadMunicion;
+                break;
+                default:
+                    Debug.LogError($"No se especifico el tipo de munición en {this}");
+                break;
             }
-            else if(tipoMunicion == 2){
-                controlArmas.grenadeAmmo += cantidadMunicion;                
-            }
+            controlArmas.armasControlador.ActualizarHudBalas();
+
             Destroy(this.gameObject);
         }
     }

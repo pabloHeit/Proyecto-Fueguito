@@ -136,12 +136,12 @@ public class movimientoJugador : MonoBehaviour
         yield return new WaitForSeconds(TiempoInmunidad);
 
         for (int i = 6; i <= 31; i++) {
+            Physics2D.IgnoreLayerCollision(3, i, false);
             foreach(int x in capasIgnoradas) {
                 if (i == x) {
-                    continue;
+                    Physics2D.IgnoreLayerCollision(3, i, true);
                 }
             }
-            Physics2D.IgnoreLayerCollision(3, i, false);
         }
     }
 
