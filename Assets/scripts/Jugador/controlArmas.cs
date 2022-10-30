@@ -20,10 +20,11 @@ public class controlArmas : MonoBehaviour
     [SerializeField] private GameObject[] activadorArma;
 
     public GameObject[] armas;
+    [Tooltip("0: Espada \n 1: Sniper \n 2: Granadas \n 3: Flechas \n 4: Ametralladora")]
     public int armaActiva = 0; //espada 1, rifle 2, lanzagranadas 3 , ballesta 4, ametralladora 5
     private float scrollMouse;
     private int cantDeArmas;
-    private int ultima_activa = 0;
+    [SerializeField] private int ultima_activa = 0;
 
     [Header("HUD")]
     [SerializeField] private Image display_arma;
@@ -78,10 +79,12 @@ public class controlArmas : MonoBehaviour
             CambiarArma();            
         }
     }
+
     private void CambiarArma(int n = -1)
     {
         if (armasControlador.atacando)
             return;
+
         if(n != -1) 
             armaActiva = n;
 
@@ -92,7 +95,8 @@ public class controlArmas : MonoBehaviour
         {
             for (int i = 0; i < cantDeArmas; i++)
             {
-                if (i != armaActiva) /**/ armas[i].SetActive(false);
+                if (i != armaActiva)
+                    armas[i].SetActive(false);
             }
 
             armas[armaActiva].SetActive(true);
@@ -108,13 +112,15 @@ public class controlArmas : MonoBehaviour
                 return;
             }
 
-            if(ultima_activa == armaActiva + 1) /**/
+            if(ultima_activa == armaActiva + 1 || (armaActiva == cantDeArmas - 1 && ultima_activa == 0)) /**/
             {
+                ultima_activa = armaActiva;
                 armaActiva -= 1;
                 CambiarArma();
             }
             else if(ultima_activa == armaActiva - 1) /**/ 
             {
+                ultima_activa = armaActiva;
                 armaActiva += 1;
                 CambiarArma();
             }

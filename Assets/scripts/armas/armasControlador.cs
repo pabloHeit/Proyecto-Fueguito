@@ -102,12 +102,12 @@ public class armasControlador : MonoBehaviour
 
             }
             else {
+                disparar = Input.GetButton("Fire1");
+                recargar = Input.GetKeyDown(KeyCode.R);
+
                 marcadorBalas.SetActive(true); 
                 marcadorBalasTotales.SetActive(true);
                 ActualizarHudBalas();
-
-                disparar = Input.GetButton("Fire1");
-                recargar = Input.GetKeyDown(KeyCode.R);
 
                 if(recargando) {
                     tiempoDeRecarga = tiempoDeRecargaDefault / controlArmas.rechargeMultiplier;
@@ -131,7 +131,7 @@ public class armasControlador : MonoBehaviour
         TextMeshProUGUI textMesh = marcadorBalas.GetComponent<TextMeshProUGUI>();
         textMesh.text = cantBalas.ToString() + "/" + max_capacidad.ToString();
         TextMeshProUGUI textoBalas = marcadorBalasTotales.GetComponent<TextMeshProUGUI>();
-        
+
         switch (controlArmas.armaActiva)
         {
             case 1:
@@ -142,7 +142,7 @@ public class armasControlador : MonoBehaviour
                 textoBalas.text = controlArmas.grenadeAmmo.ToString();
             break;
 
-            case 3:
+            case 3: //ballesta
                 textoBalas.text = controlArmas.flechas.ToString();
             break;
 

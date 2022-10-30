@@ -5,6 +5,7 @@ using UnityEngine;
 public class municion : MonoBehaviour
 {
     controlArmas controlArmas;
+    armasControlador armasControlador;
     
     [Tooltip("1: Sniper \n 2: Granadas \n 3: Flechas \n 4: Ametralladora")]
     [SerializeField] private int tipoMunicion;
@@ -13,6 +14,13 @@ public class municion : MonoBehaviour
     void Start()
     {
         controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();
+        armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
+    }
+    void Update()
+    {
+        if (!armasControlador.gameObject.activeSelf) {
+            armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();            
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -35,7 +43,7 @@ public class municion : MonoBehaviour
                     Debug.LogError($"No se especifico el tipo de munición en {this}");
                 break;
             }
-            controlArmas.armasControlador.ActualizarHudBalas();
+            armasControlador.ActualizarHudBalas();
 
             Destroy(this.gameObject);
         }
