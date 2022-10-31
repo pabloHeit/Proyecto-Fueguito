@@ -24,7 +24,7 @@ public class LevelGeneration : MonoBehaviour
     public float maxX;
     public float maxY;
     public float minY;
-    private bool stopGeneration;
+    public bool stopGeneration = false;
     private bool stopGeneration2;
     private bool despDif;
     private Vector2 posmove;
