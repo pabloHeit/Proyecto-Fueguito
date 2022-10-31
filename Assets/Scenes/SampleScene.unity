@@ -2886,7 +2886,7 @@ BoxCollider2D:
   m_Offset: {x: 0.15100002, y: -0.03911467}
   m_SpriteTilingProperty:
     border: {x: 0.44, y: 1.4399999, z: 0.16, w: 0.39999998}
-    pivot: {x: 0.35274428, y: 0.73427045}
+    pivot: {x: 0.35, y: 0.73}
     oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
@@ -21293,8 +21293,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: db04349ccfd73d043b090eff2df37059, type: 3}
   - {fileID: 21300000, guid: e1ebacb387d1b1242892d61e107e7486, type: 3}
   - {fileID: 21300000, guid: e5f5d6e805ebcad4aa9a2c9c70c1659c, type: 3}
-  - {fileID: -999916735632516570, guid: a8c713a058bd2b243ab1427ebc354232, type: 3}
-  - {fileID: 21300000, guid: cd4dd0d581cb91747a0ce7c19ad8d38f, type: 3}
+  - {fileID: 5481346903131547220, guid: 13093fa7dcf926c469332c33368b92e8, type: 3}
+  - {fileID: 21300000, guid: cbfb704de5fab1040bbbfd97464a5d3d, type: 3}
 --- !u!82 &2087941463
 AudioSource:
   m_ObjectHideFlags: 0
