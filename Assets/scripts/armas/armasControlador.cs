@@ -17,6 +17,7 @@ public class armasControlador : MonoBehaviour
     AudioSource audioSource;
 
     [SerializeField] public bool armaDeFuego;
+    [SerializeField] public bool ballesta = false;
 
     [Header("Melee")]
     [SerializeField] private Transform controladorGolpe;
@@ -62,8 +63,6 @@ public class armasControlador : MonoBehaviour
     private float variable2;
     [SerializeField] private float tiempoBalaRecarga;
 
-
-
     private void Start() 
     {
         controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();
@@ -80,6 +79,9 @@ public class armasControlador : MonoBehaviour
         movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();
 
         audioSource = GetComponent<AudioSource>();
+        if (ballesta) {
+            cantBalas = controlArmas.flechas;
+        }
     }
     private void Update() 
     {
@@ -103,15 +105,21 @@ public class armasControlador : MonoBehaviour
             }
             else {
                 disparar = Input.GetButton("Fire1");
-                recargar = Input.GetKeyDown(KeyCode.R);
 
-                marcadorBalas.SetActive(true); 
-                marcadorBalasTotales.SetActive(true);
+                if (!ballesta) {
+                    recargar = Input.GetKeyDown(KeyCode.R);
+                    marcadorBalasTotales.SetActive(true);
+                }
+                else {
+                    marcadorBalasTotales.SetActive(false);
+                }
+
+                marcadorBalas.SetActive(true);
                 ActualizarHudBalas();
 
                 if(recargando) {
                     tiempoDeRecarga = tiempoDeRecargaDefault / controlArmas.rechargeMultiplier;
-                    StartCoroutine(TiempoRecargar(tiempoDeRecarga) );        
+                    StartCoroutine(TiempoRecargar(tiempoDeRecarga) );
                     circuloRecarga.fillAmount = tiempo2 / tiempoDeRecarga;
                 }
                 
@@ -130,7 +138,8 @@ public class armasControlador : MonoBehaviour
     {
         TextMeshProUGUI textMesh = marcadorBalas.GetComponent<TextMeshProUGUI>();
         textMesh.text = cantBalas.ToString() + "/" + max_capacidad.ToString();
-        TextMeshProUGUI textoBalas = marcadorBalasTotales.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI textoBalas = marcadorBalasTotales.GetComponent<TextMeshProUGUI>();            
+        
 
         switch (controlArmas.armaActiva)
         {
@@ -143,7 +152,7 @@ public class armasControlador : MonoBehaviour
             break;
 
             case 3: //ballesta
-                textoBalas.text = controlArmas.flechas.ToString();
+                textMesh.text = controlArmas.flechas.ToString();
             break;
 
             case 4:
@@ -159,11 +168,15 @@ public class armasControlador : MonoBehaviour
     {
         dispararPermiso = Time.time + dispararCooldown; 
         if (cantBalas > 0) {
-            try{
-                Animator.SetTrigger("disparo");}
+            try {
+                Animator.SetTrigger("disparo");
+            }
             catch (System.Exception)
             {}
             audioSource.PlayOneShot(sonidoAtaque);
+            if (ballesta) {
+                controlArmas.flechas--;                
+            }
             cantBalas--;
             GameObject bala = Instantiate(Bala, puntaDelArma.position, puntaDelArma.rotation);
             Rigidbody2D rb = bala.GetComponent<Rigidbody2D>();
