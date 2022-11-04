@@ -20,7 +20,6 @@ public class NavigationBaker : MonoBehaviour {
         
         if(level.stopGeneration && !generado)
         {
-            Debug.Log("buenas tardes");
             generado = true;
             starNavMesh();
         }

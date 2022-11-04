@@ -14,12 +14,14 @@ public class LevelGeneration : MonoBehaviour
     public int direction2;
     public int directionPos;
     public bool posi;
+    private bool mercadosi = false;
     public float moveAmount;
     public float timeBtwRoom;
     public float startTimeBtwRoom = 0.25f;
     public float minX;
+    private int mercado;
     public int Cantidad;
-    public int numHabit=100;
+    public int numHabit=10;
     private int moveCounter;
     public float maxX;
     public float maxY;
@@ -39,12 +41,14 @@ public class LevelGeneration : MonoBehaviour
         int randStartingPos = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randStartingPos].position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
-   
+
         direction= Random.Range(1,9);
-       
+        
         direcciones = new int [11];
         direcciones [i]=direction;
         i++;
+        mercado=Random.Range(2, numHabit);
+        Debug.Log(mercado);
             if(direction==1 || direction==2){
                 transform.position = new Vector2(transform.position.x + moveAmount, transform.position.y);
             }
@@ -107,7 +111,7 @@ public class LevelGeneration : MonoBehaviour
         {
              
             if(transform.position.x < maxX)
-            {
+            {   
                 if(numHabit==1)
                     {
                         int rand = Random.Range(0, rooms.Length);
@@ -123,7 +127,16 @@ public class LevelGeneration : MonoBehaviour
                         int rand = Random.Range(0, rooms.Length);
                         direcciones [i]=direction;
                         i++;
-                        Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                        if(mercado==numHabit)
+                        {
+                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            mercadosi=true;
+                        }
+                        else
+                        {
+                           Instantiate(rooms[rand], transform.position,Quaternion.identity); 
+                        }
+                        
                         numHabit--;
                         int chance = Random.Range(1,11); 
                         Debug.Log(numHabit );     
@@ -169,7 +182,7 @@ public class LevelGeneration : MonoBehaviour
                             detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                             }
                             transform.position = newPos;
-                            if (chance<=3 && numHabit!=1)
+                            if (chance<=3 && numHabit!=2)
                             { 
                                 Debug.Log("hola1");
                                 directionPos=Random.Range(1,4);
@@ -253,7 +266,15 @@ public class LevelGeneration : MonoBehaviour
                     int rand = Random.Range(0, rooms.Length);
                     direcciones [i]=direction;
                     i++;
-                    Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                    if(mercado==numHabit)
+                        {
+                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            mercadosi=true;
+                        }
+                        else
+                        {
+                           Instantiate(rooms[rand], transform.position,Quaternion.identity); 
+                        }
                     numHabit--;
                     int chance = Random.Range(1,11);
                     Debug.Log(numHabit); 
@@ -285,7 +306,7 @@ public class LevelGeneration : MonoBehaviour
                         detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                         }
                     transform.position = newPos;
-                    if (chance<=3 && numHabit!=1)
+                    if (chance<=3 && numHabit!=2)
                     {
                         Debug.Log("hola2"); 
                         directionPos=Random.Range(1,4);
@@ -361,6 +382,7 @@ public class LevelGeneration : MonoBehaviour
             {
                 if(numHabit==1)
                 {
+                   
                     int rand = Random.Range(0, rooms.Length); 
                     direcciones [i]=direction;
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
@@ -372,7 +394,15 @@ public class LevelGeneration : MonoBehaviour
                     int rand = Random.Range(0, rooms.Length);
                     direcciones [i]=direction;
                     i++;
-                    Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                    if(mercado==numHabit)
+                        {
+                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            mercadosi=true;
+                        }
+                        else
+                        {
+                           Instantiate(rooms[rand], transform.position,Quaternion.identity); 
+                        }
                     numHabit--;
                     int chance = Random.Range(1,11);
                     Debug.Log(numHabit); 
@@ -407,7 +437,7 @@ public class LevelGeneration : MonoBehaviour
                         detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                     }
                     transform.position = newPos;
-                    if (chance<=3 && numHabit!=1)
+                    if (chance<=3 && numHabit!=2)
                     {
                         Debug.Log("hola3");
                         directionPos=Random.Range(1,4);
@@ -492,7 +522,15 @@ public class LevelGeneration : MonoBehaviour
                     int rand=Random.Range(0,rooms.Length);
                     direcciones [i]=direction;
                     i++;
-                    Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                    if(mercado==numHabit)
+                        {
+                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            mercadosi=true;
+                        }
+                        else
+                        {
+                           Instantiate(rooms[rand], transform.position,Quaternion.identity); 
+                        }
                     numHabit--;
                     int chance = Random.Range(1,11);
                     Debug.Log(numHabit); 
@@ -538,8 +576,9 @@ public class LevelGeneration : MonoBehaviour
                         detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                     }
                     transform.position = newPos;
-                    if (chance<=3 && numHabit!=1)
+                    if (chance<=3 && numHabit!=2)
                     {
+                        Debug.Log("hola54");
                         directionPos=Random.Range(1,4);
                         if(directionPos==1)
                         {
@@ -617,6 +656,10 @@ public class LevelGeneration : MonoBehaviour
         Cantidad=Random.Range(1,mitad);
          Debug.Log("cantidad es"+Cantidad);
         numHabit=numHabit-Cantidad;
+        if(mercadosi==false)
+        {
+            mercado=mercado-Cantidad;
+        }
         direction2=direction;
         despDif=true; 
         direcciones2 = new int [Cantidad+4];
@@ -850,10 +893,10 @@ public class LevelGeneration : MonoBehaviour
                                 int rand = Random.Range(0, rooms.Length);
                                 direcciones2[i2]=direction2;
                                 Instantiate(rooms[rand], transform.position,Quaternion.identity);
-                                Debug.Log("entro");
+                                // Debug.Log("entro");
                                 
                                 Cantidad--;
-                                Debug.Log("Cantidad es 0 "+Cantidad);
+                                // Debug.Log("Cantidad es 0 "+Cantidad);
                                 direction=directionPos;
                                 Debug.Log("las habit que faltan son:"+numHabit);
                             }
