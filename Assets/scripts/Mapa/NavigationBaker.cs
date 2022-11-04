@@ -7,6 +7,8 @@ public class NavigationBaker : MonoBehaviour {
     LevelGeneration level;
     private NavMeshSurface2d surface;
 
+    private bool generado = false;
+
     void Start () 
     {
         surface = GameObject.FindGameObjectWithTag("Navmesh").GetComponent<NavMeshSurface2d>();
@@ -16,9 +18,10 @@ public class NavigationBaker : MonoBehaviour {
      public void Update()
      {
         
-        if(level.stopGeneration==true)
+        if(level.stopGeneration && !generado)
         {
             Debug.Log("buenas tardes");
+            generado = true;
             starNavMesh();
         }
     }

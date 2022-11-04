@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class spawnEnemigos : MonoBehaviour
 {
-    
-    public GameObject[] objects;
-    void Start()
+  LevelGeneration level;
+  
+  public GameObject[] objects;
+
+  private bool spawnear = true;
+
+  void Start()
+  {
+    level = FindObjectOfType<LevelGeneration>();
+  }
+  private void Update() 
+  {
+    if (spawnear && level.stopGeneration)
     {
-         int rand = Random.Range(1, 3);
+      spawnear = false;
+      StartCoroutine(spawnearEnemigos());
+    }    
+  }
+
+  private IEnumerator spawnearEnemigos()
+  {
+      yield return new WaitForSeconds(3f);
+      int rand = Random.Range(1, 3);
       if(rand==1)
       {
         GameObject instance = (GameObject)Instantiate(objects[0], transform.position, Quaternion.identity);
-      instance.transform.parent=transform;
+        instance.transform.parent = transform;
       }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  }
 }
