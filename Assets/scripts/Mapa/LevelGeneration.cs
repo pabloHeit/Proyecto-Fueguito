@@ -114,7 +114,7 @@ public class LevelGeneration : MonoBehaviour
             {   
                 if(numHabit==1)
                     {
-                        int rand = Random.Range(0, rooms.Length);
+                        int rand = Random.Range(0, rooms.Length-1);
                         direcciones [i]=direction;
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Debug.Log("direccion final"+direction);
@@ -124,10 +124,10 @@ public class LevelGeneration : MonoBehaviour
                     else
                     {
                         dire=direction;
-                        int rand = Random.Range(0, rooms.Length);
+                        int rand = Random.Range(0, rooms.Length-1);
                         direcciones [i]=direction;
                         i++;
-                        if(mercado==numHabit)
+                        if(mercado==numHabit && mercadosi==false)
                         {
                             Instantiate(rooms[12], transform.position,Quaternion.identity);
                             mercadosi=true;
@@ -255,7 +255,7 @@ public class LevelGeneration : MonoBehaviour
                 
                 if(numHabit==1)
                 {
-                    int rand = Random.Range(0, rooms.Length);
+                    int rand = Random.Range(0, rooms.Length-1);
                     direcciones [i]=direction;
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
                     stopGeneration=true;
@@ -263,10 +263,10 @@ public class LevelGeneration : MonoBehaviour
                 }
                 else
                 {
-                    int rand = Random.Range(0, rooms.Length);
+                    int rand = Random.Range(0, rooms.Length-1);
                     direcciones [i]=direction;
                     i++;
-                    if(mercado==numHabit)
+                    if(mercado==numHabit && mercadosi==false)
                         {
                             Instantiate(rooms[12], transform.position,Quaternion.identity);
                             mercadosi=true;
@@ -383,7 +383,7 @@ public class LevelGeneration : MonoBehaviour
                 if(numHabit==1)
                 {
                    
-                    int rand = Random.Range(0, rooms.Length); 
+                    int rand = Random.Range(0, rooms.Length-1); 
                     direcciones [i]=direction;
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
                     stopGeneration=true;
@@ -391,10 +391,10 @@ public class LevelGeneration : MonoBehaviour
                 }
                 else
                 {
-                    int rand = Random.Range(0, rooms.Length);
+                    int rand = Random.Range(0, rooms.Length-1);
                     direcciones [i]=direction;
                     i++;
-                    if(mercado==numHabit)
+                    if(mercado==numHabit && mercadosi==false)
                         {
                             Instantiate(rooms[12], transform.position,Quaternion.identity);
                             mercadosi=true;
@@ -510,7 +510,7 @@ public class LevelGeneration : MonoBehaviour
             {    
                 if(numHabit==1)
                 {
-                    int rand = Random.Range(0, rooms.Length);
+                    int rand = Random.Range(0, rooms.Length-1);
                     direcciones [i]=direction;
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
                     Debug.Log("direccion final"+direction);
@@ -519,10 +519,10 @@ public class LevelGeneration : MonoBehaviour
                 }
                 else
                 {
-                    int rand=Random.Range(0,rooms.Length);
+                    int rand=Random.Range(0,rooms.Length-1);
                     direcciones [i]=direction;
                     i++;
-                    if(mercado==numHabit)
+                    if(mercado==numHabit && mercadosi==false)
                         {
                             Instantiate(rooms[12], transform.position,Quaternion.identity);
                             mercadosi=true;
@@ -656,10 +656,6 @@ public class LevelGeneration : MonoBehaviour
         Cantidad=Random.Range(1,mitad);
          Debug.Log("cantidad es"+Cantidad);
         // numHabit=numHabit-Cantidad;
-        if(mercadosi==false)
-        {
-           
-        }
         direction2=direction;
         despDif=true; 
         direcciones2 = new int [Cantidad+4];
@@ -680,9 +676,9 @@ public class LevelGeneration : MonoBehaviour
                 if(Cantidad==1)
                 {
                     
-                    int rand = Random.Range(0, rooms.Length);
+                    int rand = Random.Range(0, rooms.Length-1);
                     direcciones2[i2]=direction2;
-                    if(mercado==numHabit)
+                    if(mercado==numHabit && mercadosi==false)
                         {
                             Instantiate(rooms[12], transform.position,Quaternion.identity);
                             mercadosi=true;
@@ -699,10 +695,10 @@ public class LevelGeneration : MonoBehaviour
                 }
                 else
                 {
-                    int rand = Random.Range(0, rooms.Length);
+                    int rand = Random.Range(0, rooms.Length-1);
                     direcciones2[i2]=direction2;
                     i2++;
-                    if(mercado==numHabit)
+                    if(mercado==numHabit && mercadosi==false)
                         {
                             Instantiate(rooms[12], transform.position,Quaternion.identity);
                             mercadosi=true;
@@ -777,9 +773,9 @@ public class LevelGeneration : MonoBehaviour
                 {
                    if(Cantidad==1)
                     {
-                        int rand = Random.Range(0, rooms.Length);
+                        int rand = Random.Range(0, rooms.Length-1);
                         direcciones2[i2]=direction2;
-                        if(mercado==numHabit)
+                        if(mercado==numHabit && mercadosi==false)
                         {
                             Instantiate(rooms[12], transform.position,Quaternion.identity);
                             mercadosi=true;
@@ -795,10 +791,10 @@ public class LevelGeneration : MonoBehaviour
                     }
                     else
                     {
-                        int rand = Random.Range(0, rooms.Length);
+                        int rand = Random.Range(0, rooms.Length-1);
                         direcciones2[i2]=direction2;
                         i2++;
-                        if(mercado==numHabit)
+                        if(mercado==numHabit && mercadosi==false)
                         {
                             Instantiate(rooms[12], transform.position,Quaternion.identity);
                             mercadosi=true;
@@ -864,9 +860,9 @@ public class LevelGeneration : MonoBehaviour
                 
                         if(Cantidad==1)
                         {
-                            int rand = Random.Range(0, rooms.Length);
+                            int rand = Random.Range(0, rooms.Length-1);
                             direcciones2[i2]=direction2;
-                            if(mercado==numHabit)
+                            if(mercado==numHabit && mercadosi==false)
                         {
                             Instantiate(rooms[12], transform.position,Quaternion.identity);
                             mercadosi=true;
@@ -882,18 +878,18 @@ public class LevelGeneration : MonoBehaviour
                         }
                         else
                         {
-                            int rand = Random.Range(0, rooms.Length);
+                            int rand = Random.Range(0, rooms.Length-1);
                             direcciones2[i2]=direction2;
                             i2++;
-                            if(mercado==numHabit)
-                        {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
-                            mercadosi=true;
-                        }
-                        else
-                        {
-                           Instantiate(rooms[rand], transform.position,Quaternion.identity); 
-                        }
+                            if(mercado==numHabit && mercadosi==false)
+                            {
+                                Instantiate(rooms[12], transform.position,Quaternion.identity);
+                                mercadosi=true;
+                            }
+                            else
+                            {
+                            Instantiate(rooms[rand], transform.position,Quaternion.identity); 
+                            }
                             Cantidad--;
                             numHabit--;
                              Debug.Log(numHabit); 
@@ -949,17 +945,17 @@ public class LevelGeneration : MonoBehaviour
                         {     
                             if(Cantidad==1)
                             {
-                                int rand = Random.Range(0, rooms.Length);
+                                int rand = Random.Range(0, rooms.Length-1);
                                 direcciones2[i2]=direction2;
-                                if(mercado==numHabit)
-                        {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
-                            mercadosi=true;
-                        }
-                        else
-                        {
-                           Instantiate(rooms[rand], transform.position,Quaternion.identity); 
-                        }
+                                if(mercado==numHabit && mercadosi==false)
+                                {
+                                    Instantiate(rooms[12], transform.position,Quaternion.identity);
+                                    mercadosi=true;
+                                }
+                                else
+                                {
+                                Instantiate(rooms[rand], transform.position,Quaternion.identity); 
+                                }
                                 // Debug.Log("entro");
                                 
                                 Cantidad--;
@@ -971,18 +967,18 @@ public class LevelGeneration : MonoBehaviour
                             }
                             else
                             {
-                                int rand = Random.Range(0, rooms.Length);
+                                int rand = Random.Range(0, rooms.Length-1);
                                 direcciones2[i2]=direction2;
                                 i2++;
-                                if(mercado==numHabit)
-                        {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
-                            mercadosi=true;
-                        }
-                        else
-                        {
-                           Instantiate(rooms[rand], transform.position,Quaternion.identity); 
-                        }
+                                if(mercado==numHabit && mercadosi==false)
+                                {
+                                    Instantiate(rooms[12], transform.position,Quaternion.identity);
+                                    mercadosi=true;
+                                }
+                                else
+                                {
+                                Instantiate(rooms[rand], transform.position,Quaternion.identity); 
+                                }
                                 Cantidad--;
                                 numHabit--;
                                 Debug.Log(numHabit);
