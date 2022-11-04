@@ -26,7 +26,7 @@ public class movimientoEnemigos : MonoBehaviour
     private bool jugadorEnZona;
 
     private float tiempoPasosContador;
-    [SerializeField] private float tiempoPasos;
+    [SerializeField] private float tiempoPasos = 1f;
     [SerializeField] private AudioClip sonidoPasos;
    
     void Start()
@@ -59,7 +59,8 @@ public class movimientoEnemigos : MonoBehaviour
                 enemigoMov();
                 if (!atacando && tiempoPasosContador < Time.time) {
                     tiempoPasosContador = Time.time + tiempoPasos;
-                    //audioSource.PlayOneShot(sonidoPasos);
+                    try{audioSource.PlayOneShot(sonidoPasos);}
+                    catch (System.Exception){throw;}
                 }
             }
             else {

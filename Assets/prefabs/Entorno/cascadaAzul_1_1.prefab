@@ -17,7 +17,7 @@ GameObject:
   m_Layer: 0
   m_Name: cascadaAzul_1_1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -50,8 +50,8 @@ MonoBehaviour:
   color: 3
   damagePoints: 0
   maxLifePoints: 0
-  rechargePoints: 0.25
-  usada: 0
+  rechargePoints: 0.2
+  consumida: 0
 --- !u!212 &782542507190703405
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 4865521371119006778, guid: 7f6e191f4809c0941b7b8601c2f5987d, type: 3}
+  m_Sprite: {fileID: 6683726167114442916, guid: 7f6e191f4809c0941b7b8601c2f5987d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

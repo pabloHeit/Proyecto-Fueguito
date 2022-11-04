@@ -8,7 +8,7 @@ public class controladorVidas : MonoBehaviour
 {
     movimientoJugador movimientoJugador;
     Animator animator;
-    AudioSource audioGolpe;
+    AudioSource audioSource;
     controlArmas controlArmas;
 
     [SerializeField] public float vidaJugador;
@@ -23,12 +23,14 @@ public class controladorVidas : MonoBehaviour
 
     private bool dying;
 
+    [SerializeField] private AudioClip sonidosGolpeado;
+
     void Start()
     {
         movimientoJugador = GetComponent<movimientoJugador>();
         controlArmas = GetComponent<controlArmas>();
         animator = GetComponent<Animator>();
-        audioGolpe = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         ActualizarBarraVida();
     }
 
@@ -62,7 +64,7 @@ public class controladorVidas : MonoBehaviour
 
     public void TomarDamage(float daño = 10)
     {
-        //audioGolpe.Play();
+        audioSource.PlayOneShot(sonidosGolpeado);
         vidaJugador -= daño;
         ActualizarBarraVida();
         animator.SetTrigger("Dañado");

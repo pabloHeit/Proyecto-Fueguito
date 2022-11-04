@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class vidaEnemiga : MonoBehaviour
 {
+    AudioSource audioSource;
     Animator anim;
     Rigidbody2D rb;
 
     public float vida;
     public float vidaInicial;
+
+    [SerializeField] private AudioClip sonidoGolpeado;
 
     public bool puedeColisionar;
 
@@ -17,10 +20,14 @@ public class vidaEnemiga : MonoBehaviour
         puedeColisionar = true;
         anim = this.GetComponent<Animator>();
         vidaInicial = vida;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Golpe() {
         vida--;
+        if (sonidoGolpeado != null) {
+            audioSource.PlayOneShot(sonidoGolpeado);
+        }
         if(vida <= 0) {
             anim.SetTrigger("Morir");
         }
@@ -35,6 +42,12 @@ public class vidaEnemiga : MonoBehaviour
         if (other.gameObject.tag == "balas") {
             Golpe();
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "balas") {
+            Golpe();
+        }        
     }
 
     public IEnumerator DesactivarColision(float TiempoInmunidad)

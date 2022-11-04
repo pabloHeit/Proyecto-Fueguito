@@ -30,9 +30,9 @@ public class movimientoJugador : MonoBehaviour
     [SerializeField] private float tiempoDeNoMoverse;
     [SerializeField] private float tiempoInvulnerable;
     [SerializeField] private int[] capasIgnoradas;
+    [SerializeField] private AudioClip sonidoRodar;
 
     [Header("Realentizar")]
-    private bool realentizado = false;
     private float contador;
 
     private float tiempoVariable = 1f;
@@ -68,7 +68,6 @@ public class movimientoJugador : MonoBehaviour
 
         if(Time.time >= contador) {
             velocidadMovimiento = 10f;
-            realentizado = false;
         }
     }
 
@@ -93,6 +92,7 @@ public class movimientoJugador : MonoBehaviour
             {
                 animator.SetBool("Idle",false);
                 animator.SetTrigger("Rodar");
+                audioSource.PlayOneShot(sonidoRodar);
                 rodarPermiso = Time.time + rodarCooldown;
                 rb2D.velocity = ultimaDireccion * 20f;
                 StartCoroutine( PerderControl(tiempoDeNoMoverse) );
@@ -101,11 +101,8 @@ public class movimientoJugador : MonoBehaviour
             }   
         }     
     }
-    public void realentizar(float VelMov, float tiempoCooldown) {    
-        // if (realentizado){
-        //     return;
-        // }
-        realentizado = true;
+    public void realentizar(float VelMov, float tiempoCooldown) 
+    {
         velocidadMovimiento = VelMov;
         contador = Time.time + tiempoCooldown;              
     }

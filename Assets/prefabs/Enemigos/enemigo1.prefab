@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 702729444301467306}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Disparador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8658437452623967258}
   - component: {fileID: 8658437452623967257}
   - component: {fileID: 731077436}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: enemigo1
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
@@ -83,6 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 5
   vidaInicial: 0
+  sonidoGolpeado: {fileID: 0}
   puedeColisionar: 0
 --- !u!114 &3609521444648692394
 MonoBehaviour:
@@ -99,6 +100,7 @@ MonoBehaviour:
   objetivo: {fileID: 0}
   distanciaSegura: 7
   distanciaAtaque: 7
+  enemigoAct: 0
   atacando: 0
   tiempoPasos: 0
   sonidoPasos: {fileID: 0}

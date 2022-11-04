@@ -112,6 +112,7 @@ public class armasControlador : MonoBehaviour
                 }
                 else {
                     marcadorBalasTotales.SetActive(false);
+                    Animator.SetInteger("Flechas", controlArmas.flechas);
                 }
 
                 marcadorBalas.SetActive(true);
@@ -138,8 +139,7 @@ public class armasControlador : MonoBehaviour
     {
         TextMeshProUGUI textMesh = marcadorBalas.GetComponent<TextMeshProUGUI>();
         textMesh.text = cantBalas.ToString() + "/" + max_capacidad.ToString();
-        TextMeshProUGUI textoBalas = marcadorBalasTotales.GetComponent<TextMeshProUGUI>();            
-        
+        TextMeshProUGUI textoBalas = marcadorBalasTotales.GetComponent<TextMeshProUGUI>();       
 
         switch (controlArmas.armaActiva)
         {
@@ -166,16 +166,20 @@ public class armasControlador : MonoBehaviour
 
     private void Disparar()
     {
+        if (ballesta) {
+            cantBalas = controlArmas.flechas;
+        }
         dispararPermiso = Time.time + dispararCooldown; 
         if (cantBalas > 0) {
-            try {
-                Animator.SetTrigger("disparo");
-            }
-            catch (System.Exception)
-            {}
-            audioSource.PlayOneShot(sonidoAtaque);
+
+            try {Animator.SetTrigger("disparo");}
+            catch (System.Exception){}
+
+            try {audioSource.PlayOneShot(sonidoAtaque);}
+            catch (System.Exception){}
+
             if (ballesta) {
-                controlArmas.flechas--;                
+                controlArmas.flechas--;
             }
             cantBalas--;
             GameObject bala = Instantiate(Bala, puntaDelArma.position, puntaDelArma.rotation);

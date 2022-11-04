@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2883430855814680363}
   - component: {fileID: 2883430855814680342}
   - component: {fileID: 2883430855814680340}
+  - component: {fileID: 1384751664}
   m_Layer: 10
   m_Name: Caballero
   m_TagString: Enemigo
@@ -56,8 +57,8 @@ MonoBehaviour:
   distanciaAtaque: 2.75
   enemigoAct: 0
   atacando: 0
-  tiempoPasos: 0
-  sonidoPasos: {fileID: 0}
+  tiempoPasos: 1
+  sonidoPasos: {fileID: 8300000, guid: 85fb7ae337b9e5b43bffc47115855bc3, type: 3}
 --- !u!114 &2883430855814680341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 5
   vidaInicial: 0
+  sonidoGolpeado: {fileID: 8300000, guid: 629c8c5e6cd9e0b4680b00ca55f2d1b3, type: 3}
   puedeColisionar: 0
 --- !u!114 &2883430855814680362
 MonoBehaviour:
@@ -88,7 +90,12 @@ MonoBehaviour:
   enemigo: {fileID: 8331164229254019291, guid: 57f89aca90b0bdc4c8198cb4bb131166, type: 3}
   "da\xF1o": 12.5
   radioAtaque: 3
-  sonidoAtaque: {fileID: 0}
+  sonidosAtaque:
+  - {fileID: 8300000, guid: 3860c81abdd5e3744893e69fff4d459a, type: 3}
+  - {fileID: 8300000, guid: 8b36139261917b34fb2c5caa15a5f9a3, type: 3}
+  - {fileID: 8300000, guid: f2cace15e679be242bc559d8b7ff8321, type: 3}
+  - {fileID: 8300000, guid: df86a36ee826d084da83c20fc6495387, type: 3}
+  - {fileID: 8300000, guid: f32cab56ecd32b343b65f1546f929011, type: 3}
 --- !u!212 &2883430855814680360
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -241,6 +248,102 @@ PolygonCollider2D:
       - {x: 0.030456252, y: -0.030840635}
       - {x: 0.111531116, y: -0.024254687}
       - {x: 0.121172845, y: 0.04296355}
+--- !u!82 &1384751664
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883430855814680365}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2883430857444200488
 GameObject:
   m_ObjectHideFlags: 0

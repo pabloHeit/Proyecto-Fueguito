@@ -18,7 +18,7 @@ public class caballero : MonoBehaviour
     [SerializeField] private float daño;
     [SerializeField] private float radioAtaque;
 
-    [SerializeField] private AudioClip sonidoAtaque;
+    [SerializeField] private AudioClip[] sonidosAtaque;
    
     private void Start()
     {
@@ -29,10 +29,11 @@ public class caballero : MonoBehaviour
 
     private void atacar()
     {
-        audioSource.PlayOneShot(sonidoAtaque);
+        var rand_num = Random.Range(0, sonidosAtaque.Length);
+        audioSource.PlayOneShot(sonidosAtaque[rand_num]);
         Collider2D[] objetos = Physics2D.OverlapCircleAll(transform.position, radioAtaque);
-        foreach (Collider2D colisionador in objetos){
-            if (colisionador.CompareTag("Player")){
+        foreach (Collider2D colisionador in objetos) {
+            if (colisionador.CompareTag("Player")) {
                 controladorVidas.TomarDamage(daño);
             }
         }

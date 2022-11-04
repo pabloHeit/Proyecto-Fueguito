@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class pinchos : MonoBehaviour
 {
+    AudioSource audioSource;
     Animator Animator;
     [SerializeField] private int knockback;
     [SerializeField] private float daño;
+    [SerializeField] private AudioClip sonidoPinchar;
+
 
     public bool puedePinchar ;
     private void Start() {
+        audioSource = GetComponent<AudioSource>();
         puedePinchar = true;
         Animator = GetComponent<Animator>();
     }
@@ -28,6 +32,7 @@ public class pinchos : MonoBehaviour
 
     private void Pinchar(Collider2D other) 
     {
+        audioSource.PlayOneShot(sonidoPinchar);
         Collider2D[] personajes = Physics2D.OverlapBoxAll(transform.position, new Vector3(1,1,0), 0);
         foreach (Collider2D colisionador in personajes) {
             Rigidbody2D rb2D = colisionador.GetComponent<Rigidbody2D>();

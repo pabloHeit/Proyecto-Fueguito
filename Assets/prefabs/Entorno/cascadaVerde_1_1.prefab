@@ -17,7 +17,7 @@ GameObject:
   m_Layer: 0
   m_Name: cascadaVerde_1_1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -51,7 +51,7 @@ MonoBehaviour:
   damagePoints: 0
   maxLifePoints: 25
   rechargePoints: 0
-  usada: 0
+  consumida: 0
 --- !u!212 &6109417338909516956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -3920885843380863165, guid: 7f6e191f4809c0941b7b8601c2f5987d, type: 3}
+  m_Sprite: {fileID: 6683726167114442916, guid: 7f6e191f4809c0941b7b8601c2f5987d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
