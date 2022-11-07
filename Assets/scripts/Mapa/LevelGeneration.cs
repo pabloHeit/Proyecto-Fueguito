@@ -182,7 +182,7 @@ public class LevelGeneration : MonoBehaviour
                             detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                             }
                             transform.position = newPos;
-                            if (chance<=3 && numHabit!=2)
+                            if (chance<=3 && numHabit>2)
                             { 
                                 Debug.Log("hola1");
                                 directionPos=Random.Range(1,4);
@@ -306,7 +306,7 @@ public class LevelGeneration : MonoBehaviour
                         detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                         }
                     transform.position = newPos;
-                    if (chance<=3 && numHabit!=2)
+                    if (chance<=3 && numHabit>2)
                     {
                         Debug.Log("hola2"); 
                         directionPos=Random.Range(1,4);
@@ -437,7 +437,7 @@ public class LevelGeneration : MonoBehaviour
                         detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                     }
                     transform.position = newPos;
-                    if (chance<=3 && numHabit!=2)
+                    if (chance<=3 && numHabit>2)
                     {
                         Debug.Log("hola3");
                         directionPos=Random.Range(1,4);
@@ -576,7 +576,7 @@ public class LevelGeneration : MonoBehaviour
                         detectaroom = Physics2D.OverlapCircle(newPos,1, room);
                     }
                     transform.position = newPos;
-                    if (chance<=3 && numHabit!=2)
+                    if (chance<=3 && numHabit>2)
                     {
                         Debug.Log("hola54");
                         directionPos=Random.Range(1,4);

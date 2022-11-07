@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1139873276684027199}
   - component: {fileID: 5969692884598008192}
   - component: {fileID: 1369497528300309928}
+  - component: {fileID: 7198383769226036744}
   - component: {fileID: 8925614577852418976}
   m_Layer: 0
   m_Name: puerta izq
@@ -100,6 +101,18 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &7198383769226036744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925614577852418979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6afadb5db0a4e134e901eb469e3a2ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &8925614577852418976
 Animator:
   serializedVersion: 3

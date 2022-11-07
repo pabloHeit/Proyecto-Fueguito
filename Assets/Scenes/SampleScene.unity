@@ -21198,14 +21198,14 @@ MonoBehaviour:
   startTimeBtwRoom: 1
   minX: -1000
   Cantidad: 0
-  numHabit: 2
+  numHabit: 10
   maxX: 1000
   maxY: 1000
   minY: -1000
   stopGeneration: 0
   room:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1024
   dire: 0
   puertaAntes: 0
   ocupado: 0
