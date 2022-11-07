@@ -30,6 +30,7 @@ public class spawnEnemigos : MonoBehaviour
       if(rand==1)
       {
         GameObject instance = (GameObject)Instantiate(objects[0], transform.position, Quaternion.identity);
+
         instance.transform.parent = transform;
       }
   }
