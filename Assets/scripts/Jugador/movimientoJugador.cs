@@ -10,6 +10,7 @@ public class movimientoJugador : MonoBehaviour
     private int ladoMirar;
 
     [Header("Movimiento")]
+    public float multiplicadorVelocidad = 1f;
     public bool sePuedeMover = true;
     public bool moviendose = false;
     public float velocidadMovimiento;
@@ -77,7 +78,7 @@ public class movimientoJugador : MonoBehaviour
         {
             if (movimientoX >= 1 || movimientoY >= 1 || movimientoX <= -1 || movimientoY <= -1)
             {
-                rb2D.MovePosition(rb2D.position + direccion * velocidadMovimiento * Time.fixedDeltaTime);
+                rb2D.MovePosition(rb2D.position + direccion * velocidadMovimiento * multiplicadorVelocidad * Time.fixedDeltaTime);
 
                 if (!moviendose) {
                     moviendose = true;

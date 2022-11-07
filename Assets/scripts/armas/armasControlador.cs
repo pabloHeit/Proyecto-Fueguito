@@ -286,6 +286,7 @@ public class armasControlador : MonoBehaviour
         recargando = true;
         StartCoroutine(RecargarSonido());
         
+        tiempoRecarga = tiempoRecarga - (tiempoRecarga * controlArmas.rechargeMultiplier) / 100;
         cooldown_recarga = Time.time + tiempoRecarga;
         yield return new WaitForSeconds(tiempoRecarga); //cooldown de recarga
         

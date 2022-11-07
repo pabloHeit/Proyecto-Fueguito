@@ -3091,7 +3091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &654451995
 Transform:
   m_ObjectHideFlags: 0
@@ -19339,6 +19339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f3e7ad77d0429409bfd51b13fe2306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplicadorVelocidad: 1
   sePuedeMover: 1
   moviendose: 0
   velocidadMovimiento: 10
@@ -19477,7 +19478,6 @@ MonoBehaviour:
   grenadeAmmo: 10
   flechas: 2
   ametralladoraAmmo: 20
-  damageMultiplier: 1
   rechargeMultiplier: 1
   activadorArma:
   - {fileID: 1460124668}

@@ -26,8 +26,8 @@ Material:
     m_Floats:
     - _FlipX: 0
     - _FlipY: 0
-    - _Intensity: 1
-    - _Multiplier: 0.3
+    - _Intensity: 0.27
+    - _Multiplier: 0.68
     m_Colors:
     - _Color: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
   m_BuildTextureStacks: []

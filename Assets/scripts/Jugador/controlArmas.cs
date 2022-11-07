@@ -14,8 +14,8 @@ public class controlArmas : MonoBehaviour
     public int flechas;
     public int ametralladoraAmmo;
 
-    public float damageMultiplier = 1;
-    public float rechargeMultiplier = 1;
+    // public float damageMultiplier = 1;
+    public float rechargeMultiplier = 0;
     private float cambiarPermiso;
     [SerializeField] private GameObject[] activadorArma;
 

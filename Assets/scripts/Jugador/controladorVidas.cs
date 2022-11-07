@@ -48,7 +48,7 @@ public class controladorVidas : MonoBehaviour
             foreach (Transform child in transform) {
                 Destroy(child.gameObject);
             }
-            Destroy(controlArmas);         
+            Destroy(controlArmas);
         }
     }
     

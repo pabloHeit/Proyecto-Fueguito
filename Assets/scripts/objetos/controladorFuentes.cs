@@ -9,7 +9,7 @@ public class controladorFuentes : MonoBehaviour
     private bool EnRango;
     private Animator Animator;
     [Header("Rojo")]
-    [SerializeField] private float damagePoints;
+    [SerializeField] private float speedPoints;
     [Header("Verde")]
     [SerializeField] private float maxLifePoints;
     [Header("Azul")]
@@ -17,15 +17,16 @@ public class controladorFuentes : MonoBehaviour
 
     [SerializeField] private bool consumida = false;
 
-    private controladorVidas controladorVidas;
-    private controlArmas controlArmas;
-    private armasControlador armasControlador;
+    controladorVidas controladorVidas;
+    controlArmas controlArmas;
+    armasControlador armasControlador;
+    movimientoJugador movimientoJugador;
     void Start()
     {
         controladorVidas = GameObject.FindGameObjectWithTag("Player").GetComponent<controladorVidas>();
         controlArmas = GameObject.FindGameObjectWithTag("Player").GetComponent<controlArmas>();
         armasControlador = GameObject.FindGameObjectWithTag("Player").GetComponent<armasControlador>();
-        
+        movimientoJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoJugador>();
 
         Animator = GetComponent<Animator>();
         if (consumida) /**/ Destroy(Animator);
@@ -34,7 +35,7 @@ public class controladorFuentes : MonoBehaviour
         if (color != 1 && color != 2 && color != 3){
             Debug.Log("<color=red> controladorFuente object Error : </color>   <b> [No se colocó el color de la fuente en el inspector]  </b>");
         }
-        if (damagePoints <=0 && maxLifePoints <=0 && rechargePoints <=0){
+        if (speedPoints <= 0 && maxLifePoints <= 0 && rechargePoints <= 0){
             Debug.Log("<color=red> controladorFuente object Error : </color>   <b> [No se colocó valores a alguna fuente]  </b>");
         }
     }
@@ -45,7 +46,7 @@ public class controladorFuentes : MonoBehaviour
             //Animator.SetBool("nombreDeAnimacion"); Animación de agua consumida?
             switch(color){
                 case 1: //rojo
-                    SubirDamage(damagePoints);
+                    SubirVelocidad(speedPoints);
                 break;
 
                 case 2: //verde
@@ -63,10 +64,9 @@ public class controladorFuentes : MonoBehaviour
         }        
     }
 
-    private void SubirDamage(float damagePoints)
+    private void SubirVelocidad(float speedPoints)
     {
-        controlArmas.damageMultiplier += damagePoints;
-        
+        movimientoJugador.multiplicadorVelocidad += speedPoints / 100;
     }
 
     private void SubirMaxLife(float maxLifePoints)
@@ -76,19 +76,18 @@ public class controladorFuentes : MonoBehaviour
 
     private void SubirRecharge(float rechargePoints)
     {
-        controlArmas.rechargeMultiplier += rechargePoints;
-
+        controlArmas.rechargeMultiplier += rechargePoints / 100;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")){
+        if (other.CompareTag("Player")) {
             EnRango = true;
         }
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player")){
+        if (other.CompareTag("Player")) {
             EnRango = false;
         }
     }
