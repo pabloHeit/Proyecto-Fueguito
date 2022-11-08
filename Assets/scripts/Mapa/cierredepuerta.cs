@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class cierredepuerta : MonoBehaviour
 {
-    encima encima;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        encima=FindObjectOfType<encima>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(encima.encierro==true)
-        {
-            BoxCollider2D sc = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
-        }
-        else if(encima.encierro==false && encima.accion)
-        {
-            //remover el componente
-        }
+   
     }
 }
