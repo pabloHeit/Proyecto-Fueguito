@@ -18,5 +18,9 @@ public class cierredepuerta : MonoBehaviour
         {
             BoxCollider2D sc = gameObject.AddComponent(typeof(BoxCollider2D)) as BoxCollider2D;
         }
+        else if(encima.encierro==false && encima.accion)
+        {
+            //remover el componente
+        }
     }
 }

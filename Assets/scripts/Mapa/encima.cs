@@ -9,8 +9,11 @@ public class encima : MonoBehaviour
     private Animator animator;
     private int i = 0;
     public int hijosContador = 0;
-    public bool encierro;
+    public int contadorMuertos;
+    public bool encierro = false;
+    public bool accion = false;
     public List<Transform> enemigos;
+    
     void Awake()
     {
         StartCoroutine(ConfigurarPuertasYEnemigosInicio(1f));
@@ -40,7 +43,7 @@ public class encima : MonoBehaviour
                 if (child2.name == "puerta(Clone)" ||  child2.name == "puerta izq(Clone)" || child2.name == "puerta arriba(Clone)" || child2.name == "puerta abajo(Clone)")
                 {
                     animator = child2.GetComponent<Animator>();
-                    animator.SetBool("puertaAbierta",true);
+                    animator.SetBool("puertaOpen",true);
                 }                
             }
         }
@@ -53,7 +56,7 @@ public class encima : MonoBehaviour
                 if (spawn.childCount > 0)
                 {
                     var enemigo = spawn.GetChild(0);
-                    if (enemigo.CompareTag("Enemigo"))
+                    if (enemigo.CompareTag("Enemigo"))          //pregunta si hay enemigos entre los hijos de la habitacion y los cuenta
                     {
                         hijosContador++;
                     }
@@ -63,8 +66,8 @@ public class encima : MonoBehaviour
             if(hijosContador!=0)
             {
                 encierro = true;
+                accion = true;
             
-            //falta preguntar si hay bichos
             
             foreach (Transform child in transform) {
                 if (child.childCount > 0)
@@ -84,8 +87,33 @@ public class encima : MonoBehaviour
     private void Update()
     {
         
-            
-        
+        foreach (var spawn in enemigos) {
+                if (spawn.childCount > 0)
+                {
+                    var enemigo = spawn.GetChild(0);
+                    var scriptEnemigo= enemigo.GetComponent<vidaEnemiga>();
+                    if(scriptEnemigo.muerto)
+                    {
+                        contadorMuertos++;
+                        Debug.Log("el contador es de: "+contadorMuertos);
+                    }
+                }
+            }
+        if(hijosContador==0 && accion)
+        {
+            foreach (Transform child in transform) {
+                if (child.childCount > 0)
+                {
+                    var child2 = child.GetChild(0);
+                    if (child2.name == "puerta(Clone)" ||  child2.name == "puerta izq(Clone)" || child2.name == "puerta arriba(Clone)" || child2.name == "puerta abajo(Clone)")
+                    {
+                        animator = child2.GetComponent<Animator>();
+                        animator.SetBool("puertaOpen",false);
+                        animator.SetBool("enemigosMuertos",true);
+                    }                    
+                }
+            }
+        }
         
        
         

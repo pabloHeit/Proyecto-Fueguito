@@ -6,7 +6,7 @@ public class vidaEnemiga : MonoBehaviour
 {
     Animator anim;
     Rigidbody2D rb;
-
+    public bool muerto=false;
     public float vida;
     public float vidaInicial;
 
@@ -23,6 +23,7 @@ public class vidaEnemiga : MonoBehaviour
         vida--;
         if(vida <= 0) {
             anim.SetTrigger("Morir");
+            muerto=true;
         }
         anim.SetTrigger("Dañado");
     }
