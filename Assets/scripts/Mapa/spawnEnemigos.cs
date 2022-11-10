@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class spawnEnemigos : MonoBehaviour
 {
-  LevelGeneration level;
+  LevelGeneration LevelGeneration;
   
   public GameObject[] objects;
 
@@ -12,11 +12,11 @@ public class spawnEnemigos : MonoBehaviour
 
   void Start()
   {
-    level = FindObjectOfType<LevelGeneration>();
+    LevelGeneration = FindObjectOfType<LevelGeneration>();
   }
   private void Update() 
   {
-    if (spawnear && level.stopGeneration)
+    if (spawnear && LevelGeneration.stopGeneration)
     {
       spawnear = false;
       StartCoroutine(spawnearEnemigos());
@@ -25,7 +25,7 @@ public class spawnEnemigos : MonoBehaviour
 
   private IEnumerator spawnearEnemigos()
   {
-      yield return new WaitForSeconds(3f);
+      yield return new WaitForSeconds(LevelGeneration.tiempoCrearEnemigos);
       int rand = Random.Range(1, 3);
       if(rand==1)
       {

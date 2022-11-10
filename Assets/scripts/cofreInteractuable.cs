@@ -11,6 +11,7 @@ public class cofreInteractuable : MonoBehaviour
     [SerializeField] private Transform textoPanelPos;
     [SerializeField] private GameObject textoPanel;
     [SerializeField] private TMP_Text textoText;
+
     [SerializeField] private string dialogueLine;
     private bool comenzoElDialogo = false; 
     private bool cofreAbiertoBool = false;
@@ -27,6 +28,12 @@ public class cofreInteractuable : MonoBehaviour
 
     private void Start()
     {
+        textoPanel = GameObject.Find("cofreCuadroDialogo");
+        Debug.Log(textoPanel);
+        textoPanelPos = textoPanel.GetComponent<RectTransform>();
+        Debug.Log(textoPanelPos);
+        textoText = textoPanelPos.GetChild(0).GetComponent<TMP_Text>();
+
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         GenerarContenido();

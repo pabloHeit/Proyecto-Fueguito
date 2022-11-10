@@ -1086,6 +1086,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eef4486035e5084a9d0ae8a1cbe0969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPositions: []
+  cofre:
+  - {fileID: 2878800420712797582, guid: 3908a85e42c6b43488aea8f6c4726911, type: 3}
+  hijosContador: 0
+  contadorMuertos: 0
+  encierro: 0
+  accion: 0
+  spawnEnemigos: []
+  enemigos: []
+  puertaColliders: []
+  enemigosReales: 0
 --- !u!1 &6578145837974857279
 GameObject:
   m_ObjectHideFlags: 0

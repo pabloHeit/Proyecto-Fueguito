@@ -11554,7 +11554,7 @@ MonoBehaviour:
   - {fileID: 2565310580840940511}
   - {fileID: 2269190061924806109}
   cofre:
-  - {fileID: 0}
+  - {fileID: 2878800420712797582, guid: 3908a85e42c6b43488aea8f6c4726911, type: 3}
   hijosContador: 0
   contadorMuertos: 0
   encierro: 0

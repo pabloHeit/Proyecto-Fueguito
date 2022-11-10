@@ -99,6 +99,10 @@ public class encima : MonoBehaviour
         
         if(enemigosReales == 0 && encierro)
         {
+            int rand= Random.Range(0,startingPositions.Length);
+            Vector2 cofrePos = new Vector2(startingPositions[rand].position.x, startingPositions[rand].position.y) ;
+            Instantiate(cofre[0], cofrePos, Quaternion.identity);
+
             foreach (Transform child in transform) {
                 if (child.childCount > 0)
                 {
@@ -113,9 +117,7 @@ public class encima : MonoBehaviour
                         {
                             Destroy(puertaCollider);                            
                         }
-                        int rand= Random.Range(0,startingPositions.Length);
-                        Vector2 cofrePos =new Vector2(startingPositions[rand].position.x, startingPositions[rand].position.y) ;
-                        Instantiate(cofre[0], cofrePos, Quaternion.identity);
+                        
                     }                    
                 }
             }

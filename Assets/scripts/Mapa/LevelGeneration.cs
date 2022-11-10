@@ -32,16 +32,16 @@ public class LevelGeneration : MonoBehaviour
     private Vector2 posmove;
     public LayerMask room;
     public int dire;
-   public int puertaAntes;
+    public int puertaAntes;
     public bool ocupado=false;
-  
+
+    public float tiempoCrearEnemigos = 3f;  
 
     void Start()
     {
         int randStartingPos = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randStartingPos].position;
-        Instantiate(rooms[0], transform.position, Quaternion.identity);
-        
+        Instantiate(rooms[0], transform.position, Quaternion.identity);        
 
         direction= Random.Range(1,9);
         

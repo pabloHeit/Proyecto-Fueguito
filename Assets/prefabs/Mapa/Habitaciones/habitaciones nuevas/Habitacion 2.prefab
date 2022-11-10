@@ -8239,7 +8239,7 @@ MonoBehaviour:
   - {fileID: 3730155539541739886}
   - {fileID: 7221657392435254002}
   cofre:
-  - {fileID: 0}
+  - {fileID: 2878800420712797582, guid: 3908a85e42c6b43488aea8f6c4726911, type: 3}
   hijosContador: 0
   contadorMuertos: 0
   encierro: 0
