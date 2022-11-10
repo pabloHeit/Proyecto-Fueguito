@@ -17,6 +17,7 @@ public class controladorOjos : MonoBehaviour
     [SerializeField] private float distanciaMiradaX;
     [SerializeField] private float distanciaMiradaY;
 
+    [SerializeField] private float movimientoOjos = 0.08f;
 
     private float centroHorizontal = 0;
     private float modificadorCentro = 1f;
@@ -35,11 +36,11 @@ public class controladorOjos : MonoBehaviour
         Vector3 lookAtDirection = mousePosition - target.position;
         //Cambiar distancia mirada X e Y
         if (lookAtDirection.x >= distanciaMiradaX){
-            posicionOjos.x= jugador.position.x + 0.08f;
+            posicionOjos.x= jugador.position.x + movimientoOjos;
             distanciaMiradaX = 0.4f;          
         }
         else if(lookAtDirection.x <= -distanciaMiradaX){
-            posicionOjos.x= jugador.position.x - 0.08f;
+            posicionOjos.x= jugador.position.x - movimientoOjos;
             distanciaMiradaX = 0.4f;
         }
         else{
@@ -48,11 +49,11 @@ public class controladorOjos : MonoBehaviour
         }
 
         if (lookAtDirection.y >= distanciaMiradaY){
-            posicionOjos.y = jugador.position.y + 0.08f;
+            posicionOjos.y = jugador.position.y + movimientoOjos;
             distanciaMiradaY = 0.4f;
         }
         else if(lookAtDirection.y <= -distanciaMiradaY){
-            posicionOjos.y = jugador.position.y - 0.08f;
+            posicionOjos.y = jugador.position.y - movimientoOjos;
             distanciaMiradaY = 0.4f;
         }
         else{
