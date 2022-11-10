@@ -5,19 +5,18 @@ using UnityEngine.AI;
 
 public class NavigationBaker : MonoBehaviour {
     LevelGeneration level;
-    private NavMeshSurface2d surface;
+    public NavMeshSurface2d surface;
 
     private bool generado = false;
 
     void Start () 
     {
         surface = GameObject.FindGameObjectWithTag("Navmesh").GetComponent<NavMeshSurface2d>();
-        level=FindObjectOfType<LevelGeneration>();
+        level = FindObjectOfType<LevelGeneration>();
     }
 
-     public void Update()
-     {
-        
+    public void Update()
+    {        
         if(level.stopGeneration && !generado)
         {
             generado = true;

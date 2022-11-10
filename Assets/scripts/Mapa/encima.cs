@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class encima : MonoBehaviour
 { 
+    public Transform[] startingPositions;
+    public GameObject[] cofre;
     vidaEnemiga vidaEnemiga;
     private int spawn;
     private Animator animator;
@@ -111,6 +113,9 @@ public class encima : MonoBehaviour
                         {
                             Destroy(puertaCollider);                            
                         }
+                        int rand= Random.Range(0,startingPositions.Length);
+                        Vector2 cofrePos =new Vector2(startingPositions[rand].position.x, startingPositions[rand].position.y) ;
+                        Instantiate(cofre[0], cofrePos, Quaternion.identity);
                     }                    
                 }
             }

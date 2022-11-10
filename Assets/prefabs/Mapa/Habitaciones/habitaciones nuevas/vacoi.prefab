@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc731fbf23eb724b9fbbab7021060dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: 0
-  "da\xF1o": 0
+  knockback: 10
+  "da\xF1o": 5
   puedePinchar: 1
 --- !u!95 &8913932935115724533
 Animator:

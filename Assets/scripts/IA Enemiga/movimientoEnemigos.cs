@@ -28,9 +28,12 @@ public class movimientoEnemigos : MonoBehaviour
     private float tiempoPasosContador;
     [SerializeField] private float tiempoPasos;
     [SerializeField] private AudioClip sonidoPasos;
+
+    private Transform habitacion;
    
     void Start()
     {
+        habitacion = this.transform.parent.parent;
         rb = this.GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
         vidaEnemiga = this.GetComponent<vidaEnemiga>();
@@ -63,8 +66,8 @@ public class movimientoEnemigos : MonoBehaviour
                 }
             }
             else {
-                if (Mathf.Abs(distJugador) < distanciaSegura 
-                    || vidaEnemiga.vida < vidaEnemiga.vidaInicial) {
+                if ((Mathf.Abs(distJugador) < distanciaSegura || vidaEnemiga.vida < vidaEnemiga.vidaInicial)
+                    && habitacion.GetComponent<encima>().encierro) {
                     enemigoAct = true;
                 }
             }
