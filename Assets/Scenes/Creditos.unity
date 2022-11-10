@@ -658,9 +658,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Coordinador\n Ian Barquin\n\nProgramaci\xF3n\n Pablo Heit \n Ramiro Correa
-    \nJuan Pablo Dalzotto\nIan Barquin\n\nSFX y Dise\xF1o de Sonido\nMateo Leotta
-    Meier\n\nDise\xF1o\nFranco Biondi\nIan Barquin \n\nColaborador\nFranco Silva"
+  m_Text: "Coordinador\n Mateo Leotta Meier\n\nProgramaci\xF3n\n Pablo Heit \n Ramiro
+    Correa \nJuan Pablo Dalzotto\nIan Barquin\n\nSFX y Dise\xF1o de Sonido\nMateo
+    Leotta Meier\n\nDise\xF1o\nFranco Biondi\nIan Barquin\nMateo Leotta Meier \n\nColaborador\nFranco
+    Silva"
 --- !u!222 &2029022087
 CanvasRenderer:
   m_ObjectHideFlags: 0
