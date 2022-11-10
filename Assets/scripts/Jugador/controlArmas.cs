@@ -37,7 +37,7 @@ public class controlArmas : MonoBehaviour
     }
 
     void Update() {
-        if(!armasControlador.gameObject.activeSelf) {
+        if(!armasControlador.gameObject.activeSelf && armasControlador.gameObject != null) {
             armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
         }
         

@@ -12,11 +12,7 @@ public class Cargando : MonoBehaviour
         string leveToLoad = levelLoader.nextLevel;
         StartCoroutine(this.MakeTheLoad(leveToLoad));
     }
-
-    void OnDestroy(){
-        GameManager.Instance.UpdateGameState(GameState.EnJuego);
-    }
-
+    
     IEnumerator MakeTheLoad(string level)
     {
         

@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
 	public static bool EnableInput;
 
-
 	void Awake(){
 		if (Instance != null){
 			Destroy(this);

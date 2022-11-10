@@ -7,7 +7,7 @@ public class vidaEnemiga : MonoBehaviour
     AudioSource audioSource;
     Animator anim;
     Rigidbody2D rb;
-
+    public bool muerto=false;
     public float vida;
     public float vidaInicial;
 
@@ -30,6 +30,7 @@ public class vidaEnemiga : MonoBehaviour
         }
         if(vida <= 0) {
             anim.SetTrigger("Morir");
+            muerto=true;
         }
         anim.SetTrigger("Dañado");
     }

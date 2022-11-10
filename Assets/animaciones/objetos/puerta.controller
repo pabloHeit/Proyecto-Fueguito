@@ -20,11 +20,11 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 60, y: 70, z: 0}
+  m_AnyStatePosition: {x: 50, y: -40, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 470, y: 100, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 8805954678851505341}
+  m_DefaultState: {fileID: -5274644632699553756}
 --- !u!1102 &-5274644632699553756
 AnimatorState:
   serializedVersion: 6
@@ -60,8 +60,11 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: puertaOpen
+    m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: puertaAbierta
+    m_ConditionEvent: enemigosMuertos
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5274644632699553756}
@@ -86,7 +89,19 @@ AnimatorController:
   m_Name: puerta
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: puertaAbierta
+  - m_Name: puertaOpen
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: encierro
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: enemigosMuertos
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -113,8 +128,11 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: puertaAbierta
+  - m_ConditionMode: 1
+    m_ConditionEvent: encierro
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: puertaOpen
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8805954678851505341}
