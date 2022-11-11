@@ -27,9 +27,11 @@ public class spawnEnemigos : MonoBehaviour
   {
       yield return new WaitForSeconds(LevelGeneration.tiempoCrearEnemigos);
       int rand = Random.Range(1, 3);
+      int rand2=Random.Range(0,objects.Length);
       if(rand==1)
       {
-        GameObject instance = (GameObject)Instantiate(objects[0], transform.position, Quaternion.identity);
+        
+        GameObject instance = (GameObject)Instantiate(objects[rand2], transform.position, Quaternion.identity);
 
         instance.transform.parent = transform;
       }

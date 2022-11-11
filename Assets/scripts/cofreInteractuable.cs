@@ -87,6 +87,7 @@ public class cofreInteractuable : MonoBehaviour
 
     private void GenerarContenido()
     {
+
         lootGenerado = Random.Range(0, loot.Length);
     }
 
@@ -94,15 +95,39 @@ public class cofreInteractuable : MonoBehaviour
     {
         GameObject lootItem = Instantiate( loot[lootGenerado], transform.position, Quaternion.identity);
         StartCoroutine(moverItem(lootItem));            
-
+        GameObject lootItem2 = Instantiate( loot[lootGenerado], transform.position, Quaternion.identity);
+        StartCoroutine(moverItem(lootItem2));   
     }
     private IEnumerator moverItem(GameObject lootItem)
     {
         float resta = lootItem.transform.position.y;
-        abajo = new Vector3(transform.position.x, transform.position.y - 1, transform.position.z);
-        while (lootItem.transform.position.y >= abajo.y){
+        float resta2 = lootItem.transform.position.x;
+        float rand= Random.Range(0f,1f);
+        int masomenos =Random.Range(1,3);
+        if(masomenos==1)
+        {
+            abajo = new Vector3(transform.position.x+rand, transform.position.y - 1, transform.position.z);
+        }
+        else
+        {
+            abajo = new Vector3(transform.position.x-rand, transform.position.y - 1, transform.position.z);
+        }
+        while (lootItem!=null && lootItem.transform.position.y >= abajo.y){
             resta -= 0.1f;
-            lootItem.transform.position = new Vector3(lootItem.transform.position.x, resta, lootItem.transform.position.z);
+            if(resta2!=abajo.x)
+            {
+                if(masomenos==1)
+                {
+                    resta2 += 0.1f; 
+                }
+                else
+                {
+                    resta2 -= 0.1f; 
+                }
+                
+               
+            }
+            lootItem.transform.position = new Vector3(resta2, resta, lootItem.transform.position.z);
             yield return new WaitForSeconds(0.025f);
         }
         

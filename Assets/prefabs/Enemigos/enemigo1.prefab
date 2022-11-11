@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 1.3
-  TiempoBala: 1.5
+  TiempoBala: 3
   BalaEnemiga: {fileID: 5755562860008136992, guid: 210713aacf7b9244193eb7c4268c95db, type: 3}
   disparador: {fileID: 702729444301467306}
   sonidoDisparo: {fileID: 8300000, guid: a5d1683c739b63b4286a1ecd31e9fc61, type: 3}
