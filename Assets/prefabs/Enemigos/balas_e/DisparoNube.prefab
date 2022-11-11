@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6965341432216752853}
   - component: {fileID: 6678714308961065999}
   - component: {fileID: 7586537504138362184}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: DisparoNube
   m_TagString: balaEnemigo
   m_Icon: {fileID: 0}

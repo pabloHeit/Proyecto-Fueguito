@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8325213709261306624}
   - component: {fileID: 5732884025943340506}
   - component: {fileID: 8820316674876249245}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: DisparoAgua
   m_TagString: balaEnemigo
   m_Icon: {fileID: 0}

@@ -34,13 +34,15 @@ public class BalaAgua : MonoBehaviour
       
         if(other.CompareTag("Player"))
         {            
-            if (ralentiza) {
-                movimientoJugador.realentizar(VelMov, cooldownVel); }
+            if (ralentiza)
+                movimientoJugador.realentizar(VelMov, cooldownVel);
             controladorVidas.TomarDamage(daño);
         }
-        
-        GameObject efecto1 = Instantiate(efectoImpacto, transform.position, transform.rotation); 
+        GameObject efecto1 = Instantiate(efectoImpacto, transform.position, transform.rotation);
         Destroy(efecto1, tiempoEfecto);
-        Destroy(this.gameObject);
+        Destroy(gameObject);        
     }   
+    void OnCollisionEnter2D(Collision2D other)
+    {
+    }
 }

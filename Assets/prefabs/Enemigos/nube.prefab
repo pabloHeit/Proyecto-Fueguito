@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7624942459500572516}
   - component: {fileID: 4248868906024427123}
   - component: {fileID: 8124513}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: nube
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
@@ -153,8 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff14e8554a670a24e99781b45f607d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muerto: 0
   vida: 3
   vidaInicial: 0
+  sonidoGolpeado: {fileID: 0}
   puedeColisionar: 0
 --- !u!114 &4074578335753243189
 MonoBehaviour:
@@ -174,7 +176,7 @@ MonoBehaviour:
   enemigoAct: 0
   atacando: 0
   tiempoPasos: 2
-  sonidoPasos: {fileID: 8300000, guid: a5d1683c739b63b4286a1ecd31e9fc61, type: 3}
+  sonidoPasos: {fileID: 0}
 --- !u!114 &7624942459500572516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5310269782705827942}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: ControladorNube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

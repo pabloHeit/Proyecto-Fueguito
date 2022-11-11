@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class NavigationBaker : MonoBehaviour {
-    LevelGeneration level;
+    LevelGeneration LevelGeneration;
     public NavMeshSurface2d surface;
 
     private bool generado = false;
@@ -12,20 +12,21 @@ public class NavigationBaker : MonoBehaviour {
     void Start () 
     {
         surface = GameObject.FindGameObjectWithTag("Navmesh").GetComponent<NavMeshSurface2d>();
-        level = FindObjectOfType<LevelGeneration>();
+        LevelGeneration = FindObjectOfType<LevelGeneration>();
     }
 
     public void Update()
     {        
-        if(level.stopGeneration && !generado)
+        if(LevelGeneration.stopGeneration && !generado)
         {
             generado = true;
-            starNavMesh();
+            StartCoroutine(starNavMesh());
         }
     }
 
-    public void starNavMesh()
+    public IEnumerator starNavMesh()
     {
+        yield return new WaitForSeconds(LevelGeneration.tiempoCrearEnemigos / 2);
         surface.BuildNavMesh();
     }
 }

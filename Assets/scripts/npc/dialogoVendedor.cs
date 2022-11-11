@@ -25,6 +25,11 @@ public class dialogoVendedor : MonoBehaviour
     
     private void Start()
     {
+        textoPanel = GameObject.Find("Canvas dialogos");
+        textoPanel = textoPanel.transform.GetChild(1).gameObject;
+        textoPanelPos = textoPanel.GetComponent<RectTransform>();
+        textoText = textoPanelPos.GetChild(0).GetComponent<TMP_Text>();
+
         voz = GetComponent<AudioSource>();
         if (dialogos.Length == 0){
             Debug.Log("<color=red>dialogoVendedor ERROR</color>     El mercader no tiene dialogos");

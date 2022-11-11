@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cargando.unity
     guid: ef2e01e8b5cf0cd448e37bbd83a06e97
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 3db507fd3c51f894e9b44a5f2066bb94
   m_configObjects: {}

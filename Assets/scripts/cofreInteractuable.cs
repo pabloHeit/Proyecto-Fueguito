@@ -28,10 +28,9 @@ public class cofreInteractuable : MonoBehaviour
 
     private void Start()
     {
-        textoPanel = GameObject.Find("cofreCuadroDialogo");
-        Debug.Log(textoPanel);
+        textoPanel = GameObject.Find("Canvas dialogos");
+        textoPanel = textoPanel.transform.GetChild(0).gameObject;
         textoPanelPos = textoPanel.GetComponent<RectTransform>();
-        Debug.Log(textoPanelPos);
         textoText = textoPanelPos.GetChild(0).GetComponent<TMP_Text>();
 
         audioSource = GetComponent<AudioSource>();

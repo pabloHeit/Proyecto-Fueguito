@@ -33,7 +33,8 @@ public class movimientoEnemigos : MonoBehaviour
    
     void Start()
     {
-        habitacion = this.transform.parent.parent;
+        if (this.transform.parent.parent != null)
+            habitacion = this.transform.parent.parent;        
         rb = this.GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
         vidaEnemiga = this.GetComponent<vidaEnemiga>();
@@ -62,8 +63,9 @@ public class movimientoEnemigos : MonoBehaviour
                 enemigoMov();
                 if (!atacando && tiempoPasosContador < Time.time) {
                     tiempoPasosContador = Time.time + tiempoPasos;
-                    try{audioSource.PlayOneShot(sonidoPasos);}
-                    catch (System.Exception){throw;}
+                    if(sonidoPasos != null)
+                        audioSource.PlayOneShot(sonidoPasos);
+                    
                 }
             }
             else {

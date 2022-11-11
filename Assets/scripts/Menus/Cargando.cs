@@ -15,6 +15,10 @@ public class Cargando : MonoBehaviour
     
     IEnumerator MakeTheLoad(string level)
     {
+        if (level == "MenuPrincipal")
+        {
+            GameManager.Instance.UpdateGameState(GameState.MenuPrincipal);
+        }
         
         yield return new WaitForSeconds(1f);
 

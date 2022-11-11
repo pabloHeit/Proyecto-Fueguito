@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 1
-  damagePoints: 0.25
+  speedPoints: 0
   maxLifePoints: 0
   rechargePoints: 0.25
   consumida: 0
@@ -1261,6 +1261,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eef4486035e5084a9d0ae8a1cbe0969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPositions: []
+  cofre: []
+  hijosContador: 0
+  contadorMuertos: 0
+  encierro: 0
+  accion: 0
+  spawnEnemigos: []
+  enemigos: []
+  puertaColliders: []
+  enemigosReales: 0
 --- !u!1 &3618745662939610475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,7 +1569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 3
-  damagePoints: 0
+  speedPoints: 0
   maxLifePoints: 0
   rechargePoints: 0.25
   consumida: 0
@@ -1733,7 +1743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 2
-  damagePoints: 0
+  speedPoints: 0
   maxLifePoints: 25
   rechargePoints: 0
   consumida: 0
@@ -52321,7 +52331,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.96544456, y: -0.9127848}
+  m_Offset: {x: 0.34775543, y: -4.414646}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -52332,7 +52342,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.383739, y: 13.114325}
+  m_Size: {x: 27.11502, y: 20.118053}
   m_EdgeRadius: 0
 --- !u!114 &8907170742102005698
 MonoBehaviour:
@@ -52350,8 +52360,7 @@ MonoBehaviour:
   textoPanel: {fileID: 0}
   textoText: {fileID: 0}
   dialogos:
-  - Now, i become death, The destroyer of worlds
-  - Ella durmio al calor de las masas
+  - Buenas tardes chamigo
 --- !u!82 &8907170742102005696
 AudioSource:
   m_ObjectHideFlags: 0

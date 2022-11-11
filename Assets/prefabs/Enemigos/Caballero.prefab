@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2883430855814680342}
   - component: {fileID: 2883430855814680340}
   - component: {fileID: 1384751664}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Caballero
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff14e8554a670a24e99781b45f607d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muerto: 0
   vida: 5
   vidaInicial: 0
   sonidoGolpeado: {fileID: 8300000, guid: 629c8c5e6cd9e0b4680b00ca55f2d1b3, type: 3}
@@ -353,7 +354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2883430857444200489}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: espada
   m_TagString: Untagged
   m_Icon: {fileID: 0}

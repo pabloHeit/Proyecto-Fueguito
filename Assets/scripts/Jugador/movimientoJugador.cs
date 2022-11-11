@@ -18,7 +18,7 @@ public class movimientoJugador : MonoBehaviour
     private Rigidbody2D rb2D;
     private float movimientoX;
     private float movimientoY;
-    private Transform _t ;
+    private Transform _t;
     [SerializeField] private AudioClip sonidoPasos;
 
     [Header("Rodar")]
@@ -125,19 +125,19 @@ public class movimientoJugador : MonoBehaviour
         for (int i = 6; i <= 31; i++) {
             foreach(int x in capasIgnoradas) {
                 if (i == x) {
+                    Physics2D.IgnoreLayerCollision(3, i, true);
                     continue;
                 }
             }
-            Physics2D.IgnoreLayerCollision(3, i, true);
         }
 
         yield return new WaitForSeconds(TiempoInmunidad);
 
         for (int i = 6; i <= 31; i++) {
-            Physics2D.IgnoreLayerCollision(3, i, false);
             foreach(int x in capasIgnoradas) {
                 if (i == x) {
-                    Physics2D.IgnoreLayerCollision(3, i, true);
+                    Physics2D.IgnoreLayerCollision(3, i, false);
+                    // Physics2D.IgnoreLayerCollision(3, i, true);
                 }
             }
         }

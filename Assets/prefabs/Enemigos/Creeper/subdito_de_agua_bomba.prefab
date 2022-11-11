@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8331164229254019289}
   - component: {fileID: 4596749191647581429}
   - component: {fileID: 1124272832}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: subdito_de_agua_bomba
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
@@ -54,9 +54,10 @@ MonoBehaviour:
   objetivo: {fileID: 0}
   distanciaSegura: 10.54
   distanciaAtaque: 2
+  enemigoAct: 0
   atacando: 0
   tiempoPasos: 0.55
-  sonidoPasos: {fileID: 8300000, guid: a5d1683c739b63b4286a1ecd31e9fc61, type: 3}
+  sonidoPasos: {fileID: 0}
 --- !u!114 &1866986592070695257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,8 +70,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff14e8554a670a24e99781b45f607d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muerto: 0
   vida: 5
   vidaInicial: 5
+  sonidoGolpeado: {fileID: 0}
   puedeColisionar: 0
 --- !u!114 &8331164229254019288
 MonoBehaviour:

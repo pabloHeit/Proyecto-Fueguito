@@ -21,7 +21,7 @@ public class LevelGeneration : MonoBehaviour
     public float minX;
     private int mercado;
     public int Cantidad;
-    public int numHabit=10;
+    public int numHabit = 10;
     private int moveCounter;
     public float maxX;
     public float maxY;
@@ -35,7 +35,9 @@ public class LevelGeneration : MonoBehaviour
     public int puertaAntes;
     public bool ocupado=false;
 
-    public float tiempoCrearEnemigos = 3f;  
+    public float tiempoCrearEnemigos = 3f;
+
+    [SerializeField] private GameObject PortalGameOver;
 
     void Start()
     {
@@ -120,7 +122,8 @@ public class LevelGeneration : MonoBehaviour
                         Instantiate(rooms[rand], transform.position,Quaternion.identity);
                         Debug.Log("direccion final"+direction);
                         stopGeneration = true;  
-                        numHabit--;       
+                        numHabit--;
+                        Instantiate(PortalGameOver, transform.position, Quaternion.identity);
                     }
                     else
                     {
@@ -260,7 +263,8 @@ public class LevelGeneration : MonoBehaviour
                     direcciones [i]=direction;
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
                     stopGeneration=true;
-                    numHabit--;       
+                    numHabit--;
+                    Instantiate(PortalGameOver, transform.position, Quaternion.identity);
                 }
                 else
                 {
@@ -389,6 +393,7 @@ public class LevelGeneration : MonoBehaviour
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
                     stopGeneration=true;
                     numHabit--;
+                    Instantiate(PortalGameOver, transform.position, Quaternion.identity);
                 }
                 else
                 {
@@ -516,7 +521,8 @@ public class LevelGeneration : MonoBehaviour
                     Instantiate(rooms[rand], transform.position,Quaternion.identity);
                     Debug.Log("direccion final"+direction);
                     stopGeneration = true;    
-                    numHabit--;       
+                    numHabit--;
+                    Instantiate(PortalGameOver, transform.position, Quaternion.identity);
                 }
                 else
                 {

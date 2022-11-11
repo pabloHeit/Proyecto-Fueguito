@@ -18,7 +18,6 @@ public class N1_IA : MonoBehaviour
     private float ultimoGolpe;
    
     public GameObject BalaEnemiga;
-    [SerializeField] private GameObject efectoImpacto;
     private float VelocidadB = 10f;
 
     [SerializeField] private Transform disparador;    

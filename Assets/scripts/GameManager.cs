@@ -29,8 +29,13 @@ public class GameManager : MonoBehaviour
 			case "MenuPrincipal":
 				UpdateGameState(GameState.MenuPrincipal);
 			break;
+
 			case "Cargando":
 				UpdateGameState(GameState.Cargando);
+			break;
+
+			case "Creditos":
+				UpdateGameState(GameState.Creditos);
 			break;		
 			
 			default:
@@ -49,6 +54,9 @@ public class GameManager : MonoBehaviour
 			case GameState.Cargando:
 				HandleCharging();
 			break;
+			case GameState.Creditos:
+				HandleCredits();
+			break;
 			case GameState.EnJuego:
 				HandleGaming();
 			break;
@@ -66,26 +74,31 @@ public class GameManager : MonoBehaviour
 		OnGameStateChanged?.Invoke(newState);
 	}
 
-	private void HandlePrincipalMenu(){
+	private void HandlePrincipalMenu() {
 		Cursor.visible = true;
 	}
 
-	private void HandleCharging(){
+	private void HandleCharging() {
 		EnableInput = false;
 		Cursor.visible = false;
 	}
 
-	private void HandleGaming(){
+	private void HandleCredits() {
+		EnableInput = false;
+		Cursor.visible = true;
+	}
+
+	private void HandleGaming() {
 		EnableInput = true;
 		Cursor.visible = true; 
 	}
 
-	private void HandlePauseMenu(){
+	private void HandlePauseMenu() {
 		Cursor.visible = true;
 		EnableInput = false;
 	}
 
-	private void HandleDeath(){
+	private void HandleDeath() {
 		Cursor.visible = true;
 		EnableInput = false;
 	}
@@ -96,5 +109,6 @@ public enum GameState {
 	Cargando,
 	EnJuego,
 	Pausado,
-	Muerte
+	Muerte,
+	Creditos
 }

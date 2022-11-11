@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class encima : MonoBehaviour
-{ 
+{
+    vidaEnemiga vidaEnemiga;
+
     public Transform[] startingPositions;
     public GameObject[] cofre;
-    vidaEnemiga vidaEnemiga;
     private int spawn;
     private Animator animator;
-    private int i = 0;
     public int hijosContador = 0;
     public int contadorMuertos;
     public bool encierro = false;
@@ -17,14 +17,19 @@ public class encima : MonoBehaviour
     public List<Transform> spawnEnemigos;
     public List<GameObject> enemigos;
     public List<BoxCollider2D> puertaColliders;
-    
+
     public int enemigosReales = 0;
+
+    cambioDeMusica cambioDeMusica;
+
     void Awake()
     {
+        cambioDeMusica = FindObjectOfType<cambioDeMusica>();        
         StartCoroutine(ConfigurarPuertasYEnemigosInicio(1f));
-    }   
-    void start(){
-        vidaEnemiga =FindObjectOfType<vidaEnemiga>();
+    }
+
+    void start() {
+        vidaEnemiga = FindObjectOfType<vidaEnemiga>();
     }
 
     public IEnumerator ConfigurarPuertasYEnemigosInicio(float tiempoMargen)
@@ -36,7 +41,6 @@ public class encima : MonoBehaviour
             if (child.GetComponent<spawnEnemigos>() != null)
             {
                 spawnEnemigos.Add(child.transform);
-                Debug.Log("spawnEnemigos: " + spawnEnemigos.Count);                    
             }
             else if (child.childCount > 0)
             {
@@ -45,14 +49,13 @@ public class encima : MonoBehaviour
                 {
                     animator = child2.GetComponent<Animator>();
                     animator.SetBool("puertaOpen",true);
-                }                
+                }
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if ((other.CompareTag("Player"))) {
-            Debug.Log("spawnEnemigos: "+spawnEnemigos.Count);
             foreach (var spawn in spawnEnemigos) {
                 if (spawn.childCount > 0)
                 {
@@ -68,9 +71,10 @@ public class encima : MonoBehaviour
             Debug.Log("hijosCONTADOR: "+hijosContador);
             if(hijosContador!=0)
             {
+                cambioDeMusica.ReproducirMusica_Pelea();
                 encierro = true;
                 accion = true;
-            
+
                 foreach (Transform child in transform) {
                     if (child.childCount > 0)
                     {
@@ -82,24 +86,26 @@ public class encima : MonoBehaviour
                             child2.gameObject.AddComponent(typeof(BoxCollider2D));
                             var collider = child2.GetComponent<BoxCollider2D>();
                             puertaColliders.Add(collider);
-                        }                    
+                        }
                     }
                 }
             }
             Debug.Log(hijosContador);
         }
     }
+
     private void Update()
     {
         if(accion)
         {
             enemigos.RemoveAll(s => s == null);
             enemigosReales = enemigos.Count;
-        }   
-        
+        }
+
         if(enemigosReales == 0 && encierro)
         {
-            int rand= Random.Range(0,startingPositions.Length);
+            cambioDeMusica.ReproducirMusica_Tranqui();
+            int rand = Random.Range(0, startingPositions.Length);
             Vector2 cofrePos = new Vector2(startingPositions[rand].position.x, startingPositions[rand].position.y) ;
             Instantiate(cofre[0], cofrePos, Quaternion.identity);
 
@@ -115,15 +121,11 @@ public class encima : MonoBehaviour
                         encierro = false;
                         foreach (var puertaCollider in puertaColliders)
                         {
-                            Destroy(puertaCollider);                            
+                            Destroy(puertaCollider);
                         }
-                        
-                    }                    
+                    }
                 }
             }
         }
-        
-       
-        
     }
 }
