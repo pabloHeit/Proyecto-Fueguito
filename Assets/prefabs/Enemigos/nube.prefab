@@ -158,6 +158,7 @@ MonoBehaviour:
   vidaInicial: 0
   sonidoGolpeado: {fileID: 0}
   puedeColisionar: 0
+  loot: {fileID: 7904619305046411936, guid: bb0325cc4b93cb7489c4acdf430f6fc3, type: 3}
 --- !u!114 &4074578335753243189
 MonoBehaviour:
   m_ObjectHideFlags: 0

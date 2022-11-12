@@ -7,7 +7,7 @@ public class vidaEnemiga : MonoBehaviour
     AudioSource audioSource;
     Animator anim;
     Rigidbody2D rb;
-    public bool muerto=false;
+    public bool muerto = false;
     public float vida;
     public float vidaInicial;
 
@@ -15,8 +15,15 @@ public class vidaEnemiga : MonoBehaviour
 
     public bool puedeColisionar;
 
+    private Transform habitacion;
+
+    [SerializeField] private GameObject loot;
+
     void Start()
-    {
+    {        
+        if (this.transform.parent.parent != null)
+            habitacion = this.transform.parent.parent;
+        
         puedeColisionar = true;
         anim = this.GetComponent<Animator>();
         vidaInicial = vida;
@@ -36,6 +43,11 @@ public class vidaEnemiga : MonoBehaviour
     }
 
     public void Muerte() {
+        int randomNumber = Random.Range(0, 4);
+        if (randomNumber == 1) {
+            Instantiate(loot, transform.position, Quaternion.identity);            
+        }
+
         Destroy(gameObject);
     }
 

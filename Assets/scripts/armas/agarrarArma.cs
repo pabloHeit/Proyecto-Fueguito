@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class agarrarArma : MonoBehaviour
 {
-    [Tooltip("0 = espada : 1 = rifle : 2 = lanza-granadas")]
+    [Tooltip("0 = espada : 1 = rifle : 2 = lanza-granadas : 3 = Ballesta : 4 = Metralladora")]
     [SerializeField] private int nroActivador;
     private bool EnRango;
     [SerializeField] private bool ArmaComprable;

@@ -90,6 +90,7 @@ MonoBehaviour:
   vidaInicial: 0
   sonidoGolpeado: {fileID: 8300000, guid: 5122021463956944c8f9cd0bea3da674, type: 3}
   puedeColisionar: 0
+  loot: {fileID: 7904619305046411936, guid: bb0325cc4b93cb7489c4acdf430f6fc3, type: 3}
 --- !u!212 &2495690244987372476
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -76,6 +76,7 @@ MonoBehaviour:
   vidaInicial: 0
   sonidoGolpeado: {fileID: 8300000, guid: 629c8c5e6cd9e0b4680b00ca55f2d1b3, type: 3}
   puedeColisionar: 0
+  loot: {fileID: 7904619305046411936, guid: bb0325cc4b93cb7489c4acdf430f6fc3, type: 3}
 --- !u!114 &2883430855814680362
 MonoBehaviour:
   m_ObjectHideFlags: 0

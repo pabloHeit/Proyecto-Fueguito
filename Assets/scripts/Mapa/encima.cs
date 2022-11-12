@@ -32,6 +32,27 @@ public class encima : MonoBehaviour
         vidaEnemiga = FindObjectOfType<vidaEnemiga>();
     }
 
+    private void Update()
+    {
+        if(accion)
+        {
+            ContarEnemigosVivos();
+
+            if (enemigosReales == 0 && encierro)
+            {
+                FinalizarBatalla();
+                accion = false;
+            }
+        }
+    }
+
+    public void ContarEnemigosVivos()
+    {
+        enemigos.RemoveAll(enemigo => enemigo == null);
+        enemigosReales = enemigos.Count;
+    }
+
+
     public IEnumerator ConfigurarPuertasYEnemigosInicio(float tiempoMargen)
     {
         yield return new WaitForSeconds(tiempoMargen);
@@ -54,6 +75,33 @@ public class encima : MonoBehaviour
         }
     }
 
+    public void FinalizarBatalla()
+    {
+        cambioDeMusica.ReproducirMusica_Tranqui();
+        int rand = Random.Range(0, startingPositions.Length);
+        Vector2 cofrePos = new Vector2(startingPositions[rand].position.x, startingPositions[rand].position.y) ;
+        Instantiate(cofre[0], cofrePos, Quaternion.identity);
+
+        foreach (Transform child in transform) {
+            if (child.childCount > 0)
+            {
+                var child2 = child.GetChild(0);
+                if (child2.name == "puerta(Clone)" ||  child2.name == "puerta izq(Clone)" || child2.name == "puerta arriba(Clone)" || child2.name == "puerta abajo(Clone)")
+                {
+                    animator = child2.GetComponent<Animator>();
+                    animator.SetBool("puertaOpen",false);
+                    animator.SetBool("enemigosMuertos",true);
+                    encierro = false;
+                    foreach (var puertaCollider in puertaColliders)
+                    {
+                        Destroy(puertaCollider);
+                    }
+                }
+            }
+        }
+        Destroy(this);
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
         if ((other.CompareTag("Player"))) {
             foreach (var spawn in spawnEnemigos) {
@@ -69,7 +117,7 @@ public class encima : MonoBehaviour
                 }
             }
             Debug.Log("hijosCONTADOR: "+hijosContador);
-            if(hijosContador!=0)
+            if(hijosContador != 0)
             {
                 cambioDeMusica.ReproducirMusica_Pelea();
                 encierro = true;
@@ -91,41 +139,6 @@ public class encima : MonoBehaviour
                 }
             }
             Debug.Log(hijosContador);
-        }
-    }
-
-    private void Update()
-    {
-        if(accion)
-        {
-            enemigos.RemoveAll(s => s == null);
-            enemigosReales = enemigos.Count;
-        }
-
-        if(enemigosReales == 0 && encierro)
-        {
-            cambioDeMusica.ReproducirMusica_Tranqui();
-            int rand = Random.Range(0, startingPositions.Length);
-            Vector2 cofrePos = new Vector2(startingPositions[rand].position.x, startingPositions[rand].position.y) ;
-            Instantiate(cofre[0], cofrePos, Quaternion.identity);
-
-            foreach (Transform child in transform) {
-                if (child.childCount > 0)
-                {
-                    var child2 = child.GetChild(0);
-                    if (child2.name == "puerta(Clone)" ||  child2.name == "puerta izq(Clone)" || child2.name == "puerta arriba(Clone)" || child2.name == "puerta abajo(Clone)")
-                    {
-                        animator = child2.GetComponent<Animator>();
-                        animator.SetBool("puertaOpen",false);
-                        animator.SetBool("enemigosMuertos",true);
-                        encierro = false;
-                        foreach (var puertaCollider in puertaColliders)
-                        {
-                            Destroy(puertaCollider);
-                        }
-                    }
-                }
-            }
         }
     }
 }

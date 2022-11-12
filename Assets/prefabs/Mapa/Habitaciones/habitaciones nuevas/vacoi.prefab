@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8913932935115724534}
   - component: {fileID: 8913932935115724533}
   - component: {fileID: 8913932935115724537}
+  - component: {fileID: -4424359352003159690}
   m_Layer: 6
   m_Name: vacoi
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2631346733279461276, guid: a2f679642e7f34a48b2c635c94271982, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,6 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockback: 10
   "da\xF1o": 5
+  cooldownPinchar: 3
+  cooldownPincharContador: 0
+  tiempoPinchar: 1
   puedePinchar: 1
 --- !u!95 &8913932935115724533
 Animator:
@@ -145,3 +149,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8189726, y: 0.7857994}
   m_EdgeRadius: 0
+--- !u!114 &-4424359352003159690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7151641298633349444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 2
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

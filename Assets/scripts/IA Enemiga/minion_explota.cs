@@ -66,7 +66,7 @@ public class minion_explota : MonoBehaviour
         }
         Destroy(gameObject);
         
-        GameObject efectoExplosion = Instantiate(explosionEfecto, transform.position, Quaternion.identity);        
+        GameObject efectoExplosion = Instantiate(explosionEfecto, transform.position, Quaternion.identity);
     }
     
     private void OnDrawGizmos()

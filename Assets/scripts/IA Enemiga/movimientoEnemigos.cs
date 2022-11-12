@@ -30,11 +30,11 @@ public class movimientoEnemigos : MonoBehaviour
     [SerializeField] private AudioClip sonidoPasos;
 
     private Transform habitacion;
-   
+
     void Start()
     {
         if (this.transform.parent.parent != null)
-            habitacion = this.transform.parent.parent;        
+            habitacion = this.transform.parent.parent;
         rb = this.GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
         vidaEnemiga = this.GetComponent<vidaEnemiga>();
@@ -64,8 +64,7 @@ public class movimientoEnemigos : MonoBehaviour
                 if (!atacando && tiempoPasosContador < Time.time) {
                     tiempoPasosContador = Time.time + tiempoPasos;
                     if(sonidoPasos != null)
-                        audioSource.PlayOneShot(sonidoPasos);
-                    
+                        audioSource.PlayOneShot(sonidoPasos);                    
                 }
             }
             else {
