@@ -20,7 +20,7 @@ public class vidaEnemiga : MonoBehaviour
     [SerializeField] private GameObject loot;
 
     void Start()
-    {        
+    {
         if (this.transform.parent.parent != null)
             habitacion = this.transform.parent.parent;
         
@@ -43,9 +43,13 @@ public class vidaEnemiga : MonoBehaviour
     }
 
     public void Muerte() {
-        int randomNumber = Random.Range(0, 4);
-        if (randomNumber == 1) {
-            Instantiate(loot, transform.position, Quaternion.identity);            
+        if (loot != null)
+        {
+            int randomNumber = Random.Range(0, 2);
+            Debug.Log(randomNumber);
+            if (randomNumber == 1) {
+                Instantiate(loot, transform.position, Quaternion.identity);            
+            }            
         }
 
         Destroy(gameObject);
