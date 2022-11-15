@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8261fbf704ec1d041b415dfb5c88ddab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1o": 10
+  "da\xF1o": 5
   ralentiza: 0
   VelMov: 0
   cooldownVel: 0
