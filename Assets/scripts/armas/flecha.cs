@@ -9,6 +9,7 @@ public class flecha : MonoBehaviour
     Collider2D Collider2D;
 
     [SerializeField] private float tiempoFlecha;
+    [SerializeField] private float daño;
 
     private  Quaternion ultimaRotacion;
     private Animator animator;
@@ -34,9 +35,13 @@ public class flecha : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.gameObject.CompareTag("Enemigo")) {
+        if (other.gameObject.CompareTag("Enemigo")) {
+            other.gameObject.GetComponent<vidaEnemiga>().Golpe(daño);
+        }
+        else
+        {
             ultimaRotacion = Quaternion.Euler(0, 0, transform.eulerAngles.z);
-            GameObject flechaSuelta = Instantiate(flechaVacia, transform.position, ultimaRotacion);
+            GameObject flechaSuelta = Instantiate(flechaVacia, transform.position, ultimaRotacion);            
         }
             Destroy(gameObject);
     }

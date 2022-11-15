@@ -22,6 +22,7 @@ public class armasControlador : MonoBehaviour
     [Header("Melee")]
     [SerializeField] private Transform controladorGolpe;
     [SerializeField] private float radioGolpe;
+    [SerializeField] private float dañoEspada = 10f;
     public bool atacando = false;
            
     [Header("HUD")]
@@ -206,7 +207,7 @@ public class armasControlador : MonoBehaviour
             foreach (Collider2D colisionador in objetos)
             {
                 if (colisionador.CompareTag("Enemigo")) {
-                    colisionador.GetComponent<vidaEnemiga>().Golpe();
+                    colisionador.GetComponent<vidaEnemiga>().Golpe(dañoEspada);
                 }
             }
         }

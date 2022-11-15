@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2061820302320834249}
   - component: {fileID: -3711136889764011766}
   m_Layer: 7
-  m_Name: Bala
+  m_Name: BalaSniper
   m_TagString: balas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoBala: 2
+  "da\xF1o": 22
   efectoImpacto: {fileID: 8002844673212872952, guid: c53b5ffe9f87a1647bbd9d83d4d33220, type: 3}
   bulletDisappear: 0.1
-  sonidoImpacto: {fileID: 0}
 --- !u!61 &3617795359530085294
 BoxCollider2D:
   m_ObjectHideFlags: 0

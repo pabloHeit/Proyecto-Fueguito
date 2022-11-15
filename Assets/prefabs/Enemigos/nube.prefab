@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muerto: 0
-  vida: 3
+  vida: 80
   vidaInicial: 0
   sonidoGolpeado: {fileID: 0}
   puedeColisionar: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
   BalaEnemiga: {fileID: 6701102326458550517, guid: bbe9f82f8431fa742acf5a642f961a42, type: 3}
   laser: {fileID: 1115067191963790394, guid: 32571305808e88742b0057968152ce14, type: 3}
   disparador: {fileID: 5310269782705827942}
-  "da\xF1obala": 10
+  "da\xF1obala": 30
   DisparoLinea: {fileID: 0}
   caja: {fileID: 0}
   tiempoDisparo: 0.1

@@ -6,6 +6,7 @@ public class bala : MonoBehaviour
 {
 
   [SerializeField] private float tiempoBala;
+  [SerializeField] private float daño;
   [SerializeField] private GameObject efectoImpacto;
   [SerializeField] private float bulletDisappear;
 
@@ -21,10 +22,14 @@ public class bala : MonoBehaviour
   }     
 
   private void OnTriggerEnter2D(Collider2D other) {
-    if (!other.CompareTag("Enemigo")) {
-      ultimaRotacion = Quaternion.Euler(0,0,transform.eulerAngles.z);
-      GameObject efecto = Instantiate(efectoImpacto, transform.position, ultimaRotacion);
-      Destroy(efecto, bulletDisappear);
+    if (other.CompareTag("Enemigo")) {
+        other.GetComponent<vidaEnemiga>().Golpe(daño);  
+    }
+    else
+    {
+        ultimaRotacion = Quaternion.Euler(0, 0, transform.eulerAngles.z);
+        GameObject efecto = Instantiate(efectoImpacto, transform.position, ultimaRotacion);
+        Destroy(efecto, bulletDisappear);
     }
     Destroy(gameObject);
   }

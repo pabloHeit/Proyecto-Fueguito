@@ -30,8 +30,8 @@ public class vidaEnemiga : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void Golpe() {
-        vida--;
+    public void Golpe(float daño) {
+        vida -= daño;
         if (sonidoGolpeado != null) {
             audioSource.PlayOneShot(sonidoGolpeado);
         }
@@ -53,18 +53,6 @@ public class vidaEnemiga : MonoBehaviour
         }
 
         Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "balas") {
-            Golpe();
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "balas") {
-            Golpe();
-        }        
     }
 
     public IEnumerator DesactivarColision(float TiempoInmunidad)

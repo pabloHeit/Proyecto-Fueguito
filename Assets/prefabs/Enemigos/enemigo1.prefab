@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muerto: 0
-  vida: 5
+  vida: 30
   vidaInicial: 0
   sonidoGolpeado: {fileID: 0}
   puedeColisionar: 0

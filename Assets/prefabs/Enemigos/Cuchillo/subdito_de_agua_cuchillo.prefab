@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b917ce822e41a4192701e3d9447f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "da\xF1o": 5
+  "da\xF1o": 10
   radioAtaque: 2.24
   sonidoAtaque: {fileID: 8300000, guid: a922f44fae9d70d4bb4446fbc9129e27, type: 3}
 --- !u!114 &8469489874758040615
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muerto: 0
-  vida: 5
+  vida: 30
   vidaInicial: 0
   sonidoGolpeado: {fileID: 8300000, guid: 5122021463956944c8f9cd0bea3da674, type: 3}
   puedeColisionar: 0
