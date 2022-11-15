@@ -4013,8 +4013,8 @@ MonoBehaviour:
   tiempoDeRecargaDefault: 3
   tiempoDeRecarga: 0
   recargando: 0
-  cantBalas: 25
-  max_capacidad: 0
+  cantBalas: 6
+  max_capacidad: 6
   puntaDelArma: {fileID: 1199188490}
   Bala: {fileID: 5424565148390374944, guid: 1b64d1ae6218cea48bc197cc8e7e9993, type: 3}
   dispararCooldown: 0.4
@@ -11357,7 +11357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '$10000
+  m_text: '$0
 
 '
   m_isRightToLeft: 0
@@ -11448,7 +11448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d8dc90f98ec434d81a7e6f53181db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntos: 10000
+  puntos: 0
 --- !u!1 &2030439263
 GameObject:
   m_ObjectHideFlags: 0
@@ -11927,10 +11927,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1133ac4b150d7ae4c98516a26a8f380a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sniperAmmo: 35
-  grenadeAmmo: 35
-  flechas: 35
-  ametralladoraAmmo: 35
+  sniperAmmo: 0
+  grenadeAmmo: 5
+  flechas: 20
+  ametralladoraAmmo: 15
   rechargeMultiplier: 1
   activadorArma:
   - {fileID: 1460124668}

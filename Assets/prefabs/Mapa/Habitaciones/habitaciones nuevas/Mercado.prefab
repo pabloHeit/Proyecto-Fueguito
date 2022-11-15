@@ -52515,7 +52515,6 @@ MonoBehaviour:
   armas:
   - {fileID: 8773577936808895211, guid: 6b5dbd109b7832d4785a29cf9244389b, type: 3}
   - {fileID: 4867203705224357694, guid: 2d68ef2bb3ba2a3499f4dfc97124bfb6, type: 3}
-  - {fileID: 9038304285654870028, guid: f9e1922df11dc6248bfb1074124f9ddd, type: 3}
   - {fileID: 6136169109122100855, guid: b7b9747dd0022b44c8ac861da1369529, type: 3}
   spawners: []
 --- !u!1 &8907170743031894541

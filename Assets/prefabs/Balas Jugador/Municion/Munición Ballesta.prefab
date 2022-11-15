@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipoMunicion: 4
-  cantidadMunicion: 10
+  cantidadMunicion: 5
 --- !u!212 &6165384417863834564
 SpriteRenderer:
   m_ObjectHideFlags: 0

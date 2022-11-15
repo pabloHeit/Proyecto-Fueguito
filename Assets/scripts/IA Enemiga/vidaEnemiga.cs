@@ -45,7 +45,7 @@ public class vidaEnemiga : MonoBehaviour
     public void Muerte() {
         if (loot != null)
         {
-            int randomNumber = Random.Range(0, 7);
+            int randomNumber = Random.Range(0, 9);
             Debug.Log(randomNumber);
             if (randomNumber == 1) {
                 Instantiate(loot[0], transform.position, Quaternion.identity);            
@@ -64,8 +64,13 @@ public class vidaEnemiga : MonoBehaviour
             }     
             if (randomNumber == 6) {
                 Instantiate(loot[5], transform.position, Quaternion.identity);            
-            }     
-                         
+            }
+             if (randomNumber == 7) {
+                Instantiate(loot[6], transform.position, Quaternion.identity);            
+            }
+            if (randomNumber == 8) {
+                Instantiate(loot[7], transform.position, Quaternion.identity);            
+            }                         
         }
 
         Destroy(gameObject);
