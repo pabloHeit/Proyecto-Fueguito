@@ -2416,7 +2416,7 @@ Transform:
   m_Children:
   - {fileID: 1681942576}
   m_Father: {fileID: 2087941459}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437532547
 GameObject:
@@ -2767,7 +2767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &506098415
 Transform:
   m_ObjectHideFlags: 0
@@ -2781,7 +2781,7 @@ Transform:
   m_Children:
   - {fileID: 673957740}
   m_Father: {fileID: 2087941459}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -4241,7 +4241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &713318479
 Transform:
   m_ObjectHideFlags: 0
@@ -7276,7 +7276,7 @@ MonoBehaviour:
   tiempoDeRecargaDefault: 4
   tiempoDeRecarga: 0
   recargando: 0
-  cantBalas: 25
+  cantBalas: 5
   max_capacidad: 0
   puntaDelArma: {fileID: 4949591}
   Bala: {fileID: 4353717802954431199, guid: 5b1bc37359831624186de80efa7aee62, type: 3}
@@ -9369,7 +9369,7 @@ MonoBehaviour:
   tiempoDeRecargaDefault: 3
   tiempoDeRecarga: 0
   recargando: 0
-  cantBalas: 25
+  cantBalas: 35
   max_capacidad: 0
   puntaDelArma: {fileID: 1042398508}
   Bala: {fileID: 6963253634189702095, guid: 9bad92a8e27c0704d93552520409afff, type: 3}
@@ -10782,7 +10782,7 @@ Transform:
   m_Children:
   - {fileID: 1321249598}
   m_Father: {fileID: 2087941459}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1932852879
 GameObject:
@@ -11887,9 +11887,9 @@ Transform:
   m_Children:
   - {fileID: 1589788143}
   - {fileID: 1460124669}
+  - {fileID: 428108376}
   - {fileID: 506098415}
   - {fileID: 1920104537}
-  - {fileID: 428108376}
   - {fileID: 713318479}
   - {fileID: 1887777713}
   m_Father: {fileID: 0}
@@ -11945,9 +11945,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1133ac4b150d7ae4c98516a26a8f380a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sniperAmmo: 0
-  grenadeAmmo: 5
-  flechas: 20
+  sniperAmmo: 4
+  grenadeAmmo: 2
+  flechas: 35
   ametralladoraAmmo: 15
   rechargeMultiplier: 1
   activadorArma:
