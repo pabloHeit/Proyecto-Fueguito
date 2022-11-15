@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b578ce14564444f449b2066c77f58af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntosGema: 250
+  puntosGema: 500
   sonidoMoneda: {fileID: 0}
 --- !u!212 &5670297548781241464
 SpriteRenderer:

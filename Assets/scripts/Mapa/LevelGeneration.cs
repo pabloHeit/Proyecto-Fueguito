@@ -13,29 +13,29 @@ public class LevelGeneration : MonoBehaviour
     public int direction;
     public int direction2;
     public int directionPos;
-    public bool posi;
-    private bool mercadosi = false;
-    public float moveAmount;
-    public float timeBtwRoom;
-    public float startTimeBtwRoom = 0.25f;
-    public float minX;
     private int mercado;
     public int Cantidad;
     public int numHabit = 10;
     private int moveCounter;
+    public int dire;
+    public int puertaAntes;
+    public bool posi;
+    private bool mercadosi = false;
+    public bool stopGeneration = false;
+    private bool despDif;
+    public bool ocupado=false;
+    public float moveAmount;
+    public float timeBtwRoom;
+    public float startTimeBtwRoom = 0.25f;
+    public float minX;
     public float maxX;
     public float maxY;
     public float minY;
-    public bool stopGeneration = false;
-    private bool stopGeneration2;
-    private bool despDif;
+    public float tiempoCrearEnemigos = 3f;
     private Vector2 posmove;
     public LayerMask room;
-    public int dire;
-    public int puertaAntes;
-    public bool ocupado=false;
-
-    public float tiempoCrearEnemigos = 3f;
+    
+    
 
     [SerializeField] private GameObject PortalGameOver;
 

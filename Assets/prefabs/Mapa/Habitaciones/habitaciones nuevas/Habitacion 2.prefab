@@ -7161,7 +7161,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2428431230933347213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.882303, y: 1.8319931, z: 0}
+  m_LocalPosition: {x: 459.52423, y: 762.579, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 2428431231379565427}
@@ -8174,11 +8174,11 @@ Transform:
   - {fileID: 6572716306365499589}
   - {fileID: 3730155539541739886}
   - {fileID: 7221657392435254002}
+  - {fileID: 6249903953597490620}
   - {fileID: 1685026502000439732}
   - {fileID: 8696755692580730089}
   - {fileID: 8696755693876595845}
   - {fileID: 8696755694173256811}
-  - {fileID: 6249903953597490620}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51227,7 +51227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1685026502000439732}
   - component: {fileID: 3551253416885197894}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: spawnEnemigoVerde
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -51242,11 +51242,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3170381981179725256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.056992, y: 12.615761, z: -134.5195}
+  m_LocalPosition: {x: -11.556992, y: 12.365761, z: -134.5195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2428431230933347208}
-  m_RootOrder: 1010
+  m_RootOrder: 1011
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3551253416885197894
 MonoBehaviour:
@@ -51262,6 +51262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 8658437452623967254, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+  - {fileID: 2683576267709033666, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
 --- !u!1 &3719405628675884515
 GameObject:
   m_ObjectHideFlags: 0
@@ -51288,10 +51289,10 @@ Transform:
   m_GameObject: {fileID: 3719405628675884515}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.2732, y: 2.2732, z: 0}
+  m_LocalScale: {x: 14.812, y: 14.812, z: 0}
   m_Children: []
   m_Father: {fileID: 2428431230933347208}
-  m_RootOrder: 1014
+  m_RootOrder: 1010
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1648571513518135212
 SpriteRenderer:
@@ -51534,7 +51535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8696755692580730089}
   - component: {fileID: 8696755692580730086}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: spawnEnemigoVerde (1)
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -51549,11 +51550,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8696755692580730088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.806992, y: -12.384239, z: -134.5195}
+  m_LocalPosition: {x: 11.693008, y: 12.365761, z: -134.5195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2428431230933347208}
-  m_RootOrder: 1011
+  m_RootOrder: 1012
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8696755692580730086
 MonoBehaviour:
@@ -51569,6 +51570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 8658437452623967254, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+  - {fileID: 2683576267709033666, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
 --- !u!1 &8696755692588845242
 GameObject:
   m_ObjectHideFlags: 0
@@ -51714,7 +51716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8696755693876595845}
   - component: {fileID: 8696755693876595842}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: spawnEnemigoVerde (2)
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -51729,11 +51731,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8696755693876595844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.693008, y: -12.634239, z: -134.5195}
+  m_LocalPosition: {x: -11.806992, y: -12.134239, z: -134.5195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2428431230933347208}
-  m_RootOrder: 1012
+  m_RootOrder: 1013
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8696755693876595842
 MonoBehaviour:
@@ -51749,6 +51751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 8658437452623967254, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+  - {fileID: 2683576267709033666, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
 --- !u!1 &8696755693932143252
 GameObject:
   m_ObjectHideFlags: 0
@@ -51804,7 +51807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8696755694173256811}
   - component: {fileID: 8696755694173256808}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: spawnEnemigoVerde (3)
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -51819,11 +51822,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8696755694173256810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.443008, y: 12.365761, z: -134.5195}
+  m_LocalPosition: {x: 11.693008, y: -11.884239, z: -134.5195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2428431230933347208}
-  m_RootOrder: 1013
+  m_RootOrder: 1014
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8696755694173256808
 MonoBehaviour:
@@ -51839,3 +51842,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 8658437452623967254, guid: 73bf2cee069903742a6df2fe76b08a94, type: 3}
+  - {fileID: 2683576267709033666, guid: 4d6365b4371293d46b43f4df101d6dee, type: 3}
