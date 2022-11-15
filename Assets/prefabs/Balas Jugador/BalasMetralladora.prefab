@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoBala: 2
-  "da\xF1o": 4
+  "da\xF1o": 5
   efectoImpacto: {fileID: 8002844673212872952, guid: c53b5ffe9f87a1647bbd9d83d4d33220, type: 3}
   bulletDisappear: 0.1
 --- !u!61 &2664299156042460739

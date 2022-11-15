@@ -17,7 +17,7 @@ public class vidaEnemiga : MonoBehaviour
 
     private Transform habitacion;
 
-    [SerializeField] private GameObject loot;
+    [SerializeField] private GameObject[] loot;
 
     void Start()
     {
@@ -45,11 +45,27 @@ public class vidaEnemiga : MonoBehaviour
     public void Muerte() {
         if (loot != null)
         {
-            int randomNumber = Random.Range(0, 2);
+            int randomNumber = Random.Range(0, 7);
             Debug.Log(randomNumber);
             if (randomNumber == 1) {
-                Instantiate(loot, transform.position, Quaternion.identity);            
-            }            
+                Instantiate(loot[0], transform.position, Quaternion.identity);            
+            }   
+            if (randomNumber == 2) {
+                Instantiate(loot[1], transform.position, Quaternion.identity);            
+            }
+            if (randomNumber == 3) {
+                Instantiate(loot[2], transform.position, Quaternion.identity);            
+            }
+            if (randomNumber == 4) {
+                Instantiate(loot[3], transform.position, Quaternion.identity);            
+            }     
+            if (randomNumber == 5) {
+                Instantiate(loot[4], transform.position, Quaternion.identity);            
+            }     
+            if (randomNumber == 6) {
+                Instantiate(loot[5], transform.position, Quaternion.identity);            
+            }     
+                         
         }
 
         Destroy(gameObject);
