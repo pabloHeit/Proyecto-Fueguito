@@ -21,16 +21,16 @@ public class bala : MonoBehaviour
     Destroy(gameObject, tiempoBala);        
   }     
 
-  private void OnTriggerEnter2D(Collider2D other) {
-    if (other.CompareTag("Enemigo")) {
-        other.GetComponent<vidaEnemiga>().Golpe(daño);  
+  private void OnCollisionEnter2D(Collision2D other) {    
+      if (other.gameObject.CompareTag("Enemigo")) {
+          other.gameObject.GetComponent<vidaEnemiga>().Golpe(daño);  
+      }
+      else
+      {
+          ultimaRotacion = Quaternion.Euler(0, 0, transform.eulerAngles.z);
+          GameObject efecto = Instantiate(efectoImpacto, transform.position, ultimaRotacion);
+          Destroy(efecto, bulletDisappear);
+      }
+      Destroy(gameObject);
     }
-    else
-    {
-        ultimaRotacion = Quaternion.Euler(0, 0, transform.eulerAngles.z);
-        GameObject efecto = Instantiate(efectoImpacto, transform.position, ultimaRotacion);
-        Destroy(efecto, bulletDisappear);
-    }
-    Destroy(gameObject);
-  }
 }
