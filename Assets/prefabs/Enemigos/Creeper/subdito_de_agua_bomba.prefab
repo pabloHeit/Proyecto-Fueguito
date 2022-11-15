@@ -71,10 +71,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muerto: 0
-  vida: 5
-  vidaInicial: 5
+  vida: 20
+  vidaInicial: 0
   sonidoGolpeado: {fileID: 0}
   puedeColisionar: 0
+  loot:
+  - {fileID: 7904619305046411936, guid: bb0325cc4b93cb7489c4acdf430f6fc3, type: 3}
+  - {fileID: 4725573619472675535, guid: 8014a293e1d4239469b4a3d3ef5203bf, type: 3}
+  - {fileID: 6165384417863834566, guid: ce4dfb4d2dca29843b2eadc706ad1b24, type: 3}
+  - {fileID: 4400112150302002332, guid: eda837b85fddf3446a5f5b7a7530279d, type: 3}
+  - {fileID: 7904619305046411936, guid: bb0325cc4b93cb7489c4acdf430f6fc3, type: 3}
+  - {fileID: 1007596061325782746, guid: 995371fc8851bb440afc2a17c81b83e6, type: 3}
+  - {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
+  - {fileID: 7449177677808823721, guid: ae15146d9c4111648b18a9160b151f06, type: 3}
 --- !u!114 &8331164229254019288
 MonoBehaviour:
   m_ObjectHideFlags: 0

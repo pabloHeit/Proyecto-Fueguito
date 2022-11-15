@@ -12,6 +12,7 @@ public class granada : MonoBehaviour
     [SerializeField] private GameObject explosionEfecto;
     [SerializeField] private float radio;
     [SerializeField] private float fuerzaExplosion;
+    [SerializeField] private float daño;
 
     private  Quaternion ultimaRotacion;
     private Transform _t;
@@ -59,7 +60,7 @@ public class granada : MonoBehaviour
             if (rb2D != null)
             {
                 if (colisionador.CompareTag("Enemigo")) {
-                    rb2D.GetComponent<vidaEnemiga>().Golpe();                    
+                    rb2D.GetComponent<vidaEnemiga>().Golpe(daño);                    
                 }
                 Vector2 direccion = colisionador.transform.position - _t.position;
                 float distancia = 1 + direccion.magnitude;

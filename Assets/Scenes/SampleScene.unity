@@ -315,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &44882899
 Animator:
   serializedVersion: 3
@@ -1923,6 +1923,7 @@ MonoBehaviour:
   ballesta: 0
   controladorGolpe: {fileID: 0}
   radioGolpe: 0
+  "da\xF1oEspada": 10
   atacando: 0
   marcadorBalas: {fileID: 1701286112}
   marcadorBalasTotales: {fileID: 851898176}
@@ -1933,7 +1934,7 @@ MonoBehaviour:
   cantBalas: 25
   max_capacidad: 0
   puntaDelArma: {fileID: 1108405610}
-  Bala: {fileID: 5424565148390374944, guid: 1b64d1ae6218cea48bc197cc8e7e9993, type: 3}
+  Bala: {fileID: 6740319648800439245, guid: 24f1a7aa31548574e8b9fd123199f92b, type: 3}
   dispararCooldown: 0.2
   velocidad: 20
   sonidoAtaque: {fileID: 8300000, guid: 94ae88f6f3e63184b81cf460d7a797f6, type: 3}
@@ -2766,7 +2767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &506098415
 Transform:
   m_ObjectHideFlags: 0
@@ -3805,9 +3806,9 @@ RectTransform:
   m_Father: {fileID: 1148685715}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &668503152
@@ -4022,6 +4023,7 @@ MonoBehaviour:
   ballesta: 0
   controladorGolpe: {fileID: 0}
   radioGolpe: 0
+  "da\xF1oEspada": 10
   atacando: 0
   marcadorBalas: {fileID: 1701286112}
   marcadorBalasTotales: {fileID: 851898176}
@@ -4029,8 +4031,8 @@ MonoBehaviour:
   tiempoDeRecargaDefault: 3
   tiempoDeRecarga: 0
   recargando: 0
-  cantBalas: 25
-  max_capacidad: 0
+  cantBalas: 6
+  max_capacidad: 6
   puntaDelArma: {fileID: 1199188490}
   Bala: {fileID: 5424565148390374944, guid: 1b64d1ae6218cea48bc197cc8e7e9993, type: 3}
   dispararCooldown: 0.4
@@ -4239,7 +4241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &713318479
 Transform:
   m_ObjectHideFlags: 0
@@ -7266,6 +7268,7 @@ MonoBehaviour:
   ballesta: 0
   controladorGolpe: {fileID: 0}
   radioGolpe: 0
+  "da\xF1oEspada": 10
   atacando: 0
   marcadorBalas: {fileID: 1701286112}
   marcadorBalasTotales: {fileID: 851898176}
@@ -9066,6 +9069,7 @@ MonoBehaviour:
   ballesta: 0
   controladorGolpe: {fileID: 547614808}
   radioGolpe: 1
+  "da\xF1oEspada": 10
   atacando: 0
   marcadorBalas: {fileID: 1701286112}
   marcadorBalasTotales: {fileID: 851898176}
@@ -9357,6 +9361,7 @@ MonoBehaviour:
   ballesta: 1
   controladorGolpe: {fileID: 0}
   radioGolpe: 0
+  "da\xF1oEspada": 10
   atacando: 0
   marcadorBalas: {fileID: 1701286112}
   marcadorBalasTotales: {fileID: 851898176}
@@ -10104,9 +10109,9 @@ RectTransform:
   m_Father: {fileID: 1148685715}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 208, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792548320
@@ -11370,7 +11375,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $0
+  m_text: '$0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 740602480df277343a89aa5441ca2a0d, type: 2}
   m_sharedMaterial: {fileID: 5665930594322108601, guid: 740602480df277343a89aa5441ca2a0d, type: 2}
@@ -11938,10 +11945,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1133ac4b150d7ae4c98516a26a8f380a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sniperAmmo: 35
-  grenadeAmmo: 35
-  flechas: 35
-  ametralladoraAmmo: 35
+  sniperAmmo: 0
+  grenadeAmmo: 5
+  flechas: 20
+  ametralladoraAmmo: 15
   rechargeMultiplier: 1
   activadorArma:
   - {fileID: 1460124668}
