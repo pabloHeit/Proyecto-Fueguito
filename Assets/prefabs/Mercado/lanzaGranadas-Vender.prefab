@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fb9222380c94b4c9f795d77d5df2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precio: 2700
+  precio: 1800
   precioMarcador: {fileID: 826495946298829485}
 --- !u!61 &5579104269281820125
 BoxCollider2D:

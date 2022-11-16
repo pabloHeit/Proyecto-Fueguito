@@ -26,8 +26,7 @@ public class objetoComprable : MonoBehaviour
     private void comprar()
     {
         if(controladorPuntos.puntos >= precio)
-        {
-            
+        {            
             controladorPuntos.RestarPuntos(precio);
             Destroy(gameObject);
             agarrarArma.agarrar();

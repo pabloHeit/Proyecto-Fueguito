@@ -1923,6 +1923,7 @@ MonoBehaviour:
   ballesta: 0
   controladorGolpe: {fileID: 0}
   radioGolpe: 0
+  "da\xF1oEspada": 10
   atacando: 0
   marcadorBalas: {fileID: 1701286112}
   marcadorBalasTotales: {fileID: 851898176}
@@ -1933,7 +1934,7 @@ MonoBehaviour:
   cantBalas: 25
   max_capacidad: 0
   puntaDelArma: {fileID: 1108405610}
-  Bala: {fileID: 5424565148390374944, guid: 1b64d1ae6218cea48bc197cc8e7e9993, type: 3}
+  Bala: {fileID: 6740319648800439245, guid: 24f1a7aa31548574e8b9fd123199f92b, type: 3}
   dispararCooldown: 0.2
   velocidad: 20
   sonidoAtaque: {fileID: 8300000, guid: 94ae88f6f3e63184b81cf460d7a797f6, type: 3}
@@ -2415,7 +2416,7 @@ Transform:
   m_Children:
   - {fileID: 1681942576}
   m_Father: {fileID: 2087941459}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437532547
 GameObject:
@@ -2780,7 +2781,7 @@ Transform:
   m_Children:
   - {fileID: 673957740}
   m_Father: {fileID: 2087941459}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -4022,6 +4023,7 @@ MonoBehaviour:
   ballesta: 0
   controladorGolpe: {fileID: 0}
   radioGolpe: 0
+  "da\xF1oEspada": 10
   atacando: 0
   marcadorBalas: {fileID: 1701286112}
   marcadorBalasTotales: {fileID: 851898176}
@@ -4029,8 +4031,8 @@ MonoBehaviour:
   tiempoDeRecargaDefault: 3
   tiempoDeRecarga: 0
   recargando: 0
-  cantBalas: 25
-  max_capacidad: 0
+  cantBalas: 6
+  max_capacidad: 6
   puntaDelArma: {fileID: 1199188490}
   Bala: {fileID: 5424565148390374944, guid: 1b64d1ae6218cea48bc197cc8e7e9993, type: 3}
   dispararCooldown: 0.4
@@ -7266,6 +7268,7 @@ MonoBehaviour:
   ballesta: 0
   controladorGolpe: {fileID: 0}
   radioGolpe: 0
+  "da\xF1oEspada": 10
   atacando: 0
   marcadorBalas: {fileID: 1701286112}
   marcadorBalasTotales: {fileID: 851898176}
@@ -7273,7 +7276,7 @@ MonoBehaviour:
   tiempoDeRecargaDefault: 4
   tiempoDeRecarga: 0
   recargando: 0
-  cantBalas: 25
+  cantBalas: 5
   max_capacidad: 0
   puntaDelArma: {fileID: 4949591}
   Bala: {fileID: 4353717802954431199, guid: 5b1bc37359831624186de80efa7aee62, type: 3}
@@ -9066,6 +9069,7 @@ MonoBehaviour:
   ballesta: 0
   controladorGolpe: {fileID: 547614808}
   radioGolpe: 1
+  "da\xF1oEspada": 10
   atacando: 0
   marcadorBalas: {fileID: 1701286112}
   marcadorBalasTotales: {fileID: 851898176}
@@ -9357,6 +9361,7 @@ MonoBehaviour:
   ballesta: 1
   controladorGolpe: {fileID: 0}
   radioGolpe: 0
+  "da\xF1oEspada": 10
   atacando: 0
   marcadorBalas: {fileID: 1701286112}
   marcadorBalasTotales: {fileID: 851898176}
@@ -9364,7 +9369,7 @@ MonoBehaviour:
   tiempoDeRecargaDefault: 3
   tiempoDeRecarga: 0
   recargando: 0
-  cantBalas: 25
+  cantBalas: 35
   max_capacidad: 0
   puntaDelArma: {fileID: 1042398508}
   Bala: {fileID: 6963253634189702095, guid: 9bad92a8e27c0704d93552520409afff, type: 3}
@@ -10777,7 +10782,7 @@ Transform:
   m_Children:
   - {fileID: 1321249598}
   m_Father: {fileID: 2087941459}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1932852879
 GameObject:
@@ -11370,7 +11375,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $0
+  m_text: '$0
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 740602480df277343a89aa5441ca2a0d, type: 2}
   m_sharedMaterial: {fileID: 5665930594322108601, guid: 740602480df277343a89aa5441ca2a0d, type: 2}
@@ -11880,9 +11887,9 @@ Transform:
   m_Children:
   - {fileID: 1589788143}
   - {fileID: 1460124669}
+  - {fileID: 428108376}
   - {fileID: 506098415}
   - {fileID: 1920104537}
-  - {fileID: 428108376}
   - {fileID: 713318479}
   - {fileID: 1887777713}
   m_Father: {fileID: 0}
@@ -11938,10 +11945,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1133ac4b150d7ae4c98516a26a8f380a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sniperAmmo: 35
-  grenadeAmmo: 35
+  sniperAmmo: 4
+  grenadeAmmo: 2
   flechas: 35
-  ametralladoraAmmo: 35
+  ametralladoraAmmo: 15
   rechargeMultiplier: 1
   activadorArma:
   - {fileID: 1460124668}

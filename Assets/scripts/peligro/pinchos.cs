@@ -59,7 +59,7 @@ public class pinchos : MonoBehaviour
                 else {
                     if (other.GetComponent<vidaEnemiga>().puedeColisionar) {
                         StartCoroutine(other.GetComponent<vidaEnemiga>().DesactivarColision(0.5f));                            
-                        other.GetComponent<vidaEnemiga>().Golpe();
+                        other.GetComponent<vidaEnemiga>().Golpe(daño);
                     }
                 }
             }

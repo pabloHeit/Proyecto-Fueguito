@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5c59ae60cbe2f47aa9fdf948825add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipoMunicion: 4
-  cantidadMunicion: 10
+  tipoMunicion: 3
+  cantidadMunicion: 5
 --- !u!212 &6165384417863834564
 SpriteRenderer:
   m_ObjectHideFlags: 0

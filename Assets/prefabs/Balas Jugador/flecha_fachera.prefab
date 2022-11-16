@@ -145,4 +145,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoFlecha: 20
+  "da\xF1o": 8
   flechaVacia: {fileID: 3122499465120411407, guid: a63d19160adb98c46bd48b4a83fbf146, type: 3}
