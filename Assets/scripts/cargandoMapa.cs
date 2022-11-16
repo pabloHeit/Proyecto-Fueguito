@@ -10,7 +10,6 @@ public class cargandoMapa : MonoBehaviour
     {
         GameManager.Instance.UpdateGameState(GameState.Cargando);
         LevelGeneration = FindObjectOfType<LevelGeneration>();
-        Debug.Log(LevelGeneration);   
     }
 
     void Update()

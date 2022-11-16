@@ -18,8 +18,11 @@ public class municion : MonoBehaviour
     }
     void Update()
     {
-        if (!armasControlador.gameObject.activeSelf) {
-            armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();            
+        if (GameObject.FindGameObjectWithTag("ArmaJugador") != null)
+        {
+            if (!armasControlador.gameObject.activeSelf) {
+                armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
+            }
         }
     }
     void OnTriggerEnter2D(Collider2D other)

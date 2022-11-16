@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class controlArmas : MonoBehaviour
 {
-    armasControlador armasControlador;
+    armasControlador armasControlador;    
 
     public int sniperAmmo;
     public int grenadeAmmo;
@@ -17,9 +17,11 @@ public class controlArmas : MonoBehaviour
     // public float damageMultiplier = 1;
     public float rechargeMultiplier = 0;
     private float cambiarPermiso;
-    [SerializeField] private GameObject[] activadorArma;
+    [SerializeField] List<GameObject> activadorArma = new List<GameObject>();
 
-    public GameObject[] armas;
+    [SerializeField] List<GameObject> armas = new List<GameObject>();
+
+    // public GameObject[] armas;
     [Tooltip("0: Espada \n 1: Sniper \n 2: Granadas \n 3: Flechas \n 4: Ametralladora")]
     public int armaActiva = 0; //espada 1, rifle 2, lanzagranadas 3 , ballesta 4, ametralladora 5
     private float scrollMouse;
@@ -31,14 +33,30 @@ public class controlArmas : MonoBehaviour
     [SerializeField] private Sprite[] sprite_arma;
 
     void Start() {
+        foreach (Transform child in transform)
+        {         
+            if (child.name.Contains("activador"))
+            {
+                activadorArma.Add(child.gameObject);                
+            }
+        }
+
+        foreach (GameObject arma in activadorArma)
+        {
+            armas.Add(arma.transform.GetChild(0).gameObject);
+        }
+        
         armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
-        cantDeArmas = armas.Length;
+        cantDeArmas = armas.Count;
         CambiarArma();
     }
 
     void Update() {
         if(!armasControlador.gameObject.activeSelf && armasControlador.gameObject != null) {
-            armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();
+            if (GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>() != null)
+            {
+                armasControlador = GameObject.FindGameObjectWithTag("ArmaJugador").GetComponent<armasControlador>();                
+            }
         }
         
         if(!armasControlador.recargando && GameManager.EnableInput)

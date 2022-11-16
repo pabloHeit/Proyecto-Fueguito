@@ -9,6 +9,7 @@ public class controladorPuntos : MonoBehaviour
 
    private void Start(){
        textMesh = GetComponent<TextMeshProUGUI>();
+        modificarPuntos(puntos);
    }
 
    public void SumarPuntos(float puntosEntrada){

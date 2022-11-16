@@ -4157,8 +4157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -289, y: -160}
-  m_SizeDelta: {x: -1342.5625, y: -730.5}
+  m_AnchoredPosition: {x: -27.793274, y: -187.80603}
+  m_SizeDelta: {x: -1344.7134, y: -733.9758}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214808316
 MonoBehaviour:
@@ -4358,8 +4358,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 683, y: -148.23264}
-  m_SizeDelta: {x: 527.0494, y: 296.4653}
+  m_AnchoredPosition: {x: 764.2496, y: -193.93546}
+  m_SizeDelta: {x: 689.5484, y: 387.871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1344559760
 MonoBehaviour:
@@ -4592,7 +4592,7 @@ MonoBehaviour:
   mouse: {fileID: 1020979729}
   limiteOjos_SW: {x: -2.38, y: -1.74}
   limiteOjos_NE: {x: 1.39, y: 2.9}
-  ojosPosicion_inicial: {x: -271.4, y: -131.2}
+  ojosPosicion_inicial: {x: -10.19326, y: -159.006}
   movementMultiplier: 0.005
 --- !u!1 &1383580193
 GameObject:
@@ -5358,7 +5358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1298.5, y: -600.80365}
+  m_AnchoredPosition: {x: 1044, y: -600.80365}
   m_SizeDelta: {x: 211.3754, y: 135.109}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1634243072
@@ -5379,7 +5379,7 @@ MonoBehaviour:
     m_Top: -206
     m_Bottom: 0
   m_ChildAlignment: 5
-  m_Spacing: 62.89
+  m_Spacing: -100
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

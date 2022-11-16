@@ -17,8 +17,9 @@ public class cofreInteractuable : MonoBehaviour
     private bool cofreAbiertoBool = false;
     private bool EnRango = false;
 
-    [SerializeField] private AudioClip sonidoCofre;
-
+    [SerializeField] private AudioClip sonidoMedioAbierto;
+    [SerializeField] private AudioClip sonidoCerrar;
+    [SerializeField] private AudioClip sonidoAbierto;
 
     [Header("Loot")]
     [SerializeField] private GameObject[] loot;
@@ -42,7 +43,7 @@ public class cofreInteractuable : MonoBehaviour
     {
         if(EnRango && Input.GetKeyDown(KeyCode.E) && !cofreAbiertoBool && GameManager.EnableInput)
         {
-            audioSource.PlayOneShot(sonidoCofre);
+            audioSource.PlayOneShot(sonidoAbierto);
             animator.SetBool("CofreAbierto", true);
             ApagarMensaje();
             cofreAbiertoBool = true;
@@ -57,17 +58,23 @@ public class cofreInteractuable : MonoBehaviour
             if (!comenzoElDialogo && cofreAbiertoBool == false)
             {
                 MensajePantalla();
+                audioSource.PlayOneShot(sonidoMedioAbierto);
             }
             animator.SetBool("CofreMedioAbierto", true);
             EnRango = true;    
         }            
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             ApagarMensaje();
-            animator.SetBool("CofreMedioAbierto", false);
+            animator.SetBool("CofreMedioAbierto", false);                
+            if (!cofreAbiertoBool)
+            {
+            audioSource.PlayOneShot(sonidoCerrar);
+            }
             EnRango = false;
         }
     }
@@ -87,7 +94,6 @@ public class cofreInteractuable : MonoBehaviour
 
     private void GenerarContenido()
     {
-
         lootGenerado = Random.Range(0, loot.Length);
     }
 
@@ -96,15 +102,18 @@ public class cofreInteractuable : MonoBehaviour
         GameObject lootItem = Instantiate( loot[lootGenerado], transform.position, Quaternion.identity);
         StartCoroutine(moverItem(lootItem));            
         GameObject lootItem2 = Instantiate( loot[lootGenerado], transform.position, Quaternion.identity);
-        StartCoroutine(moverItem(lootItem2));   
+        StartCoroutine(moverItem(lootItem2));
     }
+
     private IEnumerator moverItem(GameObject lootItem)
     {
         float resta = lootItem.transform.position.y;
         float resta2 = lootItem.transform.position.x;
-        float rand= Random.Range(0f,1f);
-        int masomenos =Random.Range(1,3);
-        if(masomenos==1)
+
+        float rand = Random.Range(0f, 1f);
+        int masomenos = Random.Range(1, 3);
+
+        if(masomenos == 1)
         {
             abajo = new Vector3(transform.position.x+rand, transform.position.y - 1, transform.position.z);
         }
@@ -112,11 +121,13 @@ public class cofreInteractuable : MonoBehaviour
         {
             abajo = new Vector3(transform.position.x-rand, transform.position.y - 1, transform.position.z);
         }
-        while (lootItem!=null && lootItem.transform.position.y >= abajo.y){
+
+        while (lootItem != null && lootItem.transform.position.y >= abajo.y)
+        {
             resta -= 0.1f;
             if(resta2!=abajo.x)
             {
-                if(masomenos==1)
+                if(masomenos == 1)
                 {
                     resta2 += 0.1f; 
                 }
@@ -124,8 +135,6 @@ public class cofreInteractuable : MonoBehaviour
                 {
                     resta2 -= 0.1f; 
                 }
-                
-               
             }
             lootItem.transform.position = new Vector3(resta2, resta, lootItem.transform.position.z);
             yield return new WaitForSeconds(0.025f);

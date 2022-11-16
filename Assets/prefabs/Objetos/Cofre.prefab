@@ -52,7 +52,9 @@ MonoBehaviour:
   textoPanel: {fileID: 0}
   textoText: {fileID: 0}
   dialogueLine: ABRIR (E)
-  sonidoCofre: {fileID: 0}
+  sonidoMedioAbierto: {fileID: 8300000, guid: e86bcfd819f380945afabb997e9b06b1, type: 3}
+  sonidoCerrar: {fileID: 8300000, guid: 6bb71aa0eb44d1944963539d911f72ed, type: 3}
+  sonidoAbierto: {fileID: 8300000, guid: ff5a90d01648dfc4a9afcd84d32b359e, type: 3}
   loot:
   - {fileID: 5431181274558819739, guid: ea0b6ec7a9815ae40a8259553671a7fa, type: 3}
   - {fileID: 5670297548781241470, guid: 1a26fbe4b695ef54081c7c3fe8253385, type: 3}
