@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
 
 	private void HandlePrincipalMenu() {
 		Cursor.visible = true;
+		EnableInput = true;
 	}
 
 	private void HandleCharging() {

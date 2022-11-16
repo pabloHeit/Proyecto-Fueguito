@@ -48,7 +48,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puntosGema: 250
-  sonidoMoneda: {fileID: 8300000, guid: bdbef8d8c00e4a14f9b7bf752d05282c, type: 3}
+  sonidosMoneda:
+  - {fileID: 8300000, guid: 4808c29083bff9b4c8948a325402d87f, type: 3}
+  - {fileID: 8300000, guid: 9cf42ac684b4d0846a76540e25b01317, type: 3}
+  - {fileID: 8300000, guid: f22e5da7a33c4fc49bf08d00aea7f560, type: 3}
+  - {fileID: 8300000, guid: 77a485b9db85ef84181285b50c18837d, type: 3}
+  - {fileID: 8300000, guid: bdbef8d8c00e4a14f9b7bf752d05282c, type: 3}
 --- !u!212 &8817729494758900521
 SpriteRenderer:
   m_ObjectHideFlags: 0

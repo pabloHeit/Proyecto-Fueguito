@@ -9,7 +9,7 @@ public class monedaControlador : MonoBehaviour
 
     [SerializeField] private float puntosGema;
 
-    [SerializeField] private AudioClip sonidoMoneda;
+    [SerializeField] private AudioClip[] sonidosMoneda;
 
     private void Start()
     {
@@ -20,7 +20,8 @@ public class monedaControlador : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            audioSource.PlayOneShot(sonidoMoneda);
+            int sonidoRandom =Random.Range(0, sonidosMoneda.Length);
+            audioSource.PlayOneShot(sonidosMoneda[sonidoRandom]);
             controladorPuntos.SumarPuntos(puntosGema);
             Destroy(gameObject); 
         }            
