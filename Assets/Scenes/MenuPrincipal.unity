@@ -4133,6 +4133,7 @@ GameObject:
   - component: {fileID: 1214808315}
   - component: {fileID: 1214808317}
   - component: {fileID: 1214808316}
+  - component: {fileID: 1214808318}
   m_Layer: 0
   m_Name: fiskel miron
   m_TagString: Untagged
@@ -4198,6 +4199,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214808314}
   m_CullTransparentMesh: 1
+--- !u!95 &1214808318
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214808314}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4debcd95792a564e922fdb1e10b4bde, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1281936353
 GameObject:
   m_ObjectHideFlags: 0

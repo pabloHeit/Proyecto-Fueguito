@@ -16,6 +16,7 @@ public class armasControlador : MonoBehaviour
     movimientoJugador movimientoJugador;
     AudioSource audioSource;
 
+
     [SerializeField] public bool armaDeFuego;
     [SerializeField] public bool ballesta = false;
 
@@ -30,6 +31,7 @@ public class armasControlador : MonoBehaviour
     [SerializeField] private GameObject marcadorBalasTotales;
     
     [Header("Recarga (FR)")]
+    // [SerializeField] private Transform puntero;
     [SerializeField] private Image circuloRecarga;
     private float cooldown_recarga;
     private float tiempo2 = 0;
@@ -102,7 +104,6 @@ public class armasControlador : MonoBehaviour
                     sprite.flipX = movimientoJugador.mirandoDerecha ? false : true;
                     //transform.localScale = movimientoJugador.mirandoDerecha ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);                    
                 }
-
             }
             else {
                 disparar = Input.GetButton("Fire1");
@@ -123,6 +124,7 @@ public class armasControlador : MonoBehaviour
                     tiempoDeRecarga = tiempoDeRecargaDefault / controlArmas.rechargeMultiplier;
                     StartCoroutine(TiempoRecargar(tiempoDeRecarga) );
                     circuloRecarga.fillAmount = tiempo2 / tiempoDeRecarga;
+                    // puntero.GetComponent<Animator>().SetBool("recargando", true);
                 }
                 
                 if ((recargar && cantBalas != max_capacidad) && !recargando) {
@@ -145,6 +147,7 @@ public class armasControlador : MonoBehaviour
         switch (controlArmas.armaActiva)
         {
             case 1:
+            Debug.Log($"soy yo=");
                 textoBalas.text = controlArmas.sniperAmmo.ToString();
             break;
 
@@ -221,7 +224,9 @@ public class armasControlador : MonoBehaviour
 
     public IEnumerator Recargar(float tiempoRecarga)
     {
+        // puntero.GetComponent<Animator>().SetBool("recargando", true);
         balasRecargar = max_capacidad - cantBalas;
+
         switch (controlArmas.armaActiva)
         {
             case 1:
@@ -284,17 +289,19 @@ public class armasControlador : MonoBehaviour
             default:
             break;
         }
+
         recargando = true;
         StartCoroutine(RecargarSonido());
         
         tiempoRecarga = tiempoRecarga - (tiempoRecarga * controlArmas.rechargeMultiplier) / 100;
         cooldown_recarga = Time.time + tiempoRecarga;
         yield return new WaitForSeconds(tiempoRecarga); //cooldown de recarga
-        
+
         audioSource.loop = false;
         recargando = false;
         audioSource.PlayOneShot(sonidoRecarga);
         ActualizarHudBalas();
+        // puntero.GetComponent<Animator>().SetBool("recargando", true);
     }
 
     public IEnumerator TiempoRecargar(float tiempoRecarga)
