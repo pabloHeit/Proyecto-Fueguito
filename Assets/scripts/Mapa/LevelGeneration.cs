@@ -120,7 +120,7 @@ public class LevelGeneration : MonoBehaviour
                     {
                         int rand = Random.Range(1, rooms.Length-1);
                         direcciones [i]=direction;
-                        Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                        Instantiate(rooms[1], transform.position,Quaternion.identity);
                         // Debug.Log("direccion final"+direction);
                         stopGeneration = true;  
                         numHabit--;
@@ -262,7 +262,7 @@ public class LevelGeneration : MonoBehaviour
                 {
                     int rand = Random.Range(1, rooms.Length-1);
                     direcciones [i]=direction;
-                    Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                    Instantiate(rooms[1], transform.position,Quaternion.identity);
                     stopGeneration=true;
                     numHabit--;
                     Instantiate(PortalGameOver, transform.position, Quaternion.identity);
@@ -391,7 +391,7 @@ public class LevelGeneration : MonoBehaviour
                    
                     int rand = Random.Range(1, rooms.Length-1); 
                     direcciones [i]=direction;
-                    Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                    Instantiate(rooms[1], transform.position,Quaternion.identity);
                     stopGeneration=true;
                     numHabit--;
                     Instantiate(PortalGameOver, transform.position, Quaternion.identity);
@@ -519,7 +519,7 @@ public class LevelGeneration : MonoBehaviour
                 {
                     int rand = Random.Range(1, rooms.Length-1);
                     direcciones [i]=direction;
-                    Instantiate(rooms[rand], transform.position,Quaternion.identity);
+                    Instantiate(rooms[1], transform.position,Quaternion.identity);
                     // Debug.Log("direccion final"+direction);
                     stopGeneration = true;    
                     numHabit--;
