@@ -12,6 +12,7 @@ public class posicionMouse : MonoBehaviour
     void Start()
     {
         RectTransform = GetComponent<RectTransform>();
+        
     }
 
     void Update()

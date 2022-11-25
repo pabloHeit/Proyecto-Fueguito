@@ -21,8 +21,6 @@ public class NubeIA : MonoBehaviour
 
     [SerializeField] private Transform disparador;
     
-    private bool enojo = true;
-
     private float contadorTime;
 
     [SerializeField] private float dañobala;
