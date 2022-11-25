@@ -958,7 +958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 2
   speedPoints: 0
-  maxLifePoints: 25
+  maxLifePoints: 30
   rechargePoints: 0
   consumida: 0
 --- !u!212 &3745387926315953610
@@ -1161,9 +1161,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 1
-  speedPoints: 0
+  speedPoints: 30
   maxLifePoints: 0
-  rechargePoints: 0.25
+  rechargePoints: 0
   consumida: 0
 --- !u!212 &6165411463133461493
 SpriteRenderer:
@@ -1571,7 +1571,7 @@ MonoBehaviour:
   color: 3
   speedPoints: 0
   maxLifePoints: 0
-  rechargePoints: 0.25
+  rechargePoints: 2
   consumida: 0
 --- !u!212 &7921671804503669730
 SpriteRenderer:
