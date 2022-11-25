@@ -6,6 +6,7 @@ public class LevelGeneration : MonoBehaviour
 {
     public Transform[] startingPositions;
     public GameObject[] rooms; // index 0 --> LR, index 1 --> LRB, index 2 --> LRT, index 3 --> LRBT
+    public GameObject roomMercado;
     public int[] direcciones;
     public int[] direcciones2;
     public int i=0;
@@ -52,7 +53,7 @@ public class LevelGeneration : MonoBehaviour
         direcciones [i]=direction;
         i++;
         mercado=Random.Range(2, numHabit);
-        // Debug.Log(mercado);
+        Debug.Log(mercado);
             if(direction==1 || direction==2){
                 transform.position = new Vector2(transform.position.x + moveAmount, transform.position.y);
             }
@@ -134,7 +135,7 @@ public class LevelGeneration : MonoBehaviour
                         i++;
                         if(mercado==numHabit && mercadosi==false)
                         {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            Instantiate(roomMercado, transform.position,Quaternion.identity);
                             mercadosi=true;
                         }
                         else
@@ -274,7 +275,7 @@ public class LevelGeneration : MonoBehaviour
                     i++;
                     if(mercado==numHabit && mercadosi==false)
                         {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            Instantiate(roomMercado, transform.position,Quaternion.identity);
                             mercadosi=true;
                         }
                         else
@@ -403,7 +404,7 @@ public class LevelGeneration : MonoBehaviour
                     i++;
                     if(mercado==numHabit && mercadosi==false)
                         {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            Instantiate(roomMercado, transform.position,Quaternion.identity);
                             mercadosi=true;
                         }
                         else
@@ -532,7 +533,7 @@ public class LevelGeneration : MonoBehaviour
                     i++;
                     if(mercado==numHabit && mercadosi==false)
                         {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            Instantiate(roomMercado, transform.position,Quaternion.identity);
                             mercadosi=true;
                         }
                         else
@@ -688,7 +689,7 @@ public class LevelGeneration : MonoBehaviour
                     direcciones2[i2]=direction2;
                     if(mercado==numHabit && mercadosi==false)
                         {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            Instantiate(roomMercado, transform.position,Quaternion.identity);
                             mercadosi=true;
                         }
                         else
@@ -708,7 +709,7 @@ public class LevelGeneration : MonoBehaviour
                     i2++;
                     if(mercado==numHabit && mercadosi==false)
                         {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            Instantiate(roomMercado, transform.position,Quaternion.identity);
                             mercadosi=true;
                         }
                         else
@@ -785,7 +786,7 @@ public class LevelGeneration : MonoBehaviour
                         direcciones2[i2]=direction2;
                         if(mercado==numHabit && mercadosi==false)
                         {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            Instantiate(roomMercado, transform.position,Quaternion.identity);
                             mercadosi=true;
                         }
                         else
@@ -804,7 +805,7 @@ public class LevelGeneration : MonoBehaviour
                         i2++;
                         if(mercado==numHabit && mercadosi==false)
                         {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            Instantiate(roomMercado, transform.position,Quaternion.identity);
                             mercadosi=true;
                         }
                         else
@@ -872,7 +873,7 @@ public class LevelGeneration : MonoBehaviour
                             direcciones2[i2]=direction2;
                             if(mercado==numHabit && mercadosi==false)
                         {
-                            Instantiate(rooms[12], transform.position,Quaternion.identity);
+                            Instantiate(roomMercado, transform.position,Quaternion.identity);
                             mercadosi=true;
                         }
                         else
@@ -891,7 +892,7 @@ public class LevelGeneration : MonoBehaviour
                             i2++;
                             if(mercado==numHabit && mercadosi==false)
                             {
-                                Instantiate(rooms[12], transform.position,Quaternion.identity);
+                                Instantiate(roomMercado, transform.position,Quaternion.identity);
                                 mercadosi=true;
                             }
                             else
@@ -957,7 +958,7 @@ public class LevelGeneration : MonoBehaviour
                                 direcciones2[i2]=direction2;
                                 if(mercado==numHabit && mercadosi==false)
                                 {
-                                    Instantiate(rooms[12], transform.position,Quaternion.identity);
+                                    Instantiate(roomMercado, transform.position,Quaternion.identity);
                                     mercadosi=true;
                                 }
                                 else
@@ -980,7 +981,7 @@ public class LevelGeneration : MonoBehaviour
                                 i2++;
                                 if(mercado==numHabit && mercadosi==false)
                                 {
-                                    Instantiate(rooms[12], transform.position,Quaternion.identity);
+                                    Instantiate(roomMercado, transform.position,Quaternion.identity);
                                     mercadosi=true;
                                 }
                                 else
